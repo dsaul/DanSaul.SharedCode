@@ -1,13 +1,8 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using SharedCode.Extensions;
 using Serilog;
 
 namespace SharedCode.DatabaseSchemas
@@ -491,7 +486,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Billable
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					LabourTypes entry = new LabourTypes(
 						Id: id,
@@ -514,7 +509,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Exception
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					LabourTypes entry = new LabourTypes(
 						Id: id,
@@ -537,7 +532,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Holiday
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					LabourTypes entry = new LabourTypes(
 						Id: id,
@@ -561,7 +556,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Pay Out Banked
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					LabourTypes entry = new LabourTypes(
 						Id: id,
@@ -584,7 +579,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Non Billable
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					LabourTypes entry = new LabourTypes(
 						Id: id,

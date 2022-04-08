@@ -1,12 +1,7 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using Newtonsoft.Json.Linq;
-using SharedCode.Extensions;
 using Newtonsoft.Json;
 using Serilog;
 

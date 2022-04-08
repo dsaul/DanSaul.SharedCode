@@ -1,13 +1,8 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using SharedCode.Extensions;
 using Serilog;
 
 namespace SharedCode.DatabaseSchemas
@@ -1116,7 +1111,7 @@ namespace SharedCode.DatabaseSchemas
 
 					string? lastModified = null == lastModifiedInJSONTok ? kvp.Value.LastModifiedIso8601 : lastModifiedInJSONTok.Value<string>();
 					if (string.IsNullOrWhiteSpace(lastModified)) {
-						lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+						lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					}
 
 					Labour obj = new Labour(

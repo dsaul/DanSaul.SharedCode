@@ -1,13 +1,8 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SharedCode.Extensions;
 using Serilog;
 
 namespace SharedCode.DatabaseSchemas
@@ -374,7 +369,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Bereavement
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					LabourSubtypeException entry = new LabourSubtypeException(
 						Id: id,
@@ -392,7 +387,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Sick
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					LabourSubtypeException entry = new LabourSubtypeException(
 						Id: id,
@@ -410,7 +405,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Personal Day
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					LabourSubtypeException entry = new LabourSubtypeException(
 						Id: id,
@@ -427,7 +422,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Family Leave
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					LabourSubtypeException entry = new LabourSubtypeException(
 						Id: id,
@@ -444,7 +439,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Weather
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					LabourSubtypeException entry = new LabourSubtypeException(
 						Id: id,

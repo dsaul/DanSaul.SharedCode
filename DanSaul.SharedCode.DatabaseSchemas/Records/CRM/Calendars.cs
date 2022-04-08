@@ -1,14 +1,8 @@
-﻿using API.Hubs;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Npgsql;
-using SharedCode.Extensions;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using SharedCode.Cal;
@@ -446,7 +440,7 @@ namespace SharedCode.DatabaseSchemas
 				JObject? modJson = cal.JsonObject.DeepClone() as JObject;
 				if (null != modJson) {
 					modJson[Calendars.kJsonKeyICalFileLastRetrievedISO8601] =
-						DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+						DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					modJson[Calendars.kJsonKeyICalFileLastData] = icalStr;
 
 
@@ -462,8 +456,8 @@ namespace SharedCode.DatabaseSchemas
 						TimeSpan duration = p.Duration;
 
 
-						string dtStartISO8601 = dtStartUtc.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
-						string dtEndISO8601 = dtEndUtc.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+						string dtStartISO8601 = dtStartUtc.ToString("o", Culture.DevelopmentCulture);
+						string dtEndISO8601 = dtEndUtc.ToString("o", Culture.DevelopmentCulture);
 						double totalSeconds = duration.TotalSeconds;
 
 						JObject obj = new JObject();

@@ -1,9 +1,5 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
@@ -11,7 +7,6 @@ using Square;
 using Square.Models;
 using Serilog;
 using Square.Exceptions;
-using SharedCode;
 
 namespace SharedCode.DatabaseSchemas
 {
@@ -931,7 +926,7 @@ namespace SharedCode.DatabaseSchemas
 				return null;
 			}
 
-			using NpgsqlConnection billingDB = new NpgsqlConnection(Databases.Konstants.KBillingDatabaseConnectionString);
+			using NpgsqlConnection billingDB = new NpgsqlConnection(EnvDatabases.KBillingDatabaseConnectionString);
 			billingDB.Open();
 
 			var resBC = BillingContacts.ForId(billingDB, invoiceContactId.Value);

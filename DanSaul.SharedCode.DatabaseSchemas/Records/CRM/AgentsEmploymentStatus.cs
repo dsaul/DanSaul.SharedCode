@@ -1,14 +1,8 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SharedCode.Extensions;
-using System.Globalization;
 using Serilog;
 
 namespace SharedCode.DatabaseSchemas
@@ -434,7 +428,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Non Employee
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AgentsEmploymentStatus entry = new AgentsEmploymentStatus(
 						Id: id,
@@ -454,7 +448,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Former Employee
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AgentsEmploymentStatus entry = new AgentsEmploymentStatus(
 						Id: id,
@@ -474,7 +468,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Current Contractor
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AgentsEmploymentStatus entry = new AgentsEmploymentStatus(
 						Id: id,
@@ -494,7 +488,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Current Employee
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AgentsEmploymentStatus entry = new AgentsEmploymentStatus(
 						Id: id,
@@ -514,7 +508,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Former Contractor
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AgentsEmploymentStatus entry = new AgentsEmploymentStatus(
 						Id: id,
@@ -534,7 +528,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Non Field Employee
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AgentsEmploymentStatus entry = new AgentsEmploymentStatus(
 						Id: id,

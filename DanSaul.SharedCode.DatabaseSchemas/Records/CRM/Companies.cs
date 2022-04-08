@@ -1,12 +1,8 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using System.Linq;
-using SharedCode.Extensions;
 using Serilog;
 
 namespace SharedCode.DatabaseSchemas

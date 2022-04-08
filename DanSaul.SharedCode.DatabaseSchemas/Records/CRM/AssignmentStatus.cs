@@ -1,13 +1,8 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using SharedCode.Extensions;
 using Serilog;
 
 namespace SharedCode.DatabaseSchemas
@@ -633,7 +628,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Billable
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AssignmentStatus entry = new AssignmentStatus(
 						Id: id,
@@ -661,7 +656,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Assigned
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AssignmentStatus entry = new AssignmentStatus(
 						Id: id,
@@ -688,7 +683,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Waiting on Vendor
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AssignmentStatus entry = new AssignmentStatus(
 						Id: id,
@@ -715,7 +710,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// In Progress
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AssignmentStatus entry = new AssignmentStatus(
 						Id: id,
@@ -742,7 +737,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Billable Review
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AssignmentStatus entry = new AssignmentStatus(
 						Id: id,
@@ -769,7 +764,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Waiting on Client
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AssignmentStatus entry = new AssignmentStatus(
 						Id: id,
@@ -797,7 +792,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// To Be Scheduled
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AssignmentStatus entry = new AssignmentStatus(
 						Id: id,
@@ -824,7 +819,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// To Be Picked
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AssignmentStatus entry = new AssignmentStatus(
 						Id: id,
@@ -851,7 +846,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Re-opened
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AssignmentStatus entry = new AssignmentStatus(
 						Id: id,
@@ -878,7 +873,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Non Billable
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AssignmentStatus entry = new AssignmentStatus(
 						Id: id,
@@ -905,7 +900,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Scheduled
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AssignmentStatus entry = new AssignmentStatus(
 						Id: id,
@@ -932,7 +927,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// 
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					AssignmentStatus entry = new AssignmentStatus(
 						Id: id,

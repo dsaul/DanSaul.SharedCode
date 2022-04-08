@@ -27,9 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanSaul.SharedCode.SignalR"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanSaul.SharedCode.StandardizedEnvironmentVariables", "DanSaul.SharedCode.StandardizedEnvironmentVariables\DanSaul.SharedCode.StandardizedEnvironmentVariables.csproj", "{8A364256-9616-4F20-9013-C16A1FE9FC4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsterNET.Test", "Asterisk.NET.Test\AsterNET.Test.csproj", "{B82B8EBF-8180-401D-8D3A-4BF7CFDB7A08}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DanSaul.SharedCode.DatabaseSchemas", "DanSaul.SharedCode.DatabaseSchemas\DanSaul.SharedCode.DatabaseSchemas.csproj", "{2CDA8EA2-60F4-4828-90D3-6A0E34FAE529}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DanSaul.SharedCode.TTS", "DanSaul.SharedCode.TTS\DanSaul.SharedCode.TTS.csproj", "{AA3149DC-4077-4FA4-A65E-2919C7A2926B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -110,18 +110,18 @@ Global
 		{8A364256-9616-4F20-9013-C16A1FE9FC4B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8A364256-9616-4F20-9013-C16A1FE9FC4B}.Travis|Any CPU.ActiveCfg = Release|Any CPU
 		{8A364256-9616-4F20-9013-C16A1FE9FC4B}.Travis|Any CPU.Build.0 = Release|Any CPU
-		{B82B8EBF-8180-401D-8D3A-4BF7CFDB7A08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B82B8EBF-8180-401D-8D3A-4BF7CFDB7A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B82B8EBF-8180-401D-8D3A-4BF7CFDB7A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B82B8EBF-8180-401D-8D3A-4BF7CFDB7A08}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B82B8EBF-8180-401D-8D3A-4BF7CFDB7A08}.Travis|Any CPU.ActiveCfg = Travis|Any CPU
-		{B82B8EBF-8180-401D-8D3A-4BF7CFDB7A08}.Travis|Any CPU.Build.0 = Travis|Any CPU
 		{2CDA8EA2-60F4-4828-90D3-6A0E34FAE529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2CDA8EA2-60F4-4828-90D3-6A0E34FAE529}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CDA8EA2-60F4-4828-90D3-6A0E34FAE529}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CDA8EA2-60F4-4828-90D3-6A0E34FAE529}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2CDA8EA2-60F4-4828-90D3-6A0E34FAE529}.Travis|Any CPU.ActiveCfg = Debug|Any CPU
 		{2CDA8EA2-60F4-4828-90D3-6A0E34FAE529}.Travis|Any CPU.Build.0 = Debug|Any CPU
+		{AA3149DC-4077-4FA4-A65E-2919C7A2926B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA3149DC-4077-4FA4-A65E-2919C7A2926B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA3149DC-4077-4FA4-A65E-2919C7A2926B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA3149DC-4077-4FA4-A65E-2919C7A2926B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA3149DC-4077-4FA4-A65E-2919C7A2926B}.Travis|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA3149DC-4077-4FA4-A65E-2919C7A2926B}.Travis|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

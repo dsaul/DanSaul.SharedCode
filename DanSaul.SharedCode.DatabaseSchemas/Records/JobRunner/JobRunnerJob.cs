@@ -1,14 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Data;
-using System.Threading.Tasks;
-using System.Globalization;
-using SharedCode.Extensions;
 using Serilog;
 
 namespace SharedCode.DatabaseSchemas
@@ -110,14 +104,14 @@ namespace SharedCode.DatabaseSchemas
 			JObject? root = job.JsonObject;
 			if (root != null && job.Id != null) {
 				
-				root[kJobsJsonKeyTaskRunnerClaimedISO8601] = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+				root[kJobsJsonKeyTaskRunnerClaimedISO8601] = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 
 				JobRunnerJob mod = job with
 				{
 					Json = root.ToString()
 				};
 
-				using NpgsqlConnection jobsDB2 = new NpgsqlConnection(Databases.Konstants.DatabaseConnectionStringForDB(JobRunnerJob.kJobsDBName));
+				using NpgsqlConnection jobsDB2 = new NpgsqlConnection(EnvDatabases.DatabaseConnectionStringForDB(JobRunnerJob.kJobsDBName));
 				jobsDB2.Open();
 
 				JobRunnerJob.Upsert(jobsDB2, new Dictionary<Guid, JobRunnerJob> {

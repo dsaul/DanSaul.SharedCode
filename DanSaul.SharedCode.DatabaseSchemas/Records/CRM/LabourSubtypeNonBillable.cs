@@ -1,13 +1,8 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SharedCode.Extensions;
 using Serilog;
 
 namespace SharedCode.DatabaseSchemas
@@ -350,7 +345,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Other
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					LabourSubtypeNonBillable entry = new LabourSubtypeNonBillable(
 						Id: id,
@@ -368,7 +363,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Training
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					LabourSubtypeNonBillable entry = new LabourSubtypeNonBillable(
 						Id: id,
@@ -385,7 +380,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Programming
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					LabourSubtypeNonBillable entry = new LabourSubtypeNonBillable(
 						Id: id,
@@ -402,7 +397,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Meeting
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					LabourSubtypeNonBillable entry = new LabourSubtypeNonBillable(
 						Id: id,
@@ -419,7 +414,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Administration
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					LabourSubtypeNonBillable entry = new LabourSubtypeNonBillable(
 						Id: id,

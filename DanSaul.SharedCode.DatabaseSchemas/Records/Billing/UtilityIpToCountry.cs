@@ -1,15 +1,9 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Net;
-using SharedCode.Extensions;
 using Serilog;
-using SharedCode;
-using SharedCode.Databases.Properties;
+using DanSaul.SharedCode.DatabaseSchemas.Properties;
 
 namespace SharedCode.DatabaseSchemas
 {

@@ -1,7 +1,6 @@
 ﻿using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
-using Databases.Records.Billing;
 using FluentEmail.Core;
 using FluentEmail.Core.Models;
 using Newtonsoft.Json;
@@ -11,17 +10,9 @@ using NodaTime;
 using NodaTime.Text;
 using Npgsql;
 using Serilog;
-using SharedCode.Extensions;
-using SharedCode.S3;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
-using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using SharedCode.OnCallResponder;
 
 namespace SharedCode.DatabaseSchemas
 {
@@ -117,7 +108,7 @@ namespace SharedCode.DatabaseSchemas
 
 			JObject timelineEntry = new JObject {
 				[kJsonKeyTimelineKeyType] = "text",
-				[kJsonKeyTimelineKeyTimestampISO8601] = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture),
+				[kJsonKeyTimelineKeyTimestampISO8601] = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture),
 				[kJsonKeyTimelineKeyColour] = "red",
 				[kJsonKeyTimelineKeyDescription] = $"Giving up on calendar {index+1}. {reason}",
 			};
@@ -166,7 +157,7 @@ namespace SharedCode.DatabaseSchemas
 
 			JObject timelineEntry = new JObject {
 				[kJsonKeyTimelineKeyType] = "text",
-				[kJsonKeyTimelineKeyTimestampISO8601] = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture),
+				[kJsonKeyTimelineKeyTimestampISO8601] = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture),
 				[kJsonKeyTimelineKeyColour] = "orange",
 				[kJsonKeyTimelineKeyDescription] = $"{description}",
 			};
@@ -227,7 +218,7 @@ namespace SharedCode.DatabaseSchemas
 
 			JObject timelineEntry = new JObject {
 				[kJsonKeyTimelineKeyType] = "text",
-				[kJsonKeyTimelineKeyTimestampISO8601] = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture),
+				[kJsonKeyTimelineKeyTimestampISO8601] = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture),
 				[kJsonKeyTimelineKeyColour] = "green",
 				[kJsonKeyTimelineKeyDescription] = $"Attempted new outbound phone call to {description}",
 			};
@@ -308,7 +299,7 @@ namespace SharedCode.DatabaseSchemas
 
 			JObject timelineEntry = new JObject {
 				[kJsonKeyTimelineKeyType] = "text",
-				[kJsonKeyTimelineKeyTimestampISO8601] = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture),
+				[kJsonKeyTimelineKeyTimestampISO8601] = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture),
 				[kJsonKeyTimelineKeyColour] = "green",
 				[kJsonKeyTimelineKeyDescription] = $"Sent MMS to {timelineDescription}",
 			};
@@ -357,7 +348,7 @@ namespace SharedCode.DatabaseSchemas
 
 			JObject timelineEntry = new JObject {
 				[kJsonKeyTimelineKeyType] = "text",
-				[kJsonKeyTimelineKeyTimestampISO8601] = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture),
+				[kJsonKeyTimelineKeyTimestampISO8601] = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture),
 				[kJsonKeyTimelineKeyColour] = status == "Completed" ? "green" : "orange",
 				[kJsonKeyTimelineKeyDescription] = status == "Completed" ? 
 					$"Phone system succesfully called out to \"{callWasTo}\"." : 
@@ -429,7 +420,7 @@ namespace SharedCode.DatabaseSchemas
 
 			JObject timelineEntry = new JObject {
 				[kJsonKeyTimelineKeyType] = "text",
-				[kJsonKeyTimelineKeyTimestampISO8601] = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture),
+				[kJsonKeyTimelineKeyTimestampISO8601] = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture),
 				[kJsonKeyTimelineKeyColour] = failure ? "red" : "green",
 				[kJsonKeyTimelineKeyDescription] = $"{timelineDescription}",
 			};
@@ -480,7 +471,7 @@ namespace SharedCode.DatabaseSchemas
 			}
 
 			newJson[kJsonKeyNextAttemptAfterISO8601] = DateTime.UtcNow.AddMinutes((double)minutes)
-				.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+				.ToString("o", Culture.DevelopmentCulture);
 
 			Voicemails newVM = this with
 			{
@@ -511,7 +502,7 @@ namespace SharedCode.DatabaseSchemas
 
 			JObject timelineEntry = new JObject {
 				[kJsonKeyTimelineKeyType] = "text",
-				[kJsonKeyTimelineKeyTimestampISO8601] = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture),
+				[kJsonKeyTimelineKeyTimestampISO8601] = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture),
 				[kJsonKeyTimelineKeyColour] = "red",
 				[kJsonKeyTimelineKeyDescription] = $"After calling all calendar entries many times, we have been unable to contact any responders. We will dispatch a final call to the No Agent Response Notification Number of {NoAgentResponseNotificationNumber} and stop processing this message.",
 			};
@@ -553,7 +544,7 @@ namespace SharedCode.DatabaseSchemas
 
 			JObject timelineEntry = new JObject {
 				[Voicemails.kJsonKeyTimelineKeyType] = "text",
-				[Voicemails.kJsonKeyTimelineKeyTimestampISO8601] = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture),
+				[Voicemails.kJsonKeyTimelineKeyTimestampISO8601] = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture),
 				[Voicemails.kJsonKeyTimelineKeyDescription] = $"\"{who}\" marked this message as handled.",
 				[Voicemails.kJsonKeyTimelineKeyColour] = "green",
 			};
@@ -580,13 +571,13 @@ namespace SharedCode.DatabaseSchemas
 				) {
 				// Get S3 File for attachment.
 
-				string? key = SharedCode.S3.Konstants.S3_PBX_ACCESS_KEY;
-				string? secret = SharedCode.S3.Konstants.S3_PBX_SECRET_KEY;
+				string? key = EnvAmazonS3.S3_PBX_ACCESS_KEY;
+				string? secret = EnvAmazonS3.S3_PBX_SECRET_KEY;
 
 				using var s3Client = new AmazonS3Client(key, secret, new AmazonS3Config
 						{
 					RegionEndpoint = RegionEndpoint.USWest1,
-					ServiceURL = SharedCode.S3.Konstants.S3_PBX_SERVICE_URI,
+					ServiceURL = EnvAmazonS3.S3_PBX_SERVICE_URI,
 					ForcePathStyle = true
 				});
 

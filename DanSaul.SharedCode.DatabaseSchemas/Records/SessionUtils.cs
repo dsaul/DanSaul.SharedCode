@@ -1,12 +1,5 @@
-﻿using API.Hubs;
-using BCrypt.Net;
-using Databases.Records.Billing;
-using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.SignalR;
 using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SharedCode.DatabaseSchemas
 {
@@ -81,7 +74,7 @@ namespace SharedCode.DatabaseSchemas
 				return;
 			}
 
-			billingConnectionString = Databases.Konstants.DatabaseConnectionStringForDB(Databases.Konstants.BILLING_DATABASE_NAME);
+			billingConnectionString = EnvDatabases.DatabaseConnectionStringForDB(EnvDatabases.BILLING_DATABASE_NAME);
 			if (string.IsNullOrWhiteSpace(billingConnectionString))
 			{
 				response.IsError = true;
@@ -311,7 +304,7 @@ namespace SharedCode.DatabaseSchemas
 				return;
 			}
 
-			dpDBConnectionString = Databases.Konstants.DatabaseConnectionStringForDB(dpDBName);
+			dpDBConnectionString = EnvDatabases.DatabaseConnectionStringForDB(dpDBName);
 			if (string.IsNullOrWhiteSpace(dpDBConnectionString))
 			{
 				response.IsError = true;
@@ -387,7 +380,7 @@ namespace SharedCode.DatabaseSchemas
 				return;
 			}
 
-			billingConnectionString = Databases.Konstants.DatabaseConnectionStringForDB(Databases.Konstants.BILLING_DATABASE_NAME);
+			billingConnectionString = EnvDatabases.DatabaseConnectionStringForDB(EnvDatabases.BILLING_DATABASE_NAME);
 			if (string.IsNullOrWhiteSpace(billingConnectionString))
 			{
 				response.IsError = true;
@@ -641,7 +634,7 @@ namespace SharedCode.DatabaseSchemas
 					return;
 				}
 
-				dpDBConnectionString = Databases.Konstants.DatabaseConnectionStringForDB(dpDBName);
+				dpDBConnectionString = EnvDatabases.DatabaseConnectionStringForDB(dpDBName);
 				if (string.IsNullOrWhiteSpace(dpDBConnectionString))
 				{
 					response.IsError = true;

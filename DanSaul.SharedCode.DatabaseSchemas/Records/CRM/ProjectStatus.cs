@@ -1,13 +1,8 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SharedCode.Extensions;
 using Serilog;
 
 namespace SharedCode.DatabaseSchemas
@@ -398,7 +393,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Written Off
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					ProjectStatus entry = new ProjectStatus(
 						Id: id,
@@ -417,7 +412,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Arrears
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					ProjectStatus entry = new ProjectStatus(
 						Id: id,
@@ -436,7 +431,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Terminated
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					ProjectStatus entry = new ProjectStatus(
 						Id: id,
@@ -455,7 +450,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Awaiting Payment
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					ProjectStatus entry = new ProjectStatus(
 						Id: id,
@@ -474,7 +469,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Complete
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					ProjectStatus entry = new ProjectStatus(
 						Id: id,
@@ -493,7 +488,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// In Progress
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					ProjectStatus entry = new ProjectStatus(
 						Id: id,
@@ -512,7 +507,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Quoting
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					ProjectStatus entry = new ProjectStatus(
 						Id: id,
@@ -531,7 +526,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Rough In
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					ProjectStatus entry = new ProjectStatus(
 						Id: id,
@@ -550,7 +545,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Finishing
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					ProjectStatus entry = new ProjectStatus(
 						Id: id,
@@ -569,7 +564,7 @@ namespace SharedCode.DatabaseSchemas
 
 				// Created
 				{
-					string lastModified = DateTime.UtcNow.ToString("o", SharedCode.Culture.Konstants.DevelopmentCulture);
+					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
 					ProjectStatus entry = new ProjectStatus(
 						Id: id,
