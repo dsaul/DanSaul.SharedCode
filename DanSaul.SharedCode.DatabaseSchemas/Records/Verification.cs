@@ -1,14 +1,4 @@
-﻿using Databases.Records.Billing;
-using Databases.Records.CRM;
-using Databases.Records.JobRunner;
-using Databases.Records.PDFLaTeX;
-using Npgsql;
-using SharedCode.Databases.Records.CRM;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Npgsql;
 
 namespace SharedCode.DatabaseSchemas
 {
