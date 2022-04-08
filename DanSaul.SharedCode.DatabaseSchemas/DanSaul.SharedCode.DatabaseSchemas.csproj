@@ -24,7 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DanSaul.SharedCode.Calendar\DanSaul.SharedCode.Calendar.csproj" />
     <ProjectReference Include="..\DanSaul.SharedCode.Npgsql\DanSaul.SharedCode.Npgsql.csproj" />
+    <ProjectReference Include="..\DanSaul.SharedCode.SignalR\DanSaul.SharedCode.SignalR.csproj" />
     <ProjectReference Include="..\DanSaul.SharedCode.StandardizedEnvironmentVariables\DanSaul.SharedCode.StandardizedEnvironmentVariables.csproj" />
   </ItemGroup>
 

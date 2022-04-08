@@ -7,10 +7,9 @@ using Newtonsoft.Json.Linq;
 using Amazon.S3;
 using Amazon.S3.Transfer;
 using Serilog;
-using SharedCode;
 using SharedCode.DatabaseSchemas;
 
-namespace TTS
+namespace SharedCode
 {
 	public static class PollyText
 	{

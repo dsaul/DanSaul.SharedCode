@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DanSaul.SharedCode.DatabaseSchemas\DanSaul.SharedCode.DatabaseSchemas.csproj" />
+    <ProjectReference Include="..\DanSaul.SharedCode.TTS\DanSaul.SharedCode.TTS.csproj" />
   </ItemGroup>
 
 </Project>

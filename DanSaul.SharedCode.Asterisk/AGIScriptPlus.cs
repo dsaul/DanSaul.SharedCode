@@ -6,6 +6,7 @@ using SharedCode.DatabaseSchemas;
 using Npgsql;
 using Renci.SshNet;
 using Serilog;
+using SharedCode;
 
 namespace ARI
 {

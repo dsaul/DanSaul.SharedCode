@@ -4,6 +4,7 @@ using System.Data;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Serilog;
+using DanSaul.SharedCode.DatabaseSchemas.Properties;
 
 namespace SharedCode.DatabaseSchemas
 {

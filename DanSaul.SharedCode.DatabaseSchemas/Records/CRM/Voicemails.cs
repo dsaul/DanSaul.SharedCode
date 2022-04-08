@@ -618,7 +618,7 @@ namespace SharedCode.DatabaseSchemas
 				}
 
 				SendResponse? response = Email
-					.From(SharedCode.EMail.Konstants.SMTP_USERNAME, "On Call Responder")
+					.From(EnvEmail.SMTP_USERNAME, "On Call Responder")
 					.To(MarkedHandledNotificationEMail)
 					.Subject("On Call Message (Marked Handled)")
 					.UsingTemplate(emailTemplate, new {
@@ -630,7 +630,7 @@ namespace SharedCode.DatabaseSchemas
 						BillingCompanyName = billingCompany.FullName,
 						DateString = string.IsNullOrWhiteSpace(MessageLeftAtISO8601) ? null : DateTime.Parse(MessageLeftAtISO8601).ToString(@"h:mm tt \o\n dddd MMMM d yyyy"),
 						AdditionalDataBase64 = additionalDataBase64,
-						ON_CALL_RESPONDER_MESSAGE_ACCESS_BASE_URI = SharedCode.OnCallResponder.Konstants.ON_CALL_RESPONDER_MESSAGE_ACCESS_BASE_URI
+						ON_CALL_RESPONDER_MESSAGE_ACCESS_BASE_URI = EnvOnCallResponder.ON_CALL_RESPONDER_MESSAGE_ACCESS_BASE_URI
 					})
 					.Attach(new Attachment{
 						Data = s3ResponseStream,
