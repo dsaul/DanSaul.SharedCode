@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Version>$([System.DateTime]::Now.ToString("yyyy.MM.ddHH.mm"))</Version>
+    <Authors>Dan Saul</Authors>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.S3" Version="3.7.8.13" />
+    <PackageReference Include="DanSaul.SharedCode.Extensions" Version="2022.3.2922.3" />
+    <PackageReference Include="DanSaul.SharedCode.StandardizedEnvironmentVariables" Version="2022.3.2922.16" />
+  </ItemGroup>
+
+</Project>

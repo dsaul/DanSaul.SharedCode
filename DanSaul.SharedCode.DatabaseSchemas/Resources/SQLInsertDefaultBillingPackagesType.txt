@@ -1,0 +1,2 @@
+INSERT INTO public."billing-packages-type" VALUES ('9a8c727e-49d1-11e9-a9f2-02420a000033', 'Primary', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-packages-type" VALUES ('9a928934-49d1-11e9-a9f2-02420a000033', 'Add-on', '{}') ON CONFLICT DO NOTHING;

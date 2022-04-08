@@ -1,0 +1,2 @@
+INSERT INTO public."billing-payment-method" VALUES ('Invoice', '55f19cf6-2d6c-11e9-87ab-02420a000cae', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-payment-method" VALUES ('Square Pre-Authorized', '189a8058-898f-11eb-8c22-02420a0000bb', '{}') ON CONFLICT DO NOTHING;

@@ -1,0 +1,3 @@
+INSERT INTO public."billing-payment-frequencies" VALUES ('905ee50e-3efd-11e9-b372-02420a000011', 'Quarterly', 'Quarterly', 3, '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-payment-frequencies" VALUES ('9064e468-3efd-11e9-b372-02420a000011', 'Monthly', 'Monthly', 1, '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-payment-frequencies" VALUES ('9058352e-3efd-11e9-b372-02420a000011', 'Annually', 'Annually', 12, '{}') ON CONFLICT DO NOTHING;

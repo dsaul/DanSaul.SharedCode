@@ -1,0 +1,7 @@
+INSERT INTO public."billing-journal-entries-type" VALUES ('b2c51cd2-4e91-11e9-b8eb-02420a000033', 'Basic', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-journal-entries-type" VALUES ('b2cbd66c-4e91-11e9-b8eb-02420a000033', 'Reverse Previous Entry', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-journal-entries-type" VALUES ('c8345de4-4e91-11e9-b8eb-02420a000033', 'Promotional Discount', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-journal-entries-type" VALUES ('c83b9456-4e91-11e9-b8eb-02420a000033', 'Account Credit', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-journal-entries-type" VALUES ('076f01d8-4e94-11e9-b8eb-02420a000033', 'Work Performed', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-journal-entries-type" VALUES ('2f0ade0a-a679-11e9-ab3e-02420a00004e', 'Change Adjustment', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-journal-entries-type" VALUES ('ce5fe4c2-cad3-11e9-8572-02420a000018', 'Payment', '{}') ON CONFLICT DO NOTHING;

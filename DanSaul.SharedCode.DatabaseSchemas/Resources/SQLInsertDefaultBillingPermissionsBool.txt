@@ -1,0 +1,1236 @@
+INSERT INTO public."billing-permissions-bool" VALUES ('292adec6-133e-11eb-83c3-02420a000092', 'crm.employment-status.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad484844-7751-11ea-8ada-02420a0000d8', 'billing.contacts.modify-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad4d1cd4-7751-11ea-8ada-02420a0000d8', 'billing.contacts.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad51faf6-7751-11ea-8ada-02420a0000d8', 'billing.coupon-codes.read-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad5c2a9e-7751-11ea-8ada-02420a0000d8', 'billing.industries.read-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad60e480-7751-11ea-8ada-02420a0000d8', 'billing.invoices.read-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad65a5c4-7751-11ea-8ada-02420a0000d8', 'billing.journal-entries.read-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad71e88e-7751-11ea-8ada-02420a0000d8', 'billing.packages.read-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad772eb6-7751-11ea-8ada-02420a0000d8', 'billing.packages-type.read-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad7bf194-7751-11ea-8ada-02420a0000d8', 'billing.payment-frequencies.read-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad80e92e-7751-11ea-8ada-02420a0000d8', 'billing.payment-method.read-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad862664-7751-11ea-8ada-02420a0000d8', 'billing.permissions-bool.read-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad911272-7751-11ea-8ada-02420a0000d8', 'billing.permissions-bool.modify-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad962d3e-7751-11ea-8ada-02420a0000d8', 'billing.permissions-bool.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad9b1aba-7751-11ea-8ada-02420a0000d8', 'billing.sessions.read-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad9fe5b8-7751-11ea-8ada-02420a0000d8', 'billing.sessions.add-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ada52c6c-7751-11ea-8ada-02420a0000d8', 'billing.sessions.modify-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('adafc83e-7751-11ea-8ada-02420a0000d8', 'billing.subscription.read-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad3ea604-7751-11ea-8ada-02420a0000d8', 'billing.contacts.read-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fdf28e94-7751-11ea-8ada-02420a0000d8', 'billing.contacts.read-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fdf76c5c-7751-11ea-8ada-02420a0000d8', 'billing.permissions-bool.read-self', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('00cc882c-7752-11ea-8ada-02420a0000d8', 'billing.contacts.read-company', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('00d1876e-7752-11ea-8ada-02420a0000d8', 'billing.permissions-bool.read-self', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('00d6583e-7752-11ea-8ada-02420a0000d8', 'billing.sessions.read-self', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2917811e-133e-11eb-83c3-02420a000092', 'crm.agents.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('291ca9c8-133e-11eb-83c3-02420a000092', 'crm.agents.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('79508bd2-5cd1-11e9-8256-02420a00000a', 'billing.invoices.read-company', true, 'b6aff5a7-71d0-4ba8-91f6-9a9bf9d0409d', NULL, '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c6c76728-5cd1-11e9-8256-02420a00000a', 'billing.sessions.delete-same-session', true, 'b6aff5a7-71d0-4ba8-91f6-9a9bf9d0409d', NULL, '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('292fd3a4-133e-11eb-83c3-02420a000092', 'crm.assignments.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('29346bda-133e-11eb-83c3-02420a000092', 'crm.assignments.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('293db866-133e-11eb-83c3-02420a000092', 'crm.assignments-status.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('29424b2e-133e-11eb-83c3-02420a000092', 'crm.assignments-status.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2947214e-133e-11eb-83c3-02420a000092', 'crm.assignments-status.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('294bc3ca-133e-11eb-83c3-02420a000092', 'crm.companies.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4c3bfb2a-133e-11eb-83c3-02420a000092', 'crm.companies.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4c40af1c-133e-11eb-83c3-02420a000092', 'crm.contacts.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4c455968-133e-11eb-83c3-02420a000092', 'crm.contacts.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4c535ee6-133e-11eb-83c3-02420a000092', 'crm.estimating-man-hours.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4c58271e-133e-11eb-83c3-02420a000092', 'crm.estimating-man-hours.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4c5ccc2e-133e-11eb-83c3-02420a000092', 'crm.labour.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4c616d2e-133e-11eb-83c3-02420a000092', 'crm.labour.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4c663692-133e-11eb-83c3-02420a000092', 'crm.labour.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4c6fd5d0-133e-11eb-83c3-02420a000092', 'crm.labour-subtype-exception.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7c6c25a4-133e-11eb-83c3-02420a000092', 'crm.labour-subtype-holidays.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7c718292-133e-11eb-83c3-02420a000092', 'crm.labour-subtype-holidays.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7c7633fa-133e-11eb-83c3-02420a000092', 'crm.labour-subtype-holidays.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d3e30d68-a911-11e9-8604-02420a0000b9', 'billing.auto-login-dispatch-pulse.read-self', true, 'b6aff5a7-71d0-4ba8-91f6-9a9bf9d0409d', NULL, '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('b721be3f-584d-40ee-964b-5e5d9b6f353f', 'billing.permissions.modify-company', true, 'b6aff5a7-71d0-4ba8-91f6-9a9bf9d0409d', NULL, '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('803fbd9d-7e10-4c15-adc1-d05a928a78a2', 'billing.companies.delete-company', true, 'b6aff5a7-71d0-4ba8-91f6-9a9bf9d0409d', NULL, '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d47df14e-f7d0-4ab0-adac-c89ab82af0ed', 'billing.contacts.modify-company', true, 'b6aff5a7-71d0-4ba8-91f6-9a9bf9d0409d', NULL, '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('92d897d6-be8f-4bfa-8fa0-7589ea2920d5', 'billing.permissions.read-company', true, 'b6aff5a7-71d0-4ba8-91f6-9a9bf9d0409d', NULL, '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7f50b80e-14dc-47e8-a70b-3564d53b5e4f', 'billing.companies.read-company', true, 'b6aff5a7-71d0-4ba8-91f6-9a9bf9d0409d', NULL, '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('f6b96d7a-d8dd-4de9-a58f-2de3d4d578ba', 'billing.companies.modify-company', true, 'b6aff5a7-71d0-4ba8-91f6-9a9bf9d0409d', NULL, '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('43026c4e-4824-440f-8326-ad684a99a003', 'billing.subscription.read-company', true, 'b6aff5a7-71d0-4ba8-91f6-9a9bf9d0409d', NULL, '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('78cc3594-6da6-44f9-bf39-ca63fa7aadca', 'billing.sessions.read-same-session', true, 'b6aff5a7-71d0-4ba8-91f6-9a9bf9d0409d', NULL, '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('29215ec8-133e-11eb-83c3-02420a000092', 'crm.employment-status.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad34ab5e-7751-11ea-8ada-02420a0000d8', 'billing.permissions.modify-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4c4a0058-133e-11eb-83c3-02420a000092', 'crm.contacts.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7c6724b4-133e-11eb-83c3-02420a000092', 'crm.labour-subtype-exception.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('052f05fa-1aa8-4ba6-89c7-cfb7ce765eea', 'billing.contacts.delete-company', true, 'b6aff5a7-71d0-4ba8-91f6-9a9bf9d0409d', NULL, '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2926284a-133e-11eb-83c3-02420a000092', 'crm.employment-status.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ae5c3e32-7785-11ea-8315-02420a0000d8', 'billing.permissions-groups.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ae610124-7785-11ea-8315-02420a0000d8', 'billing.permissions-groups-memberships.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ae66bd26-7785-11ea-8315-02420a0000d8', 'billing.permissions-groups-memberships.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ae708342-7785-11ea-8315-02420a0000d8', 'billing.permissions-groups-memberships.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d3830600-7785-11ea-8315-02420a0000d8', 'billing.permissions-groups.read-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d3884502-7785-11ea-8315-02420a0000d8', 'billing.permissions-groups-memberships.read-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ebdd0b56-7785-11ea-8315-02420a0000d8', 'billing.permissions-groups.read-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ebe2305e-7785-11ea-8315-02420a0000d8', 'billing.permissions-groups-memberships.read-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('0a5bb032-7786-11ea-8315-02420a0000d8', 'billing.permissions-groups-memberships.read-self', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7c800e98-133e-11eb-83c3-02420a000092', 'crm.labour-subtype-non-billable.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7c84a66a-133e-11eb-83c3-02420a000092', 'crm.labour-subtype-non-billable.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7c8951b0-133e-11eb-83c3-02420a000092', 'crm.labour-types.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7c8df6b6-133e-11eb-83c3-02420a000092', 'crm.labour-types.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7c92b03e-133e-11eb-83c3-02420a000092', 'crm.labour-types.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7c9bf8f6-133e-11eb-83c3-02420a000092', 'crm.materials.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7ca09f64-133e-11eb-83c3-02420a000092', 'crm.materials.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7ca5412c-133e-11eb-83c3-02420a000092', 'crm.products.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7ca9f032-133e-11eb-83c3-02420a000092', 'crm.products.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7caecb7a-133e-11eb-83c3-02420a000092', 'crm.products.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7cb81568-133e-11eb-83c3-02420a000092', 'crm.project-notes.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7cbcaed4-133e-11eb-83c3-02420a000092', 'crm.project-notes.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('a3c35276-133e-11eb-83c3-02420a000092', 'crm.projects.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('a3c9ff22-133e-11eb-83c3-02420a000092', 'crm.projects.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('a3ceccdc-133e-11eb-83c3-02420a000092', 'crm.projects.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('a3d8405a-133e-11eb-83c3-02420a000092', 'crm.project-status.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('a3dcfaf0-133e-11eb-83c3-02420a000092', 'crm.project-status.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('a3e19394-133e-11eb-83c3-02420a000092', 'crm.settings-default.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('a3e65244-133e-11eb-83c3-02420a000092', 'crm.settings-default.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('a3efaeac-133e-11eb-83c3-02420a000092', 'crm.settings-provisioning.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('a3f443fe-133e-11eb-83c3-02420a000092', 'crm.settings-provisioning.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('a3f8ffc0-133e-11eb-83c3-02420a000092', 'crm.settings-provisioning.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('b2c97c00-133e-11eb-83c3-02420a000092', 'crm.settings-user.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('b2cf1c46-133e-11eb-83c3-02420a000092', 'crm.settings-user.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('b2d85fb8-133e-11eb-83c3-02420a000092', 'crm.skills.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('b2dd3088-133e-11eb-83c3-02420a000092', 'crm.skills.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('b2e1cddc-133e-11eb-83c3-02420a000092', 'crm.skills.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8ac4c3a8-133f-11eb-83c3-02420a000092', 'crm.agents.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8acf4daa-133f-11eb-83c3-02420a000092', 'crm.assignments.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8ad3ecc0-133f-11eb-83c3-02420a000092', 'crm.assignments-status.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8ad8941e-133f-11eb-83c3-02420a000092', 'crm.companies.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8add3b0e-133f-11eb-83c3-02420a000092', 'crm.contacts.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8ae681c8-133f-11eb-83c3-02420a000092', 'crm.labour.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8aeb2386-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-exception.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8aeff078-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-holidays.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8af4a906-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-non-billable.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8af94d80-133f-11eb-83c3-02420a000092', 'crm.labour-types.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b02b0c8-133f-11eb-83c3-02420a000092', 'crm.products.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b0c108c-133f-11eb-83c3-02420a000092', 'crm.projects.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b10b6fa-133f-11eb-83c3-02420a000092', 'crm.project-status.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b1a070a-133f-11eb-83c3-02420a000092', 'crm.settings-provisioning.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b1ee982-133f-11eb-83c3-02420a000092', 'crm.settings-user.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b23ab2a-133f-11eb-83c3-02420a000092', 'crm.skills.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b286a20-133f-11eb-83c3-02420a000092', 'crm.agents.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b36776e-133f-11eb-83c3-02420a000092', 'crm.assignments-status.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b3b1d14-133f-11eb-83c3-02420a000092', 'crm.companies.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b657596-133f-11eb-83c3-02420a000092', 'crm.contacts.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b6eb958-133f-11eb-83c3-02420a000092', 'crm.labour.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b735db4-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-exception.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b77ff72-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-holidays.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b7c9f50-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-non-billable.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b814b5e-133f-11eb-83c3-02420a000092', 'crm.labour-types.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ae573eb4-7785-11ea-8315-02420a0000d8', 'billing.permissions-groups.modify-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b075ef2-133f-11eb-83c3-02420a000092', 'crm.project-notes.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b31af86-133f-11eb-83c3-02420a000092', 'crm.assignments.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('17eac9fe-133f-11eb-83c3-02420a000092', 'crm.employment-status.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('17f4528a-133f-11eb-83c3-02420a000092', 'crm.assignments.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('17f8f470-133f-11eb-83c3-02420a000092', 'crm.assignments.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18023efe-133f-11eb-83c3-02420a000092', 'crm.assignments-status.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18071a50-133f-11eb-83c3-02420a000092', 'crm.assignments-status.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('180bf426-133f-11eb-83c3-02420a000092', 'crm.assignments-status.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1810a26e-133f-11eb-83c3-02420a000092', 'crm.companies.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('181545da-133f-11eb-83c3-02420a000092', 'crm.companies.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('181e9248-133f-11eb-83c3-02420a000092', 'crm.contacts.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18232cfe-133f-11eb-83c3-02420a000092', 'crm.contacts.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1827e302-133f-11eb-83c3-02420a000092', 'crm.contacts.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('182c932a-133f-11eb-83c3-02420a000092', 'crm.estimating-man-hours.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1836374a-133f-11eb-83c3-02420a000092', 'crm.estimating-man-hours.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('183ade26-133f-11eb-83c3-02420a000092', 'crm.labour.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('183f7f3a-133f-11eb-83c3-02420a000092', 'crm.labour.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1844251c-133f-11eb-83c3-02420a000092', 'crm.labour.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('184d90b6-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-exception.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18538e4e-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-exception.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1858ac8a-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-holidays.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('185d6b4e-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-holidays.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1866d8fa-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-non-billable.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('186b903e-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-non-billable.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('187033d2-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-non-billable.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1874de1e-133f-11eb-83c3-02420a000092', 'crm.labour-types.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1879825c-133f-11eb-83c3-02420a000092', 'crm.labour-types.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1882c984-133f-11eb-83c3-02420a000092', 'crm.materials.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1887888e-133f-11eb-83c3-02420a000092', 'crm.materials.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('188c2812-133f-11eb-83c3-02420a000092', 'crm.materials.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1890d95c-133f-11eb-83c3-02420a000092', 'crm.products.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18959154-133f-11eb-83c3-02420a000092', 'crm.products.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18a04c8e-133f-11eb-83c3-02420a000092', 'crm.project-notes.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18a4f4c8-133f-11eb-83c3-02420a000092', 'crm.project-notes.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18a9c5e8-133f-11eb-83c3-02420a000092', 'crm.project-notes.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18b3bddc-133f-11eb-83c3-02420a000092', 'crm.projects.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18b8ba8a-133f-11eb-83c3-02420a000092', 'crm.projects.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18bd5914-133f-11eb-83c3-02420a000092', 'crm.project-status.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18c2039c-133f-11eb-83c3-02420a000092', 'crm.project-status.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18cb463c-133f-11eb-83c3-02420a000092', 'crm.settings-default.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18cff6be-133f-11eb-83c3-02420a000092', 'crm.settings-default.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18d4ad26-133f-11eb-83c3-02420a000092', 'crm.settings-default.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18de2626-133f-11eb-83c3-02420a000092', 'crm.settings-provisioning.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18e2d928-133f-11eb-83c3-02420a000092', 'crm.settings-provisioning.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18e77d3e-133f-11eb-83c3-02420a000092', 'crm.settings-user.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18f0c90c-133f-11eb-83c3-02420a000092', 'crm.settings-user.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18fab408-133f-11eb-83c3-02420a000092', 'crm.skills.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18ff5b34-133f-11eb-83c3-02420a000092', 'crm.skills.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3e5a5190-133f-11eb-83c3-02420a000092', 'crm.agents.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3e5fa230-133f-11eb-83c3-02420a000092', 'crm.agents.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3e7763f2-133f-11eb-83c3-02420a000092', 'crm.assignments.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3e7c18c0-133f-11eb-83c3-02420a000092', 'crm.assignments.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3e80b664-133f-11eb-83c3-02420a000092', 'crm.assignments.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3e855c96-133f-11eb-83c3-02420a000092', 'crm.assignments-status.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3e8a052a-133f-11eb-83c3-02420a000092', 'crm.assignments-status.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3e8eaf58-133f-11eb-83c3-02420a000092', 'crm.assignments-status.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3e9cab8a-133f-11eb-83c3-02420a000092', 'crm.companies.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3ea1ba30-133f-11eb-83c3-02420a000092', 'crm.contacts.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3ea6603a-133f-11eb-83c3-02420a000092', 'crm.contacts.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('17e62426-133f-11eb-83c3-02420a000092', 'crm.employment-status.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('17ef8c78-133f-11eb-83c3-02420a000092', 'crm.employment-status.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3e693eee-133f-11eb-83c3-02420a000092', 'crm.employment-status.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3e6e0942-133f-11eb-83c3-02420a000092', 'crm.employment-status.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('17dca6bc-133f-11eb-83c3-02420a000092', 'crm.agents.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18ec1be6-133f-11eb-83c3-02420a000092', 'crm.settings-user.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3e97f9d2-133f-11eb-83c3-02420a000092', 'crm.companies.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3eb4cae4-133f-11eb-83c3-02420a000092', 'crm.estimating-man-hours.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3eb97dd2-133f-11eb-83c3-02420a000092', 'crm.estimating-man-hours.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3ebe1e50-133f-11eb-83c3-02420a000092', 'crm.labour.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3ec78b5c-133f-11eb-83c3-02420a000092', 'crm.labour.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3ecc29e6-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-exception.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6c6315b0-774d-11ea-9784-02420a0000d8', 'billing.permissions.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6c6d9e9a-774d-11ea-9784-02420a0000d8', 'billing.permissions.modify-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6c727280-774d-11ea-9784-02420a0000d8', 'billing.permissions.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6c775ea8-774d-11ea-9784-02420a0000d8', 'billing.companies.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6c8116e6-774d-11ea-9784-02420a0000d8', 'billing.companies.modify-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6c8603a4-774d-11ea-9784-02420a0000d8', 'billing.companies.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6c8ae662-774d-11ea-9784-02420a0000d8', 'billing.contacts.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6c94e392-774d-11ea-9784-02420a0000d8', 'billing.contacts.modify-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6c99a102-774d-11ea-9784-02420a0000d8', 'billing.contacts.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6c9e70ba-774d-11ea-9784-02420a0000d8', 'billing.coupon-codes.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6ca82470-774d-11ea-9784-02420a0000d8', 'billing.coupon-codes.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6cad7e34-774d-11ea-9784-02420a0000d8', 'billing.currency.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6cb25a80-774d-11ea-9784-02420a0000d8', 'billing.currency.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6cb838ec-774d-11ea-9784-02420a0000d8', 'billing.currency.modify-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6cc2028c-774d-11ea-9784-02420a0000d8', 'billing.industries.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6cc6bb6a-774d-11ea-9784-02420a0000d8', 'billing.industries.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6ccb6e58-774d-11ea-9784-02420a0000d8', 'billing.industries.modify-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6cd4f0e0-774d-11ea-9784-02420a0000d8', 'billing.invoices.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6cd996f4-774d-11ea-9784-02420a0000d8', 'billing.invoices.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6cdeb3c8-774d-11ea-9784-02420a0000d8', 'billing.invoices.modify-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6ce90c38-774d-11ea-9784-02420a0000d8', 'billing.journal-entries.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6cee649e-774d-11ea-9784-02420a0000d8', 'billing.journal-entries.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6cf436b2-774d-11ea-9784-02420a0000d8', 'billing.journal-entries.modify-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6cfe0b2e-774d-11ea-9784-02420a0000d8', 'billing.journal-entries-type.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6d02d5aa-774d-11ea-9784-02420a0000d8', 'billing.journal-entries-type.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6d07e838-774d-11ea-9784-02420a0000d8', 'billing.journal-entries-type.modify-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6d0ccd12-774d-11ea-9784-02420a0000d8', 'billing.journal-entries-type.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d1472e94-774d-11ea-9784-02420a0000d8', 'billing.packages.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d151bc24-774d-11ea-9784-02420a0000d8', 'billing.packages.modify-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d156f18a-774d-11ea-9784-02420a0000d8', 'billing.packages.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d15be636-774d-11ea-9784-02420a0000d8', 'billing.packages-type.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d16564e0-774d-11ea-9784-02420a0000d8', 'billing.packages-type.modify-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d16a4640-774d-11ea-9784-02420a0000d8', 'billing.packages-type.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d16f3f1a-774d-11ea-9784-02420a0000d8', 'billing.payment-frequencies.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d17a1692-774d-11ea-9784-02420a0000d8', 'billing.payment-frequencies.modify-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d17f0346-774d-11ea-9784-02420a0000d8', 'billing.payment-frequencies.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d183ce9e-774d-11ea-9784-02420a0000d8', 'billing.payment-method.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d188a400-774d-11ea-9784-02420a0000d8', 'billing.payment-method.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d19256d0-774d-11ea-9784-02420a0000d8', 'billing.payment-method.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d19763fa-774d-11ea-9784-02420a0000d8', 'billing.permissions-bool.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d1a5e75e-774d-11ea-9784-02420a0000d8', 'billing.permissions-bool.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d1aacc42-774d-11ea-9784-02420a0000d8', 'billing.sessions.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d1af9efc-774d-11ea-9784-02420a0000d8', 'billing.sessions.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d1b9d71e-774d-11ea-9784-02420a0000d8', 'billing.sessions.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d1becac6-774d-11ea-9784-02420a0000d8', 'billing.subscription.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d1c392cc-774d-11ea-9784-02420a0000d8', 'billing.subscription.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('f7c47a0e-774d-11ea-9784-02420a0000d8', 'worker.long-tasks.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fc9d62ae-7750-11ea-8ada-02420a0000d8', 'billing.permissions.add-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fca2c9c4-7750-11ea-8ada-02420a0000d8', 'billing.permissions.modify-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fcacd4e6-7750-11ea-8ada-02420a0000d8', 'billing.contacts.read-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fcb67424-7750-11ea-8ada-02420a0000d8', 'billing.contacts.modify-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fcc5db12-7750-11ea-8ada-02420a0000d8', 'billing.currency.read-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fccaaf8e-7750-11ea-8ada-02420a0000d8', 'billing.industries.read-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fccf7460-7750-11ea-8ada-02420a0000d8', 'billing.invoices.read-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fcd4850e-7750-11ea-8ada-02420a0000d8', 'billing.journal-entries.read-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3eafd9ee-133f-11eb-83c3-02420a000092', 'crm.estimating-man-hours.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d19c2f84-774d-11ea-9784-02420a0000d8', 'billing.permissions-bool.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d1c846a0-774d-11ea-9784-02420a0000d8', 'billing.subscription.modify-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fcbc0524-7750-11ea-8ada-02420a0000d8', 'billing.contacts.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fce37c8a-7750-11ea-8ada-02420a0000d8', 'billing.packages-type.read-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fced5f98-7750-11ea-8ada-02420a0000d8', 'billing.payment-method.read-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fcf2b948-7750-11ea-8ada-02420a0000d8', 'billing.permissions-bool.read-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fcf7884c-7750-11ea-8ada-02420a0000d8', 'billing.permissions-bool.add-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fcfc56d8-7750-11ea-8ada-02420a0000d8', 'billing.permissions-bool.modify-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fd0658ae-7750-11ea-8ada-02420a0000d8', 'billing.sessions.read-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fd0b4328-7750-11ea-8ada-02420a0000d8', 'billing.sessions.add-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fd101f7e-7750-11ea-8ada-02420a0000d8', 'billing.sessions.modify-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fd152762-7750-11ea-8ada-02420a0000d8', 'billing.sessions.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fd19ec2a-7750-11ea-8ada-02420a0000d8', 'billing.subscription.read-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3ed5b768-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-exception.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3eda65a6-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-holidays.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3edf4508-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-holidays.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3ee895ea-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-non-billable.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3eed4400-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-non-billable.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3ef1ff68-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-non-billable.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3ef6a662-133f-11eb-83c3-02420a000092', 'crm.labour-types.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3efb4f46-133f-11eb-83c3-02420a000092', 'crm.labour-types.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f01531e-133f-11eb-83c3-02420a000092', 'crm.labour-types.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f0ac78c-133f-11eb-83c3-02420a000092', 'crm.materials.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f0f6b16-133f-11eb-83c3-02420a000092', 'crm.materials.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f140c8e-133f-11eb-83c3-02420a000092', 'crm.products.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f18bfb8-133f-11eb-83c3-02420a000092', 'crm.products.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f2203b6-133f-11eb-83c3-02420a000092', 'crm.project-notes.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f26a2fe-133f-11eb-83c3-02420a000092', 'crm.project-notes.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f2b4bb0-133f-11eb-83c3-02420a000092', 'crm.project-notes.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f34875c-133f-11eb-83c3-02420a000092', 'crm.projects.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f392b18-133f-11eb-83c3-02420a000092', 'crm.projects.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f3dce66-133f-11eb-83c3-02420a000092', 'crm.project-status.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f427858-133f-11eb-83c3-02420a000092', 'crm.project-status.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f4bd948-133f-11eb-83c3-02420a000092', 'crm.settings-default.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f508556-133f-11eb-83c3-02420a000092', 'crm.settings-default.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f5547d0-133f-11eb-83c3-02420a000092', 'crm.settings-default.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f63279c-133f-11eb-83c3-02420a000092', 'crm.settings-provisioning.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f67cc0c-133f-11eb-83c3-02420a000092', 'crm.settings-user.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f6c8f8a-133f-11eb-83c3-02420a000092', 'crm.settings-user.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f7162a8-133f-11eb-83c3-02420a000092', 'crm.settings-user.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f7add38-133f-11eb-83c3-02420a000092', 'crm.skills.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f7f837e-133f-11eb-83c3-02420a000092', 'crm.skills.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b8a90f6-133f-11eb-83c3-02420a000092', 'crm.products.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b93de04-133f-11eb-83c3-02420a000092', 'crm.projects.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b987efa-133f-11eb-83c3-02420a000092', 'crm.project-status.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b9d3558-133f-11eb-83c3-02420a000092', 'crm.settings-default.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8ba1efe4-133f-11eb-83c3-02420a000092', 'crm.settings-provisioning.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8bab6240-133f-11eb-83c3-02420a000092', 'crm.skills.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8fed11e2-160e-11eb-a0a5-02420a000092', 'billing.subscription-provisioning-status.request-company', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fa326be4-18cd-11eb-8cea-02420a0000bf', 'billing.permissions-groups-memberships.modify-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fa37d05c-18cd-11eb-8cea-02420a0000bf', 'billing.permissions-groups-memberships.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad2f7724-7751-11ea-8ada-02420a0000d8', 'billing.permissions.add-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad39b2c0-7751-11ea-8ada-02420a0000d8', 'billing.permissions.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad571450-7751-11ea-8ada-02420a0000d8', 'billing.currency.read-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad6b7648-7751-11ea-8ada-02420a0000d8', 'billing.journal-entries-type.read-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad8bb2d2-7751-11ea-8ada-02420a0000d8', 'billing.permissions-bool.add-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('adaad43c-7751-11ea-8ada-02420a0000d8', 'billing.sessions.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fdfc2832-7751-11ea-8ada-02420a0000d8', 'billing.sessions.read-self', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('feaf77e2-133d-11eb-83c3-02420a000092', 'crm.agents.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('5f90aa9c-5cd1-11e9-8256-02420a00000a', 'billing.journal-entries.read-company', true, 'b6aff5a7-71d0-4ba8-91f6-9a9bf9d0409d', NULL, '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('29391144-133e-11eb-83c3-02420a000092', 'crm.assignments.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4c36e126-133e-11eb-83c3-02420a000092', 'crm.companies.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fcde21ea-7750-11ea-8ada-02420a0000d8', 'billing.packages.read-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f5e8d22-133f-11eb-83c3-02420a000092', 'crm.settings-provisioning.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b85ede4-133f-11eb-83c3-02420a000092', 'crm.materials.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8fe7ae3c-160e-11eb-a0a5-02420a000092', 'billing.subscription-provisioning-status.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4c6af010-133e-11eb-83c3-02420a000092', 'crm.labour-subtype-exception.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7c7aeb34-133e-11eb-83c3-02420a000092', 'crm.labour-subtype-non-billable.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('74b3ffc9-6bbe-485b-b364-8f668b9485ba', 'billing.contacts.read-company', true, 'b6aff5a7-71d0-4ba8-91f6-9a9bf9d0409d', NULL, '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('825dc164-a8b7-4b33-aadc-abdafefe9e4d', 'billing.permissions.delete-company', true, 'b6aff5a7-71d0-4ba8-91f6-9a9bf9d0409d', NULL, '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ae4bbe90-7785-11ea-8315-02420a0000d8', 'billing.permissions-groups.read-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ae50fa18-7785-11ea-8315-02420a0000d8', 'billing.permissions-groups.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ae6b7ca8-7785-11ea-8315-02420a0000d8', 'billing.permissions-groups-memberships.modify-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('f9b9b062-7785-11ea-8315-02420a0000d8', 'billing.permissions-groups-memberships.read-self', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7c9762dc-133e-11eb-83c3-02420a000092', 'crm.materials.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7cb3682e-133e-11eb-83c3-02420a000092', 'crm.project-notes.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('a3d377dc-133e-11eb-83c3-02420a000092', 'crm.project-status.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('a3eafd94-133e-11eb-83c3-02420a000092', 'crm.settings-default.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('b2d3bb98-133e-11eb-83c3-02420a000092', 'crm.settings-user.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b2d15c0-133f-11eb-83c3-02420a000092', 'crm.employment-status.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8ae1dc0e-133f-11eb-83c3-02420a000092', 'crm.estimating-man-hours.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8afe085c-133f-11eb-83c3-02420a000092', 'crm.materials.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b1564d4-133f-11eb-83c3-02420a000092', 'crm.settings-default.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3e72ad94-133f-11eb-83c3-02420a000092', 'crm.employment-status.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b6a0ff2-133f-11eb-83c3-02420a000092', 'crm.estimating-man-hours.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('17d79f96-133f-11eb-83c3-02420a000092', 'crm.agents.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('17e17fac-133f-11eb-83c3-02420a000092', 'crm.agents.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('17fd94c6-133f-11eb-83c3-02420a000092', 'crm.assignments.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1819ea04-133f-11eb-83c3-02420a000092', 'crm.companies.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1831651c-133f-11eb-83c3-02420a000092', 'crm.estimating-man-hours.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1848d170-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-exception.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18620a3c-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-holidays.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('187e2654-133f-11eb-83c3-02420a000092', 'crm.labour-types.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('189b7e02-133f-11eb-83c3-02420a000092', 'crm.products.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18aefa72-133f-11eb-83c3-02420a000092', 'crm.projects.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18c6a398-133f-11eb-83c3-02420a000092', 'crm.project-status.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18d979b4-133f-11eb-83c3-02420a000092', 'crm.settings-provisioning.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('18f5751a-133f-11eb-83c3-02420a000092', 'crm.skills.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3e649448-133f-11eb-83c3-02420a000092', 'crm.agents.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3e93579c-133f-11eb-83c3-02420a000092', 'crm.companies.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3eaaf4f6-133f-11eb-83c3-02420a000092', 'crm.contacts.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3ec2d1fc-133f-11eb-83c3-02420a000092', 'crm.labour.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6c68bb6e-774d-11ea-9784-02420a0000d8', 'billing.permissions.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6c7c3004-774d-11ea-9784-02420a0000d8', 'billing.companies.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6c8fed88-774d-11ea-9784-02420a0000d8', 'billing.contacts.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6ca33c12-774d-11ea-9784-02420a0000d8', 'billing.coupon-codes.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6cbd2456-774d-11ea-9784-02420a0000d8', 'billing.currency.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6cd043ec-774d-11ea-9784-02420a0000d8', 'billing.industries.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6ce42b14-774d-11ea-9784-02420a0000d8', 'billing.invoices.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6cf9255a-774d-11ea-9784-02420a0000d8', 'billing.journal-entries.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d14cb9d6-774d-11ea-9784-02420a0000d8', 'billing.packages.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d160a22a-774d-11ea-9784-02420a0000d8', 'billing.packages-type.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d1740b1c-774d-11ea-9784-02420a0000d8', 'billing.payment-frequencies.add-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d18d5c66-774d-11ea-9784-02420a0000d8', 'billing.payment-method.modify-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d1a0fd70-774d-11ea-9784-02420a0000d8', 'billing.permissions-bool.modify-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d1b52af2-774d-11ea-9784-02420a0000d8', 'billing.sessions.modify-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('f7be8540-774d-11ea-9784-02420a0000d8', 'billing.subscription.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fca7cf00-7750-11ea-8ada-02420a0000d8', 'billing.permissions.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fcc0d1e4-7750-11ea-8ada-02420a0000d8', 'billing.coupon-codes.read-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fcd947d8-7750-11ea-8ada-02420a0000d8', 'billing.journal-entries-type.read-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fce8599e-7750-11ea-8ada-02420a0000d8', 'billing.payment-frequencies.read-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fd01a21e-7750-11ea-8ada-02420a0000d8', 'billing.permissions-bool.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3ed0fda4-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-exception.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3ee3e0d6-133f-11eb-83c3-02420a000092', 'crm.labour-subtype-holidays.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f06201a-133f-11eb-83c3-02420a000092', 'crm.materials.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f1d5c08-133f-11eb-83c3-02420a000092', 'crm.products.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f2feb70-133f-11eb-83c3-02420a000092', 'crm.projects.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f47153e-133f-11eb-83c3-02420a000092', 'crm.project-status.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f59e718-133f-11eb-83c3-02420a000092', 'crm.settings-provisioning.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f76027c-133f-11eb-83c3-02420a000092', 'crm.skills.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('bc00201e-2228-11eb-a36b-02420a0000bf', 'crm.report.companies-pdf', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e8bde50a-2228-11eb-a36b-02420a0000bf', 'crm.export.companies-csv', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e8c2f5e0-2228-11eb-a36b-02420a0000bf', 'crm.export.companies-csv', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e8c7d970-2228-11eb-a36b-02420a0000bf', 'crm.export.companies-csv', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e8cc9442-2228-11eb-a36b-02420a0000bf', 'crm.export.companies-csv', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e8d1e442-2228-11eb-a36b-02420a0000bf', 'crm.report.projects-pdf', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e8d6aebe-2228-11eb-a36b-02420a0000bf', 'crm.report.projects-pdf', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e8dbba80-2228-11eb-a36b-02420a0000bf', 'crm.report.projects-pdf', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e8e0e9c4-2228-11eb-a36b-02420a0000bf', 'crm.report.projects-pdf', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e8e5c4da-2228-11eb-a36b-02420a0000bf', 'crm.report.assignments-pdf', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e8ea7a66-2228-11eb-a36b-02420a0000bf', 'crm.report.assignments-pdf', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8aca8b3a-133f-11eb-83c3-02420a000092', 'crm.employment-status.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4c4eb76a-133e-11eb-83c3-02420a000092', 'crm.estimating-man-hours.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8b8f3552-133f-11eb-83c3-02420a000092', 'crm.project-notes.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8ba6a728-133f-11eb-83c3-02420a000092', 'crm.settings-user.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('96b4a616-160e-11eb-a0a5-02420a000092', 'billing.subscription-provisioning-status.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}
+') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('b5c1fc32-2146-11eb-87f7-02420a0000bf', 'crm.agents.request-self', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('cc803bae-2147-11eb-87f7-02420a0000bf', 'crm.agents.display-own', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('cc85e6bc-2147-11eb-87f7-02420a0000bf', 'crm.agents.display-own', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('cc8b8c16-2147-11eb-87f7-02420a0000bf', 'crm.agents.display-own', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('cc908964-2147-11eb-87f7-02420a0000bf', 'crm.agents.display-own', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('cc95b5a6-2147-11eb-87f7-02420a0000bf', 'crm.agents.display-own', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad2ac3ca-214f-11eb-8fd1-02420a0000bf', 'crm.view.dashboard.dispatch-tab', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad303472-214f-11eb-8fd1-02420a0000bf', 'crm.view.dashboard.dispatch-tab', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad354ec6-214f-11eb-8fd1-02420a0000bf', 'crm.view.dashboard.dispatch-tab', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ad3a69e2-214f-11eb-8fd1-02420a0000bf', 'crm.view.dashboard.dispatch-tab', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3d4d260c-21d0-11eb-a093-02420a0000bf', 'crm.view.dashboard.billing-tab', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3d52b414-21d0-11eb-a093-02420a0000bf', 'crm.view.dashboard.billing-tab', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3d578caa-21d0-11eb-a093-02420a0000bf', 'crm.view.dashboard.billing-tab', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d981bea2-21d0-11eb-a093-02420a0000bf', 'crm-view.dashboard.management-tab', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d986a30e-21d0-11eb-a093-02420a0000bf', 'crm-view.dashboard.management-tab', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d98b6c90-21d0-11eb-a093-02420a0000bf', 'crm-view.dashboard.management-tab', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('342a34ce-21d1-11eb-a093-02420a0000bf', 'crm.labour.manual-entries', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('342f6246-21d1-11eb-a093-02420a0000bf', 'crm.labour.manual-entries', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('34344c66-21d1-11eb-a093-02420a0000bf', 'crm.labour.manual-entries', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('34390b70-21d1-11eb-a093-02420a0000bf', 'crm.labour.manual-entries', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('5c1c3500-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.address-book', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('5c22cdd4-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.address-book', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('5c27f80e-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.address-book', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('5c2cb3e4-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.address-book', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('72794bf8-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-contacts', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('727ea1e8-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-contacts', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7283c0ba-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-contacts', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('728868d6-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-contacts', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7e0e0a44-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-companies', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7e133b86-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-companies', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7e186cdc-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-companies', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7e24b1f4-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-companies', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8d035ec8-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.projects', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8d089028-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.projects', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8d0d5aa4-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.projects', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8d1222c8-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.projects', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('9eb0df9c-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-projects', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('9eb61656-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-projects', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('9ebaf720-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-projects', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('9ebfb968-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-projects', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('affc5164-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-assignments', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('b00174d2-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-assignments', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('b0065678-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-assignments', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('b00b218a-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-assignments', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('bdb7e02a-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-material-entries', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('bdbd11f8-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-material-entries', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('bdc1f2c2-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-material-entries', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('bdc6a90c-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.all-material-entries', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d1faf310-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.project-definitions', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d1ffc340-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.project-definitions', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d204a6bc-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.project-definitions', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d2094eb0-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.project-definitions', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('dfff044c-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.product-definitions', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e0049a10-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.product-definitions', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e0388b40-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.product-definitions', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e03d63c2-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.product-definitions', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ebf2164a-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.assignment-status-definitions', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ebf71a14-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.assignment-status-definitions', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ebfbfe44-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.assignment-status-definitions', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ec00bd26-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.assignment-status-definitions', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('f97710fe-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.man-hours-definitions', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('f97c2e54-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.man-hours-definitions', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('f9810d0c-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.man-hours-definitions', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('f985d9ae-21da-11eb-921e-02420a0000bf', 'crm.navigation.show.man-hours-definitions', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('08fc41e8-21db-11eb-921e-02420a0000bf', 'crm.navigation.show.project-status-definitions', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('0901375c-21db-11eb-921e-02420a0000bf', 'crm.navigation.show.project-status-definitions', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('09060dd6-21db-11eb-921e-02420a0000bf', 'crm.navigation.show.project-status-definitions', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('090ac9f2-21db-11eb-921e-02420a0000bf', 'crm.navigation.show.project-status-definitions', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c43c46f2-21f8-11eb-b243-02420a0000bf', 'crm.navigation.show.agents', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c4418cc0-21f8-11eb-b243-02420a0000bf', 'crm.navigation.show.agents', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c446904e-21f8-11eb-b243-02420a0000bf', 'crm.navigation.show.agents', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c44b4efe-21f8-11eb-b243-02420a0000bf', 'crm.navigation.show.agents', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d9800116-21f8-11eb-b243-02420a0000bf', 'crm.navigation.show.all-agents', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d9859cca-21f8-11eb-b243-02420a0000bf', 'crm.navigation.show.all-agents', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d98b3f54-21f8-11eb-b243-02420a0000bf', 'crm.navigation.show.all-agents', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d9976ab8-21f8-11eb-b243-02420a0000bf', 'crm.navigation.show.all-agents', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e8d9fd2e-21f8-11eb-b243-02420a0000bf', 'crm.navigation.show.all-labour-entries', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e8df450e-21f8-11eb-b243-02420a0000bf', 'crm.navigation.show.all-labour-entries', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e8e43230-21f8-11eb-b243-02420a0000bf', 'crm.navigation.show.all-labour-entries', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fbbd4338-21f8-11eb-b243-02420a0000bf', 'crm.navigation.show.agents-definitions', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fbc2e360-21f8-11eb-b243-02420a0000bf', 'crm.navigation.show.agents-definitions', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fbc7d442-21f8-11eb-b243-02420a0000bf', 'crm.navigation.show.agents-definitions', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fbd4f0b4-21f8-11eb-b243-02420a0000bf', 'crm.navigation.show.agents-definitions', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('0c8588ec-21f9-11eb-b243-02420a0000bf', 'crm.navigation.show.employment-status-definitions', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('0c8a9044-21f9-11eb-b243-02420a0000bf', 'crm.navigation.show.employment-status-definitions', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('0c8f7352-21f9-11eb-b243-02420a0000bf', 'crm.navigation.show.employment-status-definitions', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('0c9448aa-21f9-11eb-b243-02420a0000bf', 'crm.navigation.show.employment-status-definitions', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1a562800-21f9-11eb-b243-02420a0000bf', 'crm.navigation.show.labour-exception-definitions', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1a5b50dc-21f9-11eb-b243-02420a0000bf', 'crm.navigation.show.labour-exception-definitions', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1a60ec86-21f9-11eb-b243-02420a0000bf', 'crm.navigation.show.labour-exception-definitions', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1a69d0bc-21f9-11eb-b243-02420a0000bf', 'crm.navigation.show.labour-exception-definitions', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2a4fd116-21f9-11eb-b243-02420a0000bf', 'crm.navigation.show.labour-holidays-definitions', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2a54f498-21f9-11eb-b243-02420a0000bf', 'crm.navigation.show.labour-holidays-definitions', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2a59d3a0-21f9-11eb-b243-02420a0000bf', 'crm.navigation.show.labour-holidays-definitions', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2a5e8ed6-21f9-11eb-b243-02420a0000bf', 'crm.navigation.show.labour-holidays-definitions', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('37bff77c-21f9-11eb-b243-02420a0000bf', 'crm.navigation.show.labour-non-billable-definitions', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('37c4c0ae-21f9-11eb-b243-02420a0000bf', 'crm.navigation.show.labour-non-billable-definitions', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('37c99caa-21f9-11eb-b243-02420a0000bf', 'crm.navigation.show.labour-non-billable-definitions', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('37ce5e16-21f9-11eb-b243-02420a0000bf', 'crm.navigation.show.labour-non-billable-definitions', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('87c057e8-21fa-11eb-b243-02420a0000bf', 'crm.navigation.show.reports', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('87c5686e-21fa-11eb-b243-02420a0000bf', 'crm.navigation.show.reports', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('87ca6b34-21fa-11eb-b243-02420a0000bf', 'crm.navigation.show.reports', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('87d2b4b0-21fa-11eb-b243-02420a0000bf', 'crm.navigation.show.reports', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('96e6e4d0-21fa-11eb-b243-02420a0000bf', 'crm.navigation.show.all-reports', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('96ebeeb2-21fa-11eb-b243-02420a0000bf', 'crm.navigation.show.all-reports', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('96f0c2b6-21fa-11eb-b243-02420a0000bf', 'crm.navigation.show.all-reports', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('96f588dc-21fa-11eb-b243-02420a0000bf', 'crm.navigation.show.all-reports', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('a62d3a02-21fa-11eb-b243-02420a0000bf', 'crm.navigation.show.settings', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('a6329a88-21fa-11eb-b243-02420a0000bf', 'crm.navigation.show.settings', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('a637a5c8-21fa-11eb-b243-02420a0000bf', 'crm.navigation.show.settings', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('a63c5b36-21fa-11eb-b243-02420a0000bf', 'crm.navigation.show.settings', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('17e9e97a-2204-11eb-b508-02420a0000bf', 'crm.assignments-status.request-company', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2a00a54c-2207-11eb-bdd7-02420a0000bf', 'crm.labour-subtype-exception.request-company', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('37fe1cf6-2207-11eb-bdd7-02420a0000bf', 'crm.labour-subtype-holidays.request-company', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('38032d40-2207-11eb-bdd7-02420a0000bf', 'crm.labour-subtype-non-billable.request-company', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3f96f49c-2207-11eb-bdd7-02420a0000bf', 'crm.labour-types.request-company', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('5acd0a76-2207-11eb-bdd7-02420a0000bf', 'crm.project-status.request-company', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('5ad21c28-2207-11eb-bdd7-02420a0000bf', 'crm.settings-default.request-company', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6311b380-2207-11eb-bdd7-02420a0000bf', 'crm.settings-provisioning.request-company', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('69c03548-2208-11eb-bdd7-02420a0000bf', 'crm.contacts.request-company', true, NULL, '26e41e6a-2208-11eb-bdd7-02420a0000bf', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('69c4f308-2208-11eb-bdd7-02420a0000bf', 'crm.navigation.show.address-book', true, NULL, '26e41e6a-2208-11eb-bdd7-02420a0000bf', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('69c99caa-2208-11eb-bdd7-02420a0000bf', 'crm.navigation.show.all-contacts', true, NULL, '26e41e6a-2208-11eb-bdd7-02420a0000bf', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('be79f3d0-2208-11eb-bdd7-02420a0000bf', 'crm.navigation.show.all-companies', true, NULL, '26e41e6a-2208-11eb-bdd7-02420a0000bf', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('be805d38-2208-11eb-bdd7-02420a0000bf', 'crm.companies.request-company', true, NULL, '26e41e6a-2208-11eb-bdd7-02420a0000bf', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('48961566-2228-11eb-a36b-02420a0000bf', 'crm.report.contacts-pdf', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('48ae077a-2228-11eb-a36b-02420a0000bf', 'crm.report.contacts-pdf', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('48def542-2228-11eb-a36b-02420a0000bf', 'crm.report.contacts-pdf', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('48e3ea66-2228-11eb-a36b-02420a0000bf', 'crm.report.contacts-pdf', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('577dfa8a-2228-11eb-a36b-02420a0000bf', 'crm.export.contacts-csv', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('5782fcb0-2228-11eb-a36b-02420a0000bf', 'crm.export.contacts-csv', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('5787ad32-2228-11eb-a36b-02420a0000bf', 'crm.export.contacts-csv', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('578c7f92-2228-11eb-a36b-02420a0000bf', 'crm.export.contacts-csv', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('bbe992d6-2228-11eb-a36b-02420a0000bf', 'crm.report.companies-pdf', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('bbeee164-2228-11eb-a36b-02420a0000bf', 'crm.report.companies-pdf', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('bbf3ee98-2228-11eb-a36b-02420a0000bf', 'crm.report.companies-pdf', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('17e4b57c-2204-11eb-b508-02420a0000bf', 'crm.employment-status.request-company', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e8ef269c-2228-11eb-a36b-02420a0000bf', 'crm.report.assignments-pdf', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e8f3e448-2228-11eb-a36b-02420a0000bf', 'crm.report.assignments-pdf', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e8f89826-2228-11eb-a36b-02420a0000bf', 'crm.export.assignments-csv', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e8fd77ba-2228-11eb-a36b-02420a0000bf', 'crm.export.assignments-csv', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e9024056-2228-11eb-a36b-02420a0000bf', 'crm.export.assignments-csv', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e9072382-2228-11eb-a36b-02420a0000bf', 'crm.export.assignments-csv', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('222c2fe0-2229-11eb-a36b-02420a0000bf', 'crm.report.materials-pdf', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2231dd3c-2229-11eb-a36b-02420a0000bf', 'crm.report.materials-pdf', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2236d274-2229-11eb-a36b-02420a0000bf', 'crm.report.materials-pdf', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('22430a44-2229-11eb-a36b-02420a0000bf', 'crm.report.materials-pdf', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2247c502-2229-11eb-a36b-02420a0000bf', 'crm.export.materials-csv', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('224d0b48-2229-11eb-a36b-02420a0000bf', 'crm.export.materials-csv', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2254830a-2229-11eb-a36b-02420a0000bf', 'crm.export.materials-csv', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('22593d78-2229-11eb-a36b-02420a0000bf', 'crm.export.materials-csv', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('225e4a34-2229-11eb-a36b-02420a0000bf', 'crm.export.product-definitions-csv', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('226310f0-2229-11eb-a36b-02420a0000bf', 'crm.export.product-definitions-csv', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2267cbcc-2229-11eb-a36b-02420a0000bf', 'crm.export.product-definitions-csv', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('226c9f12-2229-11eb-a36b-02420a0000bf', 'crm.export.product-definitions-csv', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('227185a4-2229-11eb-a36b-02420a0000bf', 'crm.export.assignment-status-definitions-csv', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('22763766-2229-11eb-a36b-02420a0000bf', 'crm.export.assignment-status-definitions-csv', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('227c484a-2229-11eb-a36b-02420a0000bf', 'crm.export.assignment-status-definitions-csv', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('22817f72-2229-11eb-a36b-02420a0000bf', 'crm.export.assignment-status-definitions-csv', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('22865204-2229-11eb-a36b-02420a0000bf', 'crm.export.man-hours-definitions-csv', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('228b07ae-2229-11eb-a36b-02420a0000bf', 'crm.export.man-hours-definitions-csv', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('228fea12-2229-11eb-a36b-02420a0000bf', 'crm.export.man-hours-definitions-csv', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2294d9dc-2229-11eb-a36b-02420a0000bf', 'crm.export.man-hours-definitions-csv', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('68349e78-2229-11eb-a36b-02420a0000bf', 'crm.export.project-status-definitions-csv', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('68396b4c-2229-11eb-a36b-02420a0000bf', 'crm.export.project-status-definitions-csv', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('683e16ce-2229-11eb-a36b-02420a0000bf', 'crm.export.project-status-definitions-csv', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6842d90c-2229-11eb-a36b-02420a0000bf', 'crm.export.project-status-definitions-csv', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('68479a28-2229-11eb-a36b-02420a0000bf', 'crm.report.labour-pdf', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('684c3f1a-2229-11eb-a36b-02420a0000bf', 'crm.report.labour-pdf', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('68510018-2229-11eb-a36b-02420a0000bf', 'crm.report.labour-pdf', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6855c38c-2229-11eb-a36b-02420a0000bf', 'crm.report.labour-pdf', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('685a7dbe-2229-11eb-a36b-02420a0000bf', 'crm.export.labour-csv', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('685f5730-2229-11eb-a36b-02420a0000bf', 'crm.export.labour-csv', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('68643188-2229-11eb-a36b-02420a0000bf', 'crm.export.labour-csv', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6868cd74-2229-11eb-a36b-02420a0000bf', 'crm.export.labour-csv', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('686d736a-2229-11eb-a36b-02420a0000bf', 'crm.export.employment-status-definitions-csv', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('68725fba-2229-11eb-a36b-02420a0000bf', 'crm.export.employment-status-definitions-csv', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6877105a-2229-11eb-a36b-02420a0000bf', 'crm.export.employment-status-definitions-csv', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('687bbfe2-2229-11eb-a36b-02420a0000bf', 'crm.export.employment-status-definitions-csv', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6880d4c8-2229-11eb-a36b-02420a0000bf', 'crm.export.labour-exception-definitions-csv', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6885a408-2229-11eb-a36b-02420a0000bf', 'crm.export.labour-exception-definitions-csv', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('688a582c-2229-11eb-a36b-02420a0000bf', 'crm.export.labour-exception-definitions-csv', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('688f0c6e-2229-11eb-a36b-02420a0000bf', 'crm.export.labour-exception-definitions-csv', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6893c25e-2229-11eb-a36b-02420a0000bf', 'crm.export.labour-holidays-definitions-csv', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('68986cc8-2229-11eb-a36b-02420a0000bf', 'crm.export.labour-holidays-definitions-csv', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('689d0ac6-2229-11eb-a36b-02420a0000bf', 'crm.export.labour-holidays-definitions-csv', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('68a1d33a-2229-11eb-a36b-02420a0000bf', 'crm.export.labour-holidays-definitions-csv', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('68a6b99a-2229-11eb-a36b-02420a0000bf', 'crm.export.labour-non-billable-definitions-csv', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('68ab711a-2229-11eb-a36b-02420a0000bf', 'crm.export.labour-non-billable-definitions-csv', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('68b0217e-2229-11eb-a36b-02420a0000bf', 'crm.export.labour-non-billable-definitions-csv', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('68b4d214-2229-11eb-a36b-02420a0000bf', 'crm.export.labour-non-billable-definitions-csv', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fc9b5f40-2231-11eb-9e01-02420a0000bf', 'crm.project-notes.request-any', true, NULL, 'b84feee6-2231-11eb-9e01-02420a0000bf', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fca09db6-2231-11eb-9e01-02420a0000bf', 'crm.project-notes.request-company', true, NULL, 'b84feee6-2231-11eb-9e01-02420a0000bf', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fca5b76a-2231-11eb-9e01-02420a0000bf', 'crm.projects.request-any', true, NULL, 'b84feee6-2231-11eb-9e01-02420a0000bf', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fcac0890-2231-11eb-9e01-02420a0000bf', 'crm.projects.request-company', true, NULL, 'b84feee6-2231-11eb-9e01-02420a0000bf', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fcb0d50a-2231-11eb-9e01-02420a0000bf', 'crm.project-status.request-any', true, NULL, 'b84feee6-2231-11eb-9e01-02420a0000bf', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fcb590ea-2231-11eb-9e01-02420a0000bf', 'crm.project-status.request-company', true, NULL, 'b84feee6-2231-11eb-9e01-02420a0000bf', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fcba4df6-2231-11eb-9e01-02420a0000bf', 'crm.navigation.show.projects', true, NULL, 'b84feee6-2231-11eb-9e01-02420a0000bf', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fcbf0d1e-2231-11eb-9e01-02420a0000bf', 'crm.navigation.show.all-projects', true, NULL, 'b84feee6-2231-11eb-9e01-02420a0000bf', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2bd24704-2293-11eb-9db3-02420a0000bf', 'crm.view.billing-index.merge-projects', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2bd79a2e-2293-11eb-9db3-02420a0000bf', 'crm.view.billing-index.merge-projects', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2bdc6874-2293-11eb-9db3-02420a0000bf', 'crm.view.billing-index.merge-projects', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2be15e06-2293-11eb-9db3-02420a0000bf', 'crm.view.billing-index.merge-projects', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('f200a410-2294-11eb-9db3-02420a0000bf', 'crm.labour.push-self', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('f205ef38-2294-11eb-9db3-02420a0000bf', 'crm.labour.push-self', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('f20b5810-2294-11eb-9db3-02420a0000bf', 'crm.labour.push-self', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('f2100770-2294-11eb-9db3-02420a0000bf', 'crm.labour.push-self', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('f214dac0-2294-11eb-9db3-02420a0000bf', 'crm.labour.push-self', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4ddec4ae-22c4-11eb-afc3-02420a0000bf', 'crm.assignments.request-self', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4deac2fe-22c4-11eb-afc3-02420a0000bf', 'crm.assignments.request-self', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4df0b52e-22c4-11eb-afc3-02420a0000bf', 'crm.assignments.request-self', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4df57f3c-22c4-11eb-afc3-02420a0000bf', 'crm.assignments.request-self', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4dfa5034-22c4-11eb-afc3-02420a0000bf', 'crm.assignments.request-self', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2638f286-2296-11eb-9db3-02420a0000bf', 'crm.export.projects-csv', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('263dcb58-2296-11eb-9db3-02420a0000bf', 'crm.export.projects-csv', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('26429ade-2296-11eb-9db3-02420a0000bf', 'crm.export.projects-csv', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('07f44ea0-249f-11eb-bf69-02420a0000c5', 'crm.labour.request-self', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('58b5a154-249f-11eb-bf69-02420a0000c5', 'crm.materials.request-self', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('962eccae-255d-11eb-90f4-02420a0000c5', 'crm.companies.push-company', true, NULL, '77a35a5e-255b-11eb-90f4-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('963c46b8-255d-11eb-90f4-02420a0000c5', 'crm.contacts.push-company', true, NULL, '77a35a5e-255b-11eb-90f4-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('26062322-255e-11eb-90f4-02420a0000c5', 'crm.companies.delete-company', true, NULL, '0e7bec64-255e-11eb-90f4-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('260ae7ae-255e-11eb-90f4-02420a0000c5', 'crm.contacts.delete-company', true, NULL, '0e7bec64-255e-11eb-90f4-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('9c7474e0-255f-11eb-90f4-02420a0000c5', 'crm.projects.push-company', true, NULL, '6718376e-255f-11eb-90f4-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('af76bf8a-255f-11eb-90f4-02420a0000c5', 'crm.projects.delete-company', true, NULL, 'a7942168-255f-11eb-90f4-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c8f0b3b6-2560-11eb-90f4-02420a0000c5', 'crm.navigation.show.all-assignments', true, NULL, '95af836a-2560-11eb-90f4-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c8f616da-2560-11eb-90f4-02420a0000c5', 'crm.navigation.show.projects', true, NULL, '95af836a-2560-11eb-90f4-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6b84622e-25b8-11eb-b384-02420a0000c5', 'crm.labour.delete-self', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6bf0eaf6-25be-11eb-8c5a-02420a0000c5', 'crm.assignments.push-company', true, NULL, '2c6ed00a-25be-11eb-8c5a-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('80447be4-25be-11eb-8c5a-02420a0000c5', 'crm.assignments.delete-company', true, NULL, '794c861a-25be-11eb-8c5a-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d58aa1ac-25c1-11eb-916f-02420a0000c5', 'crm.materials.request-company', true, NULL, 'b563cb22-25be-11eb-8c5a-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d58f713c-25c1-11eb-916f-02420a0000c5', 'crm.navigation.show.all-material-entries', true, NULL, 'b563cb22-25be-11eb-8c5a-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d594242a-25c1-11eb-916f-02420a0000c5', 'crm.navigation.show.projects', true, NULL, 'b563cb22-25be-11eb-8c5a-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('9149f734-2686-11eb-98ca-02420a0000c5', 'crm.products.request-company', true, NULL, 'b563cb22-25be-11eb-8c5a-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c1ed0cd2-2690-11eb-9af9-02420a0000c5', 'crm.materials.push-company', true, NULL, '6481946e-2690-11eb-9af9-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('bde204c4-2692-11eb-9af9-02420a0000c5', 'crm.materials.delete-company', true, NULL, 'b2f46566-2692-11eb-9af9-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('053cfab8-2693-11eb-9af9-02420a0000c5', 'crm.navigation.show.project-definitions', true, NULL, 'e13f39e6-2692-11eb-9af9-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('0541d452-2693-11eb-9af9-02420a0000c5', 'crm.navigation.show.projects', true, NULL, 'e13f39e6-2692-11eb-9af9-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('0546ce1c-2693-11eb-9af9-02420a0000c5', 'crm.products.request-company', true, NULL, 'e13f39e6-2692-11eb-9af9-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('0fefc1fc-2693-11eb-9af9-02420a0000c5', 'crm.navigation.show.product-definitions', true, NULL, 'e13f39e6-2692-11eb-9af9-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('25388bc4-2694-11eb-9af9-02420a0000c5', 'crm.products.push-company', true, NULL, '05f6898c-2694-11eb-9af9-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('686d26e8-2694-11eb-9af9-02420a0000c5', 'crm.products.delete-company', true, NULL, '570179b8-2694-11eb-9af9-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e1ada348-2694-11eb-9af9-02420a0000c5', 'crm.navigation.show.assignment-status-definitions', true, NULL, 'b350f8ce-2694-11eb-9af9-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e1b2f906-2694-11eb-9af9-02420a0000c5', 'crm.navigation.show.project-definitions', true, NULL, 'b350f8ce-2694-11eb-9af9-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e1b7c27e-2694-11eb-9af9-02420a0000c5', 'crm.navigation.show.projects', true, NULL, 'b350f8ce-2694-11eb-9af9-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e1bc5884-2694-11eb-9af9-02420a0000c5', 'crm.assignments-status.request-company', true, NULL, 'b350f8ce-2694-11eb-9af9-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('fe795c14-2695-11eb-9af9-02420a0000c5', 'crm.assignments-status.push-company', true, NULL, 'f5295c2c-2695-11eb-9af9-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('be0da294-26b7-11eb-88aa-02420a0000c5', 'crm.assignments-status.delete-company', true, NULL, 'a9ccc576-26b7-11eb-88aa-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('315a83fc-26b8-11eb-88aa-02420a0000c5', 'crm.estimating-man-hours.request-company', true, NULL, 'ed5bdbce-26b7-11eb-88aa-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('315f7bb4-26b8-11eb-88aa-02420a0000c5', 'crm.navigation.show.man-hours-definitions', true, NULL, 'ed5bdbce-26b7-11eb-88aa-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('31906026-26b8-11eb-88aa-02420a0000c5', 'crm.navigation.show.projects', true, NULL, 'ed5bdbce-26b7-11eb-88aa-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3195081a-26b8-11eb-88aa-02420a0000c5', 'crm.estimating-man-hours.push-company', true, NULL, 'f715ea60-26b7-11eb-88aa-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3199ec72-26b8-11eb-88aa-02420a0000c5', 'crm.estimating-man-hours.delete-company', true, NULL, 'f72315d2-26b7-11eb-88aa-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('269fe942-26b9-11eb-88aa-02420a0000c5', 'crm.navigation.show.project-status-definitions', true, NULL, 'e0a991ea-26b8-11eb-88aa-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('26a4e6fe-26b9-11eb-88aa-02420a0000c5', 'crm.navigation.show.project-definitions', true, NULL, 'e0a991ea-26b8-11eb-88aa-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('26a9b418-26b9-11eb-88aa-02420a0000c5', 'crm.navigation.show.projects', true, NULL, 'e0a991ea-26b8-11eb-88aa-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('26ae64d6-26b9-11eb-88aa-02420a0000c5', 'crm.project-status.request-company', true, NULL, 'e0a991ea-26b8-11eb-88aa-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('26b31c24-26b9-11eb-88aa-02420a0000c5', 'crm.project-status.push-company', true, NULL, 'e0aeb332-26b8-11eb-88aa-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('26b7ebc8-26b9-11eb-88aa-02420a0000c5', 'crm.project-status.delete-company', true, NULL, 'e0b3c994-26b8-11eb-88aa-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2e04ba26-275b-11eb-a2a7-02420a0000c5', 'crm.agents.request-company', true, NULL, '04a51824-275b-11eb-a2a7-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2e0a5fc6-275b-11eb-a2a7-02420a0000c5', 'crm.navigation.show.agents', true, NULL, '04a51824-275b-11eb-a2a7-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2e0f6052-275b-11eb-a2a7-02420a0000c5', 'crm.navigation.show.all-agents', true, NULL, '04a51824-275b-11eb-a2a7-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('10296194-2762-11eb-a6c2-02420a0000c5', 'crm.agents.push-company', true, NULL, 'e9065342-2761-11eb-a6c2-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('11cfdf8c-2762-11eb-a6c2-02420a0000c5', 'crm.agents.delete-company', true, NULL, 'e90b5522-2761-11eb-a6c2-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2dc986ae-276f-11eb-a592-02420a0000c5', 'crm.labour.request-company', true, NULL, 'f6936452-276e-11eb-a592-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2dce9d7e-276f-11eb-a592-02420a0000c5', 'crm.navigation.show.all-labour-entries', true, NULL, 'f6936452-276e-11eb-a592-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2dd395ea-276f-11eb-a592-02420a0000c5', 'crm.navigation.show.agents', true, NULL, 'f6936452-276e-11eb-a592-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2dd88dfc-276f-11eb-a592-02420a0000c5', 'crm.labour.push-company', true, NULL, 'f69866f0-276e-11eb-a592-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2ddd7146-276f-11eb-a592-02420a0000c5', 'crm.labour.delete-company', true, NULL, 'f69d3a54-276e-11eb-a592-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('f98bcf84-2776-11eb-9015-02420a0000c5', 'crm.labour.manual-entries', true, NULL, 'f162fe22-2776-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('638312c0-2778-11eb-9015-02420a0000c5', 'crm.navigation.show.agents-definitions', true, NULL, 'efc4b442-2777-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6387fd94-2778-11eb-9015-02420a0000c5', 'crm.navigation.show.employment-status-definitions', true, NULL, 'efc4b442-2777-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('638cfc4a-2778-11eb-9015-02420a0000c5', 'crm.navigation.show.agents', true, NULL, 'efc4b442-2777-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('637d01c8-2778-11eb-9015-02420a0000c5', 'crm.employment-status.request-company', true, NULL, 'efc4b442-2777-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6396bae6-2778-11eb-9015-02420a0000c5', 'crm.employment-status.delete-company', true, NULL, 'efdca480-2777-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6391ddaa-2778-11eb-9015-02420a0000c5', 'crm.employment-status.push-company', true, NULL, 'efd7db9e-2777-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('63bb08da-277b-11eb-9015-02420a0000c5', 'crm.labour-subtype-exception.request-company', true, NULL, 'f7cf1fd0-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('63c013c0-277b-11eb-9015-02420a0000c5', 'crm.navigation.show.labour-exception-definitions', true, NULL, 'f7cf1fd0-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('63c53a8a-277b-11eb-9015-02420a0000c5', 'crm.navigation.show.agents-definitions', true, NULL, 'f7cf1fd0-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('63c9efe4-277b-11eb-9015-02420a0000c5', 'crm.navigation.show.agents', true, NULL, 'f7cf1fd0-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('63cec2da-277b-11eb-9015-02420a0000c5', 'crm.labour-subtype-exception.push-company', true, NULL, 'f7d4c818-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('63d3926a-277b-11eb-9015-02420a0000c5', 'crm.labour-subtype-exception.delete-company', true, NULL, 'f7d99c9e-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d68532b4-277b-11eb-9015-02420a0000c5', 'crm.labour-subtype-holidays.request-company', true, NULL, 'f7de4e74-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d68a0406-277b-11eb-9015-02420a0000c5', 'crm.navigation.show.labour-holidays-definitions', true, NULL, 'f7de4e74-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d68ebf6e-277b-11eb-9015-02420a0000c5', 'crm.navigation.show.agents-definitions', true, NULL, 'f7de4e74-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d6939584-277b-11eb-9015-02420a0000c5', 'crm.navigation.show.agents', true, NULL, 'f7de4e74-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d698593e-277b-11eb-9015-02420a0000c5', 'crm.labour-subtype-holidays.push-company', true, NULL, 'f7e2f79e-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d69d5fc4-277b-11eb-9015-02420a0000c5', 'crm.labour-subtype-holidays.delete-company', true, NULL, 'f7e880d8-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d6a23b20-277b-11eb-9015-02420a0000c5', 'crm.labour-subtype-non-billable.request-company', true, NULL, 'f7ed47e4-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d6a71c6c-277b-11eb-9015-02420a0000c5', 'crm.navigation.show.labour-non-billable-definitions', true, NULL, 'f7ed47e4-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d6acef48-277b-11eb-9015-02420a0000c5', 'crm.navigation.show.agents-definitions', true, NULL, 'f7ed47e4-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d6b1d788-277b-11eb-9015-02420a0000c5', 'crm.navigation.show.agents', true, NULL, 'f7ed47e4-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d6b6b4ce-277b-11eb-9015-02420a0000c5', 'crm.labour-subtype-non-billable.push-company', true, NULL, 'f7f1fc12-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d6bb5eca-277b-11eb-9015-02420a0000c5', 'crm.labour-subtype-non-billable.delete-company', true, NULL, 'f7f6deda-277a-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('64c6a718-277e-11eb-9015-02420a0000c5', 'crm.report.contacts-pdf', true, NULL, '056b58cc-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('64cb8512-277e-11eb-9015-02420a0000c5', 'crm.report.companies-pdf', true, NULL, '056b58cc-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('64d038f0-277e-11eb-9015-02420a0000c5', 'crm.report.projects-pdf', true, NULL, '056b58cc-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('64d4ec88-277e-11eb-9015-02420a0000c5', 'crm.report.assignments-pdf', true, NULL, '056b58cc-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('64d9b650-277e-11eb-9015-02420a0000c5', 'crm.report.materials-pdf', true, NULL, '056b58cc-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('64de7046-277e-11eb-9015-02420a0000c5', 'crm.report.labour-pdf', true, NULL, '056b58cc-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('64e34a58-277e-11eb-9015-02420a0000c5', 'crm.export.contacts-csv', true, NULL, '171f0082-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('64e7f6d4-277e-11eb-9015-02420a0000c5', 'crm.export.companies-csv', true, NULL, '171f0082-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('64f235d6-277e-11eb-9015-02420a0000c5', 'crm.export.assignments-csv', true, NULL, '171f0082-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('64f6e072-277e-11eb-9015-02420a0000c5', 'crm.export.materials-csv', true, NULL, '171f0082-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('64fbc1b4-277e-11eb-9015-02420a0000c5', 'crm.export.product-definitions-csv', true, NULL, '171f0082-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6500914e-277e-11eb-9015-02420a0000c5', 'crm.export.assignment-status-definitions-csv', true, NULL, '171f0082-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('65057132-277e-11eb-9015-02420a0000c5', 'crm.export.man-hours-definitions-csv', true, NULL, '171f0082-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('650a3122-277e-11eb-9015-02420a0000c5', 'crm.export.project-status-definitions-csv', true, NULL, '171f0082-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('650f2e16-277e-11eb-9015-02420a0000c5', 'crm.export.labour-csv', true, NULL, '171f0082-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6513f40a-277e-11eb-9015-02420a0000c5', 'crm.export.employment-status-definitions-csv', true, NULL, '171f0082-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('65190346-277e-11eb-9015-02420a0000c5', 'crm.export.labour-exception-definitions-csv', true, NULL, '171f0082-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('651dc6c4-277e-11eb-9015-02420a0000c5', 'crm.export.labour-holidays-definitions-csv', true, NULL, '171f0082-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('65227a70-277e-11eb-9015-02420a0000c5', 'crm.export.labour-non-billable-definitions-csv', true, NULL, '171f0082-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('148c17bc-2786-11eb-80c3-02420a0000c5', 'crm.navigation.show.reports', true, NULL, '056b58cc-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('14913c38-2786-11eb-80c3-02420a0000c5', 'crm.navigation.show.all-reports', true, NULL, '056b58cc-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2633f0b0-2296-11eb-9db3-02420a0000bf', 'crm.export.projects-csv', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('64ec9f0e-277e-11eb-9015-02420a0000c5', 'crm.export.projects-csv', true, NULL, '171f0082-277e-11eb-9015-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('5a9e0f7a-2ab6-11eb-a54d-02420a0000c9', 'crm.navigation.show.settings', true, NULL, '4a0bfe10-2ab6-11eb-a54d-02420a0000c9', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1f64ff96-2b41-11eb-ab5a-02420a0000c9', 'crm.backups.run-local', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1f69f7da-2b41-11eb-ab5a-02420a0000c9', 'crm.backups.run-local', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1f6ee2ea-2b41-11eb-ab5a-02420a0000c9', 'crm.backups.run-local', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1f7384e4-2b41-11eb-ab5a-02420a0000c9', 'crm.backups.run-local', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1f785fd2-2b41-11eb-ab5a-02420a0000c9', 'crm.backups.run-local', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1f7d06b8-2b41-11eb-ab5a-02420a0000c9', 'crm.backups.run-server', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1f81a8da-2b41-11eb-ab5a-02420a0000c9', 'crm.backups.run-server', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('1f86c0ea-2b41-11eb-ab5a-02420a0000c9', 'crm.backups.run-server', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('9a0388f8-2d0d-11eb-be13-02420a0000c9', 'billing.companies.modify-company-phone-id', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('9a0a93be-2d0d-11eb-be13-02420a0000c9', 'billing.companies.modify-company-phone-id', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('9a109ec6-2d0d-11eb-be13-02420a0000c9', 'billing.companies.modify-company-phone-id', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('a5da50d6-3725-11eb-83d4-02420a0000c9', 'crm.projects.request-company', true, NULL, '2c6ed00a-25be-11eb-8c5a-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d3630020-3725-11eb-83d4-02420a0000c9', 'crm.agents.request-company', true, NULL, '2c6ed00a-25be-11eb-8c5a-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('0f98d168-3727-11eb-83d4-02420a0000c9', 'crm.projects.request-company', true, NULL, '6481946e-2690-11eb-9af9-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('2974bf70-3727-11eb-83d4-02420a0000c9', 'crm.products.request-company', true, NULL, '6481946e-2690-11eb-9af9-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d0004ff2-3728-11eb-83d4-02420a0000c9', 'crm.navigation.show.project-definitions', true, NULL, 'ed5bdbce-26b7-11eb-88aa-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('28a20362-3729-11eb-83d4-02420a0000c9', 'crm.projects.request-company', true, NULL, '04a51824-275b-11eb-a2a7-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ca2b70d6-372b-11eb-a351-02420a0000c9', 'crm.agents.request-company', true, NULL, 'f6936452-276e-11eb-a592-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ca3084f4-372b-11eb-a351-02420a0000c9', 'crm.assignments.request-company', true, NULL, 'f6936452-276e-11eb-a592-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ca35dd6e-372b-11eb-a351-02420a0000c9', 'crm.projects.request-company', true, NULL, 'f6936452-276e-11eb-a592-02420a0000c5', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8a5c24b8-3d67-11eb-a638-02420a000036', 'billing.sessions.delete-self', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('cde655e8-4233-11eb-8de8-02420a00003c', 'crm.view.dashboard.management-tab', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('cdec6cb2-4233-11eb-8de8-02420a00003c', 'crm.view.dashboard.management-tab', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('cdf1a146-4233-11eb-8de8-02420a00003c', 'crm.view.dashboard.management-tab', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('b427e188-70cf-11eb-bad5-02420a00001f', 'billing.companies.modify-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('46e58594-7133-11eb-a3e6-02420a00001f', 'crm.dids.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('46eb4330-7133-11eb-a3e6-02420a00001f', 'crm.dids.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('46f1cf0c-7133-11eb-a3e6-02420a00001f', 'crm.dids.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('46f7b1a6-7133-11eb-a3e6-02420a00001f', 'crm.on-call-auto-attendants.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('46fd7c26-7133-11eb-a3e6-02420a00001f', 'crm.on-call-auto-attendants.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('47038f58-7133-11eb-a3e6-02420a00001f', 'crm.on-call-auto-attendants.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4708c43c-7133-11eb-a3e6-02420a00001f', 'crm.calendars.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('470e76d4-7133-11eb-a3e6-02420a00001f', 'crm.calendars.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4713e862-7133-11eb-a3e6-02420a00001f', 'crm.calendars.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6eae17c6-7133-11eb-a3e6-02420a00001f', 'crm.dids.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6eb390de-7133-11eb-a3e6-02420a00001f', 'crm.dids.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6eb9cb98-7133-11eb-a3e6-02420a00001f', 'crm.dids.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6ebf31e6-7133-11eb-a3e6-02420a00001f', 'crm.on-call-auto-attendants.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6ec54838-7133-11eb-a3e6-02420a00001f', 'crm.on-call-auto-attendants.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6eca5062-7133-11eb-a3e6-02420a00001f', 'crm.on-call-auto-attendants.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6ed02cee-7133-11eb-a3e6-02420a00001f', 'crm.calendars.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6ed58b9e-7133-11eb-a3e6-02420a00001f', 'crm.calendars.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6edaecc4-7133-11eb-a3e6-02420a00001f', 'crm.calendars.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6ee06b18-7133-11eb-a3e6-02420a00001f', 'crm.dids.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6ee59e94-7133-11eb-a3e6-02420a00001f', 'crm.dids.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6eede284-7133-11eb-a3e6-02420a00001f', 'crm.dids.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6efaa794-7133-11eb-a3e6-02420a00001f', 'crm.on-call-auto-attendants.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6effe006-7133-11eb-a3e6-02420a00001f', 'crm.on-call-auto-attendants.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6f051580-7133-11eb-a3e6-02420a00001f', 'crm.on-call-auto-attendants.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6f0af234-7133-11eb-a3e6-02420a00001f', 'crm.calendars.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6f104f90-7133-11eb-a3e6-02420a00001f', 'crm.calendars.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6f15335c-7133-11eb-a3e6-02420a00001f', 'crm.calendars.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('79c69484-76ac-11eb-817c-02420a000048', 'crm.voicemails.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('79cbc04e-76ac-11eb-817c-02420a000048', 'crm.voicemails.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('79d07bca-76ac-11eb-817c-02420a000048', 'crm.voicemails.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('79d580f2-76ac-11eb-817c-02420a000048', 'crm.voicemails.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('79db4b2c-76ac-11eb-817c-02420a000048', 'crm.voicemails.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('79dff2ee-76ac-11eb-817c-02420a000048', 'crm.voicemails.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('79e48fde-76ac-11eb-817c-02420a000048', 'crm.voicemails.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('79ea0478-76ac-11eb-817c-02420a000048', 'crm.voicemails.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('79efb562-76ac-11eb-817c-02420a000048', 'crm.voicemails.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('79f6ae08-76ac-11eb-817c-02420a000048', 'crm.voicemails.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('79fd44f2-76ac-11eb-817c-02420a000048', 'crm.voicemails.push-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7a022986-76ac-11eb-817c-02420a000048', 'crm.voicemails.delete-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8d377d88-8996-11eb-b59b-02420a0000bb', 'billing.companies.read-company', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8d3d2634-8996-11eb-b59b-02420a0000bb', 'billing.companies.read-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8d435d24-8996-11eb-b59b-02420a0000bb', 'billing.companies.read-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8d47fd84-8996-11eb-b59b-02420a0000bb', 'billing.companies.read-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8d4d05ea-8996-11eb-b59b-02420a0000bb', 'billing.companies.read-company', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('89e4bd50-8a70-11eb-886c-02420a0000bb', 'billing.credit-card-payments.one-time', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('89ea22a4-8a70-11eb-886c-02420a0000bb', 'billing.credit-card-payments.one-time', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('89efca88-8a70-11eb-886c-02420a0000bb', 'billing.credit-card-payments.one-time', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('89f533a6-8a70-11eb-886c-02420a0000bb', 'billing.credit-card-payments.setup-pre-authorized', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('89fa116e-8a70-11eb-886c-02420a0000bb', 'billing.credit-card-payments.setup-pre-authorized', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('89fecab0-8a70-11eb-886c-02420a0000bb', 'billing.credit-card-payments.setup-pre-authorized', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('533f0a16-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services', true, NULL, 'a702f834-8f16-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('53449a1c-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-phone-numbers', true, NULL, 'a702f834-8f16-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('534a3670-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-on-call-responders', true, NULL, 'a702f834-8f16-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('534f1a8c-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-calendars', true, NULL, 'a702f834-8f16-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('5353d1b2-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-voicemails', true, NULL, 'a702f834-8f16-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('5358a200-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services', true, NULL, '17e9110a-8f17-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('535d6150-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-phone-numbers', true, NULL, '17e9110a-8f17-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('53621628-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-on-call-responders', true, NULL, '17e9110a-8f17-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('53679f3a-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-calendars', true, NULL, '17e9110a-8f17-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('536c4526-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-voicemails', true, NULL, '17e9110a-8f17-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ca5e49d6-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ca635ce6-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-phone-numbers', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ca69b5dc-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-on-call-responders', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ca6edc4c-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-calendars', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ca738580-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-voicemails', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ca784f20-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ca7d0614-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-phone-numbers', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ca81ae8a-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-on-call-responders', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ca8693c8-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-calendars', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ca8b3f9a-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-voicemails', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ca8ff814-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ca94f7c4-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-phone-numbers', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ca99cd1c-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-on-call-responders', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('ca9e706a-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-calendars', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('caa35f8a-8f17-11eb-aa33-02420a0000bb', 'crm.navigation.show.phone-services-voicemails', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('3d23f33a-8fd6-11eb-9bce-02420a0000bb', 'crm.dids.request-company', true, NULL, 'a702f834-8f16-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('8845d34c-8fd6-11eb-9bce-02420a0000bb', 'crm.dids.push-company', true, NULL, '17e9110a-8f17-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('884b9f70-8fd6-11eb-9bce-02420a0000bb', 'crm.dids.delete-company', true, NULL, '6ce467a8-8fd6-11eb-9bce-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('abf263e6-8fd6-11eb-9bce-02420a0000bb', 'crm.calendars.request-company', true, NULL, 'a702f834-8f16-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('abf87e16-8fd6-11eb-9bce-02420a0000bb', 'crm.calendars.push-company', true, NULL, '17e9110a-8f17-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('abfd5062-8fd6-11eb-9bce-02420a0000bb', 'crm.calendars.delete-company', true, NULL, '6ce467a8-8fd6-11eb-9bce-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('cdc28442-8fd6-11eb-9bce-02420a0000bb', 'crm.on-call-auto-attendants.request-company', true, NULL, 'a702f834-8f16-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('cdc78262-8fd6-11eb-9bce-02420a0000bb', 'crm.on-call-auto-attendants.push-company', true, NULL, '17e9110a-8f17-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('cdcca06c-8fd6-11eb-9bce-02420a0000bb', 'crm.on-call-auto-attendants.delete-company', true, NULL, '6ce467a8-8fd6-11eb-9bce-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e77252fa-8fd6-11eb-9bce-02420a0000bb', 'crm.voicemails.request-company', true, NULL, 'a702f834-8f16-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e777578c-8fd6-11eb-9bce-02420a0000bb', 'crm.voicemails.push-company', true, NULL, '17e9110a-8f17-11eb-aa33-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('e77c2b22-8fd6-11eb-9bce-02420a0000bb', 'crm.voicemails.delete-company', true, NULL, '6ce467a8-8fd6-11eb-9bce-02420a0000bb', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('857a3a30-cec0-11eb-8163-02420a000017', 'crm.recordings.delete-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('85809a7e-cec0-11eb-8163-02420a000017', 'crm.recordings.push-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('85857c92-cec0-11eb-8163-02420a000017', 'crm.recordings.request-any', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c5b7345e-cec0-11eb-8163-02420a000017', 'crm.recordings.request-company', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c5bc43a4-cec0-11eb-8163-02420a000017', 'crm.recordings.request-company', true, NULL, '458369a0-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c5c1682a-cec0-11eb-8163-02420a000017', 'crm.recordings.request-company', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c5c632c4-cec0-11eb-8163-02420a000017', 'crm.recordings.request-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c5cadf9a-cec0-11eb-8163-02420a000017', 'crm.recordings.request-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c5d01550-cec0-11eb-8163-02420a000017', 'crm.recordings.delete-company', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c5d4d4fa-cec0-11eb-8163-02420a000017', 'crm.recordings.delete-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c5d9992c-cec0-11eb-8163-02420a000017', 'crm.recordings.delete-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c5df7874-cec0-11eb-8163-02420a000017', 'crm.recordings.push-company', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c5e44444-cec0-11eb-8163-02420a000017', 'crm.recordings.push-company', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('c5e915b4-cec0-11eb-8163-02420a000017', 'crm.recordings.push-company', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('7855068e-cf90-11eb-94c5-02420a000017', 'crm.navigation.show.phone-services-setup', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('785acee8-cf90-11eb-94c5-02420a000017', 'crm.navigation.show.phone-services-setup', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('785fb228-cf90-11eb-94c5-02420a000017', 'crm.navigation.show.phone-services-setup', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d5b52dba-cf93-11eb-a06e-02420a000017', 'crm.navigation.show.phone-services-recordings', true, NULL, '456f60fe-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d5ba304e-cf93-11eb-a06e-02420a000017', 'crm.navigation.show.phone-services-recordings', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('d5bf09ac-cf93-11eb-a06e-02420a000017', 'crm.navigation.show.phone-services-recordings', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('5652a3ec-d9cd-11eb-9397-02420a0000a7', 'billing.credit-card-payments.one-time', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('5657fdec-d9cd-11eb-9397-02420a0000a7', 'billing.credit-card-payments.setup-pre-authorized', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6a7d731a-d9cd-11eb-9397-02420a0000a7', 'billing.credit-card-payments.one-time', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('6a830d5c-d9cd-11eb-9397-02420a0000a7', 'billing.credit-card-payments.setup-pre-authorized', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4cd11984-d9dc-11eb-b935-02420a0000a7', 'crm.report.on-call-responder-30-days-pdf', true, NULL, '4574c8d2-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4cd6431e-d9dc-11eb-b935-02420a0000a7', 'crm.report.on-call-responder-30-days-pdf', true, NULL, '4579df84-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
+INSERT INTO public."billing-permissions-bool" VALUES ('4cdb6b3c-d9dc-11eb-b935-02420a0000a7', 'crm.report.on-call-responder-30-days-pdf', true, NULL, '457eac94-774c-11ea-9784-02420a0000d8', '{}') ON CONFLICT DO NOTHING;
