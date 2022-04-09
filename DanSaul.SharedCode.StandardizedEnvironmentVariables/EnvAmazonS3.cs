@@ -166,6 +166,85 @@ namespace SharedCode
 
 
 
+		public static string? S3_CARD_ON_FILE_BUCKET_NAME_FILE
+		{
+			get
+			{
+				string? str = Environment.GetEnvironmentVariable("S3_CARD_ON_FILE_BUCKET_NAME_FILE");
+				if (string.IsNullOrWhiteSpace(str))
+				{
+					Log.Error("S3_CARD_ON_FILE_BUCKET_NAME_FILE empty or missing.");
+					return null;
+				}
+				return str;
+			}
+		}
+
+		public static string? S3_CARD_ON_FILE_BUCKET_NAME
+		{
+			get
+			{
+				string? path = S3_CARD_ON_FILE_BUCKET_NAME_FILE;
+				if (string.IsNullOrWhiteSpace(path))
+					return null;
+				return File.ReadAllText(path);
+			}
+		}
+
+
+
+
+
+		public static string? S3_CARD_ON_FILE_AUTHORIZATION_FORMS_ACCESS_KEY_FILE
+		{
+			get
+			{
+				string? str = Environment.GetEnvironmentVariable("S3_CARD_ON_FILE_AUTHORIZATION_FORMS_ACCESS_KEY_FILE");
+				if (string.IsNullOrWhiteSpace(str))
+				{
+					Log.Error("S3_CARD_ON_FILE_AUTHORIZATION_FORMS_ACCESS_KEY_FILE empty or missing.");
+					return null;
+				}
+				return str;
+			}
+		}
+
+		public static string? S3_CARD_ON_FILE_AUTHORIZATION_FORMS_ACCESS_KEY
+		{
+			get
+			{
+				string? path = S3_CARD_ON_FILE_AUTHORIZATION_FORMS_ACCESS_KEY_FILE;
+				if (string.IsNullOrWhiteSpace(path))
+					return null;
+				return File.ReadAllText(path);
+			}
+		}
+
+
+		public static string? S3_CARD_ON_FILE_AUTHORIZATION_FORMS_SECRET_KEY_FILE
+		{
+			get
+			{
+				string? str = Environment.GetEnvironmentVariable("S3_CARD_ON_FILE_AUTHORIZATION_FORMS_SECRET_KEY_FILE");
+				if (string.IsNullOrWhiteSpace(str))
+				{
+					Log.Error("S3_CARD_ON_FILE_AUTHORIZATION_FORMS_SECRET_KEY_FILE empty or missing.");
+					return null;
+				}
+				return str;
+			}
+		}
+
+		public static string? S3_CARD_ON_FILE_AUTHORIZATION_FORMS_SECRET_KEY
+		{
+			get
+			{
+				string? path = S3_CARD_ON_FILE_AUTHORIZATION_FORMS_SECRET_KEY_FILE;
+				if (string.IsNullOrWhiteSpace(path))
+					return null;
+				return File.ReadAllText(path);
+			}
+		}
 
 
 
