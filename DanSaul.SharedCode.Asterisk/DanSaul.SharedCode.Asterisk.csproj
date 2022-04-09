@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -11,14 +11,11 @@
 
   <ItemGroup>
     <PackageReference Include="AWSSDK.Polly" Version="3.7.4.7" />
+    <PackageReference Include="DanSaul.SharedCode.DatabaseSchemas" Version="2022.4.722.8" />
+    <PackageReference Include="DanSaul.SharedCode.TTS" Version="2022.4.721.49" />
     <PackageReference Include="Npgsql" Version="6.0.3" />
     <PackageReference Include="Serilog" Version="2.10.0" />
     <PackageReference Include="SSH.NET" Version="2020.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\DanSaul.SharedCode.DatabaseSchemas\DanSaul.SharedCode.DatabaseSchemas.csproj" />
-    <ProjectReference Include="..\DanSaul.SharedCode.TTS\DanSaul.SharedCode.TTS.csproj" />
   </ItemGroup>
 
 </Project>

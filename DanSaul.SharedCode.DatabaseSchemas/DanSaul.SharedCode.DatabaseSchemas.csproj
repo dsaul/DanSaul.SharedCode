@@ -12,6 +12,10 @@
   <ItemGroup>
     <PackageReference Include="AWSSDK.Polly" Version="3.7.4.7" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="DanSaul.SharedCode.Calendar" Version="2022.4.722.1" />
+    <PackageReference Include="DanSaul.SharedCode.Npgsql" Version="2022.4.721.48" />
+    <PackageReference Include="DanSaul.SharedCode.SignalR" Version="2022.4.721.48" />
+    <PackageReference Include="DanSaul.SharedCode.StandardizedEnvironmentVariables" Version="2022.4.722.2" />
     <PackageReference Include="FluentEmail.Core" Version="3.0.2" />
     <PackageReference Include="FluentEmail.Smtp" Version="3.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
@@ -21,13 +25,6 @@
     <PackageReference Include="Npgsql" Version="6.0.3" />
     <PackageReference Include="Serilog" Version="2.10.0" />
     <PackageReference Include="Square" Version="17.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\DanSaul.SharedCode.Calendar\DanSaul.SharedCode.Calendar.csproj" />
-    <ProjectReference Include="..\DanSaul.SharedCode.Npgsql\DanSaul.SharedCode.Npgsql.csproj" />
-    <ProjectReference Include="..\DanSaul.SharedCode.SignalR\DanSaul.SharedCode.SignalR.csproj" />
-    <ProjectReference Include="..\DanSaul.SharedCode.StandardizedEnvironmentVariables\DanSaul.SharedCode.StandardizedEnvironmentVariables.csproj" />
   </ItemGroup>
 
   <ItemGroup>

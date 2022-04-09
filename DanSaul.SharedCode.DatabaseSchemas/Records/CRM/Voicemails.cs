@@ -13,6 +13,7 @@ using Serilog;
 using System.Data;
 using System.Globalization;
 using System.Text;
+using SharedCode;
 
 namespace SharedCode.DatabaseSchemas
 {
