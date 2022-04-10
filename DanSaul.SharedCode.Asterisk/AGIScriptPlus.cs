@@ -43,7 +43,7 @@ namespace ARI
 			public Guid? RecordingId { get; set; } = null;
 		}
 
-		protected string? PromptDigitsPoundTerminated(IEnumerable<AudioPlaybackEvent> playbackEvents, string escapeKeys, int timeout = 5000)
+		protected async Task<string?> PromptDigitsPoundTerminated(IEnumerable<AudioPlaybackEvent> playbackEvents, string escapeKeys, int timeout = 5000)
 		{
 			char key = '\0';
 			StringBuilder buffer = new StringBuilder();
@@ -79,7 +79,7 @@ namespace ARI
 							}
 							break;
 						case AudioPlaybackEvent.AudioPlaybackEventType.TTSText:
-							key = PlayTTS(e.Text ?? "", escapeKeys, e.Engine, e.Voice);
+							key = await PlayTTS(e.Text ?? "", escapeKeys, e.Engine, e.Voice);
 							if (key != '\0') {
 								buffer.Append(key);
 							}
@@ -97,7 +97,7 @@ namespace ARI
 								Log.Error("null == e.RecordingId");
 								break;
 							}
-							key = PlayRecording(e.DPDB, e.RecordingId.Value, escapeKeys);
+							key = await PlayRecording(e.DPDB, e.RecordingId.Value, escapeKeys);
 							if (key != '\0') {
 								buffer.Append(key);
 							}
@@ -141,7 +141,7 @@ namespace ARI
 		}
 
 
-		protected bool? PromptBooleanQuestion(IEnumerable<AudioPlaybackEvent> playbackEvents, int timeout = 5000)
+		protected async Task<bool?> PromptBooleanQuestion(IEnumerable<AudioPlaybackEvent> playbackEvents, int timeout = 5000)
 		{
 			char key = '\0';
 
@@ -165,7 +165,7 @@ namespace ARI
 						}
 						break;
 					case AudioPlaybackEvent.AudioPlaybackEventType.TTSText:
-						key = PlayTTS(e.Text ?? "", "12", e.Engine, e.Voice);
+						key = await PlayTTS(e.Text ?? "", "12", e.Engine, e.Voice);
 						if (key == '1' || key == '2') {
 							stopPlayingAudio = true;
 							break;
@@ -180,7 +180,7 @@ namespace ARI
 							Log.Error("null == e.RecordingId");
 							break;
 						}
-						key = PlayRecording(e.DPDB, e.RecordingId.Value, "12");
+						key = await PlayRecording(e.DPDB, e.RecordingId.Value, "12");
 						if (key == '1' || key == '2') {
 							stopPlayingAudio = true;
 							break;
@@ -216,81 +216,38 @@ namespace ARI
 		}
 
 
-		public static void PBXSyncTTSCacheFull() {
-
-			string? ARI_TO_PBX_SSH_IDRSA_FILE = Environment.GetEnvironmentVariable("ARI_TO_PBX_SSH_IDRSA_FILE");
-			if (string.IsNullOrWhiteSpace(ARI_TO_PBX_SSH_IDRSA_FILE)) {
-				throw new Exception("ENV VARIABLE ARI_TO_PBX_SSH_IDRSA_FILE NOT SET");
-			}
-
-			if (null == SharedCode.ARI.Konstants.PBX_SSH_PORT) {
-				throw new Exception("null == PBX_PORT");
-			}
-
-			if (null == SharedCode.ARI.Konstants.PBX_SSH_USER) {
-				throw new Exception("null == PBX_SSH_USER");
-			}
+		public static async Task PBXSyncTTSCacheFull() {
 
 
-			var pk = new PrivateKeyFile(ARI_TO_PBX_SSH_IDRSA_FILE);
-			var keyFiles = new[] { pk };
-
-			var methods = new List<AuthenticationMethod>();
-			methods.Add(new PrivateKeyAuthenticationMethod(SharedCode.ARI.Konstants.PBX_SSH_USER, keyFiles));
-
-			var conn = new ConnectionInfo(SharedCode.ARI.Konstants.PBX_FQDN, SharedCode.ARI.Konstants.PBX_SSH_PORT.Value, SharedCode.ARI.Konstants.PBX_SSH_USER, methods.ToArray());
-
-			var sshClient = new SshClient(conn);
-			sshClient.Connect();
-			SshCommand sc= sshClient.CreateCommand("s3cmd sync s3://tts-cache --skip-existing --delete-removed /srv/tts-cache");
-			sc.Execute();
-			string answer = sc.Result;
-			Log.Debug($"SSH ANSWER {answer}");
+			await AsyncProcess.StartProcess(
+				"/usr/bin/s3cmd",
+				$" sync s3://tts-cache --skip-existing --delete-removed /tts-cache",
+				null,
+				1000 * 60 * 60, // 60 minutes
+				Console.Out,
+				Console.Out);
 		}
 
-		public static void PBXSyncTTSCacheSingle(Cache entry) {
+		public static async Task PBXSyncTTSCacheSingle(Cache entry) {
 
 			try {
-				if (string.IsNullOrWhiteSpace(SharedCode.ARI.Konstants.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY)) {
+				if (string.IsNullOrWhiteSpace(SharedCode.Asterisk.Konstants.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY)) {
 					throw new Exception("ENV VARIABLE PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY NOT SET");
 				}
 
-				if (string.IsNullOrWhiteSpace(SharedCode.ARI.Konstants.ARI_TO_PBX_SSH_IDRSA_FILE)) {
-					throw new Exception("ENV VARIABLE ARI_TO_PBX_SSH_IDRSA_FILE NOT SET");
-				}
-
-				string? path = entry.S3LocalPCMPath(SharedCode.ARI.Konstants.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY, '/', false);
+				string? path = entry.S3LocalPCMPath(SharedCode.Asterisk.Konstants.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY, '/', false);
 				if (string.IsNullOrWhiteSpace(path)) {
 					throw new Exception("PlayPollyText string.IsNullOrWhiteSpace(path)");
 				}
 
-				if (null == SharedCode.ARI.Konstants.PBX_SSH_PORT) {
-					throw new Exception("null == PBX_PORT");
-				}
+				await AsyncProcess.StartProcess(
+					"/bin/bash",
+					$" -c \"if [ ! -f {path} ]; then s3cmd get {entry.S3CMDPCMPath()} {path}; fi\"",
+					null,
+					1000 * 60 * 60, // 60 minutes
+					Console.Out,
+					Console.Out);
 
-				if (null == SharedCode.ARI.Konstants.PBX_SSH_USER) {
-					throw new Exception("null == PBX_SSH_USER");
-				}
-
-				string cmd = $"bash -c \"if [ ! -f {path} ]; then s3cmd get {entry.S3CMDPCMPath()} {path}; fi\"";
-				//Log.Debug(cmd);
-
-				// Tell the PBX To download the file.
-
-				var pk = new PrivateKeyFile(SharedCode.ARI.Konstants.ARI_TO_PBX_SSH_IDRSA_FILE);
-				var keyFiles = new[] { pk };
-
-				var methods = new List<AuthenticationMethod>();
-				methods.Add(new PrivateKeyAuthenticationMethod(SharedCode.ARI.Konstants.PBX_SSH_USER, keyFiles));
-
-				var conn = new ConnectionInfo(SharedCode.ARI.Konstants.PBX_FQDN, SharedCode.ARI.Konstants.PBX_SSH_PORT.Value, SharedCode.ARI.Konstants.PBX_SSH_USER, methods.ToArray());
-
-				var sshClient = new SshClient(conn);
-				sshClient.Connect();
-				SshCommand sc= sshClient.CreateCommand(cmd);
-				sc.Execute();
-				//string answer = sc.Result;
-				//Log.Debug($"SSH ANSWER {answer}");
 			}
 			catch (Exception e) {
 				Log.Debug($"Exception: {e.Message}");
@@ -298,14 +255,10 @@ namespace ARI
 			}
 		}
 
-		public char PlayRecording(NpgsqlConnection DPDB, Guid recordingId, string escapeKeys) {
+		public async Task<char> PlayRecording(NpgsqlConnection DPDB, Guid recordingId, string escapeKeys) {
 
-			if (string.IsNullOrWhiteSpace(SharedCode.ARI.Konstants.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY)) {
+			if (string.IsNullOrWhiteSpace(SharedCode.Asterisk.Konstants.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY)) {
 				throw new Exception("ENV VARIABLE PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY NOT SET");
-			}
-
-			if (string.IsNullOrWhiteSpace(SharedCode.ARI.Konstants.ARI_TO_PBX_SSH_IDRSA_FILE)) {
-				throw new Exception("ENV VARIABLE ARI_TO_PBX_SSH_IDRSA_FILE NOT SET");
 			}
 
 			var resRec = Recordings.ForId(DPDB, recordingId);
@@ -315,10 +268,10 @@ namespace ARI
 			if (null == recording)
 				throw new Exception("null == recording");
 
-			PBXSyncUserRecordingSingle(recording);
+			await PBXSyncUserRecordingSingle(recording);
 
 
-			string? path = recording.S3LocalPCMPath(SharedCode.ARI.Konstants.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY, '/', true);
+			string? path = recording.S3LocalPCMPath(SharedCode.Asterisk.Konstants.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY, '/', true);
 			if (string.IsNullOrWhiteSpace(path)) {
 				throw new Exception("PBXSyncUserRecordingSingle string.IsNullOrWhiteSpace(path)");
 			}
@@ -327,56 +280,27 @@ namespace ARI
 			return StreamFile(path, escapeKeys);
 		}
 
-		public static void PBXSyncUserRecordingSingle(Recordings recording) {
+		public static async Task PBXSyncUserRecordingSingle(Recordings recording) {
 
 			try {
 				if (recording == null)
 					throw new ArgumentNullException(nameof(recording));
-				if (string.IsNullOrWhiteSpace(SharedCode.ARI.Konstants.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY)) {
+				if (string.IsNullOrWhiteSpace(SharedCode.Asterisk.Konstants.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY)) {
 					throw new Exception("ENV VARIABLE PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY NOT SET");
 				}
 
-				if (string.IsNullOrWhiteSpace(SharedCode.ARI.Konstants.ARI_TO_PBX_SSH_IDRSA_FILE)) {
-					throw new Exception("ENV VARIABLE ARI_TO_PBX_SSH_IDRSA_FILE NOT SET");
-				}
-
-
-
-				string? path = recording.S3LocalPCMPath(SharedCode.ARI.Konstants.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY, '/', false);
+				string? path = recording.S3LocalPCMPath(SharedCode.Asterisk.Konstants.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY, '/', false);
 				if (string.IsNullOrWhiteSpace(path)) {
 					throw new Exception("PBXSyncUserRecordingSingle string.IsNullOrWhiteSpace(path)");
 				}
 
-				if (null == SharedCode.ARI.Konstants.PBX_SSH_PORT) {
-					throw new Exception("null == PBX_PORT");
-				}
-
-				if (null == SharedCode.ARI.Konstants.PBX_SSH_USER) {
-					throw new Exception("null == PBX_SSH_USER");
-				}
-
-
-
-
-				string cmd = $"bash -c \"if [ ! -f {path} ]; then s3cmd get {recording.S3CMDPCMURI} {path}; fi\"";
-				//Log.Debug(cmd);
-
-				// Tell the PBX To download the file.
-
-				var pk = new PrivateKeyFile(SharedCode.ARI.Konstants.ARI_TO_PBX_SSH_IDRSA_FILE);
-				var keyFiles = new[] { pk };
-
-				var methods = new List<AuthenticationMethod>();
-				methods.Add(new PrivateKeyAuthenticationMethod(SharedCode.ARI.Konstants.PBX_SSH_USER, keyFiles));
-
-				var conn = new ConnectionInfo(SharedCode.ARI.Konstants.PBX_FQDN, SharedCode.ARI.Konstants.PBX_SSH_PORT.Value, SharedCode.ARI.Konstants.PBX_SSH_USER, methods.ToArray());
-
-				var sshClient = new SshClient(conn);
-				sshClient.Connect();
-				SshCommand sc= sshClient.CreateCommand(cmd);
-				sc.Execute();
-				string answer = sc.Result;
-				Log.Debug($"SSH ANSWER {answer}");
+				await AsyncProcess.StartProcess(
+					"/bin/bash",
+					$" -c \"if [ ! -f {path} ]; then s3cmd get {recording.S3CMDPCMURI} {path}; fi\"",
+					null,
+					1000 * 60 * 60, // 60 minutes
+					Console.Out,
+					Console.Out);
 			}
 			catch (Exception e) {
 				Log.Error(e, $"Exception: {e.Message}");
@@ -384,20 +308,12 @@ namespace ARI
 			}
 		}
 
-
-
-
-
-		public char PlayTTS(string text, string escapeKeys, Engine engine, VoiceId voice, bool ssml = false) {
+		public async Task<char> PlayTTS(string text, string escapeKeys, Engine engine, VoiceId voice, bool ssml = false) {
 
 			//Log.Debug($"PlayTTS {text}");
 
-			if (string.IsNullOrWhiteSpace(SharedCode.ARI.Konstants.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY)) {
+			if (string.IsNullOrWhiteSpace(SharedCode.Asterisk.Konstants.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY)) {
 				throw new Exception("ENV VARIABLE PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY NOT SET");
-			}
-
-			if (string.IsNullOrWhiteSpace(SharedCode.ARI.Konstants.ARI_TO_PBX_SSH_IDRSA_FILE)) {
-				throw new Exception("ENV VARIABLE ARI_TO_PBX_SSH_IDRSA_FILE NOT SET");
 			}
 
 			Cache? entry = PollyText.EnsureDatabaseEntry(text, engine, voice, ssml);
@@ -406,39 +322,23 @@ namespace ARI
 				return '\0';
 			}
 
-			string? path = entry.S3LocalPCMPath(SharedCode.ARI.Konstants.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY, '/', true);
+			string? path = entry.S3LocalPCMPath(SharedCode.Asterisk.Konstants.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY, '/', true);
 			if (string.IsNullOrWhiteSpace(path)) {
 				Log.Debug("PlayPollyText string.IsNullOrWhiteSpace(path)");
 				return '\0';
 			}
 
-			PBXSyncTTSCacheSingle(entry);
+			await PBXSyncTTSCacheSingle(entry);
 
 
 			return StreamFile(path, escapeKeys);
 		}
 
-		public char PlayS3File(string s3CmdUri, string escapeKeys) {
+		public async Task<char> PlayS3File(string s3CmdUri, string escapeKeys) {
 
-			if (string.IsNullOrWhiteSpace(SharedCode.ARI.Konstants.ARI_TO_PBX_SSH_IDRSA_FILE)) {
-				throw new Exception("ENV VARIABLE ARI_TO_PBX_SSH_IDRSA_FILE NOT SET");
-			}
+			
 
-			if (string.IsNullOrWhiteSpace(SharedCode.ARI.Konstants.PBX_SSH_USER)) {
-				throw new Exception("ENV VARIABLE PBX_SSH_USER NOT SET");
-			}
 
-			if (string.IsNullOrWhiteSpace(SharedCode.ARI.Konstants.PBX_FQDN)) {
-				throw new Exception("ENV VARIABLE PBX_FQDN NOT SET");
-			}
-
-			if (null == SharedCode.ARI.Konstants.PBX_SSH_PORT) {
-				throw new Exception("ENV VARIABLE PBX_SSH_PORT NOT SET");
-			}
-
-			if (string.IsNullOrWhiteSpace(SharedCode.ARI.Konstants.PBX_SSH_USER)) {
-				throw new Exception("ENV VARIABLE PBX_SSH_USER NOT SET");
-			}
 
 			string[] pathComponents = s3CmdUri.Split('/');
 			string last = pathComponents.Last();
@@ -449,57 +349,32 @@ namespace ARI
 			string filenameWithoutExtension = Path.GetFileNameWithoutExtension(pbxTmpFile);
 			string pbxTmpFileWithoutExtension = $"{pbxTmpDir}/{filenameWithoutExtension}";
 
-			string cmd = $"bash -c \"s3cmd get {s3CmdUri} {pbxTmpFile}\"";
-
 			// Tell the PBX To download the file.
 
-			var pk = new PrivateKeyFile(SharedCode.ARI.Konstants.ARI_TO_PBX_SSH_IDRSA_FILE);
-			var keyFiles = new[] { pk };
 
-			var methods = new List<AuthenticationMethod>();
-			methods.Add(new PrivateKeyAuthenticationMethod(SharedCode.ARI.Konstants.PBX_SSH_USER, keyFiles));
+			await AsyncProcess.StartProcess(
+					"/bin/bash",
+					$" -c \"s3cmd get {s3CmdUri} {pbxTmpFile}\"",
+					null,
+					1000 * 60 * 60, // 60 minutes
+					Console.Out,
+					Console.Out);
 
-			var conn = new ConnectionInfo(SharedCode.ARI.Konstants.PBX_FQDN, SharedCode.ARI.Konstants.PBX_SSH_PORT.Value, SharedCode.ARI.Konstants.PBX_SSH_USER, methods.ToArray());
-
-			var sshClient = new SshClient(conn);
-			sshClient.Connect();
-			SshCommand sc= sshClient.CreateCommand(cmd);
-			sc.Execute();
-
-			string answer = sc.Result;
-			//Log.Debug($"[{request.UniqueId}] S3CMD Upload output: {answer}");
-
-
+			
 			// Play the file now that it is downloaded.
 
 			char ret = StreamFile(pbxTmpFileWithoutExtension, escapeKeys);
 
-			// Now delete the audio file.
-
-			using SftpClient sftp = new SftpClient(SharedCode.ARI.Konstants.PBX_FQDN, SharedCode.ARI.Konstants.PBX_SSH_PORT.Value, SharedCode.ARI.Konstants.PBX_SSH_USER, keyFiles);
-			sftp.Connect();
-
-			if (sftp.Exists(pbxTmpFile)) {
-
-				try {
-					sftp.DeleteFile(pbxTmpFile);
-				}
-				catch (Exception e) {
-					Log.Error(e, "Exception deleting remote file.");
-				}
-
-			}
-
-
+			
 			return ret;
 		}
 
 
 
 		[DoesNotReturn]
-		public void ThrowError(AGIRequest request, string code, string error) {
+		public async Task ThrowError(AGIRequest request, string code, string error) {
 			Log.Information("[{AGIRequestUniqueId}][Code:{Code}] {Error}", request.UniqueId, code, error);
-			PlayTTS($"System error, please try again later. Code {code}.", string.Empty, Engine.Neural, VoiceId.Brian);
+			await PlayTTS($"System error, please try again later. Code {code}.", string.Empty, Engine.Neural, VoiceId.Brian);
 			throw new PerformHangupException();
 		}
 
