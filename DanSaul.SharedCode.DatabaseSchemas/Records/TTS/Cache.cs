@@ -360,52 +360,17 @@ namespace SharedCode.DatabaseSchemas
 			return $"s3://{string.Join(pathSeparator, pathComponents)}";
 		}
 
+		
+
+
 
 		public string? S3LocalPCMPath(string localBucketPath, char pathSeparator = '/', bool stripExtension = false) {
 
-			if (string.IsNullOrWhiteSpace(S3URIPCM)) {
+			S3Utils.DeconstructS3URI(S3URIPCM, out string? s3Key, out string? s3Bucket, pathSeparator, stripExtension);
+			if (string.IsNullOrWhiteSpace(s3Key))
 				return null;
-			}
 
-			Uri pdfUri = new Uri(S3URIPCM);
-
-			string path = pdfUri.LocalPath;
-			if (string.IsNullOrWhiteSpace(path)) {
-				return null;
-			}
-
-			List<string> pathComponents = path.Split('/').ToList();
-
-			// [0] should be blank.
-			if (!string.IsNullOrWhiteSpace(pathComponents[0])) {
-				return null;
-			}
-
-			// [1] should be the bucket name
-			if (string.IsNullOrWhiteSpace(pathComponents[1])) {
-				return null;
-			}
-
-			string bucketName = pathComponents[1];
-
-			// Remove non file components.
-			pathComponents.RemoveRange(0, 2);
-
-			if (pathComponents.Count == 0) {
-				return null;
-			}
-
-			if (stripExtension) {
-				pathComponents[pathComponents.Count - 1] = Path.GetFileNameWithoutExtension(pathComponents[pathComponents.Count - 1]);
-			}
-			
-
-			string s3key = string.Join(pathSeparator, pathComponents);
-			if (string.IsNullOrWhiteSpace(s3key)) {
-				return null;
-			}
-
-			return Path.Join(localBucketPath, s3key);
+			return Path.Join(localBucketPath, s3Key);
 		}
 
 

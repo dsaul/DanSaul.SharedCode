@@ -13,6 +13,7 @@
     <PackageReference Include="AWSSDK.Polly" Version="3.7.4.9" />
     <PackageReference Include="AWSSDK.S3" Version="3.7.8.19" />
     <PackageReference Include="DanSaul.SharedCode.DatabaseSchemas" Version="2022.4.1311.24" />
+    <PackageReference Include="DanSaul.SharedCode.Extensions.AmazonS3" Version="2022.4.1315.44" />
     <PackageReference Include="DanSaul.SharedCode.StandardizedEnvironmentVariables" Version="2022.4.1311.17" />
     <PackageReference Include="DanSaul.SharedCode.TTS" Version="2022.4.721.49" />
     <PackageReference Include="Mono.Posix.NETStandard" Version="1.0.0" />

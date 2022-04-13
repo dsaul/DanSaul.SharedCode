@@ -255,11 +255,15 @@ namespace ARI
 					ForcePathStyle = true
 				});
 
-				//GetObjectRequest request = new GetObjectRequest
-				//{
-				//	BucketName = Cache.kTTSBucketName,
-				//	Key = RecordingS3Key,
-				//};
+				S3Utils.DeconstructS3URI(entry.S3URIPCM, out string? s3Key, out string? s3Bucket);
+
+				Log.Debug("Deconstructed key {key} bucket {bucket}", s3Key, s3Bucket);
+
+				GetObjectRequest request = new GetObjectRequest
+				{
+					BucketName = s3Bucket,
+					Key = s3Key,
+				};
 
 				//using GetObjectResponse s3Response = s3Client.GetObjectAsync(request).Result;
 				//using Stream s3ResponseStream = s3Response.ResponseStream;
@@ -335,7 +339,7 @@ namespace ARI
 
 		public async Task<char> PlayTTS(string text, string escapeKeys, Engine engine, VoiceId voice, bool ssml = false) {
 
-			//Log.Debug($"PlayTTS {text}");
+			Log.Debug($"[PlayTTS()] PlayTTS {text}");
 
 			if (string.IsNullOrWhiteSpace(EnvAsterisk.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY)) {
 				throw new Exception("ENV VARIABLE PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY NOT SET");

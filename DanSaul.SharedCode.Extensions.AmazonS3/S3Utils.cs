@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SharedCode
 {
-	public class S3Utils
+	public static class S3Utils
 	{
 		
 
@@ -62,5 +62,70 @@ namespace SharedCode
 
 			return s3Client.GetPreSignedURL(request);
 		}
+
+
+		public static void DeconstructS3URI(string? s3URIStr, out string? s3Key, out string? s3Bucket, char pathSeparator = '/', bool stripExtension = false)
+		{
+			if (string.IsNullOrWhiteSpace(s3URIStr))
+			{
+				s3Key = null;
+				s3Bucket = null;
+				return;
+			}
+
+			Uri s3URI = new Uri(s3URIStr);
+
+			string path = s3URI.LocalPath;
+			if (string.IsNullOrWhiteSpace(path))
+			{
+				s3Key = null;
+				s3Bucket = null;
+				return;
+			}
+
+			List<string> pathComponents = path.Split(pathSeparator).ToList();
+
+			// [0] should be blank.
+			if (!string.IsNullOrWhiteSpace(pathComponents[0]))
+			{
+				s3Key = null;
+				s3Bucket = null;
+				return;
+			}
+
+			// [1] should be the bucket name
+			if (string.IsNullOrWhiteSpace(pathComponents[1]))
+			{
+				s3Key = null;
+				s3Bucket = null;
+				return;
+			}
+
+			s3Bucket = pathComponents[1];
+
+			// Remove non file components.
+			pathComponents.RemoveRange(0, 2);
+
+			if (pathComponents.Count == 0)
+			{
+				s3Key = null;
+				return;
+			}
+
+			if (stripExtension)
+			{
+				pathComponents[pathComponents.Count - 1] = Path.GetFileNameWithoutExtension(pathComponents[pathComponents.Count - 1]);
+			}
+
+
+			s3Key = pathSeparator + string.Join(pathSeparator, pathComponents);
+			if (string.IsNullOrWhiteSpace(s3Key))
+			{
+				return;
+			}
+
+		}
+
+
 	}
 }
