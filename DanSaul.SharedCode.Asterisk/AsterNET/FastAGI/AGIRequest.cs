@@ -1,4 +1,3 @@
-#define LOGGER
 
 using System;
 using System.Collections;
@@ -16,9 +15,6 @@ namespace AsterNET.FastAGI
     {
         #region Variables
 
-#if LOGGER
-        private Logger logger = Logger.Instance();
-#endif
         private string rawCallerId;
         private readonly Dictionary<string, string> request;
 

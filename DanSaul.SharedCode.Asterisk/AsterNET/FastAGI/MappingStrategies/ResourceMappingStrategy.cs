@@ -1,8 +1,8 @@
-#define LOGGER
 using System;	
 using System.Collections;
 using System.Resources;
 using System.Reflection;
+using Serilog;
 
 namespace AsterNET.FastAGI.MappingStrategies
 {
@@ -18,9 +18,7 @@ namespace AsterNET.FastAGI.MappingStrategies
 	/// </summary>
     public class ResourceMappingStrategy : IMappingStrategy
 	{
-#if LOGGER
-		private Logger logger = Logger.Instance();
-#endif
+
 		private string resourceName;
 		private Hashtable mapping;
 
@@ -87,16 +85,12 @@ namespace AsterNET.FastAGI.MappingStrategies
 						if(mapping.Contains(scriptName))
 							throw new AGIException(String.Format("Duplicate mapping name '{0}' in file {1}", scriptName, resourceName));
 						mapping.Add(scriptName, agiScript);
-#if LOGGER
-						logger.Info("Added mapping for '" + scriptName + "' to class " + agiScript.GetType().FullName);
-#endif
+						Log.Debug("Added mapping for '" + scriptName + "' to class " + agiScript.GetType().FullName);
 					}
 				}
 				catch
 				{
-#if LOGGER
-					logger.Error("Resource bundle '" + resourceName + "' is missing.");
-#endif
+					Log.Debug("Resource bundle '" + resourceName + "' is missing.");
 					throw;
 				}
 			}
@@ -116,12 +110,8 @@ namespace AsterNET.FastAGI.MappingStrategies
 			}
 			catch(Exception ex)
 			{
-#if LOGGER
-				logger.Error("Unable to create AGIScript instance of type " + className, ex);
+				Log.Error("Unable to create AGIScript instance of type " + className, ex);
 				return null;
-#else
-				throw new AGIException("Unable to create AGIScript instance of type " + className, ex);
-#endif
 			}
 			return agiScript;
 		}

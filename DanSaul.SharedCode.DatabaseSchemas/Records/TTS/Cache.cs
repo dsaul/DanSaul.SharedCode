@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Npgsql;
+using Serilog;
 using System.Data;
 using System.Text;
 
@@ -13,7 +14,7 @@ namespace SharedCode.DatabaseSchemas
 		)
 	{
 		public const string kTTSCacheDatabaseName = "tts";
-		public const string kLaTeXBucketName = "tts-cache";
+		public const string kTTSBucketName = "tts-cache";
 
 		public const string kJsonKeyText = "text";
 		public const string kJsonKeyVoice = "voice";
@@ -406,5 +407,48 @@ namespace SharedCode.DatabaseSchemas
 
 			return Path.Join(localBucketPath, s3key);
 		}
+
+
+
+
+
+		public static void VerifyRepairTable(NpgsqlConnection db, bool insertDefaultContents = false)
+		{
+
+			if (db.TableExists("cache"))
+			{
+				Log.Debug($"----- Table \"cache\" exists.");
+			}
+			else
+			{
+				Log.Information($"----- Table \"cache\" doesn't exist, creating.");
+
+				using NpgsqlCommand cmd = new NpgsqlCommand(@"
+					CREATE TABLE ""public"".""cache"" (
+						""id"" uuid DEFAULT public.uuid_generate_v1() NOT NULL,
+						""json"" jsonb DEFAULT '{}'::jsonb NOT NULL,
+						CONSTRAINT ""cache_pk"" PRIMARY KEY(""id"")
+					) WITH(oids = false);
+					", db);
+				cmd.ExecuteNonQuery();
+			}
+
+
+			
+
+
+
+
+
+		}
+
+
+
+
+
+
+
+
+
 	}
 }

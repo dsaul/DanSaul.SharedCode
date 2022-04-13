@@ -1,4 +1,3 @@
-#define LOGGER
 
 using System;
 using System.Collections;
@@ -9,6 +8,7 @@ using AsterNET.IO;
 using AsterNET.Manager.Action;
 using AsterNET.Manager.Event;
 using AsterNET.Manager.Response;
+using Serilog;
 
 namespace AsterNET.Manager
 {
@@ -17,9 +17,7 @@ namespace AsterNET.Manager
 	/// </summary>
 	public class ManagerReader
 	{
-#if LOGGER
-		private readonly Logger logger = Logger.Instance();
-#endif
+
 
 		private readonly ManagerConnection mrConnector;
 		private SocketConnection mrSocket;
@@ -146,14 +144,9 @@ namespace AsterNET.Manager
 				// Give a next portion !!!
 				nstream.BeginRead(mrReader.lineBytes, 0, mrReader.lineBytes.Length, mrReaderCallbback, mrReader);
 			}
-#if LOGGER
 			catch (Exception ex)
 			{
-				mrReader.logger.Error("Read data error", ex.Message);
-#else
-			catch
-			{
-#endif
+				Log.Error("Read data error", ex.Message);
 				// Any catch - disconncatch !
 				disconnect = true;
 				if (mrReader.mrSocket != null)
@@ -266,9 +259,7 @@ namespace AsterNET.Manager
 						lastPacketTime = DateTime.Now;
 						lock (((ICollection) lineQueue).SyncRoot)
 							line = lineQueue.Dequeue().Trim();
-#if LOGGER
-						logger.Debug(line);
-#endif
+						Log.Debug(line);
 
 						#region processing Response: Follows
 
@@ -341,22 +332,15 @@ namespace AsterNET.Manager
 						mrSocket.Close();
 					break;
 				}
-#if LOGGER
 				catch (Exception ex)
 				{
-					logger.Info("Exception : {0}", ex.Message);
-#else
-				catch
-				{
-#endif
+					Log.Debug("Exception : {0}", ex.Message);
 				}
 
 				if (die)
 					break;
 
-#if LOGGER
-				logger.Info("No die, any error - send disconnect.");
-#endif
+				Log.Debug("No die, any error - send disconnect.");
 				mrConnector.DispatchEvent(new DisconnectEvent(mrConnector));
 			}
 		}

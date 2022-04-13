@@ -1,4 +1,3 @@
-#define LOGGER
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,15 +7,14 @@ using System.Text;
 using AsterNET.Manager;
 using AsterNET.Manager.Event;
 using AsterNET.Manager.Response;
+using Serilog;
 
 namespace AsterNET
 {
     internal class Helper
     {
         private static CultureInfo defaultCulture;
-#if LOGGER
-        private static readonly Logger logger = Logger.Instance();
-#endif
+
 
         #region CultureInfo 
 
@@ -546,9 +544,7 @@ namespace AsterNET
                     // No setter found to key, try general parser
                     if (!o.Parse(name, attributes[name]))
                     {
-#if LOGGER
-                        logger.Error("Unable to set property '" + name + "' on " + o.GetType() + ": no setter");
-#endif
+                        Log.Error("Unable to set property '" + name + "' on " + o.GetType() + ": no setter");
                         throw new ManagerException("Parse error key '" + name + "' on " + o.GetType());
                     }
                 }
@@ -591,14 +587,10 @@ namespace AsterNET
                         }
                         catch (Exception ex)
                         {
-#if LOGGER
-                            logger.Error(
+                            Log.Error(
                                 "Unable to convert value '" + attributes[name] + "' of property '" + name + "' on " +
                                 o.GetType() + " to required enum type " + dataType, ex);
                             continue;
-#else
-							throw new ManagerException("Unable to convert value '" + attributes[name] + "' of property '" + name + "' on " + o.GetType() + " to required enum type " + dataType, ex); 
-#endif
                         }
                     }
                     else
@@ -610,14 +602,10 @@ namespace AsterNET
                         }
                         catch (Exception ex)
                         {
-#if LOGGER
-                            logger.Error(
+                            Log.Error(
                                 "Unable to convert value '" + attributes[name] + "' of property '" + name + "' on " +
                                 o.GetType() + " to required type " + dataType, ex);
                             continue;
-#else
-							throw new ManagerException("Unable to convert value '" + attributes[name] + "' of property '" + name + "' on " + o.GetType() + " to required type " + dataType, ex);
-#endif
                         }
                     }
 
@@ -627,11 +615,7 @@ namespace AsterNET
                     }
                     catch (Exception ex)
                     {
-#if LOGGER
-                        logger.Error("Unable to set property '" + name + "' on " + o.GetType(), ex);
-#else
-						throw new ManagerException("Unable to set property '" + name + "' on " + o.GetType(), ex);
-#endif
+                        Log.Error("Unable to set property '" + name + "' on " + o.GetType(), ex);
                     }
                 }
             }
@@ -785,12 +769,8 @@ namespace AsterNET
                 }
                 catch (Exception ex)
                 {
-#if LOGGER
-                    logger.Error("Unable to create new instance of " + eventType, ex);
+                    Log.Error("Unable to create new instance of " + eventType, ex);
                     return null;
-#else
-					throw ex;
-#endif
                 }
             }
 

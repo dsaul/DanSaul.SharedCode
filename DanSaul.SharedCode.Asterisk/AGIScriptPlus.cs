@@ -7,6 +7,9 @@ using Npgsql;
 using Renci.SshNet;
 using Serilog;
 using SharedCode;
+using Amazon.S3;
+using Amazon;
+using Amazon.S3.Model;
 
 namespace ARI
 {
@@ -231,14 +234,36 @@ namespace ARI
 		public static async Task PBXSyncTTSCacheSingle(Cache entry) {
 
 			try {
-				if (string.IsNullOrWhiteSpace(SharedCode.Asterisk.Konstants.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY)) {
-					throw new Exception("ENV VARIABLE PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY NOT SET");
+				if (string.IsNullOrWhiteSpace(EnvAsterisk.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY)) {
+					throw new Exception("[PBXSyncTTSCacheSingle()] ENV VARIABLE PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY NOT SET");
 				}
 
-				string? path = entry.S3LocalPCMPath(SharedCode.Asterisk.Konstants.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY, '/', false);
+				string? path = entry.S3LocalPCMPath(EnvAsterisk.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY, '/', false);
 				if (string.IsNullOrWhiteSpace(path)) {
-					throw new Exception("PlayPollyText string.IsNullOrWhiteSpace(path)");
+					throw new Exception("[PBXSyncTTSCacheSingle()] PlayPollyText string.IsNullOrWhiteSpace(path)");
 				}
+
+				Log.Debug("[PBXSyncTTSCacheSingle()] S3LocalPCMPath {path}", path);
+
+				string? key = EnvAmazonS3.S3_PBX_ACCESS_KEY;
+				string? secret = EnvAmazonS3.S3_PBX_SECRET_KEY;
+
+				using var s3Client = new AmazonS3Client(key, secret, new AmazonS3Config
+				{
+					RegionEndpoint = RegionEndpoint.USWest1,
+					ServiceURL = EnvAmazonS3.S3_PBX_SERVICE_URI,
+					ForcePathStyle = true
+				});
+
+				//GetObjectRequest request = new GetObjectRequest
+				//{
+				//	BucketName = Cache.kTTSBucketName,
+				//	Key = RecordingS3Key,
+				//};
+
+				//using GetObjectResponse s3Response = s3Client.GetObjectAsync(request).Result;
+				//using Stream s3ResponseStream = s3Response.ResponseStream;
+
 
 				await AsyncProcess.StartProcess(
 					"/bin/bash",
@@ -257,7 +282,7 @@ namespace ARI
 
 		public async Task<char> PlayRecording(NpgsqlConnection DPDB, Guid recordingId, string escapeKeys) {
 
-			if (string.IsNullOrWhiteSpace(SharedCode.Asterisk.Konstants.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY)) {
+			if (string.IsNullOrWhiteSpace(EnvAsterisk.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY)) {
 				throw new Exception("ENV VARIABLE PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY NOT SET");
 			}
 
@@ -271,7 +296,7 @@ namespace ARI
 			await PBXSyncUserRecordingSingle(recording);
 
 
-			string? path = recording.S3LocalPCMPath(SharedCode.Asterisk.Konstants.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY, '/', true);
+			string? path = recording.S3LocalPCMPath(EnvAsterisk.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY, '/', true);
 			if (string.IsNullOrWhiteSpace(path)) {
 				throw new Exception("PBXSyncUserRecordingSingle string.IsNullOrWhiteSpace(path)");
 			}
@@ -285,11 +310,11 @@ namespace ARI
 			try {
 				if (recording == null)
 					throw new ArgumentNullException(nameof(recording));
-				if (string.IsNullOrWhiteSpace(SharedCode.Asterisk.Konstants.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY)) {
+				if (string.IsNullOrWhiteSpace(EnvAsterisk.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY)) {
 					throw new Exception("ENV VARIABLE PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY NOT SET");
 				}
 
-				string? path = recording.S3LocalPCMPath(SharedCode.Asterisk.Konstants.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY, '/', false);
+				string? path = recording.S3LocalPCMPath(EnvAsterisk.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY, '/', false);
 				if (string.IsNullOrWhiteSpace(path)) {
 					throw new Exception("PBXSyncUserRecordingSingle string.IsNullOrWhiteSpace(path)");
 				}
@@ -312,21 +337,26 @@ namespace ARI
 
 			//Log.Debug($"PlayTTS {text}");
 
-			if (string.IsNullOrWhiteSpace(SharedCode.Asterisk.Konstants.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY)) {
+			if (string.IsNullOrWhiteSpace(EnvAsterisk.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY)) {
 				throw new Exception("ENV VARIABLE PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY NOT SET");
 			}
 
 			Cache? entry = PollyText.EnsureDatabaseEntry(text, engine, voice, ssml);
 			if (entry == null) {
-				Log.Debug("PlayPollyText entry == null");
+				Log.Debug("[PlayTTS()] PlayPollyText entry == null");
 				return '\0';
 			}
 
-			string? path = entry.S3LocalPCMPath(SharedCode.Asterisk.Konstants.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY, '/', true);
+			Log.Debug("[PlayTTS()] Found Entry {entry}", entry);
+
+			string? path = entry.S3LocalPCMPath(EnvAsterisk.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY, '/', true);
 			if (string.IsNullOrWhiteSpace(path)) {
-				Log.Debug("PlayPollyText string.IsNullOrWhiteSpace(path)");
+				Log.Debug("[PlayTTS()] string.IsNullOrWhiteSpace(path)");
 				return '\0';
 			}
+
+			Log.Debug("[PlayTTS()] PBX Local PCM Path {path}", path);
+
 
 			await PBXSyncTTSCacheSingle(entry);
 

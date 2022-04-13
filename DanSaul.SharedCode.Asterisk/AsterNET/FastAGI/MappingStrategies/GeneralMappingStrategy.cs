@@ -1,5 +1,4 @@
-﻿#define LOGGER
-using System;
+﻿using System;
 using System.Collections;
 using System.Resources;
 using System.Reflection;
@@ -90,9 +89,7 @@ namespace AsterNET.FastAGI.MappingStrategies
     /// </summary>
     public class GeneralMappingStrategy : IMappingStrategy
     {
-#if LOGGER
-        private Logger logger = Logger.Instance();
-#endif
+
         private List<ScriptMapping> mappings;
         private Dictionary<string, MappingAssembly> mapAssemblies;
 

@@ -1,15 +1,13 @@
-#define LOGGER
 using System.Collections.Generic;
 using System.IO;
 using AsterNET.IO;
+using Serilog;
 
 namespace AsterNET.FastAGI
 {
     public class AGIReader
     {
-#if LOGGER
-        private readonly Logger logger = Logger.Instance();
-#endif
+
         private readonly SocketConnection socket;
 
         public AGIReader(SocketConnection socket)
@@ -22,18 +20,14 @@ namespace AsterNET.FastAGI
             var lines = new List<string>();
             try
             {
-#if LOGGER
-                logger.Info("AGIReader.ReadRequest():");
-#endif
+                Log.Debug("AGIReader.ReadRequest():");
                 string line;
                 while ((line = socket.ReadLine()) != null)
                 {
                     if (line.Length == 0)
                         break;
                     lines.Add(line);
-#if LOGGER
-                    logger.Info(line);
-#endif
+                    Log.Debug(line);
                 }
             }
             catch (IOException ex)

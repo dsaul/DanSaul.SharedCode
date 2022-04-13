@@ -4,6 +4,11 @@ namespace SharedCode.DatabaseSchemas
 {
 	public static class Verification
 	{
+		public static void VerifyTTSDatabase(NpgsqlConnection dpDB, bool insertDefaultContents = false)
+		{
+			Cache.VerifyRepairTable(dpDB, insertDefaultContents);
+		}
+
 
 		public static void VerifyPDFLaTeXDatabase(NpgsqlConnection dpDB, bool insertDefaultContents = false) {
 			//PDFLaTeXTask.VerifyRepairTable(dpDB, insertDefaultContents);

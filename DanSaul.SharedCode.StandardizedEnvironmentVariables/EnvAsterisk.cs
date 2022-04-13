@@ -116,5 +116,19 @@ namespace SharedCode
 				return str;
 			}
 		}
+
+		public static string? ARI_SPOOL_DIRECTORY
+		{
+			get
+			{
+				string? str = Environment.GetEnvironmentVariable("ARI_SPOOL_DIRECTORY");
+				if (string.IsNullOrWhiteSpace(str))
+				{
+					Log.Error("ARI_SPOOL_DIRECTORY empty or missing.");
+					return null;
+				}
+				return str;
+			}
+		}
 	}
 }

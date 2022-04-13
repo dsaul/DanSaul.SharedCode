@@ -25,15 +25,15 @@ namespace SharedCode.Asterisk
 			Dictionary<string, string>? variables = null
 			) {
 
-			if (string.IsNullOrWhiteSpace(SharedCode.Asterisk.Konstants.ARI_SPOOL_DIRECTORY))
+			if (string.IsNullOrWhiteSpace(EnvAsterisk.ARI_SPOOL_DIRECTORY))
 			{
-				Log.Error("string.IsNullOrWhiteSpace(SharedCode.Asterisk.Konstants.ARI_SPOOL_DIRECTORY)");
+				Log.Error("string.IsNullOrWhiteSpace(EnvAsterisk.ARI_SPOOL_DIRECTORY)");
 				callFileName = null;
 				callFileContents = null;
 				return false;
 			}
-			if (string.IsNullOrWhiteSpace(SharedCode.Asterisk.Konstants.PBX_LOCAL_OUTGOING_SPOOL_DIRECTORY)) {
-				Log.Error("string.IsNullOrWhiteSpace(SharedCode.Asterisk.Konstants.PBX_LOCAL_OUTGOING_SPOOL_DIRECTORY)");
+			if (string.IsNullOrWhiteSpace(EnvAsterisk.PBX_LOCAL_OUTGOING_SPOOL_DIRECTORY)) {
+				Log.Error("string.IsNullOrWhiteSpace(EnvAsterisk.PBX_LOCAL_OUTGOING_SPOOL_DIRECTORY)");
 				callFileName = null;
 				callFileContents = null;
 				return false;
@@ -85,7 +85,7 @@ namespace SharedCode.Asterisk
 			Guid guid = Guid.NewGuid();
 			callFileName = $"{callFilePrefix}{callCategory}-callid-{guid}.call";
 
-			File.Move(tmpPath, Path.Join(Konstants.ARI_SPOOL_DIRECTORY, callFileName));
+			File.Move(tmpPath, Path.Join(EnvAsterisk.ARI_SPOOL_DIRECTORY, callFileName));
 
 
 			Log.Debug("callFileName:{callFileName}", callFileName);
