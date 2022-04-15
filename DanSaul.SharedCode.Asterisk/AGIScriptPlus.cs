@@ -10,6 +10,7 @@ using SharedCode;
 using Amazon.S3;
 using Amazon;
 using Amazon.S3.Model;
+using Amazon.S3.Transfer;
 
 namespace ARI
 {
@@ -46,7 +47,7 @@ namespace ARI
 			public Guid? RecordingId { get; set; } = null;
 		}
 
-		protected async Task<string?> PromptDigitsPoundTerminated(IEnumerable<AudioPlaybackEvent> playbackEvents, string escapeKeys, int timeout = 5000)
+		protected string? PromptDigitsPoundTerminated(IEnumerable<AudioPlaybackEvent> playbackEvents, string escapeKeys, int timeout = 5000)
 		{
 			char key = '\0';
 			StringBuilder buffer = new StringBuilder();
@@ -82,7 +83,7 @@ namespace ARI
 							}
 							break;
 						case AudioPlaybackEvent.AudioPlaybackEventType.TTSText:
-							key = await PlayTTS(e.Text ?? "", escapeKeys, e.Engine, e.Voice);
+							key = PlayTTS(e.Text ?? "", escapeKeys, e.Engine, e.Voice);
 							if (key != '\0') {
 								buffer.Append(key);
 							}
@@ -100,7 +101,7 @@ namespace ARI
 								Log.Error("null == e.RecordingId");
 								break;
 							}
-							key = await PlayRecording(e.DPDB, e.RecordingId.Value, escapeKeys);
+							key = PlayRecording(e.DPDB, e.RecordingId.Value, escapeKeys);
 							if (key != '\0') {
 								buffer.Append(key);
 							}
@@ -144,7 +145,7 @@ namespace ARI
 		}
 
 
-		protected async Task<bool?> PromptBooleanQuestion(IEnumerable<AudioPlaybackEvent> playbackEvents, int timeout = 5000)
+		protected bool? PromptBooleanQuestion(IEnumerable<AudioPlaybackEvent> playbackEvents, int timeout = 5000)
 		{
 			char key = '\0';
 
@@ -168,7 +169,7 @@ namespace ARI
 						}
 						break;
 					case AudioPlaybackEvent.AudioPlaybackEventType.TTSText:
-						key = await PlayTTS(e.Text ?? "", "12", e.Engine, e.Voice);
+						key = PlayTTS(e.Text ?? "", "12", e.Engine, e.Voice);
 						if (key == '1' || key == '2') {
 							stopPlayingAudio = true;
 							break;
@@ -183,7 +184,7 @@ namespace ARI
 							Log.Error("null == e.RecordingId");
 							break;
 						}
-						key = await PlayRecording(e.DPDB, e.RecordingId.Value, "12");
+						key = PlayRecording(e.DPDB, e.RecordingId.Value, "12");
 						if (key == '1' || key == '2') {
 							stopPlayingAudio = true;
 							break;
@@ -219,19 +220,7 @@ namespace ARI
 		}
 
 
-		public static async Task PBXSyncTTSCacheFull() {
-
-
-			await AsyncProcess.StartProcess(
-				"/usr/bin/s3cmd",
-				$" sync s3://tts-cache --skip-existing --delete-removed /tts-cache",
-				null,
-				1000 * 60 * 60, // 60 minutes
-				Console.Out,
-				Console.Out);
-		}
-
-		public static async Task PBXSyncTTSCacheSingle(Cache entry) {
+		public static void PBXSyncTTSCacheSingle(Cache entry) {
 
 			try {
 				if (string.IsNullOrWhiteSpace(EnvAsterisk.PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY)) {
@@ -243,7 +232,7 @@ namespace ARI
 					throw new Exception("[PBXSyncTTSCacheSingle()] PlayPollyText string.IsNullOrWhiteSpace(path)");
 				}
 
-				Log.Debug("[PBXSyncTTSCacheSingle()] S3LocalPCMPath {path}", path);
+				//Log.Debug("[PBXSyncTTSCacheSingle()] S3LocalPCMPath {path}", path);
 
 				string? key = EnvAmazonS3.S3_PBX_ACCESS_KEY;
 				string? secret = EnvAmazonS3.S3_PBX_SECRET_KEY;
@@ -257,7 +246,7 @@ namespace ARI
 
 				S3Utils.DeconstructS3URI(entry.S3URIPCM, out string? s3Key, out string? s3Bucket);
 
-				Log.Debug("Deconstructed key {key} bucket {bucket}", s3Key, s3Bucket);
+				//Log.Debug("Deconstructed key {key} bucket {bucket}", s3Key, s3Bucket);
 
 				GetObjectRequest request = new GetObjectRequest
 				{
@@ -265,17 +254,12 @@ namespace ARI
 					Key = s3Key,
 				};
 
-				//using GetObjectResponse s3Response = s3Client.GetObjectAsync(request).Result;
-				//using Stream s3ResponseStream = s3Response.ResponseStream;
+				string ttsCacheRoot = Path.Join("/srv/tts-cache", s3Key);
+				//Log.Debug("ttsCacheRoot {ttsCacheRoot}", ttsCacheRoot);
 
+				TransferUtility ftu = new TransferUtility(s3Client);
+				ftu.Download(ttsCacheRoot, s3Bucket, s3Key);
 
-				await AsyncProcess.StartProcess(
-					"/bin/bash",
-					$" -c \"if [ ! -f {path} ]; then s3cmd get {entry.S3CMDPCMPath()} {path}; fi\"",
-					null,
-					1000 * 60 * 60, // 60 minutes
-					Console.Out,
-					Console.Out);
 
 			}
 			catch (Exception e) {
@@ -284,7 +268,7 @@ namespace ARI
 			}
 		}
 
-		public async Task<char> PlayRecording(NpgsqlConnection DPDB, Guid recordingId, string escapeKeys) {
+		public char PlayRecording(NpgsqlConnection DPDB, Guid recordingId, string escapeKeys) {
 
 			if (string.IsNullOrWhiteSpace(EnvAsterisk.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY)) {
 				throw new Exception("ENV VARIABLE PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY NOT SET");
@@ -297,7 +281,7 @@ namespace ARI
 			if (null == recording)
 				throw new Exception("null == recording");
 
-			await PBXSyncUserRecordingSingle(recording);
+			PBXSyncUserRecordingSingle(recording);
 
 
 			string? path = recording.S3LocalPCMPath(EnvAsterisk.PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY, '/', true);
@@ -309,7 +293,7 @@ namespace ARI
 			return StreamFile(path, escapeKeys);
 		}
 
-		public static async Task PBXSyncUserRecordingSingle(Recordings recording) {
+		public static void PBXSyncUserRecordingSingle(Recordings recording) {
 
 			try {
 				if (recording == null)
@@ -323,13 +307,13 @@ namespace ARI
 					throw new Exception("PBXSyncUserRecordingSingle string.IsNullOrWhiteSpace(path)");
 				}
 
-				await AsyncProcess.StartProcess(
+				AsyncProcess.StartProcess(
 					"/bin/bash",
 					$" -c \"if [ ! -f {path} ]; then s3cmd get {recording.S3CMDPCMURI} {path}; fi\"",
 					null,
 					1000 * 60 * 60, // 60 minutes
 					Console.Out,
-					Console.Out);
+					Console.Out).Wait();
 			}
 			catch (Exception e) {
 				Log.Error(e, $"Exception: {e.Message}");
@@ -337,7 +321,7 @@ namespace ARI
 			}
 		}
 
-		public async Task<char> PlayTTS(string text, string escapeKeys, Engine engine, VoiceId voice, bool ssml = false) {
+		public char PlayTTS(string text, string escapeKeys, Engine engine, VoiceId voice, bool ssml = false) {
 
 			Log.Debug($"[PlayTTS()] PlayTTS {text}");
 
@@ -362,13 +346,13 @@ namespace ARI
 			Log.Debug("[PlayTTS()] PBX Local PCM Path {path}", path);
 
 
-			await PBXSyncTTSCacheSingle(entry);
+			PBXSyncTTSCacheSingle(entry);
 
 
 			return StreamFile(path, escapeKeys);
 		}
 
-		public async Task<char> PlayS3File(string s3CmdUri, string escapeKeys) {
+		public char PlayS3File(string s3CmdUri, string escapeKeys) {
 
 			
 
@@ -384,15 +368,19 @@ namespace ARI
 			string pbxTmpFileWithoutExtension = $"{pbxTmpDir}/{filenameWithoutExtension}";
 
 			// Tell the PBX To download the file.
+			string? key = EnvAmazonS3.S3_PBX_ACCESS_KEY;
+			string? secret = EnvAmazonS3.S3_PBX_SECRET_KEY;
+
+			
 
 
-			await AsyncProcess.StartProcess(
+			AsyncProcess.StartProcess(
 					"/bin/bash",
 					$" -c \"s3cmd get {s3CmdUri} {pbxTmpFile}\"",
 					null,
 					1000 * 60 * 60, // 60 minutes
 					Console.Out,
-					Console.Out);
+					Console.Out).Wait();
 
 			
 			// Play the file now that it is downloaded.
@@ -406,9 +394,9 @@ namespace ARI
 
 
 		[DoesNotReturn]
-		public async Task ThrowError(AGIRequest request, string code, string error) {
+		public void ThrowError(AGIRequest request, string code, string error) {
 			Log.Information("[{AGIRequestUniqueId}][Code:{Code}] {Error}", request.UniqueId, code, error);
-			await PlayTTS($"System error, please try again later. Code {code}.", string.Empty, Engine.Neural, VoiceId.Brian);
+			PlayTTS($"System error, please try again later. Code {code}.", string.Empty, Engine.Neural, VoiceId.Brian);
 			throw new PerformHangupException();
 		}
 

@@ -222,6 +222,18 @@ namespace SharedCode.DatabaseSchemas
 			}
 		}
 
+
+		public static readonly Guid UnprovisionedId = Guid.Parse("701b330e-4e9a-11e9-8c3e-02420a000033");
+		public const string UnprovisionedName = "Unprovisioned";
+		public static readonly Guid ProvisionedId = Guid.Parse("7022a8d2-4e9a-11e9-8c3e-02420a000033");
+		public const string ProvisionedName = "Provisioned";
+		public static readonly Guid ManualId = Guid.Parse("05e36ae6-52f6-11e9-a646-02420a000033");
+		public const string ManualName = "Manual";
+		public static readonly Guid DatabaseCreatedId = Guid.Parse("41b343a8-d829-11e9-9702-02420a000018");
+		public const string DatabaseCreatedName = "DatabaseCreated";
+		public static readonly Guid NonPayDisabledId = Guid.Parse("41b99d66-d829-11e9-9702-02420a000018");
+		public const string NonPayDisabledName = "NonPayDisabled";
+
 		public static void VerifyRepairTable(NpgsqlConnection db, bool insertDefaultContents = false) {
 
 			if (db.TableExists("billing-subscriptions-provisioning-status")) {
@@ -242,7 +254,55 @@ namespace SharedCode.DatabaseSchemas
 
 
 			if (insertDefaultContents) {
-				// None
+
+				Log.Information("Insert Default Contents");
+
+				
+				Upsert(db, new Dictionary<Guid, BillingSubscriptionsProvisioningStatus> {
+					{
+						UnprovisionedId,
+						new BillingSubscriptionsProvisioningStatus(
+							Uuid: UnprovisionedId,
+							Status: UnprovisionedName,
+							Json: new JObject { }.ToString(Formatting.Indented)
+						)
+					},
+					{
+						ProvisionedId,
+						new BillingSubscriptionsProvisioningStatus(
+							Uuid: ProvisionedId,
+							Status: ProvisionedName,
+							Json: new JObject { }.ToString(Formatting.Indented)
+						)
+					},
+					{
+						ManualId,
+						new BillingSubscriptionsProvisioningStatus(
+							Uuid: ManualId,
+							Status: ManualName,
+							Json: new JObject { }.ToString(Formatting.Indented)
+						)
+					},
+					{
+						DatabaseCreatedId,
+						new BillingSubscriptionsProvisioningStatus(
+							Uuid: DatabaseCreatedId,
+							Status: DatabaseCreatedName,
+							Json: new JObject { }.ToString(Formatting.Indented)
+						)
+					},
+					{
+						NonPayDisabledId,
+						new BillingSubscriptionsProvisioningStatus(
+							Uuid: NonPayDisabledId,
+							Status: NonPayDisabledName,
+							Json: new JObject { }.ToString(Formatting.Indented)
+						)
+					},
+				}, out _, out _);
+
+
+
 			}
 
 

@@ -455,6 +455,7 @@ namespace SharedCode.DatabaseSchemas
 		}
 
 
+		public const string CEDatabaseName = "zclient_ce_0";
 
 
 
@@ -485,32 +486,27 @@ namespace SharedCode.DatabaseSchemas
 
 			if (insertDefaultContents) {
 				Log.Information("Insert Default Contents");
-				//Guid guid = Guid.NewGuid();
-				//BillingCompanies bc = new BillingCompanies(
-				//	Uuid: guid,
-				//	FullName: "Example Company",
-				//	Abbreviation: null,
-				//	Industry: null,
-				//	MarketingCampaign: null,
-				//	AddressCity: null,
-				//	AddressCountry: null,
-				//	AddressLine1: null,
-				//	AddressLine2: null,
-				//	AddressPostalCode: null,
-				//	AddressProvince: null,
-				//	StripeCustomerId: null,
-				//	PaymentMethod: null,
-				//	InvoiceContactId: null,
-				//	PaymentFrequency: null,
-				//	Json: new JObject { }.ToString(Formatting.Indented)
-				//	);
+				Guid guid = Guid.NewGuid();
+				BillingSubscriptions sub = new BillingSubscriptions(
+					Uuid: guid,
+					BillingCompanies.CECompanyId,
+					BillingPackages.CEPackageId,
+					DateTime.UtcNow,
+					BillingSubscriptionsProvisioningStatus.ProvisionedName,
+					BillingSubscriptionsProvisioningStatus.ProvisionedName,
+					CEDatabaseName,
+					null,
+					Json: new JObject { }.ToString(Formatting.Indented)
 
-				//Upsert(db, new Dictionary<Guid, BillingCompanies> {
-				//	{guid, bc},
-				//}, out _, out _);
+					
+					
+					);
 
-				//NpgsqlCommand command = new NpgsqlCommand(SQLUtility.RemoveCommentsFromSQLString(Resources.SQLInsertDefaultBillingJournalEntriesType, true), db);
-				//command.ExecuteNonQuery();
+				Upsert(db, new Dictionary<Guid, BillingSubscriptions> {
+					{guid, sub},
+				}, out _, out _);
+
+				
 			}
 
 

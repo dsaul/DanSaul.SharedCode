@@ -1007,7 +1007,7 @@ namespace SharedCode.DatabaseSchemas
 			return res;
 		}
 
-
+		public static readonly Guid CECompanyId = Guid.Parse("20FCAAC7-FB81-4B68-9752-61444AE0531F");
 		public static void VerifyRepairTable(NpgsqlConnection db, out Guid? companyId, bool insertDefaultContents = false) {
 
 			if (db.TableExists("billing-companies")) {
@@ -1043,9 +1043,8 @@ namespace SharedCode.DatabaseSchemas
 
 			if (insertDefaultContents) {
 				Log.Information("Insert Default Contents");
-				Guid guid = Guid.NewGuid();
 				BillingCompanies bc = new BillingCompanies(
-					Uuid: guid,
+					Uuid: CECompanyId,
 					FullName: "Community Edition",
 					Abbreviation: "CE",
 					Industry: null,
@@ -1064,10 +1063,10 @@ namespace SharedCode.DatabaseSchemas
 					);
 
 				Upsert(db, new Dictionary<Guid, BillingCompanies> {
-					{guid, bc},
+					{CECompanyId, bc},
 				}, out _, out _);
 
-				companyId = guid;
+				companyId = CECompanyId;
 
 			} else {
 				companyId = null;

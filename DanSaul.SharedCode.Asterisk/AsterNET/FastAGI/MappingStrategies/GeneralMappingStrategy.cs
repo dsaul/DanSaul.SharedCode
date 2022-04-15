@@ -24,7 +24,7 @@ namespace AsterNET.FastAGI.MappingStrategies
                 else
                     rtn = (AGIScript)Assembly.GetEntryAssembly().CreateInstance(ClassName);
             }
-            catch
+            catch (Exception ex)
             {
 
             }
@@ -89,7 +89,9 @@ namespace AsterNET.FastAGI.MappingStrategies
     /// </summary>
     public class GeneralMappingStrategy : IMappingStrategy
     {
-
+#if LOGGER
+        private Logger logger = Logger.Instance();
+#endif
         private List<ScriptMapping> mappings;
         private Dictionary<string, MappingAssembly> mapAssemblies;
 

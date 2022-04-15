@@ -535,6 +535,7 @@ namespace SharedCode.DatabaseSchemas
 			}
 		}
 
+		public static readonly Guid CEPackageId = Guid.Parse("62924D78-A06A-47CD-8B27-54577DE0A355");
 
 		public static void VerifyRepairTable(NpgsqlConnection db, out Guid? billingPackageCommunityEditionId, bool insertDefaultContents = false) {
 
@@ -569,9 +570,8 @@ namespace SharedCode.DatabaseSchemas
 
 			if (insertDefaultContents) {
 				Log.Information("Insert Default Contents");
-				Guid guid = Guid.NewGuid();
 				BillingPackages bc = new BillingPackages(
-					Uuid: guid,
+					Uuid: CEPackageId,
 					PackageName: "Community Edition",
 					DisplayName: "Community Edition",
 					Currency: null,
@@ -594,10 +594,10 @@ namespace SharedCode.DatabaseSchemas
 				);
 
 				Upsert(db, new Dictionary<Guid, BillingPackages> {
-					{guid, bc},
+					{CEPackageId, bc},
 				}, out _, out _);
 
-				billingPackageCommunityEditionId = guid;
+				billingPackageCommunityEditionId = CEPackageId;
 
 			} else {
 				billingPackageCommunityEditionId = null;

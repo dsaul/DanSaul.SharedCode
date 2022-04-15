@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +7,6 @@ using AsterNET.IO;
 using AsterNET.Manager.Action;
 using AsterNET.Manager.Event;
 using AsterNET.Manager.Response;
-using Serilog;
 
 namespace AsterNET.Manager
 {
@@ -17,7 +15,9 @@ namespace AsterNET.Manager
 	/// </summary>
 	public class ManagerReader
 	{
-
+#if LOGGER
+		private readonly Logger logger = Logger.Instance();
+#endif
 
 		private readonly ManagerConnection mrConnector;
 		private SocketConnection mrSocket;
@@ -144,9 +144,14 @@ namespace AsterNET.Manager
 				// Give a next portion !!!
 				nstream.BeginRead(mrReader.lineBytes, 0, mrReader.lineBytes.Length, mrReaderCallbback, mrReader);
 			}
+#if LOGGER
 			catch (Exception ex)
 			{
-				Log.Error("Read data error", ex.Message);
+				mrReader.logger.Error("Read data error", ex.Message);
+#else
+			catch
+			{
+#endif
 				// Any catch - disconncatch !
 				disconnect = true;
 				if (mrReader.mrSocket != null)
@@ -259,18 +264,19 @@ namespace AsterNET.Manager
 						lastPacketTime = DateTime.Now;
 						lock (((ICollection) lineQueue).SyncRoot)
 							line = lineQueue.Dequeue().Trim();
-						Log.Debug(line);
+#if LOGGER
+						logger.Debug(line);
+#endif
 
 						#region processing Response: Follows
 
 						if (processingCommandResult)
 						{
 							string lineLower = line.ToLower(Helper.CultureInfo);
-							if (lineLower == "--end command--")
+							if (lineLower == "--end command--" || lineLower == "")
 							{
 								var commandResponse = new CommandResponse();
 								Helper.SetAttributes(commandResponse, packet);
-								commandList.Add(line);
 								commandResponse.Result = commandList;
 								processingCommandResult = false;
 								packet.Clear();
@@ -301,11 +307,11 @@ namespace AsterNET.Manager
 								mrConnector.DispatchEvent(connectEvent);
 								continue;
 							}
-							if (line.Trim().ToLower(Helper.CultureInfo) == "response: follows")
+							if (line.Trim().ToLower(Helper.CultureInfo) == "response: follows"
+								|| line.Trim().ToLower(Helper.CultureInfo).EndsWith("command output follows"))
 							{
-								// Switch to wait "--END COMMAND--" mode
+								// Switch to wait "--END COMMAND--"/"" mode
 								processingCommandResult = true;
-								packet.Clear();
 								commandList.Clear();
 								Helper.AddKeyValue(packet, line);
 								continue;
@@ -332,15 +338,22 @@ namespace AsterNET.Manager
 						mrSocket.Close();
 					break;
 				}
+#if LOGGER
 				catch (Exception ex)
 				{
-					Log.Debug("Exception : {0}", ex.Message);
+					logger.Info("Exception : {0}", ex.Message);
+#else
+				catch
+				{
+#endif
 				}
 
 				if (die)
 					break;
 
-				Log.Debug("No die, any error - send disconnect.");
+#if LOGGER
+				logger.Info("No die, any error - send disconnect.");
+#endif
 				mrConnector.DispatchEvent(new DisconnectEvent(mrConnector));
 			}
 		}

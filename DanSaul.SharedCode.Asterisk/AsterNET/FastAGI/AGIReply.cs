@@ -179,7 +179,7 @@ namespace AsterNET.FastAGI
         ///     GetVariableCommand - the value of the variable.
         /// </summary>
         /// <returns>the text in the parenthesis or  null if not set.</returns>
-        public string? Extra
+        public string Extra
         {
             get
             {
@@ -254,7 +254,7 @@ namespace AsterNET.FastAGI
         /// </summary>
         /// <param name="name">the name of the attribute to retrieve. The name is case insensitive.</param>
         /// <returns>the value of the attribute or null if it is not set.</returns>
-        public string? GetAttribute(string name)
+        public string GetAttribute(string name)
         {
             if (GetStatus() != (int) AGIReplyStatuses.SC_SUCCESS)
                 return null;
@@ -301,7 +301,7 @@ namespace AsterNET.FastAGI
         ///     syntax (getStatus() == SC_INVALID_COMMAND_SYNTAX).
         /// </summary>
         /// <returns>the synopsis of the command sent, null if there were no syntax errors.</returns>
-        public string? GetSynopsis()
+        public string GetSynopsis()
         {
             if (GetStatus() != (int) AGIReplyStatuses.SC_INVALID_COMMAND_SYNTAX)
                 return null;
