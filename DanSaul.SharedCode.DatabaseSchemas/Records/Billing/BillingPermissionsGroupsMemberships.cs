@@ -503,7 +503,8 @@ namespace SharedCode.DatabaseSchemas
 				using NpgsqlCommand cmd = new NpgsqlCommand(@"
 					CREATE TABLE ""public"".""billing-permissions-groups-memberships"" (
 						""id"" uuid DEFAULT public.uuid_generate_v1() NOT NULL,
-						""name"" character varying,
+						""group-id"" uuid NOT NULL,
+						""contact-id"" uuid NOT NULL,
 						""json"" json DEFAULT '{}'::json NOT NULL,
 						CONSTRAINT ""billing_permissions_groups_memberships_pk"" PRIMARY KEY(""id"")
 					) WITH(oids = false);
@@ -511,9 +512,37 @@ namespace SharedCode.DatabaseSchemas
 				cmd.ExecuteNonQuery();
 			}
 
+			
 
 			if (insertDefaultContents) {
 				// None
+
+				Guid id = Guid.NewGuid();
+
+				Log.Information("Insert Default Contents");
+				BillingPermissionsGroupsMemberships m = new BillingPermissionsGroupsMemberships(
+					Id: id,
+					GroupId: Guid.Parse("456f60fe-774c-11ea-9784-02420a0000d8"),
+					ContactId: BillingContacts.CEContactId,
+					Json: new JObject { }.ToString(Formatting.Indented)
+					);
+
+				Upsert(db, new Dictionary<Guid, BillingPermissionsGroupsMemberships> {
+					{id, m},
+				}, out _, out _);
+
+
+				
+
+
+
+
+
+
+
+
+
+
 			}
 
 

@@ -648,6 +648,9 @@ namespace SharedCode.DatabaseSchemas
 			}
 		}
 
+
+		public static readonly Guid CEContactId = Guid.Parse("77977D09-BE3B-430D-97B0-6203A243C367");
+
 		public static void VerifyRepairTable(NpgsqlConnection db, out Guid? billingContactId, bool insertDefaultContents = false, Guid? companyId = null) {
 
 			if (db.TableExists("billing-contacts")) {
@@ -682,7 +685,6 @@ namespace SharedCode.DatabaseSchemas
 				string hash = BCrypt.Net.BCrypt.HashPassword("CHANGEME");
 
 
-				Guid guid = Guid.NewGuid();
 				BillingContacts bc = new BillingContacts(
 					FullName: "Example Contact",
 					Email: "admin@example.com",
@@ -691,17 +693,20 @@ namespace SharedCode.DatabaseSchemas
 					EmailListTutorials: false,
 					MarketingCampaign: null,
 					Phone: null,
-					Uuid: guid,
+					Uuid: CEContactId,
 					CompanyId: companyId,
 					ApplicationData: new JObject { }.ToString(Formatting.Indented),
-					Json: new JObject { }.ToString(Formatting.Indented)
+					Json: new JObject {
+						{ kJsonKeyLicenseAssignedProjectsSchedulingTime, true },
+						{ kJsonKeyLicenseAssignedOnCall, true },
+					}.ToString(Formatting.Indented)
 					);
 
 				Upsert(db, new Dictionary<Guid, BillingContacts> {
-					{guid, bc},
+					{CEContactId, bc},
 				}, out _, out _);
 
-				billingContactId = guid;
+				billingContactId = CEContactId;
 
 			} else {
 				billingContactId = null;
