@@ -334,10 +334,10 @@ namespace SharedCode.DatabaseSchemas
 				ipAddress = reader.GetString("ip-address");
 			}
 			if (!reader.IsDBNull("created-utc")) {
-				createdUtc = reader.GetTimeStamp(columns["created-utc"]).ToDateTime();
+				createdUtc = reader.GetDateTime(columns["created-utc"]);
 			}
 			if (!reader.IsDBNull("last-access-utc")) {
-				lastAccessUtc = reader.GetTimeStamp(columns["last-access-utc"]).ToDateTime();
+				lastAccessUtc = reader.GetDateTime(columns["last-access-utc"]);
 			}
 			if (!reader.IsDBNull("json")) {
 				json = reader.GetString("json");

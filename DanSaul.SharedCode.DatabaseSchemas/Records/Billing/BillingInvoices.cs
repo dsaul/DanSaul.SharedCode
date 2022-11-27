@@ -319,10 +319,10 @@ namespace SharedCode.DatabaseSchemas
 				uuid = reader.GetGuid("uuid");
 			}
 			if (!reader.IsDBNull("timestamp-start-utc")) {
-				timestampStartUtc = reader.GetTimeStamp(columns["timestamp-start-utc"]).ToDateTime();
+				timestampStartUtc = reader.GetDateTime(columns["timestamp-start-utc"]);
 			}
 			if (!reader.IsDBNull("timestamp-end-utc")) {
-				timestampEndUtc = reader.GetTimeStamp(columns["timestamp-end-utc"]).ToDateTime();
+				timestampEndUtc = reader.GetDateTime(columns["timestamp-end-utc"]);
 			}
 			if (!reader.IsDBNull("invoice-number")) {
 				invoiceNumber = reader.GetString("invoice-number");
@@ -340,10 +340,10 @@ namespace SharedCode.DatabaseSchemas
 				amountRemaining = reader.GetDecimal("amount-remaining");
 			}
 			if (!reader.IsDBNull("timestamp-created-utc")) {
-				timestampCreatedUtc = reader.GetTimeStamp(columns["timestamp-created-utc"]).ToDateTime();
+				timestampCreatedUtc = reader.GetDateTime(columns["timestamp-created-utc"]);
 			}
 			if (!reader.IsDBNull("timestamp-due-utc")) {
-				timestampDueUtc = reader.GetTimeStamp(columns["timestamp-due-utc"]).ToDateTime();
+				timestampDueUtc = reader.GetDateTime(columns["timestamp-due-utc"]);
 			}
 			if (!reader.IsDBNull("company-id")) {
 				companyId = reader.GetGuid("company-id");

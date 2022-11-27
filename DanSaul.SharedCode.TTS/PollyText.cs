@@ -157,8 +157,8 @@ namespace SharedCode
 			string? uriMP3 = null;
 			if (File.Exists(filenameMP3)) {
 				try {
-					fileTransferUtility.Upload(filenameMP3, Cache.kLaTeXBucketName, $"{engine}/{voice}/{entryId}/{entryId}.mp3");
-					uriMP3 = $"{EnvAmazonS3.S3_DISPATCH_PULSE_SERVICE_URI}/{Cache.kLaTeXBucketName}/{engine}/{voice}/{entryId}/{entryId}.mp3";
+					fileTransferUtility.Upload(filenameMP3, Cache.kTTSBucketName, $"{engine}/{voice}/{entryId}/{entryId}.mp3");
+					uriMP3 = $"{EnvAmazonS3.S3_DISPATCH_PULSE_SERVICE_URI}/{Cache.kTTSBucketName}/{engine}/{voice}/{entryId}/{entryId}.mp3";
 				}
 				catch (Exception e) {
 					Log.Debug($"Error encountered on server. Message:'{e.Message}' when writing an object");
@@ -168,8 +168,8 @@ namespace SharedCode
 			string? uriWAV = null;
 			if (File.Exists(filenameWAV)) {
 				try {
-					fileTransferUtility.Upload(filenameWAV, Cache.kLaTeXBucketName, $"{engine}/{voice}/{entryId}/{entryId}.wav");
-					uriWAV = $"{EnvAmazonS3.S3_DISPATCH_PULSE_SERVICE_URI}/{Cache.kLaTeXBucketName}/{engine}/{voice}/{entryId}/{entryId}.wav";
+					fileTransferUtility.Upload(filenameWAV, Cache.kTTSBucketName, $"{engine}/{voice}/{entryId}/{entryId}.wav");
+					uriWAV = $"{EnvAmazonS3.S3_DISPATCH_PULSE_SERVICE_URI}/{Cache.kTTSBucketName}/{engine}/{voice}/{entryId}/{entryId}.wav";
 				}
 				catch (Exception e) {
 					Log.Debug($"Error encountered on server. Message:'{e.Message}' when writing an object");
@@ -179,8 +179,8 @@ namespace SharedCode
 			string? uriPCM = null;
 			if (File.Exists(filenamePCM)) {
 				try {
-					fileTransferUtility.Upload(filenamePCM, Cache.kLaTeXBucketName, $"{engine}/{voice}/{entryId}/{entryId}.pcm");
-					uriPCM = $"{EnvAmazonS3.S3_DISPATCH_PULSE_SERVICE_URI}/{Cache.kLaTeXBucketName}/{engine}/{voice}/{entryId}/{entryId}.pcm";
+					fileTransferUtility.Upload(filenamePCM, Cache.kTTSBucketName, $"{engine}/{voice}/{entryId}/{entryId}.pcm");
+					uriPCM = $"{EnvAmazonS3.S3_DISPATCH_PULSE_SERVICE_URI}/{Cache.kTTSBucketName}/{engine}/{voice}/{entryId}/{entryId}.pcm";
 				}
 				catch (Exception e) {
 					Log.Debug($"Error encountered on server. Message:'{e.Message}' when writing an object");

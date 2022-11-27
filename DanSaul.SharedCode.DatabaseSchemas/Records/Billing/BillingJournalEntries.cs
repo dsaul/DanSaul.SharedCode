@@ -364,7 +364,7 @@ namespace SharedCode.DatabaseSchemas
 				uuid = reader.GetGuid("uuid");
 			}
 			if (!reader.IsDBNull("timestamp")) {
-				timestamp = reader.GetTimeStamp(columns["timestamp"]).ToDateTime();
+				timestamp = reader.GetDateTime(columns["timestamp"]);
 			}
 			if (!reader.IsDBNull("type")) {
 				type = reader.GetString("type");

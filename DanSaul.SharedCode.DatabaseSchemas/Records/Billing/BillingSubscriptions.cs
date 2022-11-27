@@ -402,7 +402,7 @@ namespace SharedCode.DatabaseSchemas
 				packageId = reader.GetGuid("package-id");
 			}
 			if (!reader.IsDBNull("timestamp-added-utc")) {
-				timestampAddedUtc = reader.GetTimeStamp(columns["timestamp-added-utc"]).ToDateTime();
+				timestampAddedUtc = reader.GetDateTime(columns["timestamp-added-utc"]);
 			}
 			if (!reader.IsDBNull("provisioning-actual")) {
 				provisioningActual = reader.GetString("provisioning-actual");
@@ -414,7 +414,7 @@ namespace SharedCode.DatabaseSchemas
 				provisionedDatabaseName = reader.GetString("provisioned-database-name");
 			}
 			if (!reader.IsDBNull("timestamp-last-settings-push-utc")) {
-				timestampLastSettingsPushUtc = reader.GetTimeStamp(columns["timestamp-last-settings-push-utc"]).ToDateTime();
+				timestampLastSettingsPushUtc = reader.GetDateTime(columns["timestamp-last-settings-push-utc"]);
 			}
 			if (!reader.IsDBNull("json")) {
 				json = reader.GetString("json");
