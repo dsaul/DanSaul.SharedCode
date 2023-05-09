@@ -11,8 +11,8 @@
 
   <ItemGroup>
     <PackageReference Include="AWSSDK.S3" Version="3.7.104.12" />
-    <PackageReference Include="DanSaul.SharedCode.Extensions" Version="2023.5.908.58" />
-    <PackageReference Include="DanSaul.SharedCode.StandardizedEnvironmentVariables" Version="2023.5.908.59" />
+    <PackageReference Include="DanSaul.SharedCode.Extensions" Version="2023.5.910" />
+    <PackageReference Include="DanSaul.SharedCode.StandardizedEnvironmentVariables" Version="2023.5.910" />
   </ItemGroup>
 
 </Project>
