@@ -13,7 +13,7 @@
     <PackageReference Include="AsterNET.NetStandard" Version="2.2.1" />
     <PackageReference Include="AWSSDK.Polly" Version="3.7.106.54" />
     <PackageReference Include="AWSSDK.S3" Version="3.7.104.12" />
-    <PackageReference Include="DanSaul.SharedCode.DatabaseSchemas" Version="2023.5.908.58" />
+    <PackageReference Include="DanSaul.SharedCode.DatabaseSchemas" Version="2023.5.910.11" />
     <PackageReference Include="DanSaul.SharedCode.Extensions.AmazonS3" Version="2023.5.910" />
     <PackageReference Include="DanSaul.SharedCode.StandardizedEnvironmentVariables" Version="2023.5.910" />
     <PackageReference Include="DanSaul.SharedCode.TTS" Version="2023.5.910" />
