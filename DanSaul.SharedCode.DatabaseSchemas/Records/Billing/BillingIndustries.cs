@@ -79,16 +79,16 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, BillingIndustries> All(NpgsqlConnection connection) {
 
-			Dictionary<Guid, BillingIndustries> ret = new Dictionary<Guid, BillingIndustries>();
+			Dictionary<Guid, BillingIndustries> ret = new();
 
 			string sql = @"SELECT * from ""billing-industries""";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 
 			using NpgsqlDataReader reader = cmd.ExecuteReader();
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingIndustries obj = BillingIndustries.FromDataReader(reader);
+					BillingIndustries obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -104,12 +104,12 @@ namespace SharedCode.DatabaseSchemas
 
 		public static List<Guid> Delete(NpgsqlConnection connection, List<Guid> idsToDelete) {
 
-			List<Guid> toSendToOthers = new List<Guid>();
+			List<Guid> toSendToOthers = new();
 			if (idsToDelete.Count == 0) {
 				return toSendToOthers;
 			}
 
-			List<string> valNames = new List<string>();
+			List<string> valNames = new();
 			for (int i = 0; i < idsToDelete.Count; i++) {
 				valNames.Add($"@val{i}");
 			}
@@ -117,7 +117,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 			string sql = $"DELETE FROM \"billing-industries\" WHERE \"uuid\" IN ({string.Join(", ", valNames)})";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			for (int i = 0; i < valNames.Count; i++) {
 				cmd.Parameters.AddWithValue(valNames[i], idsToDelete[i]);
 			}
@@ -164,7 +164,7 @@ namespace SharedCode.DatabaseSchemas
 							""json"" = CAST(excluded.""json"" AS json)
 					";
 
-				using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+				using NpgsqlCommand cmd = new(sql, connection);
 				cmd.Parameters.AddWithValue("@uuid", kvp.Key);
 				cmd.Parameters.AddWithValue("@value", string.IsNullOrWhiteSpace(kvp.Value.Value) ? (object)DBNull.Value : kvp.Value.Value);
 				cmd.Parameters.AddWithValue("@json", string.IsNullOrWhiteSpace(kvp.Value.Json) ? (object)DBNull.Value : kvp.Value.Json);
@@ -228,7 +228,7 @@ namespace SharedCode.DatabaseSchemas
 			} else {
 				Log.Information($"----- Table \"billing-industries\" doesn't exist, creating.");
 
-				using NpgsqlCommand cmd = new NpgsqlCommand(@"
+				using NpgsqlCommand cmd = new(@"
 					CREATE TABLE ""public"".""billing-industries"" (
 						""uuid"" uuid DEFAULT public.uuid_generate_v1() NOT NULL,
 						""value"" character varying(255),

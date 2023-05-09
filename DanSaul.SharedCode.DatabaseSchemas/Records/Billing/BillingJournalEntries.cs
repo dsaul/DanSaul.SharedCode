@@ -50,7 +50,7 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, BillingJournalEntries> ForId(NpgsqlConnection connection, Guid id) {
 
-			Dictionary<Guid, BillingJournalEntries> ret = new Dictionary<Guid, BillingJournalEntries>();
+			Dictionary<Guid, BillingJournalEntries> ret = new();
 
 			string sql = @"SELECT * from ""billing-journal-entries"" WHERE uuid = @uuid";
 			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);

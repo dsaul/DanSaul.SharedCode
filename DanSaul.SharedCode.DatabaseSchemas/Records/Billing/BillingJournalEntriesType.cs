@@ -18,7 +18,7 @@ namespace SharedCode.DatabaseSchemas
 	{
 		public static Dictionary<Guid, BillingJournalEntriesType> ForId(NpgsqlConnection connection, Guid id) {
 
-			Dictionary<Guid, BillingJournalEntriesType> ret = new Dictionary<Guid, BillingJournalEntriesType>();
+			Dictionary<Guid, BillingJournalEntriesType> ret = new();
 
 			string sql = @"SELECT * from ""billing-journal-entries-type"" WHERE uuid = @uuid";
 			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);

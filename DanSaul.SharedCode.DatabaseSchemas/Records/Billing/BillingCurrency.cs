@@ -45,11 +45,11 @@ namespace SharedCode.DatabaseSchemas
 
 			Guid[] idsArr = ids.ToArray();
 
-			Dictionary<Guid, BillingCurrency> ret = new Dictionary<Guid, BillingCurrency>();
+			Dictionary<Guid, BillingCurrency> ret = new();
 			if (idsArr.Length == 0)
 				return ret;
 
-			List<string> valNames = new List<string>();
+			List<string> valNames = new();
 			for (int i = 0; i < idsArr.Length; i++) {
 				valNames.Add($"@val{i}");
 			}
@@ -80,7 +80,7 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, BillingCurrency> All(NpgsqlConnection connection) {
 
-			Dictionary<Guid, BillingCurrency> ret = new Dictionary<Guid, BillingCurrency>();
+			Dictionary<Guid, BillingCurrency> ret = new();
 
 			string sql = @"SELECT * from ""billing-currency""";
 			using NpgsqlCommand cmd = new(sql, connection);
@@ -164,7 +164,7 @@ namespace SharedCode.DatabaseSchemas
 							""json"" = CAST(excluded.""json"" AS json)
 					";
 
-				using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+				using NpgsqlCommand cmd = new(sql, connection);
 				cmd.Parameters.AddWithValue("@uuid", kvp.Key);
 				cmd.Parameters.AddWithValue("@currency", string.IsNullOrWhiteSpace(kvp.Value.Currency) ? (object)DBNull.Value : kvp.Value.Currency);
 				cmd.Parameters.AddWithValue("@json", string.IsNullOrWhiteSpace(kvp.Value.Json) ? (object)DBNull.Value : kvp.Value.Json);

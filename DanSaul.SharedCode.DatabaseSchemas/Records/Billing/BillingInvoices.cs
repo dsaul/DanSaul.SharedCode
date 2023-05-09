@@ -25,10 +25,10 @@ namespace SharedCode.DatabaseSchemas
 	{
 		public static Dictionary<Guid, BillingInvoices> ForId(NpgsqlConnection connection, Guid id) {
 
-			Dictionary<Guid, BillingInvoices> ret = new Dictionary<Guid, BillingInvoices>();
+			Dictionary<Guid, BillingInvoices> ret = new();
 
 			string sql = @"SELECT * from ""billing-invoices"" WHERE uuid = @uuid";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@uuid", id);
 
 
@@ -38,7 +38,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingInvoices obj = BillingInvoices.FromDataReader(reader);
+					BillingInvoices obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -261,7 +261,7 @@ namespace SharedCode.DatabaseSchemas
 							""json"" = CAST(excluded.""json"" AS json)
 					";
 
-				using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+				using NpgsqlCommand cmd = new(sql, connection);
 				cmd.Parameters.AddWithValue("@uuid", kvp.Key);
 				cmd.Parameters.AddWithValue("@timestampStartUtc", null == kvp.Value.TimestampStartUtc ? (object)DBNull.Value : kvp.Value.TimestampStartUtc);
 				cmd.Parameters.AddWithValue("@timestampEndUtc", null == kvp.Value.TimestampEndUtc ? (object)DBNull.Value : kvp.Value.TimestampEndUtc);
