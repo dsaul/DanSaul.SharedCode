@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Globalization;
 using Serilog;
+using DanSaul.SharedCode.Npgsql;
 
 namespace SharedCode.DatabaseSchemas
 {
@@ -320,7 +321,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -345,7 +346,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -373,7 +374,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -401,7 +402,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -430,7 +431,7 @@ namespace SharedCode.DatabaseSchemas
 					return ContentTypes.Unknown;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return ContentTypes.Unknown;
 				}
@@ -469,7 +470,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = htmlTok.Value<string>();
+				string? str = htmlTok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -501,7 +502,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = textTok.Value<string>();
+				string? str = textTok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -563,7 +564,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = uriTok.Value<string>();
+				string? str = uriTok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -595,7 +596,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = uriTok.Value<string>();
+				string? str = uriTok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}

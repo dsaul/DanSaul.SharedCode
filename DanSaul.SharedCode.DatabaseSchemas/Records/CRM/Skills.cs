@@ -3,6 +3,7 @@ using System.Text;
 using System.Data;
 using Newtonsoft.Json;
 using Serilog;
+using DanSaul.SharedCode.Npgsql;
 
 namespace SharedCode.DatabaseSchemas
 {

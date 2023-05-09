@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanSaul.SharedCode.Extensio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanSaul.SharedCode.Extensions.SharpPCap", "DanSaul.SharedCode.Extensions.SharpPCap\DanSaul.SharedCode.Extensions.SharpPCap.csproj", "{0BF15BC4-EDA5-4DFC-8246-10B272E815F6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanSaul.SharedCode.Linode", "DanSaul.SharedCode.Linode\DanSaul.SharedCode.Linode.csproj", "{D9BDFBFC-125D-4ED9-AA64-02E464D554F7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanSaul.SharedCode.NodaTime", "DanSaul.SharedCode.NodaTime\DanSaul.SharedCode.NodaTime.csproj", "{A9999B74-071F-49EB-96D7-6FBD56B81F7C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanSaul.SharedCode.Npgsql", "DanSaul.SharedCode.Npgsql\DanSaul.SharedCode.Npgsql.csproj", "{D460D6EE-2FC2-4879-9FDC-955552902D81}"
@@ -27,9 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanSaul.SharedCode.SignalR"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanSaul.SharedCode.StandardizedEnvironmentVariables", "DanSaul.SharedCode.StandardizedEnvironmentVariables\DanSaul.SharedCode.StandardizedEnvironmentVariables.csproj", "{8A364256-9616-4F20-9013-C16A1FE9FC4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DanSaul.SharedCode.DatabaseSchemas", "DanSaul.SharedCode.DatabaseSchemas\DanSaul.SharedCode.DatabaseSchemas.csproj", "{2CDA8EA2-60F4-4828-90D3-6A0E34FAE529}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanSaul.SharedCode.DatabaseSchemas", "DanSaul.SharedCode.DatabaseSchemas\DanSaul.SharedCode.DatabaseSchemas.csproj", "{2CDA8EA2-60F4-4828-90D3-6A0E34FAE529}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DanSaul.SharedCode.TTS", "DanSaul.SharedCode.TTS\DanSaul.SharedCode.TTS.csproj", "{AA3149DC-4077-4FA4-A65E-2919C7A2926B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanSaul.SharedCode.TTS", "DanSaul.SharedCode.TTS\DanSaul.SharedCode.TTS.csproj", "{AA3149DC-4077-4FA4-A65E-2919C7A2926B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,12 +78,6 @@ Global
 		{0BF15BC4-EDA5-4DFC-8246-10B272E815F6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0BF15BC4-EDA5-4DFC-8246-10B272E815F6}.Travis|Any CPU.ActiveCfg = Release|Any CPU
 		{0BF15BC4-EDA5-4DFC-8246-10B272E815F6}.Travis|Any CPU.Build.0 = Release|Any CPU
-		{D9BDFBFC-125D-4ED9-AA64-02E464D554F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D9BDFBFC-125D-4ED9-AA64-02E464D554F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D9BDFBFC-125D-4ED9-AA64-02E464D554F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D9BDFBFC-125D-4ED9-AA64-02E464D554F7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D9BDFBFC-125D-4ED9-AA64-02E464D554F7}.Travis|Any CPU.ActiveCfg = Release|Any CPU
-		{D9BDFBFC-125D-4ED9-AA64-02E464D554F7}.Travis|Any CPU.Build.0 = Release|Any CPU
 		{A9999B74-071F-49EB-96D7-6FBD56B81F7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A9999B74-071F-49EB-96D7-6FBD56B81F7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9999B74-071F-49EB-96D7-6FBD56B81F7C}.Release|Any CPU.ActiveCfg = Release|Any CPU

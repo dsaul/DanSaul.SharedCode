@@ -5,6 +5,8 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Serilog;
 using DanSaul.SharedCode.DatabaseSchemas.Properties;
+using DanSaul.SharedCode.Npgsql;
+using DanSaul.SharedCode;
 
 namespace SharedCode.DatabaseSchemas
 {

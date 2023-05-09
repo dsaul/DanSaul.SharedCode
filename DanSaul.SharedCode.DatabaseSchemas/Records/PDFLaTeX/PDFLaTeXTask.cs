@@ -253,7 +253,7 @@ namespace SharedCode.DatabaseSchemas
 				JObject? root = JsonObject;
 				if (root == null)
 					return default;
-				string str = root.Value<string>(kLaTeXJsonKeyRequestingBillingId);
+				string? str = root.Value<string>(kLaTeXJsonKeyRequestingBillingId);
 
 				if (!Guid.TryParse(str, out Guid guid)) {
 					return null;

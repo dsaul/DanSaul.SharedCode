@@ -15,10 +15,6 @@ namespace DanSaul.SharedCode.TTS
 	public static class PollyText
 	{
 
-
-		
-
-
 		public static Amazon.RegionEndpoint AwsRegion
 		{
 			get {

@@ -4,6 +4,7 @@ using System.Data;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Serilog;
+using DanSaul.SharedCode.Npgsql;
 
 namespace SharedCode.DatabaseSchemas
 {
@@ -11,10 +12,10 @@ namespace SharedCode.DatabaseSchemas
 	{
 		public static Dictionary<Guid, Assignments> ForId(NpgsqlConnection connection, Guid id) {
 
-			Dictionary<Guid, Assignments> ret = new Dictionary<Guid, Assignments>();
+			Dictionary<Guid, Assignments> ret = new();
 
 			string sql = @"SELECT * from ""assignments"" WHERE id = @id";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@id", id);
 
 
@@ -39,10 +40,10 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, Assignments> All(NpgsqlConnection connection) {
 
-			Dictionary<Guid, Assignments> ret = new Dictionary<Guid, Assignments>();
+			Dictionary<Guid, Assignments> ret = new();
 
 			string sql = @"SELECT * from ""assignments""";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 
 			using NpgsqlDataReader reader = cmd.ExecuteReader();
 
@@ -64,17 +65,17 @@ namespace SharedCode.DatabaseSchemas
 
 			Guid[] idsArr = ids.ToArray();
 
-			Dictionary<Guid, Assignments> ret = new Dictionary<Guid, Assignments>();
+			Dictionary<Guid, Assignments> ret = new();
 			if (idsArr.Length == 0)
 				return ret;
 
-			List<string> valNames = new List<string>();
+			List<string> valNames = new();
 			for (int i = 0; i < idsArr.Length; i++) {
 				valNames.Add($"@val{i}");
 			}
 
 			string sql = $"SELECT * from \"assignments\" WHERE id IN ({string.Join(", ", valNames)})";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			for (int i = 0; i < valNames.Count; i++) {
 				cmd.Parameters.AddWithValue(valNames[i], idsArr[i]);
 			}
@@ -99,12 +100,12 @@ namespace SharedCode.DatabaseSchemas
 
 		public static List<Guid> Delete(NpgsqlConnection connection, List<Guid> idsToDelete) {
 
-			List<Guid> toSendToOthers = new List<Guid>();
+			List<Guid> toSendToOthers = new();
 			if (idsToDelete.Count == 0) {
 				return toSendToOthers;
 			}
 
-			List<string> valNames = new List<string>();
+			List<string> valNames = new();
 			for (int i = 0; i < idsToDelete.Count; i++) {
 				valNames.Add($"@val{i}");
 			}
@@ -112,7 +113,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 			string sql = $"DELETE FROM \"assignments\" WHERE \"id\" IN ({string.Join(", ", valNames)})";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			for (int i = 0; i < valNames.Count; i++) {
 				cmd.Parameters.AddWithValue(valNames[i], idsToDelete[i]);
 			}
@@ -168,7 +169,7 @@ namespace SharedCode.DatabaseSchemas
 							""last-modified-ISO8601"" = excluded.""last-modified-ISO8601""
 					";
 
-				using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+				using NpgsqlCommand cmd = new(sql, connection);
 				cmd.Parameters.AddWithValue("@id", kvp.Key);
 
 				string json = "{}";
@@ -251,7 +252,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -265,7 +266,7 @@ namespace SharedCode.DatabaseSchemas
 		public HashSet<Guid> AgentIds
 		{
 			get {
-				HashSet<Guid> res = new HashSet<Guid>();
+				HashSet<Guid> res = new();
 
 				if (null == Json || null == JsonObject) {
 					return res;
@@ -273,7 +274,7 @@ namespace SharedCode.DatabaseSchemas
 
 				JToken? agentIdTok = JsonObject["agentId"];
 				if (null != agentIdTok) {
-					string agentIdStr = agentIdTok.Value<string>();
+					string? agentIdStr = agentIdTok.Value<string>();
 					if (!string.IsNullOrWhiteSpace(agentIdStr)) {
 
 						if (Guid.TryParse(agentIdStr, out Guid parsed))
@@ -282,11 +283,13 @@ namespace SharedCode.DatabaseSchemas
 					}
 				}
 
-				JArray? agentIds = JsonObject["agentIds"] as JArray;
-				if (null != agentIds) {
-					foreach (JToken item in agentIds) {
-						string str = item.Value<string>();
-						if (!string.IsNullOrWhiteSpace(str)) {
+				if (JsonObject["agentIds"] is JArray agentIds)
+				{
+					foreach (JToken item in agentIds)
+					{
+						string? str = item.Value<string>();
+						if (!string.IsNullOrWhiteSpace(str))
+						{
 							if (Guid.TryParse(str, out Guid parsed))
 								res.Add(parsed);
 						}
@@ -313,7 +316,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -339,7 +342,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -364,7 +367,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -406,7 +409,7 @@ namespace SharedCode.DatabaseSchemas
 				if (projectIdTok == null)
 					break;
 
-				string projectIdStr = projectIdTok.Value<string>();
+				string? projectIdStr = projectIdTok.Value<string>();
 				if (string.IsNullOrWhiteSpace(projectIdStr))
 					break;
 
@@ -497,7 +500,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -523,7 +526,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 		public string GetAgentIdsSearchString(NpgsqlConnection db) {
-			StringBuilder sb = new StringBuilder();
+			StringBuilder sb = new();
 
 			foreach (Guid agentId in AgentIds) {
 
@@ -584,7 +587,7 @@ namespace SharedCode.DatabaseSchemas
 			} else {
 				Log.Debug($"----- Table \"assignments\" doesn't exist, creating.");
 
-				using NpgsqlCommand cmd = new NpgsqlCommand(@"
+				using NpgsqlCommand cmd = new(@"
 					CREATE TABLE ""public"".""assignments"" (
 						""id"" uuid DEFAULT uuid_generate_v1() NOT NULL,
 						""json"" json DEFAULT '{}' NOT NULL,
@@ -600,7 +603,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 			Console.Write("----- Table \"assignments\": ");
-			Dictionary<Guid, Assignments> updateObjects = new Dictionary<Guid, Assignments>();
+			Dictionary<Guid, Assignments> updateObjects = new();
 			{
 				Dictionary<Guid, Assignments> all = Assignments.All(dpDB);
 
@@ -612,7 +615,7 @@ namespace SharedCode.DatabaseSchemas
 
 					JToken? lastModifiedInJSONTok = root["lastModifiedISO8601"];
 
-					Assignments obj = new Assignments(
+					Assignments obj = new(
 							Id: kvp.Key,
 							Json: root.ToString(Newtonsoft.Json.Formatting.Indented),
 							LastModifiedIso8601: null == lastModifiedInJSONTok ? kvp.Value.LastModifiedIso8601 : lastModifiedInJSONTok.Value<string>(),

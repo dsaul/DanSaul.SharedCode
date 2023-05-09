@@ -7,6 +7,8 @@ using Square;
 using Square.Models;
 using Serilog;
 using Square.Exceptions;
+using DanSaul.SharedCode.Npgsql;
+using DanSaul.SharedCode.StandardizedEnvironmentVariables;
 
 namespace SharedCode.DatabaseSchemas
 {
@@ -58,10 +60,10 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, BillingCompanies> ForIds(NpgsqlConnection connection, Guid id) {
 
-			Dictionary<Guid, BillingCompanies> ret = new Dictionary<Guid, BillingCompanies>();
+			Dictionary<Guid, BillingCompanies> ret = new();
 
 			string sql = @"SELECT * from ""billing-companies"" WHERE uuid = @uuid";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@uuid", id);
 
 
@@ -71,7 +73,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingCompanies obj = BillingCompanies.FromDataReader(reader);
+					BillingCompanies obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -83,7 +85,7 @@ namespace SharedCode.DatabaseSchemas
 		}
 
 		public static Dictionary<Guid, BillingCompanies> ForSessionId(NpgsqlConnection connection, Guid sessionId) {
-			Dictionary<Guid, BillingCompanies> ret = new Dictionary<Guid, BillingCompanies>();
+			Dictionary<Guid, BillingCompanies> ret = new();
 
 			string sql = @"
 				SELECT ""billing-companies"".*
@@ -92,7 +94,7 @@ namespace SharedCode.DatabaseSchemas
 				LEFT JOIN ""billing-companies"" ON ""billing-contacts"".""company-id"" = ""billing-companies"".""uuid""
 				WHERE ""billing-sessions"".""uuid"" = @sessionId
 				";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@sessionId", sessionId);
 
 
@@ -102,7 +104,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingCompanies obj = BillingCompanies.FromDataReader(reader);
+					BillingCompanies obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -117,17 +119,17 @@ namespace SharedCode.DatabaseSchemas
 
 			Guid[] idsArr = ids.ToArray();
 
-			Dictionary<Guid, BillingCompanies> ret = new Dictionary<Guid, BillingCompanies>();
+			Dictionary<Guid, BillingCompanies> ret = new();
 			if (idsArr.Length == 0)
 				return ret;
 
-			List<string> valNames = new List<string>();
+			List<string> valNames = new();
 			for (int i = 0; i < idsArr.Length; i++) {
 				valNames.Add($"@val{i}");
 			}
 
 			string sql = $"SELECT * from \"billing-companies\" WHERE uuid IN ({string.Join(", ", valNames)})";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			for (int i = 0; i < valNames.Count; i++) {
 				cmd.Parameters.AddWithValue(valNames[i], idsArr[i]);
 			}
@@ -136,7 +138,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingCompanies obj = BillingCompanies.FromDataReader(reader);
+					BillingCompanies obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -152,10 +154,10 @@ namespace SharedCode.DatabaseSchemas
 
 			abbr = abbr.Trim();
 
-			Dictionary<Guid, BillingCompanies> ret = new Dictionary<Guid, BillingCompanies>();
+			Dictionary<Guid, BillingCompanies> ret = new();
 
 			string sql = @"SELECT * FROM ""billing-companies"" WHERE LOWER(""abbreviation"") = LOWER(@abbr)";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@abbr", abbr);
 
 
@@ -165,7 +167,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingCompanies obj = BillingCompanies.FromDataReader(reader);
+					BillingCompanies obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -180,10 +182,10 @@ namespace SharedCode.DatabaseSchemas
 
 			paymentMethod = paymentMethod.Trim();
 
-			Dictionary<Guid, BillingCompanies> ret = new Dictionary<Guid, BillingCompanies>();
+			Dictionary<Guid, BillingCompanies> ret = new();
 
 			string sql = @"SELECT * FROM ""billing-companies"" WHERE LOWER(""payment-method"") = LOWER(@paymentMethod)";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@paymentMethod", paymentMethod);
 
 
@@ -193,7 +195,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingCompanies obj = BillingCompanies.FromDataReader(reader);
+					BillingCompanies obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -207,17 +209,17 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, BillingCompanies> ForPhoneId(NpgsqlConnection connection, string phoneId) {
 
-			Dictionary<Guid, BillingCompanies> ret = new Dictionary<Guid, BillingCompanies>();
+			Dictionary<Guid, BillingCompanies> ret = new();
 
 			string sql = @"SELECT * from ""billing-companies"" WHERE json->>'phoneId' = @phoneId";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@phoneId", phoneId);
 
 			using NpgsqlDataReader reader = cmd.ExecuteReader();
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingCompanies obj = BillingCompanies.FromDataReader(reader);
+					BillingCompanies obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -233,16 +235,16 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, BillingCompanies> All(NpgsqlConnection connection) {
 
-			Dictionary<Guid, BillingCompanies> ret = new Dictionary<Guid, BillingCompanies>();
+			Dictionary<Guid, BillingCompanies> ret = new();
 
 			string sql = @"SELECT * from ""billing-companies""";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 
 			using NpgsqlDataReader reader = cmd.ExecuteReader();
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingCompanies obj = BillingCompanies.FromDataReader(reader);
+					BillingCompanies obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -260,7 +262,7 @@ namespace SharedCode.DatabaseSchemas
 			bool flag, 
 			out Dictionary<Guid, string> databaseNames) {
 
-			Dictionary<Guid, BillingCompanies> ret = new Dictionary<Guid, BillingCompanies>();
+			Dictionary<Guid, BillingCompanies> ret = new();
 			databaseNames = new Dictionary<Guid, string>();
 
 			string sql = @"			
@@ -287,14 +289,14 @@ namespace SharedCode.DatabaseSchemas
 				LEFT JOIN ""billing-packages"" ON ""billing-subscriptions"".""package-id"" = ""billing-packages"".""uuid""
 				WHERE (""billing-packages"".json ->> 'ProvisionOnCallAutoAttendants')::bool = @flag
 			";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@flag", flag);
 
 			using NpgsqlDataReader reader = cmd.ExecuteReader();
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingCompanies obj = BillingCompanies.FromDataReader(reader);
+					BillingCompanies obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -319,12 +321,12 @@ namespace SharedCode.DatabaseSchemas
 
 		public static List<Guid> Delete(NpgsqlConnection connection, List<Guid> idsToDelete) {
 
-			List<Guid> toSendToOthers = new List<Guid>();
+			List<Guid> toSendToOthers = new();
 			if (idsToDelete.Count == 0) {
 				return toSendToOthers;
 			}
 
-			List<string> valNames = new List<string>();
+			List<string> valNames = new();
 			for (int i = 0; i < idsToDelete.Count; i++) {
 				valNames.Add($"@val{i}");
 			}
@@ -332,7 +334,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 			string sql = $"DELETE FROM \"billing-companies\" WHERE \"uuid\" IN ({string.Join(", ", valNames)})";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			for (int i = 0; i < valNames.Count; i++) {
 				cmd.Parameters.AddWithValue(valNames[i], idsToDelete[i]);
 			}
@@ -417,7 +419,7 @@ namespace SharedCode.DatabaseSchemas
 							""json"" = CAST(excluded.""json"" AS json)
 					";
 
-				using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+				using NpgsqlCommand cmd = new(sql, connection);
 				cmd.Parameters.AddWithValue("@uuid", kvp.Key);
 				cmd.Parameters.AddWithValue("@fullName", string.IsNullOrWhiteSpace(kvp.Value.FullName) ? (object)DBNull.Value : kvp.Value.FullName);
 				cmd.Parameters.AddWithValue("@abbreviation", string.IsNullOrWhiteSpace(kvp.Value.Abbreviation) ? (object)DBNull.Value : kvp.Value.Abbreviation);
@@ -574,7 +576,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -610,7 +612,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -646,7 +648,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -675,7 +677,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -703,7 +705,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -731,7 +733,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -808,7 +810,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -836,7 +838,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -926,7 +928,7 @@ namespace SharedCode.DatabaseSchemas
 				return null;
 			}
 
-			using NpgsqlConnection billingDB = new NpgsqlConnection(EnvDatabases.KBillingDatabaseConnectionString);
+			using NpgsqlConnection billingDB = new(EnvDatabases.KBillingDatabaseConnectionString);
 			billingDB.Open();
 
 			var resBC = BillingContacts.ForId(billingDB, invoiceContactId.Value);
@@ -975,8 +977,7 @@ namespace SharedCode.DatabaseSchemas
 				Customer stripeCx = createCustomerResponse.Customer;
 				string stripeCxId = stripeCx.Id;
 
-				JObject? copy = company.JsonObject.DeepClone() as JObject;
-				if (null == copy)
+				if (company.JsonObject.DeepClone() is not JObject copy)
 					throw new InvalidOperationException("null == copy");
 
 				copy[BillingCompanies.kJsonKeySquareCustomerId] = stripeCxId;
@@ -1015,7 +1016,7 @@ namespace SharedCode.DatabaseSchemas
 			} else {
 				Log.Information($"----- Table \"billing-companies\" doesn't exist, creating.");
 
-				using NpgsqlCommand cmd = new NpgsqlCommand(@"
+				using NpgsqlCommand cmd = new(@"
 					CREATE TABLE ""public"".""billing-companies"" (
 						""uuid"" uuid DEFAULT public.uuid_generate_v1() NOT NULL,
 						""full-name"" character varying(255),
@@ -1043,7 +1044,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (insertDefaultContents) {
 				Log.Information("Insert Default Contents");
-				BillingCompanies bc = new BillingCompanies(
+				BillingCompanies bc = new(
 					Uuid: CECompanyId,
 					FullName: "Community Edition",
 					Abbreviation: "CE",

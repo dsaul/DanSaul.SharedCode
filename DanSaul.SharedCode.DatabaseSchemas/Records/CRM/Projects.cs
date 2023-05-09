@@ -4,6 +4,7 @@ using System.Data;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Serilog;
+using DanSaul.SharedCode.Npgsql;
 
 namespace SharedCode.DatabaseSchemas
 {
@@ -407,7 +408,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -566,7 +567,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -595,7 +596,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -653,7 +654,7 @@ namespace SharedCode.DatabaseSchemas
 					return StartTimeModeE.None;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return StartTimeModeE.None;
 				}
@@ -684,7 +685,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -733,7 +734,7 @@ namespace SharedCode.DatabaseSchemas
 					return EndTimeModeE.None;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return EndTimeModeE.None;
 				}
@@ -760,7 +761,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}

@@ -37,7 +37,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}

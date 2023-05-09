@@ -4,6 +4,7 @@ using Npgsql;
 using System.Text;
 using System.Data;
 using Serilog;
+using DanSaul.SharedCode.Npgsql;
 
 namespace SharedCode.DatabaseSchemas
 {

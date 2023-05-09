@@ -4,6 +4,8 @@ using System.Data;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Serilog;
+using DanSaul.SharedCode.Npgsql;
+using DanSaul.SharedCode;
 
 namespace SharedCode.DatabaseSchemas
 {
@@ -26,10 +28,10 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, AssignmentStatus> ForId(NpgsqlConnection connection, Guid id) {
 
-			Dictionary<Guid, AssignmentStatus> ret = new Dictionary<Guid, AssignmentStatus>();
+			Dictionary<Guid, AssignmentStatus> ret = new();
 
 			string sql = @"SELECT * from ""assignment-status"" WHERE id = @id";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@id", id);
 
 
@@ -53,10 +55,10 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, AssignmentStatus> ForIsOpen(NpgsqlConnection connection, bool isOpen) {
 
-			Dictionary<Guid, AssignmentStatus> ret = new Dictionary<Guid, AssignmentStatus>();
+			Dictionary<Guid, AssignmentStatus> ret = new();
 
 			string sql = @"select * from ""assignment-status"" WHERE (json ->> 'isOpen')::boolean = @isOpen";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@isOpen", isOpen);
 
 
@@ -66,7 +68,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					AssignmentStatus obj = AssignmentStatus.FromDataReader(reader);
+					AssignmentStatus obj = FromDataReader(reader);
 					if (obj.Id == null) {
 						continue;
 					}
@@ -79,10 +81,10 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, AssignmentStatus> ForIsBillableReview(NpgsqlConnection connection, bool isBillableReview) {
 
-			Dictionary<Guid, AssignmentStatus> ret = new Dictionary<Guid, AssignmentStatus>();
+			Dictionary<Guid, AssignmentStatus> ret = new();
 
 			string sql = @"select * from ""assignment-status"" WHERE (json ->> 'isBillableReview')::boolean = @isBillableReview";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@isBillableReview", isBillableReview);
 
 
@@ -92,7 +94,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					AssignmentStatus obj = AssignmentStatus.FromDataReader(reader);
+					AssignmentStatus obj = FromDataReader(reader);
 					if (obj.Id == null) {
 						continue;
 					}
@@ -105,16 +107,16 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, AssignmentStatus> All(NpgsqlConnection connection) {
 
-			Dictionary<Guid, AssignmentStatus> ret = new Dictionary<Guid, AssignmentStatus>();
+			Dictionary<Guid, AssignmentStatus> ret = new();
 
 			string sql = @"SELECT * from ""assignment-status""";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 
 			using NpgsqlDataReader reader = cmd.ExecuteReader();
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					AssignmentStatus obj = AssignmentStatus.FromDataReader(reader);
+					AssignmentStatus obj = FromDataReader(reader);
 					if (obj.Id == null) {
 						continue;
 					}
@@ -131,17 +133,17 @@ namespace SharedCode.DatabaseSchemas
 
 			Guid[] idsArr = ids.ToArray();
 
-			Dictionary<Guid, AssignmentStatus> ret = new Dictionary<Guid, AssignmentStatus>();
+			Dictionary<Guid, AssignmentStatus> ret = new();
 			if (idsArr.Length == 0)
 				return ret;
 
-			List<string> valNames = new List<string>();
+			List<string> valNames = new();
 			for (int i = 0; i < idsArr.Length; i++) {
 				valNames.Add($"@val{i}");
 			}
 
 			string sql = $"SELECT * from \"assignment-status\" WHERE id IN ({string.Join(", ", valNames)})";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			for (int i = 0; i < valNames.Count; i++) {
 				cmd.Parameters.AddWithValue(valNames[i], idsArr[i]);
 			}
@@ -150,7 +152,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					AssignmentStatus obj = AssignmentStatus.FromDataReader(reader);
+					AssignmentStatus obj = FromDataReader(reader);
 					if (obj.Id == null) {
 						continue;
 					}
@@ -166,12 +168,12 @@ namespace SharedCode.DatabaseSchemas
 
 		public static List<Guid> Delete(NpgsqlConnection connection, List<Guid> idsToDelete) {
 
-			List<Guid> toSendToOthers = new List<Guid>();
+			List<Guid> toSendToOthers = new();
 			if (idsToDelete.Count == 0) {
 				return toSendToOthers;
 			}
 
-			List<string> valNames = new List<string>();
+			List<string> valNames = new();
 			for (int i = 0; i < idsToDelete.Count; i++) {
 				valNames.Add($"@val{i}");
 			}
@@ -179,7 +181,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 			string sql = $"DELETE FROM \"assignment-status\" WHERE \"id\" IN ({string.Join(", ", valNames)})";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			for (int i = 0; i < valNames.Count; i++) {
 				cmd.Parameters.AddWithValue(valNames[i], idsToDelete[i]);
 			}
@@ -234,7 +236,7 @@ namespace SharedCode.DatabaseSchemas
 					";
 
 
-				using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+				using NpgsqlCommand cmd = new(sql, connection);
 				cmd.Parameters.AddWithValue("@id", kvp.Key);
 				cmd.Parameters.AddWithValue("@json", string.IsNullOrWhiteSpace(kvp.Value.Json) ? (object)DBNull.Value : kvp.Value.Json);
 				cmd.Parameters.AddWithValue("@searchString", string.IsNullOrWhiteSpace(kvp.Value.SearchString) ? (object)DBNull.Value : kvp.Value.SearchString);
@@ -304,7 +306,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -603,7 +605,7 @@ namespace SharedCode.DatabaseSchemas
 			} else {
 				Log.Debug($"----- Table \"assignment-status\" doesn't exist, creating.");
 
-				using NpgsqlCommand cmd = new NpgsqlCommand(@"
+				using NpgsqlCommand cmd = new(@"
 					CREATE TABLE ""public"".""assignment-status"" (
 						""id"" uuid DEFAULT uuid_generate_v1() NOT NULL,
 						""json"" json DEFAULT '{}' NOT NULL,
@@ -624,13 +626,13 @@ namespace SharedCode.DatabaseSchemas
 			if (insertDefaultContents) {
 				Console.Write("------ Insert default contents. ");
 
-				Dictionary<Guid, AssignmentStatus> updateObjects = new Dictionary<Guid, AssignmentStatus>();
+				Dictionary<Guid, AssignmentStatus> updateObjects = new();
 
 				// Billable
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AssignmentStatus entry = new AssignmentStatus(
+					AssignmentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "Billable",
@@ -658,7 +660,7 @@ namespace SharedCode.DatabaseSchemas
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AssignmentStatus entry = new AssignmentStatus(
+					AssignmentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "Assigned",
@@ -685,7 +687,7 @@ namespace SharedCode.DatabaseSchemas
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AssignmentStatus entry = new AssignmentStatus(
+					AssignmentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "Waiting on Vendor",
@@ -712,7 +714,7 @@ namespace SharedCode.DatabaseSchemas
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AssignmentStatus entry = new AssignmentStatus(
+					AssignmentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "In Progress",
@@ -739,7 +741,7 @@ namespace SharedCode.DatabaseSchemas
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AssignmentStatus entry = new AssignmentStatus(
+					AssignmentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "Billable Review",
@@ -766,7 +768,7 @@ namespace SharedCode.DatabaseSchemas
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AssignmentStatus entry = new AssignmentStatus(
+					AssignmentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "Waiting on Client",
@@ -794,7 +796,7 @@ namespace SharedCode.DatabaseSchemas
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AssignmentStatus entry = new AssignmentStatus(
+					AssignmentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "To Be Scheduled",
@@ -821,7 +823,7 @@ namespace SharedCode.DatabaseSchemas
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AssignmentStatus entry = new AssignmentStatus(
+					AssignmentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "To Be Picked",
@@ -848,7 +850,7 @@ namespace SharedCode.DatabaseSchemas
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AssignmentStatus entry = new AssignmentStatus(
+					AssignmentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "Re-opened",
@@ -875,7 +877,7 @@ namespace SharedCode.DatabaseSchemas
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AssignmentStatus entry = new AssignmentStatus(
+					AssignmentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "Non Billable",
@@ -902,7 +904,7 @@ namespace SharedCode.DatabaseSchemas
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AssignmentStatus entry = new AssignmentStatus(
+					AssignmentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "Scheduled",
@@ -929,7 +931,7 @@ namespace SharedCode.DatabaseSchemas
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AssignmentStatus entry = new AssignmentStatus(
+					AssignmentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "Closed",
@@ -955,17 +957,17 @@ namespace SharedCode.DatabaseSchemas
 
 
 				Console.Write(" saving");
-				AssignmentStatus.Upsert(dpDB, updateObjects, out _, out _, true);
+				Upsert(dpDB, updateObjects, out _, out _, true);
 			}
 			
 
 
 
 			{
-				Dictionary<Guid, AssignmentStatus> updateObjects = new Dictionary<Guid, AssignmentStatus>();
+				Dictionary<Guid, AssignmentStatus> updateObjects = new();
 
 				Console.Write("------ Repair Existing ");
-				Dictionary<Guid, AssignmentStatus> all = AssignmentStatus.All(dpDB);
+				Dictionary<Guid, AssignmentStatus> all = All(dpDB);
 
 				foreach (KeyValuePair<Guid, AssignmentStatus> kvp in all) {
 
@@ -975,7 +977,7 @@ namespace SharedCode.DatabaseSchemas
 					
 					JToken? lastModifiedInJSONTok = root["lastModifiedISO8601"];
 
-					AssignmentStatus obj = new AssignmentStatus(
+					AssignmentStatus obj = new(
 							Id: kvp.Key,
 							Json: root.ToString(Formatting.Indented),
 							LastModifiedIso8601: null == lastModifiedInJSONTok ? kvp.Value.LastModifiedIso8601 : lastModifiedInJSONTok.Value<string>(),
@@ -989,7 +991,7 @@ namespace SharedCode.DatabaseSchemas
 				}
 
 				Console.Write(" saving");
-				AssignmentStatus.Upsert(dpDB, updateObjects, out _, out _, true);
+				Upsert(dpDB, updateObjects, out _, out _, true);
 
 			}
 			

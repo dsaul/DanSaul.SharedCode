@@ -4,10 +4,16 @@ using System.Data;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Serilog;
+using DanSaul.SharedCode.Npgsql;
 
 namespace SharedCode.DatabaseSchemas
 {
-	public record EstimatingManHours(Guid? Id, string? Json, string? SearchString, string? LastModifiedIso8601) : JSONTable(Id, Json, SearchString, LastModifiedIso8601)
+	public record EstimatingManHours(
+		Guid? Id, 
+		string? Json, 
+		string? SearchString, 
+		string? LastModifiedIso8601
+		) : JSONTable(Id, Json, SearchString, LastModifiedIso8601)
 	{
 		public static Dictionary<Guid, EstimatingManHours> ForId(NpgsqlConnection connection, Guid id) {
 
@@ -236,7 +242,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -281,7 +287,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}

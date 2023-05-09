@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -10,9 +10,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AWSSDK.S3" Version="3.7.101.22" />
-    <PackageReference Include="DanSaul.SharedCode.Extensions" Version="2022.4.721.45" />
-    <PackageReference Include="DanSaul.SharedCode.StandardizedEnvironmentVariables" Version="2022.4.1510.12" />
+    <PackageReference Include="AWSSDK.S3" Version="3.7.104.12" />
+    <PackageReference Include="DanSaul.SharedCode.Extensions" Version="2023.5.908.58" />
+    <PackageReference Include="DanSaul.SharedCode.StandardizedEnvironmentVariables" Version="2023.5.908.59" />
   </ItemGroup>
 
 </Project>

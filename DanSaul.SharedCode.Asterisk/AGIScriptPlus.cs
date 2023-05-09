@@ -10,6 +10,9 @@ using Amazon.S3;
 using Amazon;
 using Amazon.S3.Model;
 using Amazon.S3.Transfer;
+using DanSaul.SharedCode.Extensions.AmazonS3;
+using DanSaul.SharedCode.StandardizedEnvironmentVariables;
+using DanSaul.SharedCode.TTS;
 
 namespace DanSaul.SharedCode.Asterisk
 {
@@ -24,7 +27,7 @@ namespace DanSaul.SharedCode.Asterisk
 			)
 		{
 			char key = '\0';
-			StringBuilder buffer = new StringBuilder();
+			StringBuilder buffer = new();
 
 
 			foreach (AudioPlaybackEvent e in playbackEvents)
@@ -239,7 +242,7 @@ namespace DanSaul.SharedCode.Asterisk
 
 				//Log.Debug("Deconstructed key {key} bucket {bucket}", s3Key, s3Bucket);
 
-				GetObjectRequest request = new GetObjectRequest
+				GetObjectRequest request = new()
 				{
 					BucketName = s3Bucket,
 					Key = s3Key,
@@ -248,7 +251,7 @@ namespace DanSaul.SharedCode.Asterisk
 				string ttsCacheRoot = Path.Join("/srv/tts-cache", s3Key);
 				//Log.Debug("ttsCacheRoot {ttsCacheRoot}", ttsCacheRoot);
 
-				TransferUtility ftu = new TransferUtility(s3Client);
+				TransferUtility ftu = new(s3Client);
 				ftu.Download(ttsCacheRoot, s3Bucket, s3Key);
 
 

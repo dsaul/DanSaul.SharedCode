@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
 namespace DanSaul.SharedCode
 {
@@ -21,7 +14,7 @@ namespace DanSaul.SharedCode
 			TextWriter? errorTextWriter = null
 			)
 		{
-			ProcessStartInfo startInfo = new ProcessStartInfo()
+			ProcessStartInfo startInfo = new()
 			{
 				CreateNoWindow = true,
 				//Arguments = arguments,
@@ -38,7 +31,7 @@ namespace DanSaul.SharedCode
 
 			//startInfo.ArgumentList.
 
-			using Process? process = new Process();
+			using Process? process = new();
 			process.StartInfo = startInfo;
 
 
@@ -48,9 +41,10 @@ namespace DanSaul.SharedCode
 
 			process.Start();
 
-			List<Task> tasks = new List<Task>();
-
-			tasks.Add(process.WaitForExitAsync(cancellationTokenSource.Token));
+			List<Task> tasks = new()
+			{
+				process.WaitForExitAsync(cancellationTokenSource.Token)
+			};
 
 
 			if (outputTextWriter != null)
@@ -103,7 +97,7 @@ namespace DanSaul.SharedCode
 			TextWriter? errorTextWriter = null
 			)
 		{
-			ProcessStartInfo startInfo = new ProcessStartInfo()
+			ProcessStartInfo startInfo = new()
 			{
 				CreateNoWindow = true,
 				Arguments = arguments,
@@ -117,7 +111,7 @@ namespace DanSaul.SharedCode
 
 			//startInfo.ArgumentList.
 
-			using Process? process = new Process();
+			using Process? process = new();
 			process.StartInfo = startInfo;
 
 
@@ -127,9 +121,10 @@ namespace DanSaul.SharedCode
 
 			process.Start();
 
-			List<Task> tasks = new List<Task>();
-
-			tasks.Add(process.WaitForExitAsync(cancellationTokenSource.Token));
+			List<Task> tasks = new()
+			{
+				process.WaitForExitAsync(cancellationTokenSource.Token)
+			};
 
 
 			if (outputTextWriter != null)
@@ -224,9 +219,9 @@ namespace DanSaul.SharedCode
 			Action<DataReceivedEventHandler> addHandler,
 			Action<DataReceivedEventHandler> removeHandler,
 			TextWriter textWriter,
-			CancellationToken cancellationToken = default(CancellationToken))
+			CancellationToken cancellationToken = default)
 		{
-			var taskCompletionSource = new TaskCompletionSource<object>();
+			TaskCompletionSource<object> taskCompletionSource = new();
 
 			DataReceivedEventHandler? handler = null;
 			handler = new DataReceivedEventHandler(

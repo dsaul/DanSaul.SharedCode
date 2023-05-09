@@ -1,5 +1,4 @@
-﻿using System.IO;
-
+﻿
 namespace DanSaul.SharedCode
 {
 	public static class FancyConsoleLog

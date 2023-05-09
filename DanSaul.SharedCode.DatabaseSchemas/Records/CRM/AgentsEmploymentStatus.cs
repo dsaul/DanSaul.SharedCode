@@ -4,6 +4,8 @@ using System.Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Serilog;
+using DanSaul.SharedCode;
+using DanSaul.SharedCode.Npgsql;
 
 namespace SharedCode.DatabaseSchemas
 {
@@ -24,10 +26,10 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, AgentsEmploymentStatus> ForId(NpgsqlConnection connection, Guid id) {
 
-			Dictionary<Guid, AgentsEmploymentStatus> ret = new Dictionary<Guid, AgentsEmploymentStatus>();
+			Dictionary<Guid, AgentsEmploymentStatus> ret = new();
 
 			string sql = @"SELECT * from ""agents-employment-status"" WHERE id = @id";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@id", id);
 
 
@@ -51,10 +53,10 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, AgentsEmploymentStatus> All(NpgsqlConnection connection) {
 
-			Dictionary<Guid, AgentsEmploymentStatus> ret = new Dictionary<Guid, AgentsEmploymentStatus>();
+			Dictionary<Guid, AgentsEmploymentStatus> ret = new();
 
 			string sql = @"SELECT * from ""agents-employment-status""";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 
 			using NpgsqlDataReader reader = cmd.ExecuteReader();
 
@@ -77,17 +79,17 @@ namespace SharedCode.DatabaseSchemas
 
 			Guid[] idsArr = ids.ToArray();
 
-			Dictionary<Guid, AgentsEmploymentStatus> ret = new Dictionary<Guid, AgentsEmploymentStatus>();
+			Dictionary<Guid, AgentsEmploymentStatus> ret = new();
 			if (idsArr.Length == 0)
 				return ret;
 
-			List<string> valNames = new List<string>();
+			List<string> valNames = new();
 			for (int i = 0; i < idsArr.Length; i++) {
 				valNames.Add($"@val{i}");
 			}
 
 			string sql = $"SELECT * from \"agents-employment-status\" WHERE id IN ({string.Join(", ", valNames)})";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			for (int i = 0; i < valNames.Count; i++) {
 				cmd.Parameters.AddWithValue(valNames[i], idsArr[i]);
 			}
@@ -110,7 +112,7 @@ namespace SharedCode.DatabaseSchemas
 		}
 
 		public static Dictionary<Guid, AgentsEmploymentStatus> GetDefaultCurrentEmployee(NpgsqlConnection connection) {
-			Dictionary<Guid, AgentsEmploymentStatus> ret = new Dictionary<Guid, AgentsEmploymentStatus>();
+			Dictionary<Guid, AgentsEmploymentStatus> ret = new();
 
 			string sql = @"SELECT *
 				FROM 
@@ -121,7 +123,7 @@ namespace SharedCode.DatabaseSchemas
 					(json->>'isActive')::boolean = true
 				AND
 					(json->>'isEmployee')::boolean = true";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 
 			using NpgsqlDataReader reader = cmd.ExecuteReader();
 
@@ -141,12 +143,12 @@ namespace SharedCode.DatabaseSchemas
 
 		public static List<Guid> Delete(NpgsqlConnection connection, List<Guid> idsToDelete) {
 
-			List<Guid> toSendToOthers = new List<Guid>();
+			List<Guid> toSendToOthers = new();
 			if (idsToDelete.Count == 0) {
 				return toSendToOthers;
 			}
 
-			List<string> valNames = new List<string>();
+			List<string> valNames = new();
 			for (int i = 0; i < idsToDelete.Count; i++) {
 				valNames.Add($"@val{i}");
 			}
@@ -154,7 +156,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 			string sql = $"DELETE FROM \"agents-employment-status\" WHERE \"id\" IN ({string.Join(", ", valNames)})";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			for (int i = 0; i < valNames.Count; i++) {
 				cmd.Parameters.AddWithValue(valNames[i], idsToDelete[i]);
 			}
@@ -209,7 +211,7 @@ namespace SharedCode.DatabaseSchemas
 							""last-modified-ISO8601"" = excluded.""last-modified-ISO8601""
 					";
 
-				using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+				using NpgsqlCommand cmd = new(sql, connection);
 				cmd.Parameters.AddWithValue("@id", kvp.Key);
 				cmd.Parameters.AddWithValue("@json", string.IsNullOrWhiteSpace(kvp.Value.Json) ? (object)DBNull.Value : kvp.Value.Json);
 				cmd.Parameters.AddWithValue("@searchString", string.IsNullOrWhiteSpace(kvp.Value.SearchString) ? (object)DBNull.Value : kvp.Value.SearchString);
@@ -279,7 +281,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -404,7 +406,7 @@ namespace SharedCode.DatabaseSchemas
 			} else {
 				Log.Debug($"----- Table \"agents-employment-status\" doesn't exist, creating.");
 
-				using NpgsqlCommand cmd = new NpgsqlCommand(@"
+				using NpgsqlCommand cmd = new(@"
 					CREATE TABLE ""public"".""agents-employment-status"" (
 						""id"" uuid DEFAULT uuid_generate_v1() NOT NULL,
 						""json"" json DEFAULT '{}' NOT NULL,
@@ -424,13 +426,13 @@ namespace SharedCode.DatabaseSchemas
 			if (insertDefaultContents) {
 				Console.Write("------ Insert default contents. ");
 
-				Dictionary<Guid, AgentsEmploymentStatus> updateObjects = new Dictionary<Guid, AgentsEmploymentStatus>();
+				Dictionary<Guid, AgentsEmploymentStatus> updateObjects = new();
 
 				// Non Employee
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AgentsEmploymentStatus entry = new AgentsEmploymentStatus(
+					AgentsEmploymentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "Non Employee",
@@ -450,7 +452,7 @@ namespace SharedCode.DatabaseSchemas
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AgentsEmploymentStatus entry = new AgentsEmploymentStatus(
+					AgentsEmploymentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "Former Employee",
@@ -470,7 +472,7 @@ namespace SharedCode.DatabaseSchemas
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AgentsEmploymentStatus entry = new AgentsEmploymentStatus(
+					AgentsEmploymentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "Current Contractor",
@@ -490,7 +492,7 @@ namespace SharedCode.DatabaseSchemas
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AgentsEmploymentStatus entry = new AgentsEmploymentStatus(
+					AgentsEmploymentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "Current Employee",
@@ -510,7 +512,7 @@ namespace SharedCode.DatabaseSchemas
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AgentsEmploymentStatus entry = new AgentsEmploymentStatus(
+					AgentsEmploymentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "Former Contractor",
@@ -530,7 +532,7 @@ namespace SharedCode.DatabaseSchemas
 				{
 					string lastModified = DateTime.UtcNow.ToString("o", Culture.DevelopmentCulture);
 					Guid id = Guid.NewGuid();
-					AgentsEmploymentStatus entry = new AgentsEmploymentStatus(
+					AgentsEmploymentStatus entry = new(
 						Id: id,
 						Json: new JObject {
 							[kJsonKeyName] = "Non Field Employee",
@@ -554,7 +556,7 @@ namespace SharedCode.DatabaseSchemas
 
 			{
 				Console.Write("------ Repair Existing ");
-				Dictionary<Guid, AgentsEmploymentStatus> updateObjects = new Dictionary<Guid, AgentsEmploymentStatus>();
+				Dictionary<Guid, AgentsEmploymentStatus> updateObjects = new();
 
 
 				Dictionary<Guid, AgentsEmploymentStatus> all = AgentsEmploymentStatus.All(dpDB);
@@ -567,7 +569,7 @@ namespace SharedCode.DatabaseSchemas
 
 					JToken? lastModifiedInJSONTok = root["lastModifiedISO8601"];
 
-					AgentsEmploymentStatus obj = new AgentsEmploymentStatus(
+					AgentsEmploymentStatus obj = new(
 							Id: kvp.Key,
 							Json: root.ToString(Newtonsoft.Json.Formatting.Indented),
 							LastModifiedIso8601: null == lastModifiedInJSONTok ? kvp.Value.LastModifiedIso8601 : lastModifiedInJSONTok.Value<string>(),

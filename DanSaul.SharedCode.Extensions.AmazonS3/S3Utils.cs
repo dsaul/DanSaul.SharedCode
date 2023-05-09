@@ -1,10 +1,6 @@
 ﻿using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
-using Serilog;
-using System;
-using System.IO;
-using System.Threading.Tasks;
 
 namespace DanSaul.SharedCode.Extensions.AmazonS3
 {

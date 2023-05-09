@@ -4,6 +4,7 @@ using System.Data;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Serilog;
+using DanSaul.SharedCode.Npgsql;
 
 namespace SharedCode.DatabaseSchemas
 {
@@ -19,10 +20,10 @@ namespace SharedCode.DatabaseSchemas
 	{
 		public static Dictionary<Guid, BillingCouponCodes> ForId(NpgsqlConnection connection, Guid id) {
 
-			Dictionary<Guid, BillingCouponCodes> ret = new Dictionary<Guid, BillingCouponCodes>();
+			Dictionary<Guid, BillingCouponCodes> ret = new();
 
 			string sql = @"SELECT * from ""billing-coupon-codes"" WHERE uuid = @uuid";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@uuid", id);
 
 
@@ -32,7 +33,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingCouponCodes obj = BillingCouponCodes.FromDataReader(reader);
+					BillingCouponCodes obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -47,17 +48,17 @@ namespace SharedCode.DatabaseSchemas
 
 			Guid[] idsArr = ids.ToArray();
 
-			Dictionary<Guid, BillingCouponCodes> ret = new Dictionary<Guid, BillingCouponCodes>();
+			Dictionary<Guid, BillingCouponCodes> ret = new();
 			if (idsArr.Length == 0)
 				return ret;
 
-			List<string> valNames = new List<string>();
+			List<string> valNames = new();
 			for (int i = 0; i < idsArr.Length; i++) {
 				valNames.Add($"@val{i}");
 			}
 
 			string sql = $"SELECT * from \"billing-coupon-codes\" WHERE uuid IN ({string.Join(", ", valNames)})";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			for (int i = 0; i < valNames.Count; i++) {
 				cmd.Parameters.AddWithValue(valNames[i], idsArr[i]);
 			}
@@ -66,7 +67,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingCouponCodes obj = BillingCouponCodes.FromDataReader(reader);
+					BillingCouponCodes obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -82,16 +83,16 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, BillingCouponCodes> All(NpgsqlConnection connection) {
 
-			Dictionary<Guid, BillingCouponCodes> ret = new Dictionary<Guid, BillingCouponCodes>();
+			Dictionary<Guid, BillingCouponCodes> ret = new();
 
 			string sql = @"SELECT * from ""billing-coupon-codes""";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 
 			using NpgsqlDataReader reader = cmd.ExecuteReader();
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingCouponCodes obj = BillingCouponCodes.FromDataReader(reader);
+					BillingCouponCodes obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -107,12 +108,12 @@ namespace SharedCode.DatabaseSchemas
 
 		public static List<Guid> Delete(NpgsqlConnection connection, List<Guid> idsToDelete) {
 
-			List<Guid> toSendToOthers = new List<Guid>();
+			List<Guid> toSendToOthers = new();
 			if (idsToDelete.Count == 0) {
 				return toSendToOthers;
 			}
 
-			List<string> valNames = new List<string>();
+			List<string> valNames = new();
 			for (int i = 0; i < idsToDelete.Count; i++) {
 				valNames.Add($"@val{i}");
 			}
@@ -120,7 +121,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 			string sql = $"DELETE FROM \"billing-coupon-codes\" WHERE \"uuid\" IN ({string.Join(", ", valNames)})";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			for (int i = 0; i < valNames.Count; i++) {
 				cmd.Parameters.AddWithValue(valNames[i], idsToDelete[i]);
 			}
@@ -179,7 +180,7 @@ namespace SharedCode.DatabaseSchemas
 							""json"" = CAST(excluded.""json"" AS json)
 					";
 
-				using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+				using NpgsqlCommand cmd = new(sql, connection);
 				cmd.Parameters.AddWithValue("@uuid", kvp.Key);
 				cmd.Parameters.AddWithValue("@discount", null == kvp.Value.Discount ? (object)DBNull.Value : kvp.Value.Discount);
 				cmd.Parameters.AddWithValue("@displayName", string.IsNullOrWhiteSpace(kvp.Value.DisplayName) ? (object)DBNull.Value : kvp.Value.DisplayName);
@@ -264,7 +265,7 @@ namespace SharedCode.DatabaseSchemas
 			} else {
 				Log.Information($"----- Table \"billing-coupon-codes\" doesn't exist, creating.");
 
-				using NpgsqlCommand cmd = new NpgsqlCommand(@"
+				using NpgsqlCommand cmd = new(@"
 					CREATE TABLE ""public"".""billing-coupon-codes"" (
 						""uuid"" uuid DEFAULT public.uuid_generate_v1() NOT NULL,
 						""discount"" numeric,

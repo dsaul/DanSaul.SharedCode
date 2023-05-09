@@ -8,6 +8,10 @@ using Ical.Net;
 using Ical.Net.DataTypes;
 using Ical.Net.CalendarComponents;
 using Serilog;
+using DanSaul.SharedCode.Calendar;
+using DanSaul.SharedCode.Npgsql;
+using DanSaul.SharedCode;
+using DanSaul.SharedCode.SignalR;
 
 namespace SharedCode.DatabaseSchemas
 {
@@ -277,7 +281,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -302,7 +306,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -326,7 +330,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}
@@ -350,7 +354,7 @@ namespace SharedCode.DatabaseSchemas
 					return null;
 				}
 
-				string str = tok.Value<string>();
+				string? str = tok.Value<string>();
 				if (string.IsNullOrWhiteSpace(str)) {
 					return null;
 				}

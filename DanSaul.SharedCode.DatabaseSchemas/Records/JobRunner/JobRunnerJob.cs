@@ -4,6 +4,9 @@ using Npgsql;
 using System.Text;
 using System.Data;
 using Serilog;
+using DanSaul.SharedCode.Npgsql;
+using DanSaul.SharedCode;
+using DanSaul.SharedCode.StandardizedEnvironmentVariables;
 
 namespace SharedCode.DatabaseSchemas
 {
@@ -395,7 +398,7 @@ namespace SharedCode.DatabaseSchemas
 				JObject? root = JsonObject;
 				if (root == null)
 					return default;
-				string str = root.Value<string>(kJobsJsonKeyTaskId);
+				string? str = root.Value<string>(kJobsJsonKeyTaskId);
 
 				if (!Guid.TryParse(str, out Guid guid)) {
 					return null;
@@ -412,7 +415,7 @@ namespace SharedCode.DatabaseSchemas
 				JObject? root = JsonObject;
 				if (root == null)
 					return default;
-				string str = root.Value<string>(kJobsJsonKeyProjectId);
+				string? str = root.Value<string>(kJobsJsonKeyProjectId);
 
 				if (!Guid.TryParse(str, out Guid guid)) {
 					return null;
@@ -429,7 +432,7 @@ namespace SharedCode.DatabaseSchemas
 				JObject? root = JsonObject;
 				if (root == null)
 					return default;
-				string str = root.Value<string>(kJobsJsonKeyAgentId);
+				string? str = root.Value<string>(kJobsJsonKeyAgentId);
 
 				if (!Guid.TryParse(str, out Guid guid)) {
 					return null;
@@ -447,7 +450,7 @@ namespace SharedCode.DatabaseSchemas
 				JObject? root = JsonObject;
 				if (root == null)
 					return default;
-				string str = root.Value<string>(kJobsJsonKeyRequestingBillingId);
+				string? str = root.Value<string>(kJobsJsonKeyRequestingBillingId);
 
 				if (!Guid.TryParse(str, out Guid guid)) {
 					return null;

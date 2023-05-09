@@ -1,6 +1,5 @@
 ﻿using Npgsql;
 using System.Reflection;
-using SharedCode;
 
 namespace DanSaul.SharedCode.Npgsql
 {

@@ -4,6 +4,7 @@ using System.Data;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Serilog;
+using DanSaul.SharedCode.Npgsql;
 
 namespace SharedCode.DatabaseSchemas
 {
@@ -48,7 +49,7 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, BillingContacts> ForEMailAndAbbreviation(NpgsqlConnection connection, string email, string abbreviation) {
 
-			Dictionary<Guid, BillingContacts> ret = new Dictionary<Guid, BillingContacts>();
+			Dictionary<Guid, BillingContacts> ret = new();
 
 
 			string sql = @"
@@ -78,7 +79,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 			
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@email", email);
 			cmd.Parameters.AddWithValue("@abbreviation", abbreviation);
 
@@ -88,7 +89,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingContacts obj = BillingContacts.FromDataReader(reader);
+					BillingContacts obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -102,10 +103,10 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, BillingContacts> ForId(NpgsqlConnection connection, Guid id) {
 
-			Dictionary<Guid, BillingContacts> ret = new Dictionary<Guid, BillingContacts>();
+			Dictionary<Guid, BillingContacts> ret = new();
 
 			string sql = @"SELECT * from ""billing-contacts"" WHERE uuid = @uuid";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@uuid", id);
 
 
@@ -130,17 +131,17 @@ namespace SharedCode.DatabaseSchemas
 
 			Guid[] idsArr = ids.ToArray();
 
-			Dictionary<Guid, BillingContacts> ret = new Dictionary<Guid, BillingContacts>();
+			Dictionary<Guid, BillingContacts> ret = new();
 			if (idsArr.Length == 0)
 				return ret;
 
-			List<string> valNames = new List<string>();
+			List<string> valNames = new();
 			for (int i = 0; i < idsArr.Length; i++) {
 				valNames.Add($"@val{i}");
 			}
 
 			string sql = $"SELECT * from \"billing-contacts\" WHERE uuid IN ({string.Join(", ", valNames)})";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			for (int i = 0; i < valNames.Count; i++) {
 				cmd.Parameters.AddWithValue(valNames[i], idsArr[i]);
 			}
@@ -149,7 +150,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingContacts obj = BillingContacts.FromDataReader(reader);
+					BillingContacts obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -164,10 +165,10 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, BillingContacts> ForCompany(NpgsqlConnection connection, Guid companyId) {
 
-			Dictionary<Guid, BillingContacts> ret = new Dictionary<Guid, BillingContacts>();
+			Dictionary<Guid, BillingContacts> ret = new();
 
 			string sql = @"SELECT * from ""billing-contacts"" WHERE ""company-id"" = @uuid";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@uuid", companyId);
 
 
@@ -177,7 +178,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingContacts obj = BillingContacts.FromDataReader(reader);
+					BillingContacts obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -190,16 +191,16 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, BillingContacts> All(NpgsqlConnection connection) {
 
-			Dictionary<Guid, BillingContacts> ret = new Dictionary<Guid, BillingContacts>();
+			Dictionary<Guid, BillingContacts> ret = new();
 
 			string sql = @"SELECT * from ""billing-contacts""";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 
 			using NpgsqlDataReader reader = cmd.ExecuteReader();
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingContacts obj = BillingContacts.FromDataReader(reader);
+					BillingContacts obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -214,13 +215,13 @@ namespace SharedCode.DatabaseSchemas
 		public static List<Guid> Delete(NpgsqlConnection connection, List<Guid> idsToDelete) {
 
 
-			List<Guid> toSendToOthers = new List<Guid>();
+			List<Guid> toSendToOthers = new();
 			if (idsToDelete.Count == 0) {
 				return toSendToOthers;
 			}
 
 
-			List<string> valNames = new List<string>();
+			List<string> valNames = new();
 			for (int i = 0; i < idsToDelete.Count; i++) {
 				valNames.Add($"@val{i}");
 			}
@@ -228,7 +229,7 @@ namespace SharedCode.DatabaseSchemas
 			// Delete billing permissions group memberships.
 			{
 				string sql = $"DELETE FROM \"billing-permissions-groups-memberships\" WHERE \"contact-id\" IN ({string.Join(", ", valNames)})";
-				using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+				using NpgsqlCommand cmd = new(sql, connection);
 				for (int i = 0; i < valNames.Count; i++) {
 					cmd.Parameters.AddWithValue(valNames[i], idsToDelete[i]);
 				}
@@ -238,7 +239,7 @@ namespace SharedCode.DatabaseSchemas
 			// Delete individual permissions.
 			{
 				string sql = $"DELETE FROM \"billing-permissions-bool\" WHERE \"contact-id\" IN ({string.Join(", ", valNames)})";
-				using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+				using NpgsqlCommand cmd = new(sql, connection);
 				for (int i = 0; i < valNames.Count; i++) {
 					cmd.Parameters.AddWithValue(valNames[i], idsToDelete[i]);
 				}
@@ -249,7 +250,7 @@ namespace SharedCode.DatabaseSchemas
 			// Delete sessions for the contact.
 			{
 				string sql = $"DELETE FROM \"billing-sessions\" WHERE \"contact-id\" IN ({string.Join(", ", valNames)})";
-				using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+				using NpgsqlCommand cmd = new(sql, connection);
 				for (int i = 0; i < valNames.Count; i++) {
 					cmd.Parameters.AddWithValue(valNames[i], idsToDelete[i]);
 				}
@@ -261,7 +262,7 @@ namespace SharedCode.DatabaseSchemas
 			// Delete actual billing contacts.
 			{
 				string sql = $"DELETE FROM \"billing-contacts\" WHERE \"uuid\" IN ({string.Join(", ", valNames)})";
-				using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+				using NpgsqlCommand cmd = new(sql, connection);
 				for (int i = 0; i < valNames.Count; i++) {
 					cmd.Parameters.AddWithValue(valNames[i], idsToDelete[i]);
 				}
@@ -286,12 +287,12 @@ namespace SharedCode.DatabaseSchemas
 
 		public static List<Guid> DeleteForCompanyId(NpgsqlConnection connection, List<Guid> idsToDelete) {
 
-			List<Guid> toSendToOthers = new List<Guid>();
+			List<Guid> toSendToOthers = new();
 			if (idsToDelete.Count == 0) {
 				return toSendToOthers;
 			}
 
-			List<string> valNames = new List<string>();
+			List<string> valNames = new();
 			for (int i = 0; i < idsToDelete.Count; i++) {
 				valNames.Add($"@val{i}");
 			}
@@ -299,7 +300,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 			string sql = $"DELETE FROM \"billing-contacts\" WHERE \"company-id\" IN ({string.Join(", ", valNames)})";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			for (int i = 0; i < valNames.Count; i++) {
 				cmd.Parameters.AddWithValue(valNames[i], idsToDelete[i]);
 			}
@@ -340,7 +341,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 
-				StringBuilder sb = new StringBuilder();
+				StringBuilder sb = new();
 				sb.Append(@"
 					INSERT INTO
 						""billing-contacts""
@@ -413,7 +414,7 @@ namespace SharedCode.DatabaseSchemas
 				string sql = sb.ToString();
 
 
-				using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+				using NpgsqlCommand cmd = new(sql, connection);
 
 				cmd.Parameters.AddWithValue("@fullName", string.IsNullOrWhiteSpace(kvp.Value.FullName) ? (object)DBNull.Value : kvp.Value.FullName);
 				cmd.Parameters.AddWithValue("@email", string.IsNullOrWhiteSpace(kvp.Value.Email) ? (object)DBNull.Value : kvp.Value.Email);
@@ -426,7 +427,7 @@ namespace SharedCode.DatabaseSchemas
 				cmd.Parameters.AddWithValue("@phone", string.IsNullOrWhiteSpace(kvp.Value.Phone) ? (object)DBNull.Value : kvp.Value.Phone);
 				cmd.Parameters.AddWithValue("@uuid", kvp.Key);
 				cmd.Parameters.AddWithValue("@companyId", null == kvp.Value.CompanyId ? (object)DBNull.Value : kvp.Value.CompanyId);
-				cmd.Parameters.AddWithValue("@applicationData", null == kvp.Value.ApplicationData ? (object)DBNull.Value : kvp.Value.ApplicationData);
+				cmd.Parameters.AddWithValue("@applicationData", kvp.Value.ApplicationData ?? (object)DBNull.Value);
 				cmd.Parameters.AddWithValue("@json", string.IsNullOrWhiteSpace(kvp.Value.Json) ? (object)DBNull.Value : kvp.Value.Json);
 
 				int rowsAffected = cmd.ExecuteNonQuery();
@@ -559,7 +560,7 @@ namespace SharedCode.DatabaseSchemas
 				if (null == sessionAgentIdTok)
 					return null;
 
-				string sessionAgentIdStr = sessionAgentIdTok.Value<string>();
+				string? sessionAgentIdStr = sessionAgentIdTok.Value<string>();
 				if (string.IsNullOrWhiteSpace(sessionAgentIdStr))
 					return null;
 
@@ -590,7 +591,7 @@ namespace SharedCode.DatabaseSchemas
 				if (null == sessionAgentIdTok)
 					return null;
 
-				string sessionAgentIdStr = sessionAgentIdTok.Value<string>();
+				string? sessionAgentIdStr = sessionAgentIdTok.Value<string>();
 				if (string.IsNullOrWhiteSpace(sessionAgentIdStr))
 					return null;
 
@@ -658,7 +659,7 @@ namespace SharedCode.DatabaseSchemas
 			} else {
 				Log.Information($"----- Table \"billing-contacts\" doesn't exist, creating.");
 
-				using NpgsqlCommand cmd = new NpgsqlCommand(@"
+				using NpgsqlCommand cmd = new(@"
 					CREATE TABLE ""public"".""billing-contacts"" (
 						""full-name"" character varying(255),
 						""email"" character varying(255),
@@ -685,7 +686,7 @@ namespace SharedCode.DatabaseSchemas
 				string hash = BCrypt.Net.BCrypt.HashPassword("CHANGEME");
 
 
-				BillingContacts bc = new BillingContacts(
+				BillingContacts bc = new(
 					FullName: "Example Contact",
 					Email: "admin@example.com",
 					PasswordHash: hash,

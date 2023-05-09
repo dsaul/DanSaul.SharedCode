@@ -4,6 +4,7 @@ using System.Data;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Serilog;
+using DanSaul.SharedCode.Npgsql;
 
 namespace SharedCode.DatabaseSchemas
 {
@@ -16,10 +17,10 @@ namespace SharedCode.DatabaseSchemas
 
 		public static Dictionary<Guid, BillingCurrency> ForId(NpgsqlConnection connection, Guid id) {
 
-			Dictionary<Guid, BillingCurrency> ret = new Dictionary<Guid, BillingCurrency>();
+			Dictionary<Guid, BillingCurrency> ret = new();
 
 			string sql = @"SELECT * from ""billing-currency"" WHERE id = @uuid";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@uuid", id);
 
 
@@ -54,7 +55,7 @@ namespace SharedCode.DatabaseSchemas
 			}
 
 			string sql = $"SELECT * from \"billing-currency\" WHERE uuid IN ({string.Join(", ", valNames)})";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			for (int i = 0; i < valNames.Count; i++) {
 				cmd.Parameters.AddWithValue(valNames[i], idsArr[i]);
 			}
@@ -63,7 +64,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingCurrency obj = BillingCurrency.FromDataReader(reader);
+					BillingCurrency obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -82,13 +83,13 @@ namespace SharedCode.DatabaseSchemas
 			Dictionary<Guid, BillingCurrency> ret = new Dictionary<Guid, BillingCurrency>();
 
 			string sql = @"SELECT * from ""billing-currency""";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 
 			using NpgsqlDataReader reader = cmd.ExecuteReader();
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingCurrency obj = BillingCurrency.FromDataReader(reader);
+					BillingCurrency obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -104,12 +105,12 @@ namespace SharedCode.DatabaseSchemas
 
 		public static List<Guid> Delete(NpgsqlConnection connection, List<Guid> idsToDelete) {
 
-			List<Guid> toSendToOthers = new List<Guid>();
+			List<Guid> toSendToOthers = new();
 			if (idsToDelete.Count == 0) {
 				return toSendToOthers;
 			}
 
-			List<string> valNames = new List<string>();
+			List<string> valNames = new();
 			for (int i = 0; i < idsToDelete.Count; i++) {
 				valNames.Add($"@val{i}");
 			}
@@ -117,7 +118,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 			string sql = $"DELETE FROM \"billing-currency\" WHERE \"uuid\" IN ({string.Join(", ", valNames)})";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			for (int i = 0; i < valNames.Count; i++) {
 				cmd.Parameters.AddWithValue(valNames[i], idsToDelete[i]);
 			}
@@ -229,7 +230,7 @@ namespace SharedCode.DatabaseSchemas
 			} else {
 				Log.Information($"----- Table \"billing-currency\" doesn't exist, creating.");
 
-				using NpgsqlCommand cmd = new NpgsqlCommand(@"
+				using NpgsqlCommand cmd = new(@"
 					CREATE TABLE ""public"".""billing-currency"" (
 						""uuid"" uuid DEFAULT public.uuid_generate_v1() NOT NULL,
 						""currency"" character varying(255) NOT NULL,

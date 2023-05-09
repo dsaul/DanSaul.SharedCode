@@ -4,6 +4,7 @@ using System.Data;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Serilog;
+using DanSaul.SharedCode.Npgsql;
 
 namespace SharedCode.DatabaseSchemas
 {
@@ -15,10 +16,10 @@ namespace SharedCode.DatabaseSchemas
 	{
 		public static Dictionary<Guid, BillingIndustries> ForId(NpgsqlConnection connection, Guid id) {
 
-			Dictionary<Guid, BillingIndustries> ret = new Dictionary<Guid, BillingIndustries>();
+			Dictionary<Guid, BillingIndustries> ret = new();
 
 			string sql = @"SELECT * from ""billing-industries"" WHERE uuid = @uuid";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			cmd.Parameters.AddWithValue("@uuid", id);
 
 
@@ -28,7 +29,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingIndustries obj = BillingIndustries.FromDataReader(reader);
+					BillingIndustries obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}
@@ -43,17 +44,17 @@ namespace SharedCode.DatabaseSchemas
 
 			Guid[] idsArr = ids.ToArray();
 
-			Dictionary<Guid, BillingIndustries> ret = new Dictionary<Guid, BillingIndustries>();
+			Dictionary<Guid, BillingIndustries> ret = new();
 			if (idsArr.Length == 0)
 				return ret;
 
-			List<string> valNames = new List<string>();
+			List<string> valNames = new();
 			for (int i = 0; i < idsArr.Length; i++) {
 				valNames.Add($"@val{i}");
 			}
 
 			string sql = $"SELECT * from \"billing-industries\" WHERE uuid IN ({string.Join(", ", valNames)})";
-			using NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+			using NpgsqlCommand cmd = new(sql, connection);
 			for (int i = 0; i < valNames.Count; i++) {
 				cmd.Parameters.AddWithValue(valNames[i], idsArr[i]);
 			}
@@ -62,7 +63,7 @@ namespace SharedCode.DatabaseSchemas
 
 			if (reader.HasRows) {
 				while (reader.Read()) {
-					BillingIndustries obj = BillingIndustries.FromDataReader(reader);
+					BillingIndustries obj = FromDataReader(reader);
 					if (obj.Uuid == null) {
 						continue;
 					}

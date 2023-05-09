@@ -1,4 +1,6 @@
 ﻿using Amazon.Polly;
+using DanSaul.SharedCode.Extensions.AmazonS3;
+using DanSaul.SharedCode.Npgsql;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Npgsql;
