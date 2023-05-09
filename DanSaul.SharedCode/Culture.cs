@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace SharedCode
+namespace DanSaul.SharedCode
 {
 	public static class Culture
 	{

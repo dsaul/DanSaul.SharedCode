@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.Extensions
 {
 	public static class String_Right
 	{

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.Npgsql
 {
 	public static class NpgsqlConnection_EnsureUUIDExtension
 	{

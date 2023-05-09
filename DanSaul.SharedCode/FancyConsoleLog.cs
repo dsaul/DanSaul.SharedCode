@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace SharedCode
+namespace DanSaul.SharedCode
 {
 	public static class FancyConsoleLog
 	{

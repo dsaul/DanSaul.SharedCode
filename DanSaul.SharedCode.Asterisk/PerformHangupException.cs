@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ARI
+namespace DanSaul.SharedCode.Asterisk
 {
 	public class PerformHangupException : Exception
 	{

@@ -1,12 +1,8 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.IO;
 using System.Reflection;
+using SharedCode;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.Npgsql
 {
 	public static class NpgsqlCommandExecuteFile
 	{

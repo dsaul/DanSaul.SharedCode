@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 {
 	public static class EnvTTS
 	{

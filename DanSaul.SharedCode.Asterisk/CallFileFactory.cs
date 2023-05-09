@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedCode.Asterisk
+namespace DanSaul.SharedCode.Asterisk
 {
 	// http://the-asterisk-book.com/1.6/call-file.html
 	public class CallFileFactory

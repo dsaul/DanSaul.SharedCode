@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.SignalR
 {
 	public abstract class HubResponse : HubMessage
 	{

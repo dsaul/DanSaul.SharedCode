@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 {
 	public static class EnvEmail
 	{

@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace SharedCode.Asterisk
+namespace DanSaul.SharedCode.Asterisk
 {
 	public record ParsedEndpoint(
 		string? Name,

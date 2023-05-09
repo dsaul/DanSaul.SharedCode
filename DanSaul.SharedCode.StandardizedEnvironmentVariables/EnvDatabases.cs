@@ -6,7 +6,7 @@ using System.Globalization;
 using System.IO;
 using Serilog;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 {
 	public static class EnvDatabases
 	{

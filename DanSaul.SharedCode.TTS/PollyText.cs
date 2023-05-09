@@ -8,8 +8,9 @@ using Amazon.S3;
 using Amazon.S3.Transfer;
 using Serilog;
 using SharedCode.DatabaseSchemas;
+using SharedCode;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.TTS
 {
 	public static class PollyText
 	{

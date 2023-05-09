@@ -1,6 +1,6 @@
 ﻿using Serilog;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 {
 	public static class EnvAmazonS3
 	{

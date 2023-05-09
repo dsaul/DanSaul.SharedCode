@@ -4,7 +4,6 @@ using Amazon.Polly;
 using AsterNET.FastAGI;
 using SharedCode.DatabaseSchemas;
 using Npgsql;
-using Renci.SshNet;
 using Serilog;
 using SharedCode;
 using Amazon.S3;
@@ -12,123 +11,115 @@ using Amazon;
 using Amazon.S3.Model;
 using Amazon.S3.Transfer;
 
-namespace ARI
+namespace DanSaul.SharedCode.Asterisk
 {
-	
-
 	public abstract class AGIScriptPlus : AGIScript
 	{
 		public const string kEscapeAllKeys = "0123456789*#";
 
-		
-		
-
-
-
-
-		public class AudioPlaybackEvent
-		{
-			public enum AudioPlaybackEventType
-			{
-				Unknown,
-				Stream,
-				SayAlpha,
-				TTSText,
-				Recording,
-			}
-
-			public AudioPlaybackEventType Type { get; set; } = AudioPlaybackEventType.Unknown;
-			public string? StreamFile { get; set; } = null;
-			public string? Alpha { get; set; } = null;
-			public string? Text { get; set; } = null;
-			public Engine Engine { get; set; } = Engine.Neural;
-			public VoiceId Voice { get; set; } = VoiceId.Brian;
-			public NpgsqlConnection? DPDB { get; set; } = null;
-			public Guid? RecordingId { get; set; } = null;
-		}
-
-		protected string? PromptDigitsPoundTerminated(IEnumerable<AudioPlaybackEvent> playbackEvents, string escapeKeys, int timeout = 5000)
+		protected string? PromptDigitsPoundTerminated(
+			IEnumerable<AudioPlaybackEvent> playbackEvents, 
+			string escapeKeys, 
+			int timeout = 5000
+			)
 		{
 			char key = '\0';
 			StringBuilder buffer = new StringBuilder();
 
-			
-			do {
 
+			foreach (AudioPlaybackEvent e in playbackEvents)
+			{
 
+				bool stopPlayingAudio = false;
 
-				foreach (AudioPlaybackEvent e in playbackEvents) {
+				switch (e.Type)
+				{
+					case AudioPlaybackEventType.Stream:
 
-					bool stopPlayingAudio = false;
-
-					switch (e.Type) {
-						case AudioPlaybackEvent.AudioPlaybackEventType.Stream:
-							key = StreamFile(e.StreamFile, escapeKeys);
-							if (key != '\0') {
-								buffer.Append(key);
-							}
-							if (key == '#') {
-								stopPlayingAudio = true;
-								break;
-							}
+						if (string.IsNullOrWhiteSpace(e.StreamFile))
+						{
+							Log.Warning("e.StreamFile is null or empty");
 							break;
-						case AudioPlaybackEvent.AudioPlaybackEventType.SayAlpha:
-							key = SayAlpha(e.Alpha, escapeKeys);
-							if (key != '\0') {
-								buffer.Append(key);
-							}
-							if (key == '#') {
-								stopPlayingAudio = true;
-								break;
-							}
-							break;
-						case AudioPlaybackEvent.AudioPlaybackEventType.TTSText:
-							key = PlayTTS(e.Text ?? "", escapeKeys, e.Engine, e.Voice);
-							if (key != '\0') {
-								buffer.Append(key);
-							}
-							if (key == '#') {
-								stopPlayingAudio = true;
-								break;
-							}
-							break;
-						case AudioPlaybackEvent.AudioPlaybackEventType.Recording:
-							if (null == e.DPDB) {
-								Log.Error("null == e.DPDB");
-								break;
-							}
-							if (null == e.RecordingId) {
-								Log.Error("null == e.RecordingId");
-								break;
-							}
-							key = PlayRecording(e.DPDB, e.RecordingId.Value, escapeKeys);
-							if (key != '\0') {
-								buffer.Append(key);
-							}
-							if (key == '#') {
-								stopPlayingAudio = true;
-								break;
-							}
-							break;
-					}
+						}
 
-					if (stopPlayingAudio) {
+						key = StreamFile(e.StreamFile, escapeKeys);
+						if (key != '\0')
+						{
+							buffer.Append(key);
+						}
+						if (key == '#')
+						{
+							stopPlayingAudio = true;
+							break;
+						}
 						break;
-					}
-
+					case AudioPlaybackEventType.SayAlpha:
+						key = SayAlpha(e.Alpha, escapeKeys);
+						if (key != '\0')
+						{
+							buffer.Append(key);
+						}
+						if (key == '#')
+						{
+							stopPlayingAudio = true;
+							break;
+						}
+						break;
+					case AudioPlaybackEventType.TTSText:
+						key = PlayTTS(e.Text ?? "", escapeKeys, e.Engine, e.Voice);
+						if (key != '\0')
+						{
+							buffer.Append(key);
+						}
+						if (key == '#')
+						{
+							stopPlayingAudio = true;
+							break;
+						}
+						break;
+					case AudioPlaybackEventType.Recording:
+						if (null == e.DPDB)
+						{
+							Log.Error("null == e.DPDB");
+							break;
+						}
+						if (null == e.RecordingId)
+						{
+							Log.Error("null == e.RecordingId");
+							break;
+						}
+						key = PlayRecording(e.DPDB, e.RecordingId.Value, escapeKeys);
+						if (key != '\0')
+						{
+							buffer.Append(key);
+						}
+						if (key == '#')
+						{
+							stopPlayingAudio = true;
+							break;
+						}
+						break;
 				}
 
-				while (key != '#') {
-					// Wait 5 additional seconds for a digit.
-					key = WaitForDigit(timeout);
-					if (key == '\0')
-						break;
-
-					buffer.Append(key);
+				if (stopPlayingAudio)
+				{
+					break;
 				}
 
+			}
 
-			} while (false);
+			while (key != '#')
+			{
+				// Wait 5 additional seconds for a digit.
+				key = WaitForDigit(timeout);
+				if (key == '\0')
+					break;
+
+				buffer.Append(key);
+			}
+
+
+
 
 			// Remove # from the end
 			if (buffer.ToString().EndsWith('#'))
@@ -154,28 +145,28 @@ namespace ARI
 				bool stopPlayingAudio = false;
 
 				switch (e.Type) {
-					case AudioPlaybackEvent.AudioPlaybackEventType.Stream:
+					case AudioPlaybackEventType.Stream:
 						key = StreamFile(e.StreamFile, "12");
 						if (key == '1' || key == '2') {
 							stopPlayingAudio = true;
 							break;
 						}
 						break;
-					case AudioPlaybackEvent.AudioPlaybackEventType.SayAlpha:
+					case AudioPlaybackEventType.SayAlpha:
 						key = SayAlpha(e.Alpha, "12");
 						if (key == '1' || key == '2') {
 							stopPlayingAudio = true;
 							break;
 						}
 						break;
-					case AudioPlaybackEvent.AudioPlaybackEventType.TTSText:
+					case AudioPlaybackEventType.TTSText:
 						key = PlayTTS(e.Text ?? "", "12", e.Engine, e.Voice);
 						if (key == '1' || key == '2') {
 							stopPlayingAudio = true;
 							break;
 						}
 						break;
-					case AudioPlaybackEvent.AudioPlaybackEventType.Recording:
+					case AudioPlaybackEventType.Recording:
 						if (null == e.DPDB) {
 							Log.Error("null == e.DPDB");
 							break;

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SharedCode
+namespace DanSaul.SharedCode
 {
 	// https://stackoverflow.com/a/39872058
 	public static class AsyncProcess

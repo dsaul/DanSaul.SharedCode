@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.NodaTime
 {
 	public static class NodaTime_GetStartOfHour
 	{

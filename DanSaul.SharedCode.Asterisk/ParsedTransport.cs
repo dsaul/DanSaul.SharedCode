@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedCode.Asterisk
+namespace DanSaul.SharedCode.Asterisk
 {
 	public record ParsedTransport(
 		string? TransportId,

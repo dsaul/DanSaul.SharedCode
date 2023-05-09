@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.Extensions
 {
 	public static class String_MapReplace
 	{

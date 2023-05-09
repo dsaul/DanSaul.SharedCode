@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using SharedCode;
 
-namespace SharedCode
+namespace DanSaul.SharedCode
 {
 	public static class BadPhoneHash
 	{

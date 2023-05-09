@@ -5,7 +5,7 @@ using RestSharp.Serializers.NewtonsoftJson;
 using Serilog;
 using SharedCode;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.Linode
 {
 	public record DomainRecordObject(
 		[JsonProperty("id")] int Id,

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR.Protocol;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.SignalR
 {
 	public abstract class HubRequest : HubMessage
 	{

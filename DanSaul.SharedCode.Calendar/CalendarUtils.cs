@@ -8,11 +8,11 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.Calendar
 {
 	public static class CalendarUtils
 	{
-		public static HashSet<CalendarEvent> EventsRightNow(Calendar calendar) {
+		public static HashSet<CalendarEvent> EventsRightNow(Ical.Net.Calendar calendar) {
 			HashSet<CalendarEvent> ret = new HashSet<CalendarEvent>();
 
 			var now = DateTime.Now;
@@ -55,7 +55,7 @@ namespace SharedCode
 			return ret;
 		}
 
-		public static HashSet<CalendarOnCallPhoneNumber> CalendarOnCallPhoneNumbersRightNow(Calendar calendar) {
+		public static HashSet<CalendarOnCallPhoneNumber> CalendarOnCallPhoneNumbersRightNow(Ical.Net.Calendar calendar) {
 
 			HashSet<CalendarOnCallPhoneNumber> ret = new HashSet<CalendarOnCallPhoneNumber>();
 
@@ -71,7 +71,7 @@ namespace SharedCode
 			return ret;
 		}
 
-		public static HashSet<string> CalendarOnCallEMailsRightNow(Calendar calendar) {
+		public static HashSet<string> CalendarOnCallEMailsRightNow(Ical.Net.Calendar calendar) {
 
 			HashSet<string> ret = new HashSet<string>();
 
@@ -93,7 +93,7 @@ namespace SharedCode
 
 
 
-		public static HashSet<Occurrence> OccurancesRoughlyAroundThisMonth(Calendar calendar) {
+		public static HashSet<Occurrence> OccurancesRoughlyAroundThisMonth(Ical.Net.Calendar calendar) {
 			DateTime dtNow = DateTime.UtcNow;
 			DateTime dtStart = new DateTime(dtNow.Year, dtNow.Month, 1, 0, 0, 0, DateTimeKind.Utc);
 			dtStart = dtStart.AddDays(-1); // Add buffer for UTC to Localtime.

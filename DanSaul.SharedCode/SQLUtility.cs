@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace SharedCode
+namespace DanSaul.SharedCode
 {
 	public static class SQLUtility
 	{

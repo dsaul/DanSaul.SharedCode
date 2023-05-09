@@ -2,7 +2,7 @@
 using SharpPcap.LibPcap;
 using System.Net;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.Extensions.SharpPCap
 {
 	public static class LibPcapLiveDevice_Extensions
 	{

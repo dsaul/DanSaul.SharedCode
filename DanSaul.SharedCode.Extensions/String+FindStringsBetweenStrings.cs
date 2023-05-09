@@ -1,14 +1,22 @@
-﻿using System;
+﻿using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.Extensions
 {
 	public static class String_FindStringsBetweenStrings
 	{
-		public static IEnumerable<string> FindStringsBetweenStrings(this string haystack, string start, string end, int startIdx = 0, bool includeStart = false, int maxIterations = 20000)
+		public static IEnumerable<string> FindStringsBetweenStrings(
+			this string haystack, 
+			string start, 
+			string end, 
+			int startIdx = 0, 
+			bool includeStart = false, 
+			int maxIterations = 20000
+			)
 		{
 			haystack = haystack.ReplaceLineEndings();
 			end = end.ReplaceLineEndings();
@@ -28,7 +36,7 @@ namespace SharedCode
 				yield return haystack.Substring(subStrStart, subStrEnd - subStrStart);
 			}
 
-			Console.WriteLine("Reached max 20k iterations!");
+			Log.Warning("Reached max {Iterations} iterations!", maxIterations);
 		}
 	}
 }

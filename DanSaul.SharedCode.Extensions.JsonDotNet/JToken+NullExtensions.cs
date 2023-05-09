@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.Extensions.JsonDotNet
 {
 	public static class JToken_NullExtensions
 	{

@@ -4,11 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.Extensions
 {
 	public static class Dictionary_AddRange
 	{
-		public static void AddRange<T, S>(this Dictionary<T, S> source, Dictionary<T, S> collection, bool overwrite = true) where T : notnull
+		public static void AddRange<T, S>(
+			this Dictionary<T, S> source, 
+			Dictionary<T, S> collection, 
+			bool overwrite = true
+			) where T : notnull
 		{
 			if (source == null)
 				throw new ArgumentNullException(nameof(source));

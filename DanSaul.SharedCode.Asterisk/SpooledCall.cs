@@ -1,15 +1,8 @@
-﻿using ARI;
-using Mono.Unix;
-using Renci.SshNet;
-using Renci.SshNet.Common;
+﻿using Mono.Unix;
 using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SharedCode;
 
-namespace SharedCode.Asterisk
+namespace DanSaul.SharedCode.Asterisk
 {
 	public static class SpooledCall
 	{

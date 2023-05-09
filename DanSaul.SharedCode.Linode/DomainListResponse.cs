@@ -1,4 +1,4 @@
-﻿namespace SharedCode
+﻿namespace DanSaul.SharedCode.Linode
 {
 	public record DomainListResponse (
 		List<DomainObject> Data,

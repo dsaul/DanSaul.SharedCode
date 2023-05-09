@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 {
 	public static class EnvCORS
 	{

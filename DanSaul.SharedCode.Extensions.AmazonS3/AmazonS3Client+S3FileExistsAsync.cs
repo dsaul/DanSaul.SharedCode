@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedCode
+namespace DanSaul.SharedCode.Extensions.AmazonS3
 {
 	public static class AmazonS3Client_S3FileExistsAsync
     {
