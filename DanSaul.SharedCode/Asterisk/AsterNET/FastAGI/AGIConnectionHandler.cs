@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Reflection;
 using System.Threading;
 using AsterNET.FastAGI.Command;
 using AsterNET.IO;
@@ -73,31 +74,48 @@ namespace AsterNET.FastAGI
 
                     if (script != null)
                     {
-                        #if LOGGER
-                            logger.Info("Begin AGIScript " + script.GetType().FullName + " on " + Thread.CurrentThread.Name);
-                        #endif
-                        script.Service(request, channel);
-                        #if LOGGER
-                            logger.Info("End AGIScript " + script.GetType().FullName + " on " + Thread.CurrentThread.Name);
-                        #endif
-                    }
+						Log.Information("[{Assembly}][{Class}.{Method}()] Begin AGIScript {ScriptName} on {ThreadName}",
+					        Assembly.GetExecutingAssembly().GetName().Name,
+					        GetType().Name,
+					        MethodBase.GetCurrentMethod()?.Name,
+							script.GetType().FullName,
+							Thread.CurrentThread.Name
+						);
+						script.Service(request, channel);
+
+						Log.Information("[{Assembly}][{Class}.{Method}()] End AGIScript {ScriptName} on {ThreadName}",
+							Assembly.GetExecutingAssembly().GetName().Name,
+							GetType().Name,
+							MethodBase.GetCurrentMethod()?.Name,
+							script.GetType().FullName,
+							Thread.CurrentThread.Name
+						);
+
+					}
                     else
                     {
-                        var error = "No script configured for URL '" + request.RequestURL + "' (script '" + request.Script +
-                                    "')";
+						var error = "No script configured for URL '" + request.RequestURL + "' (script '" + request.Script +"')";
+
                         channel.SendCommand(new VerboseCommand(error, 1));
-                        #if LOGGER
-                            logger.Error(error);
-                        #endif
-                    }
+
+						Log.Error("[{Assembly}][{Class}.{Method}()] {Error}",
+							 Assembly.GetExecutingAssembly().GetName().Name,
+							 GetType().Name,
+							 MethodBase.GetCurrentMethod()?.Name,
+							 error
+						 );
+					}
                 }
                 else
                 {
                     var error = "A connection was made with no requests";
-                    #if LOGGER
-                        logger.Error(error);
-                    #endif
-                }
+					Log.Error("[{Assembly}][{Class}.{Method}()] {Error}",
+						Assembly.GetExecutingAssembly().GetName().Name,
+						GetType().Name,
+						MethodBase.GetCurrentMethod()?.Name,
+						error
+					);
+				}
             }
             catch (AGIHangupException)
             {
@@ -107,23 +125,27 @@ namespace AsterNET.FastAGI
             }
             catch (AGINetworkException ex)
             {
-                Log.Fatal(ex,"");
+				Log.Fatal(ex, "[{Assembly}][{Class}.{Method}()]",
+                    Assembly.GetExecutingAssembly().GetName().Name,
+					GetType().Name,
+					MethodBase.GetCurrentMethod()?.Name
+				);
             }
             catch (AGIException ex)
             {
-                #if LOGGER
-                    logger.Error("AGIException while handling request", ex);
-                #else
-				    throw;
-                #endif
+				Log.Fatal(ex, "[{Assembly}][{Class}.{Method}()] AGIException while handling request",
+					Assembly.GetExecutingAssembly().GetName().Name,
+					GetType().Name,
+					MethodBase.GetCurrentMethod()?.Name
+				);
             }
             catch (Exception ex)
             {
-                #if LOGGER
-                    logger.Error("Unexpected Exception while handling request", ex);
-                #else
-				    throw;
-                #endif
+				Log.Fatal(ex, "[{Assembly}][{Class}.{Method}()] Unexpected Exception while handling request",
+					Assembly.GetExecutingAssembly().GetName().Name,
+					GetType().Name,
+					MethodBase.GetCurrentMethod()?.Name
+				);
             }
 
             Thread.SetData(_channel, null);
