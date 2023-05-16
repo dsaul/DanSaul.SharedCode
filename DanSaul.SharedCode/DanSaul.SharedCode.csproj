@@ -10,9 +10,34 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AWSSDK.S3" Version="3.7.104.12" />
-    <PackageReference Include="DanSaul.SharedCode.Extensions" Version="2023.5.910" />
-    <PackageReference Include="DanSaul.SharedCode.StandardizedEnvironmentVariables" Version="2023.5.910" />
+    <PackageReference Include="AWSSDK.Polly" Version="3.7.106.57" />
+    <PackageReference Include="AWSSDK.S3" Version="3.7.104.15" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="FluentEmail.Core" Version="3.0.2" />
+    <PackageReference Include="FluentEmail.Smtp" Version="3.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="Mono.Posix.NETStandard" Version="1.0.0" />
+    <PackageReference Include="NodaTime" Version="3.1.9" />
+    <PackageReference Include="NodaTime.Serialization.JsonNet" Version="3.0.1" />
+    <PackageReference Include="Npgsql" Version="7.0.4" />
+    <PackageReference Include="Serilog" Version="2.12.0" />
+    <PackageReference Include="SharpPcap" Version="6.2.5" />
+    <PackageReference Include="Square" Version="27.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="SQL\DatabaseSchemas\Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="SQL\DatabaseSchemas\Properties\Resources.resx">
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
