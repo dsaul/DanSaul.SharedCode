@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading;
 using AsterNET.FastAGI.Command;
 using AsterNET.IO;
+using Serilog;
 
 namespace AsterNET.FastAGI
 {
@@ -104,12 +105,16 @@ namespace AsterNET.FastAGI
             catch (IOException)
             {
             }
+            catch (AGINetworkException ex)
+            {
+                Log.Fatal(ex,"");
+            }
             catch (AGIException ex)
             {
                 #if LOGGER
                     logger.Error("AGIException while handling request", ex);
                 #else
-				    throw ex;
+				    throw;
                 #endif
             }
             catch (Exception ex)
@@ -117,7 +122,7 @@ namespace AsterNET.FastAGI
                 #if LOGGER
                     logger.Error("Unexpected Exception while handling request", ex);
                 #else
-				    throw ex;
+				    throw;
                 #endif
             }
 

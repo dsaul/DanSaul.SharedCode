@@ -68,6 +68,18 @@ namespace DanSaul.SharedCode.Asterisk
 							break;
 						}
 						break;
+					case AudioPlaybackEventType.SayDigits:
+						key = SayDigits(e.Digits, escapeKeys);
+						if (key != '\0')
+						{
+							buffer.Append(key);
+						}
+						if (key == '#')
+						{
+							stopPlayingAudio = true;
+							break;
+						}
+						break;
 					case AudioPlaybackEventType.TTSText:
 						key = PlayTTS(e.Text ?? "", escapeKeys, e.Engine, e.Voice);
 						if (key != '\0')
@@ -158,6 +170,14 @@ namespace DanSaul.SharedCode.Asterisk
 					case AudioPlaybackEventType.SayAlpha:
 						key = SayAlpha(e.Alpha, "12");
 						if (key == '1' || key == '2') {
+							stopPlayingAudio = true;
+							break;
+						}
+						break;
+					case AudioPlaybackEventType.SayDigits:
+						key = SayDigits(e.Digits, "12");
+						if (key == '1' || key == '2')
+						{
 							stopPlayingAudio = true;
 							break;
 						}

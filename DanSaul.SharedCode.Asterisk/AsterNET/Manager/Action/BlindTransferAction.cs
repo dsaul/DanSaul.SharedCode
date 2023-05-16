@@ -9,7 +9,7 @@ namespace AsterNET.Manager.Action
     ///     Redirect all channels currently bridged to the specified channel to the specified destination.<br />
     ///     See <see target="_blank"  href="https://wiki.asterisk.org/wiki/display/AST/Asterisk+16+ManagerAction_BlindTransfer">https://wiki.asterisk.org/wiki/display/AST/Asterisk+16+ManagerAction_BlindTransfer</see>
     /// </summary>
-    class BlindTransferAction : ManagerAction
+    public class BlindTransferAction : ManagerAction
     {
         /// <summary>
         ///     Creates a new empty <see cref="BlindTransferAction"/>.

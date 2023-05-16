@@ -5,6 +5,7 @@
 		Unknown,
 		Stream,
 		SayAlpha,
+		SayDigits,
 		TTSText,
 		Recording,
 	}
