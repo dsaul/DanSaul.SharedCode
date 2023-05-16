@@ -140,9 +140,9 @@ namespace AsterNET.IO
 		/// </summary>
 		/// <returns>the line of text received excluding any newline character</returns>
 		/// <throws>  IOException if the connection has been closed. </throws>
-		public string ReadLine()
+		public string? ReadLine()
 		{
-			string line = null;
+			string? line = null;
 			try
 			{
 				line = reader.ReadLine();

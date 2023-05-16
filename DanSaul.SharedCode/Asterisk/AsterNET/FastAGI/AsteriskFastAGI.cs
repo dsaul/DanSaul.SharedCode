@@ -1,10 +1,14 @@
 using System;
 using System.IO;
 using System.Net;
+using System.Net.Sockets;
+using System.Reflection;
 using System.Text;
 using AsterNET.FastAGI.MappingStrategies;
 using AsterNET.IO;
 using AsterNET.Util;
+using Serilog;
+using Square.Models;
 
 namespace AsterNET.FastAGI
 {
@@ -31,7 +35,7 @@ namespace AsterNET.FastAGI
 #if LOGGER
         private readonly Logger logger = Logger.Instance();
 #endif
-        private ServerSocket serverSocket;
+        private ServerSocket? serverSocket;
 
         /// <summary> The port to listen on.</summary>
         private int port;
@@ -40,7 +44,7 @@ namespace AsterNET.FastAGI
         private readonly string address;
 
         /// <summary>The thread pool that contains the worker threads to process incoming requests.</summary>
-        private AsterNET.Util.ThreadPool pool;
+        private AsterNET.Util.ThreadPool? pool;
 
         /// <summary>
         ///     The number of worker threads in the thread pool. This equals the maximum number of concurrent requests this
@@ -226,50 +230,70 @@ namespace AsterNET.FastAGI
             stopped = false;
             mappingStrategy.Load();
             pool = new AsterNET.Util.ThreadPool("AGIServer", poolSize);
-#if LOGGER
-            logger.Info("Thread pool started.");
-#endif
-            try
+
+
+			Log.Debug("[{Assembly}][{Class}.{Method}()] \"Thread pool started.\"",
+				Assembly.GetExecutingAssembly().GetName().Name,
+				GetType().Name,
+				MethodBase.GetCurrentMethod()?.Name
+			);
+
+			try
             {
                 var ipAddress = IPAddress.Parse(address);
                 serverSocket = new ServerSocket(port, ipAddress, SocketEncoding);
             }
             catch (Exception ex)
             {
-#if LOGGER
+				
                 if (ex is IOException)
                 {
-                    logger.Error("Unable start AGI Server: cannot to bind to " + address + ":" + port + ".", ex);
-                }
-#endif
+					Log.Error(ex, "[{Assembly}][{Class}.{Method}()] Unable start AGI Server: cannot to bind to {Address}:{Port}",
+					    Assembly.GetExecutingAssembly().GetName().Name,
+					    GetType().Name,
+					    MethodBase.GetCurrentMethod()?.Name,
+						address,
+						port
+					);
+				}
 
-                if (serverSocket != null)
+				if (serverSocket != null)
                 {
                     serverSocket.Close();
                     serverSocket = null;
                 }
 
                 pool.Shutdown();
-#if LOGGER
-                logger.Info("AGI Server shut down.");
-#endif
 
-                throw ex;
+				Log.Information("[{Assembly}][{Class}.{Method}()] AGI Server shut down.",
+				    Assembly.GetExecutingAssembly().GetName().Name,
+				    GetType().Name,
+				    MethodBase.GetCurrentMethod()?.Name
+			    );
+
+				throw;
             }
 
-#if LOGGER
-            logger.Info("Listening on " + address + ":" + port + ".");
-#endif
+			Log.Debug("[{Assembly}][{Class}.{Method}()] Listening on {Address}:{Port}",
+				Assembly.GetExecutingAssembly().GetName().Name,
+				GetType().Name,
+				MethodBase.GetCurrentMethod()?.Name,
+				address,
+				port
+			);
 
-            try
+			try
             {
                 SocketConnection socket;
                 while ((socket = serverSocket.Accept()) != null)
                 {
-#if LOGGER
-                    logger.Info("Received connection.");
-#endif
-                    var connectionHandler = new AGIConnectionHandler(socket, mappingStrategy, SC511_CAUSES_EXCEPTION,
+					Log.Information("[{Assembly}][{Class}.{Method}()] Received connection.",
+				        Assembly.GetExecutingAssembly().GetName().Name,
+				        GetType().Name,
+				        MethodBase.GetCurrentMethod()?.Name
+			        );
+                    
+					var connectionHandler = new AGIConnectionHandler(socket, mappingStrategy, SC511_CAUSES_EXCEPTION,
                         SCHANGUP_CAUSES_EXCEPTION);
                     pool.AddJob(connectionHandler);
                 }
@@ -278,10 +302,12 @@ namespace AsterNET.FastAGI
             {
                 if (!stopped)
                 {
-#if LOGGER
-                    logger.Error("IOException while waiting for connections (1).", ex);
-#endif
-                    throw ex;
+					Log.Error(ex, "[{Assembly}][{Class}.{Method}()] IOException while waiting for connections (1).",
+						Assembly.GetExecutingAssembly().GetName().Name,
+						GetType().Name,
+						MethodBase.GetCurrentMethod()?.Name
+					);
+					throw;
                 }
             }
             finally
@@ -292,21 +318,25 @@ namespace AsterNET.FastAGI
                     {
                         serverSocket.Close();
                     }
-#if LOGGER
                     catch (IOException ex)
                     {
-                        logger.Error("IOException while waiting for connections (2).", ex);
+						Log.Error(ex, "[{Assembly}][{Class}.{Method}()] IOException while waiting for connections (2).",
+						    Assembly.GetExecutingAssembly().GetName().Name,
+						    GetType().Name,
+						    MethodBase.GetCurrentMethod()?.Name
+					    );
                     }
-#else
-					catch { }
-#endif
+
                 }
                 serverSocket = null;
                 pool.Shutdown();
-#if LOGGER
-                logger.Info("AGI Server shut down.");
-#endif
-            }
+
+				Log.Debug("[{Assembly}][{Class}.{Method}()] AGI Server shut down.",
+				    Assembly.GetExecutingAssembly().GetName().Name,
+				    GetType().Name,
+				    MethodBase.GetCurrentMethod()?.Name
+			    );
+			}
         }
 
         #endregion
