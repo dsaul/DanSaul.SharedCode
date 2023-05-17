@@ -508,11 +508,16 @@ namespace AsterNET.Manager
         /// </summary>
         public event EventHandler<QueueSummaryEvent> QueueSummary;
 
-        #endregion
 
-        #region Constructor - ManagerConnection()
-        /// <summary> Creates a new instance.</summary>
-        public ManagerConnection()
+
+		public event EventHandler<CoreShowChannelEvent> CoreShowChannel;
+		public event EventHandler<CoreShowChannelsCompleteEvent> CoreShowChannelsComplete;
+
+		#endregion
+
+		#region Constructor - ManagerConnection()
+		/// <summary> Creates a new instance.</summary>
+		public ManagerConnection()
         {
             callerThread = Thread.CurrentThread;
 
@@ -597,7 +602,11 @@ namespace AsterNET.Manager
             Helper.RegisterEventHandler(registeredEventHandlers, typeof(ReloadEvent), arg => fireEvent(Reload, arg));
             Helper.RegisterEventHandler(registeredEventHandlers, typeof(ShutdownEvent), arg => fireEvent(ConnectionState, arg));
 
-            Helper.RegisterEventHandler(registeredEventHandlers, typeof(BridgeEvent), arg => fireEvent(Bridge, arg));
+			Helper.RegisterEventHandler(registeredEventHandlers, typeof(CoreShowChannelEvent), arg => fireEvent(CoreShowChannel, arg));
+			Helper.RegisterEventHandler(registeredEventHandlers, typeof(CoreShowChannelsCompleteEvent), arg => fireEvent(CoreShowChannelsComplete, arg));
+
+
+			Helper.RegisterEventHandler(registeredEventHandlers, typeof(BridgeEvent), arg => fireEvent(Bridge, arg));
             Helper.RegisterEventHandler(registeredEventHandlers, typeof(TransferEvent), arg => fireEvent(Transfer, arg));
             Helper.RegisterEventHandler(registeredEventHandlers, typeof(DTMFEvent), arg => fireEvent(DTMF, arg));
             Helper.RegisterEventHandler(registeredEventHandlers, typeof(DTMFBeginEvent), arg => fireEvent(DTMFBegin, arg));

@@ -7,6 +7,7 @@ using System.Text;
 using AsterNET.Manager;
 using AsterNET.Manager.Event;
 using AsterNET.Manager.Response;
+using Serilog;
 
 namespace AsterNET
 {
@@ -828,7 +829,10 @@ namespace AsterNET
             Type manager = typeof (ManagerEvent);
             foreach (var type in assembly.GetTypes())
                 if (type.IsPublic && !type.IsAbstract && manager.IsAssignableFrom(type))
-                    RegisterEventClass(list, type);
+                {
+                    Log.Debug("Register {Type}", type);
+					RegisterEventClass(list, type);
+				}
         }
 
         #endregion
@@ -856,7 +860,7 @@ namespace AsterNET
             if (list.ContainsKey(hash))
                 return;
 
-            ConstructorInfo constructor = null;
+            ConstructorInfo? constructor = null;
             try
             {
                 constructor = clazz.GetConstructor(new[] {typeof (ManagerConnection)});
