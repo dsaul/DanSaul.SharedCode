@@ -7,8 +7,10 @@ using DanSaul.SharedCode.Npgsql;
 
 namespace SharedCode.DatabaseSchemas
 {
+	[Obsolete]
 	public record Skills(Guid? Id, string? Json, string? SearchString, string? LastModifiedIso8601) : JSONTable(Id, Json, SearchString, LastModifiedIso8601)
 	{
+		[Obsolete]
 		public static Dictionary<Guid, Skills> ForId(NpgsqlConnection connection, Guid id) {
 
 			Dictionary<Guid, Skills> ret = new Dictionary<Guid, Skills>();
@@ -34,7 +36,7 @@ namespace SharedCode.DatabaseSchemas
 
 			return ret;
 		}
-
+		[Obsolete]
 
 		public static Dictionary<Guid, Skills> All(NpgsqlConnection connection) {
 
@@ -60,7 +62,7 @@ namespace SharedCode.DatabaseSchemas
 
 		}
 
-
+		[Obsolete]
 		public static Dictionary<Guid, Skills> ForIds(NpgsqlConnection connection, IEnumerable<Guid> ids) {
 
 			Guid[] idsArr = ids.ToArray();
@@ -96,7 +98,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 		}
-
+		[Obsolete]
 		public static List<Guid> Delete(NpgsqlConnection connection, List<Guid> idsToDelete) {
 
 			List<Guid> toSendToOthers = new List<Guid>();
@@ -130,7 +132,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 		}
-
+		[Obsolete]
 		public static void Upsert(
 			NpgsqlConnection connection,
 			Dictionary<Guid, Skills> updateObjects,
@@ -193,7 +195,7 @@ namespace SharedCode.DatabaseSchemas
 		}
 
 
-
+		[Obsolete]
 		public static Skills FromDataReader(NpgsqlDataReader reader) {
 
 			Guid? id = default;
@@ -222,7 +224,7 @@ namespace SharedCode.DatabaseSchemas
 				LastModifiedIso8601: lastModifiedIso8601
 				);
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string GeneratedSearchString
 		{
@@ -233,11 +235,10 @@ namespace SharedCode.DatabaseSchemas
 
 		public static string GenerateSearchString() {
 			return $"";
-#warning TODO: Implement
 		}
 
 
-
+		[Obsolete]
 		public static void VerifyRepairTable(NpgsqlConnection dpDB, bool insertDefaultContents = false) {
 
 			if (dpDB.TableExists("skills")) {
@@ -259,7 +260,6 @@ namespace SharedCode.DatabaseSchemas
 
 
 
-#warning TODO: Implement
 		}
 
 

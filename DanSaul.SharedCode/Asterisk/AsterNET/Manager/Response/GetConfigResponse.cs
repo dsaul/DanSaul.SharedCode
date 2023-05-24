@@ -12,8 +12,8 @@ namespace AsterNET.Manager.Response
     /// </summary>
     public class GetConfigResponse : ManagerResponse
     {
-        private Dictionary<int, string> categories;
-        private Dictionary<int, Dictionary<int, string>> lines;
+        private Dictionary<int, string>? categories;
+        private Dictionary<int, Dictionary<int, string>>? lines;
 
         /// <summary>
         ///     Get the map of category numbers to category names.

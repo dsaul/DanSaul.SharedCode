@@ -7,7 +7,7 @@ namespace AsterNET.Manager.Event
 	public class HangupEvent : AbstractChannelEvent
 	{
 		private int cause;
-		private string causeTxt;
+		private string? causeTxt;
 
 		/// <summary>
 		/// Get/Set the cause of the hangup.

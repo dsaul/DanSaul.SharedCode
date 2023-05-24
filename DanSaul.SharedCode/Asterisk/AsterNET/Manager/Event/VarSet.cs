@@ -6,10 +6,10 @@ namespace AsterNET.Manager.Event
 {
 	public class VarSetEvent : ManagerEvent
 	{
-		private string variable_name;
-		private string variable_value;
-		private string file;
-		private string func;
+		private string? variable_name;
+		private string? variable_value;
+		private string? file;
+		private string? func;
 		private int line;
 		private int sequencenumber;
 

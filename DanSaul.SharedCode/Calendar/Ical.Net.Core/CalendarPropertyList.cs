@@ -5,7 +5,7 @@ namespace Ical.Net
 {
     public class CalendarPropertyList : GroupedValueList<string, ICalendarProperty, CalendarProperty, object>
     {
-        private readonly ICalendarObject _mParent;
+        private readonly ICalendarObject? _mParent;
 
         public CalendarPropertyList() {}
 

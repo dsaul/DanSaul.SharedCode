@@ -192,7 +192,7 @@ namespace Ical.Net.CalendarComponents
             set => Properties.Set(TransparencyType.Key, value);
         }
 
-        private EventEvaluator _mEvaluator;
+        private EventEvaluator? _mEvaluator;
 
         /// <summary>
         /// Constructs an Event object, with an iCalObject

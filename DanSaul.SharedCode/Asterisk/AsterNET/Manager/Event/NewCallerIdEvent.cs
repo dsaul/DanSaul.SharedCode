@@ -9,7 +9,7 @@ namespace AsterNET.Manager.Event
     public class NewCallerIdEvent : ManagerEvent
     {
         private int cidCallingPres;
-        private string cidCallingPresTxt;
+        private string? cidCallingPresTxt;
 
         public NewCallerIdEvent(ManagerConnection source)
             : base(source)
@@ -19,17 +19,17 @@ namespace AsterNET.Manager.Event
         /// <summary>
         ///     Get/Set the new caller id.
         /// </summary>
-        public string CallerId { get; set; }
+        public string? CallerId { get; set; }
 
         /// <summary>
         ///     Get/Set the new Caller*ID Name if set or "&lt;Unknown&gt;" if none has been set.
         /// </summary>
-        public string CallerIdName { get; set; }
+        public string? CallerIdName { get; set; }
 
         /// <summary>
         ///     Get/Set the new Caller*ID Numb.
         /// </summary>
-        public string CallerIdNum { get; set; }
+        public string? CallerIdNum { get; set; }
 
         /// <summary>
         ///     Get the CallerId presentation/screening.

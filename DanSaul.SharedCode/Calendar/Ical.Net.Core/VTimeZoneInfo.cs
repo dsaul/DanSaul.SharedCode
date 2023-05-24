@@ -11,7 +11,7 @@ namespace Ical.Net
 {
     public sealed class VTimeZoneInfo : CalendarComponent, IRecurrable
     {
-        private TimeZoneInfoEvaluator _evaluator;
+        private TimeZoneInfoEvaluator? _evaluator;
 
         public VTimeZoneInfo()
         {

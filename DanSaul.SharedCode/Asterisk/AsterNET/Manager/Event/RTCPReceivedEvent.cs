@@ -6,8 +6,8 @@ namespace AsterNET.Manager.Event
 {
 	public class RTCPReceivedEvent : ManagerEvent
 	{
-		private string from;
-		private string pt;
+		private string? from;
+		private string? pt;
 		private int receptionReports;
 		private long senderSSRC;
 		private long fractionLost;
@@ -15,9 +15,9 @@ namespace AsterNET.Manager.Event
 		private long highestSequence;
 		private int sequenceNumberCycles;
 		private long iaJitter;
-		private string lastSR;
-		private string dlsr;
-		private string rtt;
+		private string? lastSR;
+		private string? dlsr;
+		private string? rtt;
 
 		public string From
 		{

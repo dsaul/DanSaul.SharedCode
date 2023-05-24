@@ -148,16 +148,16 @@ namespace AsterNET.Manager.Event
 			}
 			
 		}
-		private string callerId;
-		private string callerIdName;
-		private string callerIdNum;
-		private string account;
-		private string state;
-		private string context;
-		private string extension;
+		private string? callerId;
+		private string? callerIdName;
+		private string? callerIdNum;
+		private string? account;
+		private string? state;
+		private string? context;
+		private string? extension;
 		private int priority;
 		private int seconds = -1;
-		private string link;
+		private string? link;
 		
 		public StatusEvent(ManagerConnection source): base(source)
 		{

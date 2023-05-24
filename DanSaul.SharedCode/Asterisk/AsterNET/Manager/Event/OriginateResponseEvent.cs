@@ -4,13 +4,13 @@ namespace AsterNET.Manager.Event
 {
 	public class OriginateResponseEvent : ResponseEvent
 	{
-		private string response;
-		private string context;
-		private string exten;
+		private string? response;
+		private string? context;
+		private string? exten;
 		private int reason;
-		private string callerIdNum;
-		private string callerIdName;
-		private string callerId;
+		private string? callerIdNum;
+		private string? callerIdName;
+		private string? callerId;
 
 		public string Response
 		{

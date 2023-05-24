@@ -9,8 +9,8 @@ namespace Ical.Net
     /// </summary>
     public class CalendarObject : CalendarObjectBase, ICalendarObject
     {
-        private ICalendarObjectList<ICalendarObject> _children;
-        private ServiceProvider _serviceProvider;
+        private ICalendarObjectList<ICalendarObject>? _children;
+        private ServiceProvider? _serviceProvider;
 
         internal CalendarObject()
         {
@@ -86,7 +86,7 @@ namespace Ical.Net
         /// <summary>
         /// Returns the parent iCalObject that owns this one.
         /// </summary>
-        public virtual ICalendarObject Parent { get; set; }
+        public virtual ICalendarObject? Parent { get; set; }
 
         /// <summary>
         /// A collection of iCalObjects that are children of the current object.

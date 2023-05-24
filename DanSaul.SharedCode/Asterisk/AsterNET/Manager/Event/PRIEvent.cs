@@ -4,10 +4,10 @@ namespace AsterNET.Manager.Event
 {
 	public class PRIEvent : ManagerEvent
 	{
-		private string priEvent;
-		private string priEventCode;
-		private string dChannel;
-		private string span;
+		private string? priEvent;
+		private string? priEventCode;
+		private string? dChannel;
+		private string? span;
 
 		public string PriEvent
 		{

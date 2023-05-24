@@ -10,7 +10,7 @@ namespace Ical.Net
     [DebuggerDisplay("{Name}={string.Join(\",\", Values)}")]
     public class CalendarParameter : CalendarObject, IValueObject<string>
     {
-        private HashSet<string> _values;
+        private HashSet<string>? _values;
 
         public CalendarParameter()
         {

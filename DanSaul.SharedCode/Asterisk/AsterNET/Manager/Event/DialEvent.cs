@@ -7,16 +7,16 @@ namespace AsterNET.Manager.Event
 	/// </summary>
 	public class DialEvent : ManagerEvent
 	{
-		private string subEvent;
-		private string destination;
-		private string callerId;
-		private string callerIdNum;
-		private string callerIdName;
-		private string srcUniqueId;
-		private string destUniqueId;
-		private string dialString;
-		private string dialStatus;
-		private string src;
+		private string? subEvent;
+		private string? destination;
+		private string? callerId;
+		private string? callerIdNum;
+		private string? callerIdName;
+		private string? srcUniqueId;
+		private string? destUniqueId;
+		private string? dialString;
+		private string? dialStatus;
+		private string? src;
 
 
 		/// <summary>

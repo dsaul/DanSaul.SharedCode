@@ -10,9 +10,9 @@ namespace AsterNET.FastAGI.Command
 	{
 		#region Variables
 		/// <summary> The digits string to say.</summary>
-		private string digits;
+		private string? digits;
 		/// <summary> When one of these digits is pressed while saying the digits the command returns.</summary>
-		private string escapeDigits;
+		private string? escapeDigits;
 		#endregion
 
 		#region Digits

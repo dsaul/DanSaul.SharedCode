@@ -6,15 +6,15 @@ namespace AsterNET.Manager.Event
 	/// </summary>
 	public class ExtensionStatusEvent : ManagerEvent
 	{
-		private string exten;
-		private string context;
-		private string hint;
+		private string? exten;
+		private string? context;
+		private string? hint;
 		private int status;
 
 		/// <summary>
 		/// Get/Set the extension hint.
 		/// </summary>
-		public string Hint
+		public string? Hint
 		{
 			get { return this.hint; }
 			set { this.hint = value; }
@@ -22,7 +22,7 @@ namespace AsterNET.Manager.Event
 		/// <summary>
 		/// Get/Set the extension.
 		/// </summary>
-		public string Exten
+		public string? Exten
 		{
 			get { return exten; }
 			set { this.exten = value; }
@@ -30,7 +30,7 @@ namespace AsterNET.Manager.Event
 		/// <summary>
 		/// Get/Set the context of the extension.
 		/// </summary>
-		public string Context
+		public string? Context
 		{
 			get { return context; }
 			set { this.context = value; }

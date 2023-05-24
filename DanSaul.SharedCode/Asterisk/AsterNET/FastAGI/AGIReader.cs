@@ -18,13 +18,13 @@ namespace AsterNET.FastAGI
 
         public AGIRequest ReadRequest()
         {
-            var lines = new List<string>();
+			List<string> lines = new();
             try
             {
 #if LOGGER
                 logger.Info("AGIReader.ReadRequest():");
 #endif
-                string line;
+                string? line;
                 while ((line = socket.ReadLine()) != null)
                 {
                     if (line.Length == 0)
@@ -53,7 +53,7 @@ namespace AsterNET.FastAGI
 
         public AGIReply ReadReply()
         {
-            string line;
+            string? line;
             var badSyntax = ((int) AGIReplyStatuses.SC_INVALID_COMMAND_SYNTAX).ToString();
 
             var lines = new List<string>();

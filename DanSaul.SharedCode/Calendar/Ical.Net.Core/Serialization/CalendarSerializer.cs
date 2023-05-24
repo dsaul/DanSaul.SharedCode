@@ -6,7 +6,7 @@ namespace Ical.Net.Serialization
 {
     public class CalendarSerializer : ComponentSerializer
     {
-        private readonly Calendar _calendar;
+        private readonly Calendar? _calendar;
 
         public CalendarSerializer()
             :this(new SerializationContext()) { }

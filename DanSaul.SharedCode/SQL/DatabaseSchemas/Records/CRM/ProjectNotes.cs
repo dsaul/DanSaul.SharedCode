@@ -9,8 +9,10 @@ using DanSaul.SharedCode.Npgsql;
 
 namespace SharedCode.DatabaseSchemas
 {
+	[Obsolete]
 	public record ProjectNotes(Guid? Id, string? Json, string? SearchString, string? LastModifiedIso8601) : JSONTable(Id, Json, SearchString, LastModifiedIso8601)
 	{
+		[Obsolete]
 		public enum ContentTypes
 		{
 			Unknown = 0,
@@ -25,7 +27,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 
-
+		[Obsolete]
 		public static Dictionary<Guid, ProjectNotes> ForId(NpgsqlConnection connection, Guid id) {
 
 			Dictionary<Guid, ProjectNotes> ret = new Dictionary<Guid, ProjectNotes>();
@@ -52,7 +54,7 @@ namespace SharedCode.DatabaseSchemas
 			return ret;
 		}
 
-
+		[Obsolete]
 		public static Dictionary<Guid, ProjectNotes> ForAssignmentId(NpgsqlConnection connection, Guid? assignmentId) {
 
 			Dictionary<Guid, ProjectNotes> ret = new Dictionary<Guid, ProjectNotes>();
@@ -82,7 +84,7 @@ namespace SharedCode.DatabaseSchemas
 			return ret;
 		}
 
-
+		[Obsolete]
 		public static Dictionary<Guid, ProjectNotes> ForProjectId(NpgsqlConnection connection, Guid projectId) {
 
 			Dictionary<Guid, ProjectNotes> ret = new Dictionary<Guid, ProjectNotes>();
@@ -114,12 +116,12 @@ namespace SharedCode.DatabaseSchemas
 
 
 
-		
 
 
 
 
 
+		[Obsolete]
 		public static Dictionary<Guid, ProjectNotes> All(NpgsqlConnection connection) {
 
 			Dictionary<Guid, ProjectNotes> ret = new Dictionary<Guid, ProjectNotes>();
@@ -143,7 +145,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 		}
-
+		[Obsolete]
 		public static Dictionary<Guid, ProjectNotes> ForIds(NpgsqlConnection connection, IEnumerable<Guid> ids) {
 
 			Guid[] idsArr = ids.ToArray();
@@ -179,7 +181,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 		}
-
+		[Obsolete]
 		public static List<Guid> Delete(NpgsqlConnection connection, List<Guid> idsToDelete) {
 
 			List<Guid> toSendToOthers = new List<Guid>();
@@ -213,7 +215,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 		}
-
+		[Obsolete]
 		public static void Upsert(
 			NpgsqlConnection connection,
 			Dictionary<Guid, ProjectNotes> updateObjects,
@@ -276,7 +278,7 @@ namespace SharedCode.DatabaseSchemas
 
 		}
 
-
+		[Obsolete]
 		public static ProjectNotes FromDataReader(NpgsqlDataReader reader) {
 
 			Guid? id = default;
@@ -305,7 +307,7 @@ namespace SharedCode.DatabaseSchemas
 				LastModifiedIso8601: lastModifiedIso8601
 				);
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? OriginalISO8601
 		{
@@ -330,7 +332,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public Guid? OriginalBillingId
 		{
@@ -358,7 +360,7 @@ namespace SharedCode.DatabaseSchemas
 				return guid;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public Guid? ProjectId
 		{
@@ -386,7 +388,7 @@ namespace SharedCode.DatabaseSchemas
 				return guid;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public Guid? AssignmentId
 		{
@@ -415,7 +417,7 @@ namespace SharedCode.DatabaseSchemas
 			}
 		}
 
-
+		[Obsolete]
 		[JsonIgnore]
 		public ContentTypes ContentType
 		{
@@ -445,7 +447,7 @@ namespace SharedCode.DatabaseSchemas
 				};
 			}
 		}
-
+		[Obsolete]
 
 		[JsonIgnore]
 		public string? StyledTextHTML
@@ -478,6 +480,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
+		[Obsolete]
 
 		[JsonIgnore]
 		public string? CheckboxText
@@ -510,7 +513,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public bool? CheckboxState
 		{
@@ -540,7 +543,7 @@ namespace SharedCode.DatabaseSchemas
 			}
 		}
 
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? VideoURI
 		{
@@ -572,7 +575,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? ImageURI
 		{
@@ -605,7 +608,7 @@ namespace SharedCode.DatabaseSchemas
 			}
 		}
 
-
+		[Obsolete]
 		[JsonIgnore]
 		public bool? InternalOnly
 		{
@@ -626,7 +629,7 @@ namespace SharedCode.DatabaseSchemas
 			}
 		}
 
-
+		[Obsolete]
 		[JsonIgnore]
 		public bool? Resolved
 		{
@@ -647,7 +650,7 @@ namespace SharedCode.DatabaseSchemas
 			}
 		}
 
-
+		[Obsolete]
 		[JsonIgnore]
 		public bool? NoLongerRelevant
 		{
@@ -668,7 +671,7 @@ namespace SharedCode.DatabaseSchemas
 			}
 		}
 
-
+		[Obsolete]
 		public string GetLaTeXString(NpgsqlConnection dbBilling) {
 
 			StringBuilder sb = new StringBuilder();
@@ -776,7 +779,7 @@ namespace SharedCode.DatabaseSchemas
 			return sb.ToString();
 
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string GeneratedSearchString
 		{
@@ -784,16 +787,15 @@ namespace SharedCode.DatabaseSchemas
 				return GenerateSearchString();
 			}
 		}
-
+		[Obsolete]
 		public static string GenerateSearchString() {
 			return $"";
-#warning TODO: implement
 		}
 
 
 
 
-
+		[Obsolete]
 		public static void VerifyRepairTable(NpgsqlConnection dpDB, bool insertDefaultContents = false) {
 
 			if (dpDB.TableExists("project-notes")) {

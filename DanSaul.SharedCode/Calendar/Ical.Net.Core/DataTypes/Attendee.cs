@@ -7,7 +7,7 @@ namespace Ical.Net.DataTypes
 {
     public class Attendee : EncodableDataType
     {
-        private Uri _sentBy;
+        private Uri? _sentBy;
         /// <summary> SENT-BY, to indicate who is acting on behalf of the ATTENDEE </summary>
         public virtual Uri SentBy
         {
@@ -33,7 +33,7 @@ namespace Ical.Net.DataTypes
             }
         }
 
-        private string _commonName;
+        private string? _commonName;
         /// <summary> CN: to show the common or displayable name associated with the calendar address </summary>
         public virtual string CommonName
         {
@@ -56,7 +56,7 @@ namespace Ical.Net.DataTypes
             }
         }
 
-        private Uri _directoryEntry;
+        private Uri? _directoryEntry;
         /// <summary> DIR, to indicate the URI that points to the directory information corresponding to the attendee </summary>
         public virtual Uri DirectoryEntry
         {
@@ -82,7 +82,7 @@ namespace Ical.Net.DataTypes
             }
         }
 
-        private string _type;
+        private string? _type;
         /// <summary> CUTYPE: the type of calendar user </summary>
         public virtual string Type
         {
@@ -106,7 +106,7 @@ namespace Ical.Net.DataTypes
             }
         }
 
-        private List<string> _members;
+        private List<string>? _members;
         /// <summary> MEMBER: the groups the user belongs to </summary>
         public virtual IList<string> Members
         {
@@ -118,7 +118,7 @@ namespace Ical.Net.DataTypes
             }
         }
 
-        private string _role;
+        private string? _role;
         /// <summary> ROLE: the intended role the attendee will have </summary>
         public virtual string Role
         {
@@ -141,7 +141,7 @@ namespace Ical.Net.DataTypes
             }
         }
 
-        private string _participationStatus;
+        private string? _participationStatus;
         public virtual string ParticipationStatus
         {
             get
@@ -191,7 +191,7 @@ namespace Ical.Net.DataTypes
             }
         }
 
-        private List<string> _delegatedTo;
+        private List<string>? _delegatedTo;
         /// <summary> DELEGATED-TO, to indicate the calendar users that the original request was delegated to </summary>
         public virtual IList<string> DelegatedTo
         {
@@ -207,7 +207,7 @@ namespace Ical.Net.DataTypes
             }
         }
 
-        private List<string> _delegatedFrom;
+        private List<string>? _delegatedFrom;
         /// <summary> DELEGATED-FROM, to indicate whom the request was delegated from </summary>
         public virtual IList<string> DelegatedFrom
         {
@@ -224,7 +224,7 @@ namespace Ical.Net.DataTypes
         }
 
         /// <summary> Uri associated with the attendee, typically an email address </summary>
-        public virtual Uri Value { get; set; }
+        public virtual Uri? Value { get; set; }
 
         public Attendee() {}
 

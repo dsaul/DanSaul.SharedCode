@@ -8,9 +8,9 @@ namespace AsterNET.FastAGI.Command
 	public class SayAlphaCommand : AGICommand
 	{
 		/// <summary> The text to say.</summary>
-		private string text;
+		private string? text;
 		/// <summary> When one of these digits is pressed the command returns.</summary>
-		private string escapeDigits;
+		private string? escapeDigits;
 
 		/// <summary>
 		/// Get/Set Returns the text to say.

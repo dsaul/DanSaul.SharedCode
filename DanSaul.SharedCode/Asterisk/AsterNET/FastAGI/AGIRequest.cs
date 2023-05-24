@@ -17,14 +17,14 @@ namespace AsterNET.FastAGI
 #if LOGGER
         private Logger logger = Logger.Instance();
 #endif
-        private string rawCallerId;
+        private string? rawCallerId;
         private readonly Dictionary<string, string> request;
 
         /// <summary> A map assigning the values of a parameter (an array of Strings) to the name of the parameter.</summary>
-        private Dictionary<string, List<string>> parameterMap;
+        private Dictionary<string, List<string>>? parameterMap;
 
-        private string parameters;
-        private string script;
+        private string? parameters;
+        private string? script;
         private bool callerIdCreated;
 
         #endregion
@@ -118,7 +118,7 @@ namespace AsterNET.FastAGI
 
         #region CallerId 
 
-        public string CallerId
+        public string? CallerId
         {
             get
             {
@@ -138,7 +138,7 @@ namespace AsterNET.FastAGI
 
         #region CallerIdName 
 
-        public string CallerIdName
+        public string? CallerIdName
         {
             get
             {
@@ -158,7 +158,7 @@ namespace AsterNET.FastAGI
 
         #region Asterisk 1.0 CallerID and CallerIdName 
 
-        private string callerId10()
+        private string? callerId10()
         {
             int lbPosition;
             int rbPosition;
@@ -185,7 +185,7 @@ namespace AsterNET.FastAGI
             return rawCallerId.Substring(lbPosition + 1, (rbPosition) - (lbPosition + 1));
         }
 
-        private string callerIdName10()
+        private string? callerIdName10()
         {
             int lbPosition;
             string callerIdName;
@@ -217,7 +217,7 @@ namespace AsterNET.FastAGI
 
         #region Dnid 
 
-        public string Dnid
+        public string? Dnid
         {
             get
             {
@@ -232,7 +232,7 @@ namespace AsterNET.FastAGI
 
         #region Rdnis 
 
-        public string Rdnis
+        public string? Rdnis
         {
             get
             {
@@ -321,7 +321,7 @@ namespace AsterNET.FastAGI
 
         #region LocalAddress
 
-        public IPAddress LocalAddress { get; set; }
+        public IPAddress? LocalAddress { get; set; }
 
         #endregion
 
@@ -333,7 +333,7 @@ namespace AsterNET.FastAGI
 
         #region RemoteAddress
 
-        public IPAddress RemoteAddress { get; set; }
+        public IPAddress? RemoteAddress { get; set; }
 
         #endregion
 
@@ -348,7 +348,7 @@ namespace AsterNET.FastAGI
         /// <summary>
         ///     Returns the name of the script to execute.
         /// </summary>
-        public string Script
+        public string? Script
         {
             get
             {
@@ -457,10 +457,9 @@ namespace AsterNET.FastAGI
 
         #region Parameter(string name) 
 
-        public string Parameter(string name)
+        public string? Parameter(string name)
         {
-            List<string> values;
-            values = ParameterValues(name);
+            List<string>? values = ParameterValues(name);
             if (values == null || values.Count == 0)
                 return null;
             return values[0];
@@ -470,8 +469,10 @@ namespace AsterNET.FastAGI
 
         #region ParameterValues(string name) 
 
-        public List<string> ParameterValues(string name)
+        public List<string>? ParameterValues(string name)
         {
+            if (parameterMap == null)
+                return null;
             if (ParameterMap().Count == 0)
                 return null;
 
@@ -538,7 +539,7 @@ namespace AsterNET.FastAGI
         /// </summary>
         /// <param name="s">the parameter string to parse</param>
         /// <returns> a Map made up of parameter names their values</returns>
-        private Dictionary<string, List<string>> parseParameters(string parameters)
+        private Dictionary<string, List<string>> parseParameters(string? parameters)
         {
             var result = new Dictionary<string, List<string>>();
             string name;

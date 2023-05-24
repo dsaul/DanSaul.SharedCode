@@ -6,10 +6,10 @@ namespace AsterNET.Manager.Event
 	/// </summary>
 	public class ShutdownEvent : ConnectionStateEvent
 	{
-		private string shutdown;
+		private string? shutdown;
 		private bool restart = false;
-		private string file;
-		private string func;
+		private string? file;
+		private string? func;
 		private int line;
 		private int sequencenumber;
 

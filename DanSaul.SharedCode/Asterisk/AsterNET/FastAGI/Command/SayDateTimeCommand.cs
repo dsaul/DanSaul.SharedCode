@@ -9,12 +9,12 @@ namespace AsterNET.FastAGI.Command
 	/// </summary>
 	public class SayDateTimeCommand : AGICommand
 	{
-		private static string DEFAULT_FORMAT = "ABdY 'digits/at' IMp";
+		private static string? DEFAULT_FORMAT = "ABdY 'digits/at' IMp";
 
 		private long time;
-		private string escapeDigits;
-		private string format;
-		private string timezone;
+		private string? escapeDigits;
+		private string? format;
+		private string? timezone;
 
 		/// <summary>
 		/// Creates a new SayDateTimeCommand that says the given time.

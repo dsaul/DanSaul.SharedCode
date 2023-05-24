@@ -448,7 +448,9 @@ namespace SharedCode.DatabaseSchemas
 					ret.Add(new Address(
 						id,
 						addr.Value<string>("label"),
-						addr.Value<string>("value")));
+						addr.Value<string>("value")
+						)
+					);
 
 				}
 

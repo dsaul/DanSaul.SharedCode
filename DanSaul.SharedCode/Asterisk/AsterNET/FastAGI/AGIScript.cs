@@ -115,7 +115,7 @@ namespace AsterNET.FastAGI
 		/// </summary>
 		/// <param name="file">the name of the file to play</param>
 		/// <returns> a String containing the DTMF the user entered</returns>
-		protected internal string GetData(string file)
+		protected internal string? GetData(string file)
 		{
 			AGIChannel channel = this.Channel;
 			AGIReply lastReply = channel.SendCommand(new Command.GetDataCommand(file));
@@ -134,7 +134,7 @@ namespace AsterNET.FastAGI
 		/// 0 means standard timeout value, -1 means "ludicrous time"
 		/// (essentially never times out).</param>
 		/// <returns> a String containing the DTMF the user entered</returns>
-		protected internal string GetData(string file, long timeout)
+		protected internal string? GetData(string file, long timeout)
 		{
 			AGIChannel channel = this.Channel;
 			AGIReply lastReply = channel.SendCommand(new Command.GetDataCommand(file, timeout));
@@ -155,7 +155,7 @@ namespace AsterNET.FastAGI
 		/// (essentially never times out).</param>
 		/// <param name="maxDigits">the maximum number of digits the user is allowed to enter</param>
 		/// <returns> a String containing the DTMF the user entered</returns>
-		protected internal string GetData(string file, long timeout, int maxDigits)
+		protected internal string? GetData(string file, long timeout, int maxDigits)
 		{
 			AGIChannel channel = this.Channel;
 			AGIReply lastReply = channel.SendCommand(new Command.GetDataCommand(file, timeout, maxDigits));
@@ -437,7 +437,7 @@ namespace AsterNET.FastAGI
 		/// </summary>
 		/// <param name="name">the name of the variable to retrieve.</param>
 		/// <returns> the value of the given variable or null if not set.</returns>
-		protected internal string GetVariable(string name)
+		protected internal string? GetVariable(string name)
 		{
 			AGIChannel channel = this.Channel;
 			AGIReply lastReply = channel.SendCommand(new Command.GetVariableCommand(name));
@@ -481,7 +481,7 @@ namespace AsterNET.FastAGI
 		/// </summary>
 		/// <param name="name">the name of the variable to retrieve.</param>
 		/// <returns>the value of the given variable or null if not et.</returns>
-		protected internal string GetFullVariable(string name)
+		protected internal string? GetFullVariable(string name)
 		{
 			AGIChannel channel = this.Channel;
 			AGIReply lastReply = channel.SendCommand(new Command.GetFullVariableCommand(name));
@@ -499,7 +499,7 @@ namespace AsterNET.FastAGI
 		/// <param name="name">the name of the variable to retrieve.</param>
 		/// <param name="channel">the name of the channel.</param>
 		/// <returns>the value of the given variable or null if not set.</returns>
-		protected internal string GetFullVariable(string name, string channelName)
+		protected internal string? GetFullVariable(string name, string channelName)
 		{
 			AGIChannel channel = this.Channel;
 			AGIReply lastReply = channel.SendCommand(new Command.GetFullVariableCommand(name, channelName));
@@ -573,7 +573,7 @@ namespace AsterNET.FastAGI
 		/// <param name="family">the family of the entry to retrieve.</param>
 		/// <param name="key">key the key of the entry to retrieve.</param>
 		/// <return>the value of the given family and key or null if there is no such value.</return>
-		protected internal string DatabaseGet(string family, string key)
+		protected internal string? DatabaseGet(string family, string key)
 		{
 			AGIChannel channel = this.Channel;
 			AGIReply lastReply = channel.SendCommand(new Command.DatabaseGetCommand(family, key));

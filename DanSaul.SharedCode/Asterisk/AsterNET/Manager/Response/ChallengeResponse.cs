@@ -7,7 +7,7 @@ namespace AsterNET.Manager.Response
     /// <seealso cref="Manager.Action.LoginAction" />
     public class ChallengeResponse : ManagerResponse
     {
-        private string challenge;
+        private string? challenge;
 
         /// <summary>
         ///     Get/Set the challenge to use when creating the key for log in.

@@ -5,15 +5,15 @@ namespace AsterNET.Manager.Event
 	/// </summary>
 	public abstract class AbstractChannelEvent : ManagerEvent
 	{
-		private string channelState;
-		private string channelStateDesc;
-		private string callerId;
-		private string callerIdNum;
-		private string callerIdName;
-		private string accountCode;
-		private string state;
-	    private string connectedLineNum;
-	    private string connectedLineName;
+		private string? channelState;
+		private string? channelStateDesc;
+		private string? callerId;
+		private string? callerIdNum;
+		private string? callerIdName;
+		private string? accountCode;
+		private string? state;
+	    private string? connectedLineNum;
+	    private string? connectedLineName;
 
 		/// <summary>
 		/// Get/Set Channel State

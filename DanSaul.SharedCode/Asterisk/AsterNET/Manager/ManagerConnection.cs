@@ -24,25 +24,25 @@ namespace AsterNET.Manager
         private Logger logger = Logger.Instance();
 #endif
         private long actionIdCount = 0;
-        private string hostname;
+        private string? hostname;
         private int port;
-        private string username;
-        private string password;
+        private string? username;
+        private string? password;
 
-        private SocketConnection mrSocket;
-        private Thread mrReaderThread;
-        private ManagerReader mrReader;
+        private SocketConnection? mrSocket;
+        private Thread? mrReaderThread;
+        private ManagerReader? mrReader;
 
         private int defaultResponseTimeout = 2000;
         private int defaultEventTimeout = 5000;
         private int sleepTime = 50;
         private bool keepAlive = true;
         private bool keepAliveAfterAuthenticationFailure = false;
-        private string protocolIdentifier;
+        private string? protocolIdentifier;
         private AsteriskVersion asteriskVersion;
-        private Dictionary<int, IResponseHandler> responseHandlers;
-        private Dictionary<int, IResponseHandler> pingHandlers;
-        private Dictionary<int, IResponseHandler> responseEventHandlers;
+        private Dictionary<int, IResponseHandler>? responseHandlers;
+        private Dictionary<int, IResponseHandler>? pingHandlers;
+        private Dictionary<int, IResponseHandler>? responseEventHandlers;
         private int pingInterval = 10000;
 
         private object lockSocket = new object();
@@ -50,17 +50,17 @@ namespace AsterNET.Manager
         private object lockHandlers = new object();
 
         private bool enableEvents = true;
-        private string version = string.Empty;
+        private string? version = string.Empty;
         private Encoding socketEncoding = Encoding.ASCII;
         private bool reconnected = false;
         private bool reconnectEnable = false;
         private int reconnectCount;
 
-        private Dictionary<int, ConstructorInfo> registeredEventClasses;
-        private Dictionary<int, Func<ManagerEvent, bool>> registeredEventHandlers;
+        private Dictionary<int, ConstructorInfo>? registeredEventClasses;
+        private Dictionary<int, Func<ManagerEvent, bool>>? registeredEventHandlers;
         private event EventHandler<ManagerEvent> internalEvent;
         private bool fireAllEvents = false;
-        private Thread callerThread;
+        private Thread? callerThread;
 
         /// <summary> Default Fast Reconnect retry counter.</summary>
         private int reconnectRetryFast = 5;

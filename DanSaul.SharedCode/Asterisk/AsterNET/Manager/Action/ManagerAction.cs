@@ -6,9 +6,9 @@ namespace AsterNET.Manager.Action
     /// </summary>
     public abstract class ManagerAction
     {
-        private string actionId;
-        private string proxyKey;
-        private string server;
+        private string? actionId;
+        private string? proxyKey;
+        private string? server;
 
         /// <summary>
         ///     Manager API Action key. Also use as ProxyAction key to <see cref="ProxyAction">ProxyAction</see> actions.

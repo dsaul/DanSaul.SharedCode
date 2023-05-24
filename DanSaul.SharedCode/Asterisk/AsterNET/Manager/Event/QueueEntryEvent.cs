@@ -7,10 +7,10 @@ namespace AsterNET.Manager.Event
 	/// <seealso cref="Manager.Action.QueueStatusAction" />
 	public class QueueEntryEvent : ResponseEvent
 	{
-		private string queue;
+		private string? queue;
 		private int position;
-		private string callerId;
-		private string callerIdName;
+		private string? callerId;
+		private string? callerIdName;
 		private long wait;
 
 		/// <summary>

@@ -24,7 +24,7 @@ namespace AsterNET.Manager.Action
     /// <seealso cref="AsterNET.Manager.Event.OriginateFailureEvent" />
     public class OriginateAction : ManagerActionEvent, IActionVariable
     {
-        private Dictionary<string, string> variables;
+        private Dictionary<string, string>? variables;
 
         #region Action 
 

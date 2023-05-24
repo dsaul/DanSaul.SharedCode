@@ -38,14 +38,14 @@ namespace AsterNET.Manager.Event
 		internal bool isunlink;
 
 		private BridgeTypes bridgeType;
-		private string response;
-		private string reason;
-		private string channel1;
-		private string channel2;
-		private string uniqueId1;
-		private string uniqueId2;
-		private string callerId1;
-		private string callerId2;
+		private string? response;
+		private string? reason;
+		private string? channel1;
+		private string? channel2;
+		private string? uniqueId1;
+		private string? uniqueId2;
+		private string? callerId1;
+		private string? callerId2;
 
 		#region Constructors
 		public BridgeEvent(ManagerConnection source)

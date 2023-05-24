@@ -9,16 +9,16 @@ namespace AsterNET.Manager
     /// </summary>
     public class Originate
     {
-        private string account;
-        private string application;
-        private string callerId;
-        private string channel;
-        private string context;
-        private string data;
-        private string exten;
+        private string? account;
+        private string? application;
+        private string? callerId;
+        private string? channel;
+        private string? context;
+        private string? data;
+        private string? exten;
         private int priority;
         private long timeout;
-        private Dictionary<string, string> variables;
+        private Dictionary<string, string>? variables;
 
         #region Account
 

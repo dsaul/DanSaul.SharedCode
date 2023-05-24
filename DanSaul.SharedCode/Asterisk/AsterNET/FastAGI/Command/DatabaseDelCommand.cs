@@ -8,14 +8,14 @@ namespace AsterNET.FastAGI.Command
 	public class DatabaseDelCommand : AGICommand
 	{
 		/// <summary> The family (or family of the keytree) to delete.</summary>
-		private string family;
+		private string? family;
 		/// <summary> The keyTree to delete.</summary>
-		private string keyTree;
+		private string? keyTree;
 
 		/// <summary>
 		/// Get/Set the family (or family of the keytree) to delete.
 		/// </summary>
-		public string Family
+		public string? Family
 		{
 			get { return family; }
 			set { this.family = value; }
@@ -24,7 +24,7 @@ namespace AsterNET.FastAGI.Command
 		/// <summary>
 		/// Get/Set the the keytree to delete.
 		/// </summary>
-		public string KeyTree
+		public string? KeyTree
 		{
 			get { return keyTree; }
 			set { this.keyTree = value; }

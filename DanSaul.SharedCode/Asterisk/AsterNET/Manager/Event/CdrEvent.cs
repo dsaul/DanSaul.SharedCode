@@ -13,36 +13,36 @@ namespace AsterNET.Manager.Event
         {
         }
 
-        public string AccountCode { get; set; }
+        public string? AccountCode { get; set; }
 
-        public string Src { get; set; }
+        public string? Src { get; set; }
 
-        public string Destination { get; set; }
+        public string? Destination { get; set; }
 
-        public string DestinationContext { get; set; }
+        public string? DestinationContext { get; set; }
 
-        public string CallerId { get; set; }
+        public string? CallerId { get; set; }
 
-        public string DestinationChannel { get; set; }
+        public string? DestinationChannel { get; set; }
 
-        public string LastApplication { get; set; }
+        public string? LastApplication { get; set; }
 
-        public string LastData { get; set; }
+        public string? LastData { get; set; }
 
-        public string StartTime { get; set; }
+        public string? StartTime { get; set; }
 
-        public string AnswerTime { get; set; }
+        public string? AnswerTime { get; set; }
 
-        public string EndTime { get; set; }
+        public string? EndTime { get; set; }
 
         public long Duration { get; set; }
 
         public long BillableSeconds { get; set; }
 
-        public string Disposition { get; set; }
+        public string? Disposition { get; set; }
 
-        public string AmaFlags { get; set; }
+        public string? AmaFlags { get; set; }
 
-        public string UserField { get; set; }
+        public string? UserField { get; set; }
     }
 }

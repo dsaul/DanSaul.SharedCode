@@ -6,13 +6,13 @@ namespace AsterNET.Manager.Event
 {
 	public class TransferEvent : ManagerEvent
 	{
-		private string transferMethod;
-		private string transferExten;
-		private string transferType;
-		private string sipCallId;
-		private string targetChannel;
-		private string targetUniqueId;
-		private string transferContext;
+		private string? transferMethod;
+		private string? transferExten;
+		private string? transferType;
+		private string? sipCallId;
+		private string? targetChannel;
+		private string? targetUniqueId;
+		private string? transferContext;
 		private bool transfer2Parking;
 
 		/// <summary>

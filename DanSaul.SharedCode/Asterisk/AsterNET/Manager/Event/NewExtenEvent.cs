@@ -6,12 +6,12 @@ namespace AsterNET.Manager.Event
 	/// </summary>
 	public class NewExtenEvent : ManagerEvent
 	{
-		private string context;
-		private string extension;
+		private string? context;
+		private string? extension;
 		private int priority;
-		private string application;
-		private string appData;
-		private string appdEvent;
+		private string? application;
+		private string? appData;
+		private string? appdEvent;
 
 		public string AppdEvent
 		{

@@ -7,10 +7,10 @@ namespace AsterNET.Manager.Event
 	/// </summary>
 	public class PeerStatusEvent : ManagerEvent
 	{
-		private string channelType;
-		private string peer;
-		private string peerStatus;
-		private string cause;
+		private string? channelType;
+		private string? peer;
+		private string? peerStatus;
+		private string? cause;
 		private int time;
 
 		public PeerStatusEvent(ManagerConnection source)

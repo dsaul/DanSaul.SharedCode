@@ -8,6 +8,7 @@ using System.Text;
 
 namespace SharedCode.DatabaseSchemas
 {
+	[Obsolete]
 	public record OnCallAutoAttendants(Guid? Id, string? Json, string? SearchString, string? LastModifiedIso8601) : JSONTable(Id, Json, SearchString, LastModifiedIso8601)
 	{
 
@@ -37,7 +38,7 @@ namespace SharedCode.DatabaseSchemas
 
 		public const string kJsonKeyCallAttemptsToEachCalendarBeforeGivingUp = "callAttemptsToEachCalendarBeforeGivingUp";
 		public const string kJsonKeyMinutesBetweenCallAttempts = "minutesBetweenCallAttempts";
-
+		[Obsolete]
 		public static Dictionary<Guid, OnCallAutoAttendants> ForId(NpgsqlConnection connection, Guid id) {
 
 			Dictionary<Guid, OnCallAutoAttendants> ret = new Dictionary<Guid, OnCallAutoAttendants>();
@@ -64,7 +65,7 @@ namespace SharedCode.DatabaseSchemas
 			return ret;
 		}
 
-
+		[Obsolete]
 		public static Dictionary<Guid, OnCallAutoAttendants> All(NpgsqlConnection connection) {
 
 			Dictionary<Guid, OnCallAutoAttendants> ret = new Dictionary<Guid, OnCallAutoAttendants>();
@@ -88,7 +89,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 		}
-
+		[Obsolete]
 		public static Dictionary<Guid, OnCallAutoAttendants> ForIds(NpgsqlConnection connection, IEnumerable<Guid> ids) {
 
 			Guid[] idsArr = ids.ToArray();
@@ -124,7 +125,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 		}
-
+		[Obsolete]
 		public static List<Guid> Delete(NpgsqlConnection connection, List<Guid> idsToDelete) {
 
 
@@ -159,7 +160,7 @@ namespace SharedCode.DatabaseSchemas
 
 		}
 
-
+		[Obsolete]
 		public static void Upsert(
 			NpgsqlConnection connection,
 			Dictionary<Guid, OnCallAutoAttendants> updateObjects,
@@ -220,7 +221,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 		}
-
+		[Obsolete]
 		public static OnCallAutoAttendants FromDataReader(NpgsqlDataReader reader) {
 
 			Guid? id = default;
@@ -257,7 +258,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 
-
+		[Obsolete]
 
 		[JsonIgnore]
 		public string GeneratedSearchString
@@ -266,12 +267,12 @@ namespace SharedCode.DatabaseSchemas
 				return GenerateSearchString();
 			}
 		}
-
+		[Obsolete]
 		public static string GenerateSearchString() {
 			return $"";
 		}
 
-
+		[Obsolete]
 		public static void VerifyRepairTable(NpgsqlConnection dpDB, bool insertDefaultContents = false) {
 
 			if (dpDB.TableExists("on-call-auto-attendants")) {
@@ -291,9 +292,8 @@ namespace SharedCode.DatabaseSchemas
 				cmd.ExecuteNonQuery();
 			}
 
-#warning TODO: Implement
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? Name
 		{
@@ -317,7 +317,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public List<Guid> AgentOnCallPriorityCalendars
 		{
@@ -353,7 +353,7 @@ namespace SharedCode.DatabaseSchemas
 				return ret;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? NoAgentResponseNotificationNumber
 		{
@@ -377,7 +377,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? NoAgentResponseNotificationEMail
 		{
@@ -401,7 +401,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? MarkedHandledNotificationEMail
 		{
@@ -425,7 +425,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? FailoverNumber
 		{
@@ -449,13 +449,13 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		public enum RecordingTypeE
 		{
 			Polly,
 			Recording,
 		};
-
+		[Obsolete]
 		[JsonIgnore]
 		public RecordingTypeE? RecordingsIntroType
 		{
@@ -493,7 +493,7 @@ namespace SharedCode.DatabaseSchemas
 				return res;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? RecordingsIntroText
 		{
@@ -526,7 +526,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public Guid? RecordingsIntroRecordingId
 		{
@@ -563,7 +563,7 @@ namespace SharedCode.DatabaseSchemas
 				return result;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public RecordingTypeE? RecordingsAskForCallbackNumberType
 		{
@@ -601,7 +601,7 @@ namespace SharedCode.DatabaseSchemas
 				return res;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? RecordingsAskForCallbackNumberText
 		{
@@ -634,7 +634,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public Guid? RecordingsAskForCallbackNumberRecordingId
 		{
@@ -672,7 +672,7 @@ namespace SharedCode.DatabaseSchemas
 			}
 		}
 
-
+		[Obsolete]
 		[JsonIgnore]
 		public RecordingTypeE? RecordingsAskForMessageType
 		{
@@ -710,7 +710,7 @@ namespace SharedCode.DatabaseSchemas
 				return res;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? RecordingsAskForMessageText
 		{
@@ -743,7 +743,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public Guid? RecordingsAskForMessageRecordingId
 		{
@@ -781,7 +781,7 @@ namespace SharedCode.DatabaseSchemas
 			}
 		}
 
-
+		[Obsolete]
 		[JsonIgnore]
 		public RecordingTypeE? RecordingsThankYouAfterType
 		{
@@ -819,7 +819,7 @@ namespace SharedCode.DatabaseSchemas
 				return res;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? RecordingsThankYouAfterText
 		{
@@ -852,7 +852,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public Guid? RecordingsThankYouAfterKeyRecordingId
 		{
@@ -901,7 +901,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 
-
+		[Obsolete]
 
 		[JsonIgnore]
 		public decimal? CallAttemptsToEachCalendarBeforeGivingUp
@@ -921,7 +921,7 @@ namespace SharedCode.DatabaseSchemas
 				return tok.Value<decimal>();
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public decimal? MinutesBetweenCallAttempts
 		{

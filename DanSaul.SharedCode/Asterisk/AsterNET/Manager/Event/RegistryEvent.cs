@@ -8,11 +8,11 @@ namespace AsterNET.Manager.Event
 	/// </summary>
 	public class RegistryEvent : ManagerEvent
 	{
-		private string channelType;
-		private string domain;
-		private string username;
-		private string status;
-		private string cause;
+		private string? channelType;
+		private string? domain;
+		private string? username;
+		private string? status;
+		private string? cause;
 
 		/// <summary>
 		/// Channel type

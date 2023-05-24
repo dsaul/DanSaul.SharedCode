@@ -7,7 +7,7 @@ namespace AsterNET.Util
     /// </summary>
     public class MD5Support
     {
-        private readonly HashAlgorithm _algorithm;
+        private readonly HashAlgorithm? _algorithm;
         private int _position;
         private byte[] data = new byte[0];
 

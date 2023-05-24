@@ -19,21 +19,21 @@ namespace AsterNET.Manager
 		private readonly Logger logger = Logger.Instance();
 #endif
 
-		private readonly ManagerConnection mrConnector;
-		private SocketConnection mrSocket;
+		private readonly ManagerConnection? mrConnector;
+		private SocketConnection? mrSocket;
 
 		private bool die;
 		private bool is_logoff;
 		private bool disconnect;
-		private byte[] lineBytes;
-		private string lineBuffer;
-		private readonly Queue<string> lineQueue;
+		private byte[]? lineBytes;
+		private string? lineBuffer;
+		private readonly Queue<string>? lineQueue;
 		private ResponseHandler pingHandler;
 		private bool processingCommandResult;
 		private bool wait4identiier;
 		private DateTime lastPacketTime;
-		private readonly Dictionary<string, string> packet;
-		private readonly List<string> commandList;
+		private readonly Dictionary<string, string>? packet;
+		private readonly List<string>? commandList;
 
 		#region ManagerReader(dispatcher, asteriskServer) 
 

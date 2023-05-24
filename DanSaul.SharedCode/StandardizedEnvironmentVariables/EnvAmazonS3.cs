@@ -28,7 +28,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 				return File.ReadAllText(e);
 			}
 		}
-
+		[Obsolete]
 		public static string? S3_ACCESS_KEY_FILE
 		{
 			get
@@ -42,18 +42,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 				return str;
 			}
 		}
-
-		public static string? S3_ACCESS_KEY
-		{
-			get
-			{
-				string? e = S3_ACCESS_KEY_FILE;
-				if (e == null)
-					return default;
-				return File.ReadAllText(e);
-			}
-		}
-
+		[Obsolete]
 		public static string? S3_PBX_SERVICE_URI_FILE
 		{
 			get
@@ -71,7 +60,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 
 
 
-
+		[Obsolete]
 		public static string? S3_DISPATCH_PULSE_SERVICE_URI_FILE
 		{
 			get
@@ -85,7 +74,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 				return str;
 			}
 		}
-
+		[Obsolete]
 		public static string? S3_DISPATCH_PULSE_SERVICE_URI
 		{
 			get
@@ -98,7 +87,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 		}
 
 
-
+		[Obsolete]
 		public static string? S3_PBX_ACCESS_KEY_FILE
 		{
 			get
@@ -112,7 +101,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 				return str;
 			}
 		}
-
+		[Obsolete]
 		public static string? S3_PBX_ACCESS_KEY
 		{
 			get
@@ -123,7 +112,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 				return File.ReadAllText(e);
 			}
 		}
-
+		[Obsolete]
 		public static string? S3_PBX_SECRET_KEY_FILE
 		{
 			get
@@ -137,7 +126,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 				return str;
 			}
 		}
-
+		[Obsolete]
 		public static string? S3_PBX_SECRET_KEY
 		{
 			get
@@ -148,7 +137,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 				return File.ReadAllText(e);
 			}
 		}
-
+		[Obsolete]
 		public static string? S3_PBX_SERVICE_URI
 		{
 			get
@@ -165,7 +154,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 
 
 
-
+		[Obsolete]
 		public static string? S3_CARD_ON_FILE_BUCKET_NAME_FILE
 		{
 			get
@@ -179,7 +168,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 				return str;
 			}
 		}
-
+		[Obsolete]
 		public static string? S3_CARD_ON_FILE_BUCKET_NAME
 		{
 			get
@@ -194,7 +183,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 
 
 
-
+		[Obsolete]
 		public static string? S3_CARD_ON_FILE_AUTHORIZATION_FORMS_ACCESS_KEY_FILE
 		{
 			get
@@ -208,7 +197,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 				return str;
 			}
 		}
-
+		[Obsolete]
 		public static string? S3_CARD_ON_FILE_AUTHORIZATION_FORMS_ACCESS_KEY
 		{
 			get
@@ -220,7 +209,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 			}
 		}
 
-
+		[Obsolete]
 		public static string? S3_CARD_ON_FILE_AUTHORIZATION_FORMS_SECRET_KEY_FILE
 		{
 			get
@@ -235,6 +224,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 			}
 		}
 
+		[Obsolete]
 		public static string? S3_CARD_ON_FILE_AUTHORIZATION_FORMS_SECRET_KEY
 		{
 			get
@@ -248,7 +238,70 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 
 
 
+		public static string? S3_ACCESS_KEY_PATH
+		{
+			get
+			{
+				string? str = Environment.GetEnvironmentVariable("S3_ACCESS_KEY_PATH");
+				if (string.IsNullOrWhiteSpace(str))
+				{
+					Log.Error("S3_ACCESS_KEY_PATH empty or missing.");
+					return null;
+				}
+				return str;
+			}
+		}
+		public static string S3_ACCESS_KEY
+		{
+			get
+			{
+				string? path = S3_ACCESS_KEY_PATH;
+				if (string.IsNullOrWhiteSpace(path))
+					throw new InvalidOperationException();
+				return File.ReadAllText(path);
+			}
+		}
 
+		public static string? S3_SECRET_KEY_PATH
+		{
+			get
+			{
+				string? str = Environment.GetEnvironmentVariable("S3_SECRET_KEY_PATH");
+				if (string.IsNullOrWhiteSpace(str))
+				{
+					Log.Error("S3_SECRET_KEY_PATH empty or missing.");
+					return null;
+				}
+				return str;
+			}
+		}
+		
+
+		public static string S3_BUCKET_MMS
+		{
+			get
+			{
+				string? str = Environment.GetEnvironmentVariable("S3_BUCKET_MMS");
+				if (string.IsNullOrWhiteSpace(str))
+				{
+					throw new Exception("S3_BUCKET_MMS empty or missing.");
+				}
+				return str;
+			}
+		}
+
+		public static string S3_SERVICE_URI
+		{
+			get
+			{
+				string? str = Environment.GetEnvironmentVariable("S3_SERVICE_URI");
+				if (string.IsNullOrWhiteSpace(str))
+				{
+					throw new Exception("S3_SERVICE_URI empty or missing.");
+				}
+				return str;
+			}
+		}
 
 
 

@@ -31,9 +31,9 @@ namespace AsterNET.FastAGI
         ///     Returns the AGIChannel associated with the current thread.
         /// </summary>
         /// <returns>the AGIChannel associated with the current thread or  null if none is associated.</returns>
-        internal static AGIChannel Channel
+        internal static AGIChannel? Channel
         {
-            get { return (AGIChannel) Thread.GetData(_channel); }
+            get { return (AGIChannel?) Thread.GetData(_channel); }
         }
 
         #endregion

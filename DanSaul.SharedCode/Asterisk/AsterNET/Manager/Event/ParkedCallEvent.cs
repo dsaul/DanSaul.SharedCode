@@ -8,12 +8,12 @@ namespace AsterNET.Manager.Event
 	/// <seealso cref="Manager.Action.ParkedCallsAction"/>
 	public class ParkedCallEvent : ResponseEvent
 	{
-		private string exten;
-		private string from;
+		private string? exten;
+		private string? from;
 		private long timeout;
-		private string callerId;
-		private string callerIdNum;
-		private string callerIdName;
+		private string? callerId;
+		private string? callerIdNum;
+		private string? callerIdName;
 
 		/// <summary>Get/Set the extension the channel is parked at.</summary>
 		public string Exten

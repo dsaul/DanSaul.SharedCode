@@ -4,7 +4,7 @@ namespace AsterNET.Manager.Event
 {
 	public class ShowDialPlanCompleteEvent : ManagerEvent
 	{
-		private string eventList;
+		private string? eventList;
 		private int listItems;
 		private int listExtensions;
 		private int listPriorities;

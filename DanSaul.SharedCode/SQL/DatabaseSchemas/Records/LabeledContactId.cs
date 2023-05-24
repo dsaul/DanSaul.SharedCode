@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace SharedCode.DatabaseSchemas
 {
-	public record LabeledContactId(Guid? id, string Label, Guid? Value);
+	public record LabeledContactId(Guid? id, string? Label, Guid? Value);
 }

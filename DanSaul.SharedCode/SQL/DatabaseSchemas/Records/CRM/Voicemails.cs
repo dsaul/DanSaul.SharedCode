@@ -13,13 +13,13 @@ using Serilog;
 using System.Data;
 using System.Globalization;
 using System.Text;
-using SharedCode;
 using DanSaul.SharedCode;
 using DanSaul.SharedCode.StandardizedEnvironmentVariables;
 using DanSaul.SharedCode.Npgsql;
 
 namespace SharedCode.DatabaseSchemas
 {
+	[Obsolete]
 	public record Voicemails(Guid? Id, string? Json, string? SearchString, string? LastModifiedIso8601) : JSONTable(Id, Json, SearchString, LastModifiedIso8601) {
 
 		public const string kJsonKeyType = "type";
@@ -66,13 +66,14 @@ namespace SharedCode.DatabaseSchemas
 		public const string kJsonKeyMarkedHandledNotificationEMail = "markedHandledNotificationEMail";
 		public const string kJsonKeyNextAttemptAfterISO8601 = "nextAttemptAfterISO8601";
 		public const string kJsonKeyMinutesBetweenCallAttempts = "minutesBetweenCallAttempts";
-		
 
+		[Obsolete]
 		public enum TimelineEntryTypeE {
 			Text
 		};
+		[Obsolete]
 		public record TimelineEntry(TimelineEntryTypeE? Type, string? TimestampISO8601, string? Description);
-
+		[Obsolete]
 		[JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
 		public record CallFile(
 			string? FileName,
@@ -82,7 +83,7 @@ namespace SharedCode.DatabaseSchemas
 			string? OriginalCallFile,
 			string? ArchivedCallFile
 			);
-
+		[Obsolete]
 		[JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
 		public record CallAttemptsProgressEntry(
 			Guid? CalendarId,
@@ -94,7 +95,7 @@ namespace SharedCode.DatabaseSchemas
 			bool? GivenUp
 			);
 
-
+		[Obsolete]
 		public Voicemails? GiveUpOnAttemptAtIndex(NpgsqlConnection connection, int index, string? reason) {
 
 			if (null == JsonObject)
@@ -140,7 +141,7 @@ namespace SharedCode.DatabaseSchemas
 
 			return newVM;
 		}
-
+		[Obsolete]
 		public Voicemails? SaveNewBackupCallFileAtIndex(NpgsqlConnection connection, int index, string? description, CallFile callFile) {
 
 
@@ -202,7 +203,7 @@ namespace SharedCode.DatabaseSchemas
 			return newVM;
 		}
 
-
+		[Obsolete]
 		public Voicemails? MarkANewAttemptAtIndex(NpgsqlConnection connection, int index, string? description, IEnumerable<CallFile> callFiles) {
 
 			if (null == JsonObject)
@@ -283,7 +284,7 @@ namespace SharedCode.DatabaseSchemas
 			return newVM;
 		}
 
-
+		[Obsolete]
 		public Voicemails? MarkSentMMSAtIndex(NpgsqlConnection connection, int index, string timelineDescription) {
 
 			if (null == JsonObject)
@@ -332,7 +333,7 @@ namespace SharedCode.DatabaseSchemas
 
 			return newVM;
 		}
-
+		[Obsolete]
 		public Voicemails? UpdateVoicemailWithCompletedCallInformation(NpgsqlConnection dpDB, string fileName, string status, string callWasTo, string callFileContents) {
 
 			if (null == JsonObject)
@@ -406,7 +407,7 @@ namespace SharedCode.DatabaseSchemas
 		}
 
 
-
+		[Obsolete]
 		public Voicemails? MarkSentEMailAtIndex(NpgsqlConnection connection, int index, string timelineDescription, bool failure) {
 
 			if (null == JsonObject)
@@ -455,7 +456,7 @@ namespace SharedCode.DatabaseSchemas
 		}
 
 
-
+		[Obsolete]
 		public Voicemails? MarkNextAttemptTime(NpgsqlConnection connection) {
 
 			if (null == JsonObject)
@@ -488,7 +489,7 @@ namespace SharedCode.DatabaseSchemas
 
 			return newVM;
 		}
-
+		[Obsolete]
 		public Voicemails? MarkFailed(NpgsqlConnection connection) {
 
 			if (null == JsonObject)
@@ -526,7 +527,7 @@ namespace SharedCode.DatabaseSchemas
 
 			return newVM;
 		}
-
+		[Obsolete]
 		public Voicemails? MarkHandled(NpgsqlConnection connection, string who, string? emailTemplate = null, Guid? billingCompanyId = null, BillingCompanies? billingCompany = null) {
 
 			if (null == JsonObject)
@@ -575,13 +576,13 @@ namespace SharedCode.DatabaseSchemas
 				) {
 				// Get S3 File for attachment.
 
-				string? key = EnvAmazonS3.S3_PBX_ACCESS_KEY;
-				string? secret = EnvAmazonS3.S3_PBX_SECRET_KEY;
+				string? key = EnvAmazonS3.S3_ACCESS_KEY;
+				string? secret = EnvAmazonS3.S3_SECRET_KEY;
 
 				using var s3Client = new AmazonS3Client(key, secret, new AmazonS3Config
-						{
+				{
 					RegionEndpoint = RegionEndpoint.USWest1,
-					ServiceURL = EnvAmazonS3.S3_PBX_SERVICE_URI,
+					ServiceURL = EnvAmazonS3.S3_SERVICE_URI,
 					ForcePathStyle = true
 				});
 
@@ -667,7 +668,7 @@ namespace SharedCode.DatabaseSchemas
 			return newVM;
 		}
 
-
+		[Obsolete]
 		public static Dictionary<Guid, Voicemails> ForId(NpgsqlConnection connection, Guid id) {
 
 			Dictionary<Guid, Voicemails> ret = new Dictionary<Guid, Voicemails>();
@@ -693,7 +694,7 @@ namespace SharedCode.DatabaseSchemas
 
 			return ret;
 		}
-
+		[Obsolete]
 		public static Dictionary<Guid, Voicemails> ForOnCallAttemptsFinished(NpgsqlConnection connection, bool onCallAttemptsFinished) {
 
 			Dictionary<Guid, Voicemails> ret = new Dictionary<Guid, Voicemails>();
@@ -720,7 +721,7 @@ namespace SharedCode.DatabaseSchemas
 			return ret;
 		}
 
-
+		[Obsolete]
 		public static Dictionary<Guid, Voicemails> All(NpgsqlConnection connection) {
 
 			Dictionary<Guid, Voicemails> ret = new Dictionary<Guid, Voicemails>();
@@ -744,7 +745,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 		}
-
+		[Obsolete]
 		public static Dictionary<Guid, Voicemails> FromTheLast30Days(NpgsqlConnection connection) {
 
 			Dictionary<Guid, Voicemails> ret = new Dictionary<Guid, Voicemails>();
@@ -776,7 +777,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 
-
+		[Obsolete]
 		public static Dictionary<Guid, Voicemails> ForIds(NpgsqlConnection connection, IEnumerable<Guid> ids) {
 
 			Guid[] idsArr = ids.ToArray();
@@ -812,7 +813,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 		}
-
+		[Obsolete]
 		public static List<Guid> Delete(NpgsqlConnection connection, List<Guid> idsToDelete) {
 
 
@@ -908,7 +909,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 		}
-
+		[Obsolete]
 		public static Voicemails FromDataReader(NpgsqlDataReader reader) {
 
 			Guid? id = default;
@@ -946,7 +947,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 
-
+		[Obsolete]
 		[JsonIgnore]
 		public string GeneratedSearchString
 		{
@@ -954,12 +955,12 @@ namespace SharedCode.DatabaseSchemas
 				return GenerateSearchString();
 			}
 		}
-
+		[Obsolete]
 		public static string GenerateSearchString() {
 			return $"";
 		}
 
-
+		[Obsolete]
 		public static void VerifyRepairTable(NpgsqlConnection dpDB, bool insertDefaultContents = false) {
 
 			if (dpDB.TableExists("voicemails")) {
@@ -979,16 +980,15 @@ namespace SharedCode.DatabaseSchemas
 				cmd.ExecuteNonQuery();
 			}
 
-#warning TODO: Implement
 		}
 
-
+		[Obsolete]
 		public enum TypeE
 		{
 			OnCall
 		}
 
-
+		[Obsolete]
 		[JsonIgnore]
 		public TypeE? Type
 		{
@@ -1016,7 +1016,7 @@ namespace SharedCode.DatabaseSchemas
 				return res;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public Guid? OnCallAutoAttendantId
 		{
@@ -1046,7 +1046,7 @@ namespace SharedCode.DatabaseSchemas
 		}
 
 
-
+		[Obsolete]
 		[JsonIgnore]
 		public bool? OnCallAttemptsFinished
 		{
@@ -1066,7 +1066,7 @@ namespace SharedCode.DatabaseSchemas
 			}
 		}
 
-
+		[Obsolete]
 		[JsonIgnore]
 		public bool? IsMarkedHandled
 		{
@@ -1085,7 +1085,7 @@ namespace SharedCode.DatabaseSchemas
 				return tok.Value<bool>();
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public decimal? MinutesBetweenCallAttempts
 		{
@@ -1104,7 +1104,7 @@ namespace SharedCode.DatabaseSchemas
 				return tok.Value<decimal>();
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? MessageLeftAtISO8601
 		{
@@ -1128,7 +1128,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? CallerIdNumber
 		{
@@ -1152,7 +1152,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? CallerIdName
 		{
@@ -1177,7 +1177,7 @@ namespace SharedCode.DatabaseSchemas
 			}
 		}
 
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? CallbackNumber
 		{
@@ -1201,7 +1201,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? NoAgentResponseNotificationNumber
 		{
@@ -1225,7 +1225,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? NoAgentResponseNotificationEMail
 		{
@@ -1249,7 +1249,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? MarkedHandledNotificationEMail
 		{
@@ -1275,8 +1275,8 @@ namespace SharedCode.DatabaseSchemas
 		}
 
 
-		
 
+		[Obsolete]
 		[JsonIgnore]
 		public string? NextAttemptAfterISO8601
 		{
@@ -1300,6 +1300,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
+		[Obsolete]
 
 		[JsonIgnore]
 		public List<TimelineEntry> Timeline
@@ -1342,7 +1343,7 @@ namespace SharedCode.DatabaseSchemas
 				return ret;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public List<CallAttemptsProgressEntry> OnCallAttemptsProgress
 		{
@@ -1386,6 +1387,7 @@ namespace SharedCode.DatabaseSchemas
 		}
 
 		[JsonIgnore]
+		[Obsolete]
 		public string? RecordingS3Bucket
 		{
 			get {
@@ -1408,7 +1410,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? RecordingS3Host
 		{
@@ -1432,7 +1434,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? RecordingS3Key
 		{
@@ -1456,7 +1458,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? RecordingS3HttpsURI
 		{
@@ -1480,7 +1482,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? RecordingS3CmdURI
 		{
@@ -1505,7 +1507,7 @@ namespace SharedCode.DatabaseSchemas
 			}
 		}
 
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? MarkedHandledBy
 		{

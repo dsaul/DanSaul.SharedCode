@@ -5,7 +5,7 @@ namespace Ical.Net.Serialization
 {
     public class SerializationContext
     {
-        private static SerializationContext _default;
+        private static SerializationContext? _default;
 
         /// <summary>
         /// Gets the Singleton instance of the SerializationContext class.

@@ -12,14 +12,14 @@ namespace AsterNET.Manager.Response
     /// </summary>
     public class ManagerResponse : IParseSupport
     {
-        private string actionId;
-        protected Dictionary<string, string> attributes;
-        private DateTime dateReceived;
-        private string message;
-        private string privilege;
-        private string response;
-        private string server;
-        private string uniqueId;
+        private string? actionId;
+        protected Dictionary<string, string>? attributes;
+        private DateTime? dateReceived;
+        private string? message;
+        private string? privilege;
+        private string? response;
+        private string? server;
+        private string? uniqueId;
 
         #region Constructor - ManagerEvent() 
 
@@ -42,7 +42,7 @@ namespace AsterNET.Manager.Response
         ///     Store all unknown (without setter) keys from manager event.<br />
         ///     Use in default Parse method <see cref="Parse" />.
         /// </summary>
-        public Dictionary<string, string> Attributes
+        public Dictionary<string, string>? Attributes
         {
             get { return attributes; }
         }
@@ -69,7 +69,7 @@ namespace AsterNET.Manager.Response
         /// <summary>
         ///     Get/Set the point in time this response was received from the asterisk server.
         /// </summary>
-        public DateTime DateReceived
+        public DateTime? DateReceived
         {
             get { return dateReceived; }
             set { this.dateReceived = value; }

@@ -8,8 +8,10 @@ using DanSaul.SharedCode.Npgsql;
 
 namespace SharedCode.DatabaseSchemas
 {
+	[Obsolete]
 	public record SettingsUser(Guid? Id, string? Json, string? SearchString, string? LastModifiedIso8601) : JSONTable(Id, Json, SearchString, LastModifiedIso8601)
 	{
+		[Obsolete]
 		public static Dictionary<Guid, SettingsUser> ForId(NpgsqlConnection connection, Guid id) {
 
 			Dictionary<Guid, SettingsUser> ret = new Dictionary<Guid, SettingsUser>();
@@ -35,7 +37,7 @@ namespace SharedCode.DatabaseSchemas
 
 			return ret;
 		}
-
+		[Obsolete]
 		public static Dictionary<Guid, SettingsUser> All(NpgsqlConnection connection) {
 
 			Dictionary<Guid, SettingsUser> ret = new Dictionary<Guid, SettingsUser>();
@@ -57,7 +59,7 @@ namespace SharedCode.DatabaseSchemas
 
 			return ret;
 		}
-
+		[Obsolete]
 		public static Dictionary<Guid, SettingsUser> ForIds(NpgsqlConnection connection, IEnumerable<Guid> ids) {
 
 			Guid[] idsArr = ids.ToArray();
@@ -94,7 +96,7 @@ namespace SharedCode.DatabaseSchemas
 
 		}
 
-
+		[Obsolete]
 		public static List<Guid> Delete(NpgsqlConnection connection, List<Guid> idsToDelete) {
 
 			List<Guid> toSendToOthers = new List<Guid>();
@@ -128,7 +130,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 		}
-
+		[Obsolete]
 		public static void Upsert(
 			NpgsqlConnection connection,
 			Dictionary<Guid, SettingsUser> updateObjects,
@@ -193,7 +195,7 @@ namespace SharedCode.DatabaseSchemas
 		}
 
 
-
+		[Obsolete]
 		public static SettingsUser FromDataReader(NpgsqlDataReader reader) {
 
 			Guid? id = default;
@@ -224,7 +226,7 @@ namespace SharedCode.DatabaseSchemas
 		}
 
 
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? Key
 		{
@@ -248,7 +250,7 @@ namespace SharedCode.DatabaseSchemas
 				return str;
 			}
 		}
-
+		[Obsolete]
 		[JsonIgnore]
 		public string? Value
 		{
@@ -278,7 +280,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 
-
+		[Obsolete]
 		[JsonIgnore]
 		public string GeneratedSearchString
 		{
@@ -286,10 +288,9 @@ namespace SharedCode.DatabaseSchemas
 				return GenerateSearchString();
 			}
 		}
-
+		[Obsolete]
 		public static string GenerateSearchString() {
 			return $"";
-#warning TODO: Implement
 		}
 
 
@@ -298,7 +299,7 @@ namespace SharedCode.DatabaseSchemas
 
 
 
-
+		[Obsolete]
 		public static void VerifyRepairTable(NpgsqlConnection dpDB, bool insertDefaultContents = false) {
 
 			if (dpDB.TableExists("settings-user")) {
@@ -319,7 +320,6 @@ namespace SharedCode.DatabaseSchemas
 			}
 
 
-#warning TODO: Implement
 		}
 
 

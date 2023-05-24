@@ -276,8 +276,8 @@ namespace Ical.Net.CalendarComponents
             Location = _nodaZone.Id;
         }
 
-        private DateTimeZone _nodaZone;
-        private string _tzId;
+        private DateTimeZone? _nodaZone;
+        private string? _tzId;
         public virtual string TzId
         {
             get
@@ -319,7 +319,7 @@ namespace Ical.Net.CalendarComponents
             }
         }
 
-        private Uri _url;
+        private Uri? _url;
         public virtual Uri Url
         {
             get => _url ?? (_url = Properties.Get<Uri>("TZURL"));
@@ -330,7 +330,7 @@ namespace Ical.Net.CalendarComponents
             }
         }
 
-        private string _location;
+        private string? _location;
         public string Location
         {
             get => _location ?? (_location = Properties.Get<string>("X-LIC-LOCATION"));

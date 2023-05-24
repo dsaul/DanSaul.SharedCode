@@ -6,17 +6,17 @@ namespace AsterNET.Manager.Event
 	/// </summary>
 	public class PeerEntryEvent : ResponseEvent
 	{
-		private string channelType;
-		private string objectName;
-		private string chanObjectType;
-		private string ipAddress;
+		private string? channelType;
+		private string? objectName;
+		private string? chanObjectType;
+		private string? ipAddress;
 		private int ipPort;
 		private bool dynamic;
 		private bool natSupport;
 		private bool videoSupport;
 		private bool textSupport;
 		private bool acl;
-		private string status;
+		private string? status;
 		private bool realtimedevice;
 
 		/// <summary>

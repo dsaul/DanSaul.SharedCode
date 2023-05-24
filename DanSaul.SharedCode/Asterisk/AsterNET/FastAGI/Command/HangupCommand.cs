@@ -10,7 +10,7 @@ namespace AsterNET.FastAGI.Command
 		/// <summary>
 		/// The name of the channel to hangup or null for the current channel.
 		/// </summary>
-		private string channel;
+		private string? channel;
 
 		/// <summary>
 		/// Returns the name of the channel to hangup.

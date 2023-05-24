@@ -23,7 +23,7 @@ namespace Ical.Net.Serialization
 
         public override string SerializeToString(object obj) => throw new NotImplementedException();
 
-        private MethodInfo _addMethodInfo;
+        private MethodInfo? _addMethodInfo;
         public override object Deserialize(TextReader tr)
         {
             var p = SerializationContext.Peek() as ICalendarProperty;

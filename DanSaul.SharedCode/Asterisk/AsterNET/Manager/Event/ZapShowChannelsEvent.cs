@@ -6,9 +6,9 @@ namespace AsterNET.Manager.Event
 	/// <seealso cref="Manager.Action.ZapShowChannelsAction" />
 	public class ZapShowChannelsEvent : ResponseEvent
 	{
-		private string signalling;
-		private string context;
-		private string alarm;
+		private string? signalling;
+		private string? context;
+		private string? alarm;
 
         /// <summary>
         /// Get/Set the signalling of this zap channel.<br/>

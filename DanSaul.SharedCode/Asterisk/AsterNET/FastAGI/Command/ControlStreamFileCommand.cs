@@ -17,14 +17,14 @@ namespace AsterNET.FastAGI.Command
 	public class ControlStreamFileCommand : AGICommand
 	{
 		/// <summary> The name of the file to stream.</summary>
-		private string file;
+		private string? file;
 		/// <summary> When one of these digits is pressed while streaming the command returns.</summary>
-		private string escapeDigits;
+		private string? escapeDigits;
 		/// <summary> The offset samples to skip before streaming.</summary>
 		private int offset;
-		private string forwardDigit;
-		private string rewindDigit;
-		private string pauseDigit;
+		private string? forwardDigit;
+		private string? rewindDigit;
+		private string? pauseDigit;
 
 		#region File
 		/// <summary>

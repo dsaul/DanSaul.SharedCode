@@ -10,7 +10,7 @@ namespace Ical.Net.DataTypes
     /// </summary>    
     public class Trigger : EncodableDataType
     {
-        private IDateTime _mDateTime;
+        private IDateTime? _mDateTime;
         private TimeSpan? _mDuration;
         private string _mRelated = TriggerRelation.Start;
 

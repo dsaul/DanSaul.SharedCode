@@ -48,22 +48,22 @@ namespace AsterNET.FastAGI
     {
         #region Variables
 
-        private readonly string firstLine;
-        private readonly List<string> lines;
+        private readonly string? firstLine;
+        private readonly List<string>? lines;
 
         /// <summary>Additional attributes contained in this reply, for example endpos.</summary>
-        private Dictionary<string, string> attributes;
+        private Dictionary<string, string>? attributes;
 
         private bool attributesCreated;
 
         /// <summary> The contents of the parenthesis.</summary>
-        private string extra;
+        private string? extra;
 
         private bool extraCreated;
-        private Match matcher;
+        private Match? matcher;
 
         /// <summary> The result, that is the part directly following the "result=" string.</summary>
-        private string result;
+        private string? result;
 
         private bool resultCreated;
 
@@ -73,12 +73,12 @@ namespace AsterNET.FastAGI
         private bool statusCreated;
 
         /// <summary> In case of status == 520 (invalid command syntax) this attribute contains the synopsis of the command.</summary>
-        private string synopsis;
+        private string? synopsis;
 
         private bool synopsisCreated;
 
         /// <summary> In case of status == 520 (invalid command syntax) this attribute contains the usage of the command.</summary>
-        private string usage;
+        private string? usage;
 
         #endregion
 
@@ -108,7 +108,7 @@ namespace AsterNET.FastAGI
 
         #region FirstLine
 
-        public string FirstLine
+        public string? FirstLine
         {
             get { return firstLine; }
         }
@@ -117,7 +117,7 @@ namespace AsterNET.FastAGI
 
         #region Lines
 
-        public IList Lines
+        public IList? Lines
         {
             get { return lines; }
         }
@@ -179,7 +179,7 @@ namespace AsterNET.FastAGI
         ///     GetVariableCommand - the value of the variable.
         /// </summary>
         /// <returns>the text in the parenthesis or  null if not set.</returns>
-        public string Extra
+        public string? Extra
         {
             get
             {
@@ -206,7 +206,7 @@ namespace AsterNET.FastAGI
         ///     Returns the result, that is the part directly following the "result=" string.
         /// </summary>
         /// <returns>the result.</returns>
-        public string GetResult()
+        public string? GetResult()
         {
             if (resultCreated)
                 return result;
@@ -254,7 +254,7 @@ namespace AsterNET.FastAGI
         /// </summary>
         /// <param name="name">the name of the attribute to retrieve. The name is case insensitive.</param>
         /// <returns>the value of the attribute or null if it is not set.</returns>
-        public string GetAttribute(string name)
+        public string? GetAttribute(string name)
         {
             if (GetStatus() != (int) AGIReplyStatuses.SC_SUCCESS)
                 return null;
@@ -301,7 +301,7 @@ namespace AsterNET.FastAGI
         ///     syntax (getStatus() == SC_INVALID_COMMAND_SYNTAX).
         /// </summary>
         /// <returns>the synopsis of the command sent, null if there were no syntax errors.</returns>
-        public string GetSynopsis()
+        public string? GetSynopsis()
         {
             if (GetStatus() != (int) AGIReplyStatuses.SC_INVALID_COMMAND_SYNTAX)
                 return null;
@@ -347,7 +347,7 @@ namespace AsterNET.FastAGI
         ///     the usage of the command sent,
         ///     null if there were no syntax errors.
         /// </returns>
-        public string GetUsage()
+        public string? GetUsage()
         {
             return usage;
         }

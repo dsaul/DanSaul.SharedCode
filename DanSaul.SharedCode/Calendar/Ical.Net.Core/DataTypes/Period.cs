@@ -100,7 +100,7 @@ namespace Ical.Net.DataTypes
             }
         }
 
-        private IDateTime _startTime;
+        private IDateTime? _startTime;
         public virtual IDateTime StartTime
         {
             get => _startTime.HasTime
@@ -117,7 +117,7 @@ namespace Ical.Net.DataTypes
             }
         }
 
-        private IDateTime _endTime;
+        private IDateTime? _endTime;
         public virtual IDateTime EndTime
         {
             get => _endTime;

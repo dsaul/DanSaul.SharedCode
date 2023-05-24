@@ -6,7 +6,7 @@ namespace AsterNET.Manager.Action
     /// </summary>
     public class CommandAction : ManagerAction
     {
-        protected internal string command;
+        protected internal string? command;
 
         /// <summary>
         ///     Creates a new CommandAction.

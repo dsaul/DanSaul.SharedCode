@@ -40,11 +40,11 @@ namespace DanSaul.SharedCode.TTS
 			if (string.IsNullOrWhiteSpace(EnvDatabases.PGPASSFILE)) {
 				throw new Exception("PGPASSFILE NOT SET");
 			}
-			if (string.IsNullOrWhiteSpace(EnvAmazonS3.S3_PBX_ACCESS_KEY_FILE)) {
-				throw new Exception("S3_PBX_ACCESS_KEY_FILE NOT SET");
+			if (string.IsNullOrWhiteSpace(EnvAmazonS3.S3_ACCESS_KEY)) {
+				throw new Exception("S3_ACCESS_KEY NOT SET");
 			}
-			if (string.IsNullOrWhiteSpace(EnvAmazonS3.S3_PBX_SECRET_KEY_FILE)) {
-				throw new Exception("S3_PBX_SECRET_KEY_FILE NOT SET");
+			if (string.IsNullOrWhiteSpace(EnvAmazonS3.S3_SECRET_KEY)) {
+				throw new Exception("S3_SECRET_KEY NOT SET");
 			}
 			if (string.IsNullOrWhiteSpace(EnvTTS.AWS_POLLY_ACCESS_KEY_ID_FILE)) {
 				throw new Exception("AWS_POLLY_ACCESS_KEY_ID_FILE NOT SET");
@@ -146,17 +146,17 @@ namespace DanSaul.SharedCode.TTS
 			var config = new AmazonS3Config
 			{
 				RegionEndpoint = RegionEndpoint.USWest1,
-				ServiceURL = EnvAmazonS3.S3_DISPATCH_PULSE_SERVICE_URI,
+				ServiceURL = EnvAmazonS3.S3_SERVICE_URI,
 				ForcePathStyle = true
 			};
-			var s3Client = new AmazonS3Client(File.ReadAllText(EnvAmazonS3.S3_PBX_ACCESS_KEY_FILE), File.ReadAllText(EnvAmazonS3.S3_PBX_SECRET_KEY_FILE), config);
+			var s3Client = new AmazonS3Client(EnvAmazonS3.S3_ACCESS_KEY, EnvAmazonS3.S3_SECRET_KEY, config);
 			var fileTransferUtility = new TransferUtility(s3Client);
 
 			string? uriMP3 = null;
 			if (File.Exists(filenameMP3)) {
 				try {
 					fileTransferUtility.Upload(filenameMP3, Cache.kTTSBucketName, $"{engine}/{voice}/{entryId}/{entryId}.mp3");
-					uriMP3 = $"{EnvAmazonS3.S3_DISPATCH_PULSE_SERVICE_URI}/{Cache.kTTSBucketName}/{engine}/{voice}/{entryId}/{entryId}.mp3";
+					uriMP3 = $"{EnvAmazonS3.S3_SERVICE_URI}/{Cache.kTTSBucketName}/{engine}/{voice}/{entryId}/{entryId}.mp3";
 				}
 				catch (Exception e) {
 					Log.Debug($"Error encountered on server. Message:'{e.Message}' when writing an object");
@@ -167,7 +167,7 @@ namespace DanSaul.SharedCode.TTS
 			if (File.Exists(filenameWAV)) {
 				try {
 					fileTransferUtility.Upload(filenameWAV, Cache.kTTSBucketName, $"{engine}/{voice}/{entryId}/{entryId}.wav");
-					uriWAV = $"{EnvAmazonS3.S3_DISPATCH_PULSE_SERVICE_URI}/{Cache.kTTSBucketName}/{engine}/{voice}/{entryId}/{entryId}.wav";
+					uriWAV = $"{EnvAmazonS3.S3_SERVICE_URI}/{Cache.kTTSBucketName}/{engine}/{voice}/{entryId}/{entryId}.wav";
 				}
 				catch (Exception e) {
 					Log.Debug($"Error encountered on server. Message:'{e.Message}' when writing an object");
@@ -178,7 +178,7 @@ namespace DanSaul.SharedCode.TTS
 			if (File.Exists(filenamePCM)) {
 				try {
 					fileTransferUtility.Upload(filenamePCM, Cache.kTTSBucketName, $"{engine}/{voice}/{entryId}/{entryId}.pcm");
-					uriPCM = $"{EnvAmazonS3.S3_DISPATCH_PULSE_SERVICE_URI}/{Cache.kTTSBucketName}/{engine}/{voice}/{entryId}/{entryId}.pcm";
+					uriPCM = $"{EnvAmazonS3.S3_SERVICE_URI}/{Cache.kTTSBucketName}/{engine}/{voice}/{entryId}/{entryId}.pcm";
 				}
 				catch (Exception e) {
 					Log.Debug($"Error encountered on server. Message:'{e.Message}' when writing an object");

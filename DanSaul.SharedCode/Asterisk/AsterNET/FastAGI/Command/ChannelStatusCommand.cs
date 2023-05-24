@@ -18,7 +18,7 @@ namespace AsterNET.FastAGI.Command
     /// </summary>
     public class ChannelStatusCommand : AGICommand
 	{
-		private string channel;
+		private string? channel;
 		public string Channel
 		{
 			get

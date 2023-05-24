@@ -14,8 +14,8 @@ namespace AsterNET.FastAGI.Command
 	/// </summary>
 	public class GetFullVariableCommand : AGICommand
 	{
-		private string varName;
-		private string channel;
+		private string? varName;
+		private string? channel;
 
 		/// <summary>
 		/// Creates a new GetFullVariableCommand.

@@ -7,8 +7,8 @@ namespace AsterNET.Manager.Event
 	/// </summary>
 	public abstract class ResponseEvent : ManagerEvent
 	{
-		private string actionId;
-		private string internalActionId;
+		private string? actionId;
+		private string? internalActionId;
 
 		/// <summary>
 		/// Get/Set the action id of the ManagerAction that caused this event.

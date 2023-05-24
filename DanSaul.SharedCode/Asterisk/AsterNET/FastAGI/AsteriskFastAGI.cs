@@ -284,7 +284,7 @@ namespace AsterNET.FastAGI
 
 			try
             {
-                SocketConnection socket;
+                SocketConnection? socket;
                 while ((socket = serverSocket.Accept()) != null)
                 {
 					Log.Information("[{Assembly}][{Class}.{Method}()] Received connection.",

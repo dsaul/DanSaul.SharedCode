@@ -15,6 +15,7 @@ using DanSaul.SharedCode.SignalR;
 
 namespace SharedCode.DatabaseSchemas
 {
+	[Obsolete]
 	public record Calendars(Guid? Id, string? Json, string? SearchString, string? LastModifiedIso8601) : JSONTable(Id, Json, SearchString, LastModifiedIso8601)
 	{
 
@@ -543,7 +544,6 @@ namespace SharedCode.DatabaseSchemas
 					", dpDB);
 				cmd.ExecuteNonQuery();
 
-#warning TODO: implement
 			}
 		}
 

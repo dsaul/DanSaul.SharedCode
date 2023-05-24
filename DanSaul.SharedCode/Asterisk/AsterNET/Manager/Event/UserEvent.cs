@@ -38,7 +38,7 @@ namespace AsterNET.Manager.Event
 	/// <seealso cref="Manager.ManagerConnection.RegisterUserEventClass"/>
 	public class UserEvent : ManagerEvent
 	{
-		private string userEventName;
+		private string? userEventName;
 
 		public override bool Parse(string key, string value)
 		{

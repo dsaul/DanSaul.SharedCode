@@ -13,7 +13,7 @@ namespace AsterNET
 {
     internal class Helper
     {
-        private static CultureInfo defaultCulture;
+        private static CultureInfo? defaultCulture;
 #if LOGGER
         private static readonly Logger logger = Logger.Instance();
 #endif

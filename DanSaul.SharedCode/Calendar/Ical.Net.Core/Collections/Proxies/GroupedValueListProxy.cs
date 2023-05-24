@@ -13,9 +13,9 @@ namespace Ical.Net.Collections.Proxies
         where TInterface : class, IGroupedObject<TGroup>, IValueObject<TOriginalValue>
         where TItem : new()        
     {
-        private readonly GroupedValueList<TGroup, TInterface, TItem, TOriginalValue> _realObject;
-        private readonly TGroup _group;
-        private TInterface _container;
+        private readonly GroupedValueList<TGroup, TInterface, TItem, TOriginalValue>? _realObject;
+        private readonly TGroup? _group;
+        private TInterface? _container;
 
         public GroupedValueListProxy(GroupedValueList<TGroup, TInterface, TItem, TOriginalValue> realObject, TGroup group)
         {

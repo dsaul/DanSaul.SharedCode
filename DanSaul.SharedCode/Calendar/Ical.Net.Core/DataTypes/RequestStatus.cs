@@ -8,9 +8,9 @@ namespace Ical.Net.DataTypes
     /// </summary>
     public class RequestStatus : EncodableDataType
     {
-        private string _mDescription;
-        private string _mExtraData;
-        private StatusCode _mStatusCode;
+        private string? _mDescription;
+        private string? _mExtraData;
+        private StatusCode? _mStatusCode;
 
         public virtual string Description
         {

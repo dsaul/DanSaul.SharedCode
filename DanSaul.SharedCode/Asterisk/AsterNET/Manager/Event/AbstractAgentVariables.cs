@@ -7,7 +7,7 @@ namespace AsterNET.Manager.Event
 {
 	public abstract class AbstractAgentVariables : ManagerEvent, IActionVariable
 	{
-		private Dictionary<string, string> variables;
+		private Dictionary<string, string>? variables;
 
 		public AbstractAgentVariables(ManagerConnection source)
 			: base(source)

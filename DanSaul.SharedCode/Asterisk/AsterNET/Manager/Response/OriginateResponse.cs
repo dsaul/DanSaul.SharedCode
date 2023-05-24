@@ -4,14 +4,14 @@ namespace AsterNET.Manager.Response
 {
     public class OriginateResponse
     {
-        private string channel;
-        private string channelName;
+        private string? channel;
+        private string? channelName;
         private DateTime endTime = DateTime.MinValue;
         private int reason;
-        private string response;
+        private string? response;
 
         private DateTime startTime;
-        private string uniqueId;
+        private string? uniqueId;
 
         #region IsSuccess 
 

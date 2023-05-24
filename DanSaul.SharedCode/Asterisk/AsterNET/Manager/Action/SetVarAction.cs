@@ -6,13 +6,13 @@ namespace AsterNET.Manager.Action
     public class SetVarAction : ManagerAction
     {
         /// <summary> The channel on which to set the variable.</summary>
-        public string channel;
+        public string? channel;
 
         /// <summary> The name of the variable to set.</summary>
-        public string varName;
+        public string? varName;
 
         /// <summary> The value to store.</summary>
-        public string varValue;
+        public string? varValue;
 
         /// <summary>
         ///     Creates a new empty SetVarAction.

@@ -7,7 +7,7 @@ namespace AsterNET.Manager.Event
 	/// </summary>
 	public class UnparkedCallEvent : AbstractParkedCallEvent
 	{
-		private string from;
+		private string? from;
 
 		/// <summary>
 		/// Get/Set the name of the channel that parked the call.

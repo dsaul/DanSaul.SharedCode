@@ -38,10 +38,9 @@ namespace DanSaul.SharedCode.Asterisk
 				switch (e.Type)
 				{
 					case AudioPlaybackEventType.Stream:
-
 						if (string.IsNullOrWhiteSpace(e.StreamFile))
 						{
-							Log.Warning("e.StreamFile is null or empty");
+							Log.Warning("string.IsNullOrWhiteSpace(e.StreamFile)");
 							break;
 						}
 
@@ -57,6 +56,11 @@ namespace DanSaul.SharedCode.Asterisk
 						}
 						break;
 					case AudioPlaybackEventType.SayAlpha:
+						if (string.IsNullOrWhiteSpace(e.Alpha))
+						{
+							Log.Warning("string.IsNullOrWhiteSpace(e.Alpha)");
+							break;
+						}
 						key = SayAlpha(e.Alpha, escapeKeys);
 						if (key != '\0')
 						{
@@ -69,6 +73,11 @@ namespace DanSaul.SharedCode.Asterisk
 						}
 						break;
 					case AudioPlaybackEventType.SayDigits:
+						if (string.IsNullOrWhiteSpace(e.Digits))
+						{
+							Log.Warning("string.IsNullOrWhiteSpace(e.Digits)");
+							break;
+						}
 						key = SayDigits(e.Digits, escapeKeys);
 						if (key != '\0')
 						{
@@ -161,6 +170,12 @@ namespace DanSaul.SharedCode.Asterisk
 
 				switch (e.Type) {
 					case AudioPlaybackEventType.Stream:
+						if (string.IsNullOrWhiteSpace(e.StreamFile))
+						{
+							Log.Warning("string.IsNullOrWhiteSpace(e.StreamFile)");
+							break;
+						}
+
 						key = StreamFile(e.StreamFile, "12");
 						if (key == '1' || key == '2') {
 							stopPlayingAudio = true;
@@ -168,6 +183,12 @@ namespace DanSaul.SharedCode.Asterisk
 						}
 						break;
 					case AudioPlaybackEventType.SayAlpha:
+						if (string.IsNullOrWhiteSpace(e.Alpha))
+						{
+							Log.Warning("string.IsNullOrWhiteSpace(e.Alpha)");
+							break;
+						}
+
 						key = SayAlpha(e.Alpha, "12");
 						if (key == '1' || key == '2') {
 							stopPlayingAudio = true;
@@ -175,6 +196,12 @@ namespace DanSaul.SharedCode.Asterisk
 						}
 						break;
 					case AudioPlaybackEventType.SayDigits:
+						if (string.IsNullOrWhiteSpace(e.Digits))
+						{
+							Log.Warning("string.IsNullOrWhiteSpace(e.Digits)");
+							break;
+						}
+
 						key = SayDigits(e.Digits, "12");
 						if (key == '1' || key == '2')
 						{
@@ -248,13 +275,13 @@ namespace DanSaul.SharedCode.Asterisk
 
 				//Log.Debug("[PBXSyncTTSCacheSingle()] S3LocalPCMPath {path}", path);
 
-				string? key = EnvAmazonS3.S3_PBX_ACCESS_KEY;
-				string? secret = EnvAmazonS3.S3_PBX_SECRET_KEY;
+				string? key = EnvAmazonS3.S3_ACCESS_KEY;
+				string? secret = EnvAmazonS3.S3_SECRET_KEY;
 
 				using var s3Client = new AmazonS3Client(key, secret, new AmazonS3Config
 				{
 					RegionEndpoint = RegionEndpoint.USWest1,
-					ServiceURL = EnvAmazonS3.S3_PBX_SERVICE_URI,
+					ServiceURL = EnvAmazonS3.S3_SERVICE_URI,
 					ForcePathStyle = true
 				});
 
@@ -382,8 +409,8 @@ namespace DanSaul.SharedCode.Asterisk
 			string pbxTmpFileWithoutExtension = $"{pbxTmpDir}/{filenameWithoutExtension}";
 
 			// Tell the PBX To download the file.
-			string? key = EnvAmazonS3.S3_PBX_ACCESS_KEY;
-			string? secret = EnvAmazonS3.S3_PBX_SECRET_KEY;
+			string? key = EnvAmazonS3.S3_ACCESS_KEY;
+			string? secret = EnvAmazonS3.S3_SECRET_KEY;
 
 			
 

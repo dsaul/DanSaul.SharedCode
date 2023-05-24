@@ -6,8 +6,8 @@ namespace Ical.Net.Collections
         List<TType>,
         IMultiLinkedList<TType>
     {
-        private IMultiLinkedList<TType> _previous;
-        private IMultiLinkedList<TType> _next;
+        private IMultiLinkedList<TType>? _previous;
+        private IMultiLinkedList<TType>? _next;
 
         public virtual void SetPrevious(IMultiLinkedList<TType> previous)
         {
