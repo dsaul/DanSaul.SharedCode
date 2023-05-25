@@ -182,27 +182,15 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		#region Obsolete
 		[Obsolete]
 		public static string? PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY
 		{
-			get {
+			get
+			{
 				string? str = Environment.GetEnvironmentVariable("PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY");
-				if (string.IsNullOrWhiteSpace(str)) {
+				if (string.IsNullOrWhiteSpace(str))
+				{
 					throw new InvalidOperationException("PBX_LOCAL_TTS_CACHE_BUCKET_DIRECTORY empty or missing.");
 				}
 				return str;
@@ -212,9 +200,11 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 		[Obsolete]
 		public static string? PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY
 		{
-			get {
+			get
+			{
 				string? str = Environment.GetEnvironmentVariable("PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY");
-				if (string.IsNullOrWhiteSpace(str)) {
+				if (string.IsNullOrWhiteSpace(str))
+				{
 					throw new InvalidOperationException("PBX_LOCAL_CLIENT_RECORDINGS_DIRECTORY empty or missing.");
 				}
 				return str;
@@ -224,9 +214,11 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 		[Obsolete]
 		public static string? ARI_TO_PBX_SSH_IDRSA_FILE
 		{
-			get {
+			get
+			{
 				string? str = Environment.GetEnvironmentVariable("ARI_TO_PBX_SSH_IDRSA_FILE");
-				if (string.IsNullOrWhiteSpace(str)) {
+				if (string.IsNullOrWhiteSpace(str))
+				{
 					throw new InvalidOperationException("ARI_TO_PBX_SSH_IDRSA_FILE empty or missing.");
 				}
 				return str;
@@ -235,9 +227,11 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 		[Obsolete]
 		public static string? PBX_FQDN_FILE
 		{
-			get {
+			get
+			{
 				string? str = Environment.GetEnvironmentVariable("PBX_FQDN_FILE");
-				if (string.IsNullOrWhiteSpace(str)) {
+				if (string.IsNullOrWhiteSpace(str))
+				{
 					throw new InvalidOperationException("PBX_FQDN empty or missing.");
 				}
 				return str;
@@ -246,7 +240,8 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 		[Obsolete]
 		public static string? PBX_FQDN
 		{
-			get {
+			get
+			{
 				string? path = PBX_FQDN_FILE;
 				if (string.IsNullOrWhiteSpace(path))
 					throw new InvalidOperationException("PBX_FQDN_FILE empty or missing.");
@@ -257,9 +252,11 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 		[Obsolete]
 		public static int? PBX_SSH_PORT
 		{
-			get {
+			get
+			{
 				string? str = Environment.GetEnvironmentVariable("PBX_SSH_PORT");
-				if (string.IsNullOrWhiteSpace(str)) {
+				if (string.IsNullOrWhiteSpace(str))
+				{
 					throw new InvalidOperationException("PBX_SSH_PORT empty or missing.");
 				}
 				return int.Parse(str);
@@ -268,9 +265,11 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 		[Obsolete]
 		public static string? PBX_SSH_USER
 		{
-			get {
+			get
+			{
 				string? str = Environment.GetEnvironmentVariable("PBX_SSH_USER");
-				if (string.IsNullOrWhiteSpace(str)) {
+				if (string.IsNullOrWhiteSpace(str))
+				{
 					throw new InvalidOperationException("PBX_SSH_USER empty or missing.");
 				}
 				return str;
@@ -302,5 +301,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 				return str;
 			}
 		}
+
+		#endregion
 	}
 }

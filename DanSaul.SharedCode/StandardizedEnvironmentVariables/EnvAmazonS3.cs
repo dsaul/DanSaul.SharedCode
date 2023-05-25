@@ -22,7 +22,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 				string? path = S3_SECRET_KEY_FILE;
 				if (string.IsNullOrWhiteSpace(path))
 					throw new InvalidOperationException("S3_SECRET_KEY_FILE empty or missing.");
-				return File.ReadAllText(path);
+				return File.ReadAllText(path).Trim();
 			}
 		}
 
@@ -44,7 +44,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 				string? path = S3_ACCESS_KEY_FILE;
 				if (string.IsNullOrWhiteSpace(path))
 					throw new InvalidOperationException();
-				return File.ReadAllText(path);
+				return File.ReadAllText(path).Trim();
 			}
 		}
 
@@ -80,7 +80,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 				string? path = S3_SERVICE_URI_FILE;
 				if (string.IsNullOrWhiteSpace(path))
 					throw new InvalidOperationException("S3_SERVICE_URI_FILE empty or missing.");
-				return File.ReadAllText(path);
+				return File.ReadAllText(path).Trim();
 			}
 		}
 
