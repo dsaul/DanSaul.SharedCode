@@ -28,7 +28,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 				return File.ReadAllText(e);
 			}
 		}
-		[Obsolete]
+
 		public static string? S3_ACCESS_KEY_FILE
 		{
 			get
@@ -42,6 +42,82 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 				return str;
 			}
 		}
+
+		public static string S3_ACCESS_KEY
+		{
+			get
+			{
+				string? path = S3_ACCESS_KEY_FILE;
+				if (string.IsNullOrWhiteSpace(path))
+					throw new InvalidOperationException();
+				return File.ReadAllText(path);
+			}
+		}
+
+		public static bool S3_FORCE_PATH_STYLE
+		{
+			get
+			{
+				string? payload = Environment.GetEnvironmentVariable("S3_FORCE_PATH_STYLE");
+				if (string.IsNullOrWhiteSpace(payload))
+					return true;
+				if (bool.TryParse(payload, out bool _payload))
+					return _payload;
+				return true;
+			}
+		}
+
+
+		public static string? S3_SERVICE_URI_FILE
+		{
+			get
+			{
+				string? str = Environment.GetEnvironmentVariable("S3_SERVICE_URI_FILE");
+				if (string.IsNullOrWhiteSpace(str))
+				{
+					Log.Error("S3_SERVICE_URI_FILE empty or missing.");
+					return null;
+				}
+				return str;
+			}
+		}
+
+		public static string S3_SERVICE_URI
+		{
+			get
+			{
+				string? path = S3_SERVICE_URI_FILE;
+				if (string.IsNullOrWhiteSpace(path))
+					throw new InvalidOperationException();
+				return File.ReadAllText(path);
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		[Obsolete]
 		public static string? S3_PBX_SERVICE_URI_FILE
 		{
@@ -236,47 +312,6 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 			}
 		}
 
-
-
-		public static string? S3_ACCESS_KEY_PATH
-		{
-			get
-			{
-				string? str = Environment.GetEnvironmentVariable("S3_ACCESS_KEY_PATH");
-				if (string.IsNullOrWhiteSpace(str))
-				{
-					Log.Error("S3_ACCESS_KEY_PATH empty or missing.");
-					return null;
-				}
-				return str;
-			}
-		}
-		public static string S3_ACCESS_KEY
-		{
-			get
-			{
-				string? path = S3_ACCESS_KEY_PATH;
-				if (string.IsNullOrWhiteSpace(path))
-					throw new InvalidOperationException();
-				return File.ReadAllText(path);
-			}
-		}
-
-		public static string? S3_SECRET_KEY_PATH
-		{
-			get
-			{
-				string? str = Environment.GetEnvironmentVariable("S3_SECRET_KEY_PATH");
-				if (string.IsNullOrWhiteSpace(str))
-				{
-					Log.Error("S3_SECRET_KEY_PATH empty or missing.");
-					return null;
-				}
-				return str;
-			}
-		}
-		
-
 		public static string S3_BUCKET_MMS
 		{
 			get
@@ -290,18 +325,7 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 			}
 		}
 
-		public static string S3_SERVICE_URI
-		{
-			get
-			{
-				string? str = Environment.GetEnvironmentVariable("S3_SERVICE_URI");
-				if (string.IsNullOrWhiteSpace(str))
-				{
-					throw new Exception("S3_SERVICE_URI empty or missing.");
-				}
-				return str;
-			}
-		}
+		
 
 
 
