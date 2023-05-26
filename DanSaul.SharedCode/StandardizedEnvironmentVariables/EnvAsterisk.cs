@@ -166,7 +166,29 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 			}
 		}
 		#endregion
+		#region ASTERISK_EXTERNAL_IP_ADDRESS
+		public static string ASTERISK_EXTERNAL_IP_ADDRESS_FILE
+		{
+			get
+			{
+				string? str = Environment.GetEnvironmentVariable("ASTERISK_EXTERNAL_IP_ADDRESS_FILE");
+				if (string.IsNullOrWhiteSpace(str))
+					throw new InvalidOperationException("ASTERISK_EXTERNAL_IP_ADDRESS_FILE empty or missing.");
+				return str;
+			}
+		}
 
+		public static string ASTERISK_EXTERNAL_IP_ADDRESS
+		{
+			get
+			{
+				string? env = ASTERISK_EXTERNAL_IP_ADDRESS_FILE;
+				if (string.IsNullOrWhiteSpace(env))
+					throw new InvalidOperationException("ASTERISK_EXTERNAL_IP_ADDRESS_FILE empty or missing.");
+				return File.ReadAllText(env);
+			}
+		}
+		#endregion
 
 
 
