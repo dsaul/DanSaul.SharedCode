@@ -189,8 +189,34 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 			}
 		}
 		#endregion
+		#region ASTERISK_SIP_PORT_FILE
+		public static string ASTERISK_SIP_PORT_FILE
+		{
+			get
+			{
+				string? str = Environment.GetEnvironmentVariable("ASTERISK_SIP_PORT_FILE");
+				if (string.IsNullOrWhiteSpace(str))
+					throw new InvalidOperationException("ASTERISK_SIP_PORT_FILE empty or missing.");
+				return str;
+			}
+		}
+		public static int ASTERISK_SIP_PORT
+		{
+			get
+			{
+				string? env = ASTERISK_SIP_PORT_FILE;
+				if (string.IsNullOrWhiteSpace(env))
+					throw new InvalidOperationException("ASTERISK_SIP_PORT_FILE empty or missing.");
+				string str = File.ReadAllText(env);
+				if (string.IsNullOrWhiteSpace(str))
+					throw new InvalidOperationException("ASTERISK_SIP_PORT_FILE empty or missing.");
 
-
+				if (int.TryParse(str, out int _parsed))
+					return _parsed;
+				throw new InvalidOperationException("ASTERISK_SIP_PORT_FILE unable to parse.");
+			}
+		}
+		#endregion
 
 
 
