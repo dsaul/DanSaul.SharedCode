@@ -8,7 +8,6 @@ using AsterNET.FastAGI.MappingStrategies;
 using AsterNET.IO;
 using AsterNET.Util;
 using Serilog;
-using Square.Models;
 
 namespace AsterNET.FastAGI
 {

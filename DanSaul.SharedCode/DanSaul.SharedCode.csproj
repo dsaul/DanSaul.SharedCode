@@ -10,14 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Afk.ZoneInfo" Version="4.1.0" />
     <PackageReference Include="AWSSDK.Polly" Version="3.7.106.61" />
     <PackageReference Include="AWSSDK.S3" Version="3.7.104.20" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="FluentEmail.Core" Version="3.0.2" />
     <PackageReference Include="FluentEmail.Smtp" Version="3.0.2" />
     <PackageReference Include="GraphQL.AspNet" Version="1.2.1" />
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.46" />
     <PackageReference Include="libphonenumber-csharp" Version="8.13.11" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
     <PackageReference Include="Mime" Version="3.5.2" />
@@ -31,15 +29,11 @@
     <PackageReference Include="NodaTime.Serialization.JsonNet" Version="3.0.1" />
     <PackageReference Include="Npgsql" Version="7.0.4" />
     <PackageReference Include="PasswordGenerator" Version="2.1.0" />
-    <PackageReference Include="RateLimiter" Version="2.2.0" />
+    <PackageReference Include="RestSharp" Version="110.2.0" />
     <PackageReference Include="Sander0542.Authentication.Authelia" Version="0.1.0" />
     <PackageReference Include="Serilog" Version="2.12.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="7.0.0" />
-    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
-    <PackageReference Include="Serilog.Enrichers.Process" Version="2.0.2" />
-    <PackageReference Include="Serilog.Enrichers.Thread" Version="3.1.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
-    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
     <PackageReference Include="SharpPcap" Version="6.2.5" />
     <PackageReference Include="SixLabors.ImageSharp" Version="3.0.1" />
     <PackageReference Include="Square" Version="27.0.0" />
