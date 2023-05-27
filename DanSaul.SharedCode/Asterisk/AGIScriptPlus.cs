@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿// (c) 2023 Dan Saul
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using Amazon.Polly;
 using AsterNET.FastAGI;

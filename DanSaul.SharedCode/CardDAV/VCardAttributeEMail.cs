@@ -1,4 +1,5 @@
-﻿using DanSaul.SharedCode.Extensions;
+﻿// (c) 2023 Dan Saul
+using DanSaul.SharedCode.Extensions;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 using Serilog;

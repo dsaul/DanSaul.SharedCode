@@ -1,4 +1,5 @@
-﻿using Amazon.Polly;
+﻿// (c) 2023 Dan Saul
+using Amazon.Polly;
 using Npgsql;
 
 namespace DanSaul.SharedCode.Asterisk

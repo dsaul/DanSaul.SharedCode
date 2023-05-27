@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿// (c) 2023 Dan Saul
+using System.Diagnostics;
 
 namespace DanSaul.SharedCode.Processes
 {

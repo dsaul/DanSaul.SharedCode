@@ -1,4 +1,4 @@
-﻿
+﻿// (c) 2023 Dan Saul
 namespace DanSaul.SharedCode.Extensions
 {
 	public static class Dictionary_AddRange

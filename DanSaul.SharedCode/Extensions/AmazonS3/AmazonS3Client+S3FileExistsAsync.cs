@@ -1,4 +1,5 @@
-﻿using Amazon.S3;
+﻿// (c) 2023 Dan Saul
+using Amazon.S3;
 using Amazon.S3.Model;
 
 namespace DanSaul.SharedCode.Extensions.AmazonS3

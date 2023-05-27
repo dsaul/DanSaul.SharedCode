@@ -1,4 +1,5 @@
-﻿using HeyRed.Mime;
+﻿// (c) 2023 Dan Saul
+using HeyRed.Mime;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 using Serilog;

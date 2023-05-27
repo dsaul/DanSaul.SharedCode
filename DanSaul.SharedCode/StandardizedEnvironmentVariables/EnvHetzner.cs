@@ -1,4 +1,5 @@
-﻿namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
+﻿// (c) 2023 Dan Saul
+namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 {
 	public static class EnvHetzner
 	{

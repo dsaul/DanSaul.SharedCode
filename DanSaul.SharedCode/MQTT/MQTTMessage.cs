@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿// (c) 2023 Dan Saul
+using Newtonsoft.Json;
 using NodaTime;
 using NodaTime.Extensions;
 using NodaTime.Text;

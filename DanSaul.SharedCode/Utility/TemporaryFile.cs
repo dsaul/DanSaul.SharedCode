@@ -1,4 +1,5 @@
-﻿using SharpCompress.Common;
+﻿// (c) 2023 Dan Saul
+using SharpCompress.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;

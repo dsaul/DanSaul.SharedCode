@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿// (c) 2023 Dan Saul
+using System.Text;
 using DanSaul.SharedCode.Extensions;
 
 namespace DanSaul.SharedCode.Utility

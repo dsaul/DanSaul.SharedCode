@@ -1,4 +1,4 @@
-﻿
+﻿// (c) 2023 Dan Saul
 using DanSaul.SharedCode.CardDav;
 
 namespace DanSaul.SharedCode.MQTT

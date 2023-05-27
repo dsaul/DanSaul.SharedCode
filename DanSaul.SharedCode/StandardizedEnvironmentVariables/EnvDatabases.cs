@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿// (c) 2023 Dan Saul
+using System.Text.RegularExpressions;
 using System.Globalization;
 using Serilog;
 

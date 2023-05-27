@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿// (c) 2023 Dan Saul
+using Newtonsoft.Json.Linq;
 
 namespace DanSaul.SharedCode.Extensions.JsonDotNet
 {

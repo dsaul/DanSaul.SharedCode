@@ -1,4 +1,4 @@
-﻿
+﻿// (c) 2023 Dan Saul
 namespace DanSaul.SharedCode
 {
 	public static class FancyConsoleLog

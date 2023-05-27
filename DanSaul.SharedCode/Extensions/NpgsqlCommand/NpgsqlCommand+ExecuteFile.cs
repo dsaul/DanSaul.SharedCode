@@ -1,4 +1,5 @@
-﻿using DanSaul.SharedCode.SQL;
+﻿// (c) 2023 Dan Saul
+using DanSaul.SharedCode.SQL;
 using Npgsql;
 using System.Reflection;
 

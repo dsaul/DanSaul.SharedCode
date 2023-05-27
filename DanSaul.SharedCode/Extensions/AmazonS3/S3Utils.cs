@@ -1,4 +1,5 @@
-﻿using Amazon;
+﻿// (c) 2023 Dan Saul
+using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
 

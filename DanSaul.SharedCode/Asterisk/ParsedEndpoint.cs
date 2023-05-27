@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿// (c) 2023 Dan Saul
+using Serilog;
 using System.Text.RegularExpressions;
 
 namespace DanSaul.SharedCode.Asterisk

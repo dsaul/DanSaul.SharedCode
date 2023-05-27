@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿// (c) 2023 Dan Saul
+using System.Text;
 
 namespace DanSaul.SharedCode.Asterisk.AsteriskINI
 {

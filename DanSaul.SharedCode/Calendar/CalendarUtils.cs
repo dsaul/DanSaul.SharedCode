@@ -1,4 +1,5 @@
-﻿using Ical.Net.CalendarComponents;
+﻿// (c) 2023 Dan Saul
+using Ical.Net.CalendarComponents;
 using Ical.Net.DataTypes;
 using System.Text.RegularExpressions;
 

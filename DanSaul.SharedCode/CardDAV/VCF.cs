@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿// (c) 2023 Dan Saul
+using System.Net;
 using System.Text;
 using Serilog;
 using WebDav;

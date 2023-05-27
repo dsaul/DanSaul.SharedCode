@@ -1,4 +1,5 @@
-﻿using NodaTime;
+﻿// (c) 2023 Dan Saul
+using NodaTime;
 
 namespace DanSaul.SharedCode.NodaTime
 {

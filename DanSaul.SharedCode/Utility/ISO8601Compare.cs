@@ -1,4 +1,5 @@
-﻿namespace DanSaul.SharedCode.Utility
+﻿// (c) 2023 Dan Saul
+namespace DanSaul.SharedCode.Utility
 {
     public static class ISO8601Compare
     {

@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿// (c) 2023 Dan Saul
+using Npgsql;
 using Serilog;
 
 namespace DanSaul.SharedCode.Npgsql

@@ -1,4 +1,5 @@
-﻿using DanSaul.SharedCode.StandardizedEnvironmentVariables;
+﻿// (c) 2023 Dan Saul
+using DanSaul.SharedCode.StandardizedEnvironmentVariables;
 using Newtonsoft.Json;
 using RestSharp;
 using Serilog;

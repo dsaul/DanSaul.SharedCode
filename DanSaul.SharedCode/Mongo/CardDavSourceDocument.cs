@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿// (c) 2023 Dan Saul
+using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 
 namespace DanSaul.SharedCode.Mongo

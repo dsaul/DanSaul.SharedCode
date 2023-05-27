@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿// (c) 2023 Dan Saul
+using System.Globalization;
 
 namespace DanSaul.SharedCode
 {

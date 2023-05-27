@@ -1,4 +1,5 @@
-﻿using DanSaul.SharedCode.Mongo;
+﻿// (c) 2023 Dan Saul
+using DanSaul.SharedCode.Mongo;
 
 namespace DanSaul.SharedCode.MQTT
 {

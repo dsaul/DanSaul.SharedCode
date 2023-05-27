@@ -1,4 +1,4 @@
-﻿
+﻿// (c) 2023 Dan Saul
 using Serilog;
 
 namespace DanSaul.SharedCode.StandardizedEnvironmentVariables

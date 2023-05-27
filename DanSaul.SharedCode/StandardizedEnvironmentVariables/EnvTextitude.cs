@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// (c) 2023 Dan Saul
 
 namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 {

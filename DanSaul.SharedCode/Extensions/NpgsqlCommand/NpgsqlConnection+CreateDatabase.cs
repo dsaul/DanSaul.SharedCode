@@ -1,4 +1,5 @@
-﻿using DanSaul.SharedCode.Text;
+﻿// (c) 2023 Dan Saul
+using DanSaul.SharedCode.Text;
 using Npgsql;
 
 namespace DanSaul.SharedCode.Npgsql
