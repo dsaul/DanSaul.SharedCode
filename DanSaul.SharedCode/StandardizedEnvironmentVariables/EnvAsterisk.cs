@@ -217,15 +217,52 @@ namespace DanSaul.SharedCode.StandardizedEnvironmentVariables
 			}
 		}
 		#endregion
-
-
-
-
-
-
-
-
-
+		#region ASTERISK_HOME_AREA_CODE
+		public static string ASTERISK_HOME_AREA_CODE
+		{
+			get
+			{
+				string? payload = Environment.GetEnvironmentVariable("ASTERISK_HOME_AREA_CODE");
+				if (string.IsNullOrWhiteSpace(payload))
+					throw new InvalidOperationException("ASTERISK_HOME_AREA_CODE empty or missing.");
+				return payload;
+			}
+		}
+		#endregion
+		#region ASTERISK_RECORDINGS_DIRECTORY
+		public static string ASTERISK_RECORDINGS_DIRECTORY
+		{
+			get
+			{
+				string? payload = Environment.GetEnvironmentVariable("ASTERISK_RECORDINGS_DIRECTORY");
+				if (string.IsNullOrWhiteSpace(payload))
+					throw new InvalidOperationException("ASTERISK_RECORDINGS_DIRECTORY empty or missing.");
+				return payload;
+			}
+		}
+		#endregion
+		#region ASTERISK_AGI_HOST_FILE
+		public static string ASTERISK_AGI_HOST_FILE
+		{
+			get
+			{
+				string? str = Environment.GetEnvironmentVariable("ASTERISK_AGI_HOST_FILE");
+				if (string.IsNullOrWhiteSpace(str))
+					throw new InvalidOperationException("ASTERISK_AGI_HOST_FILE empty or missing.");
+				return str;
+			}
+		}
+		public static string ASTERISK_AGI_HOST
+		{
+			get
+			{
+				string? env = ASTERISK_AGI_HOST_FILE;
+				if (string.IsNullOrWhiteSpace(env))
+					throw new InvalidOperationException("ASTERISK_AGI_HOST_FILE empty or missing.");
+				return File.ReadAllText(env);
+			}
+		}
+		#endregion
 
 
 
