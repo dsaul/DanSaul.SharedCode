@@ -10,7 +10,7 @@ namespace DanSaul.SharedCode.CardDav
 {
 	public class CardDAVController
 	{
-		private IMongoClient MongoClient { get; set; }
+		private MongoClient MongoClient { get; set; }
 		private IMongoDatabase Database { get; set; }
 		private IMongoCollection<CardDavSourceDocument> Sources { get; set; }
 		private IMongoCollection<VCard> Contacts { get; set; }
@@ -20,9 +20,9 @@ namespace DanSaul.SharedCode.CardDav
 
 		//private TimeLimiter RateLimit { get; init; } = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
 
-		public CardDAVController(IMongoClient mongoClient)
+		public CardDAVController(MongoClient _MongoClient)
 		{
-			MongoClient = mongoClient;
+			MongoClient = _MongoClient;
 			Database = MongoClient.GetDatabase(EnvTextitude.kMongoDatabase);
 			Sources = Database.GetCollection<CardDavSourceDocument>(EnvTextitude.kMongoCollectionCalDavSources);
 			Contacts = Database.GetCollection<VCard>(EnvTextitude.kMongoCollectionCalDavContacts);
@@ -30,6 +30,9 @@ namespace DanSaul.SharedCode.CardDav
 			ReloadCredentials();
 
 			HttpClient = new HttpClient(new HttpClientHandler { Credentials = CredentialCache });
+
+			Task.Run(StartLoop);
+
 		}
 		public void ReloadCredentials()
 		{
@@ -61,24 +64,19 @@ namespace DanSaul.SharedCode.CardDav
 			}
 		}
 
-		public async Task StartLoop(CancellationToken token)
+		public async Task StartLoop()
 		{
 			while (true)
 			{
-				if (token.IsCancellationRequested)
-					break;
-
-
 				List<string> syncedCardDavIds = new();
 				await Iterate(syncedCardDavIds);
 
 				await Contacts.DeleteManyAsync(
-					filter: Builders<VCard>.Filter.Where(x => !syncedCardDavIds.Contains(x.UID)),
-					token
+					filter: Builders<VCard>.Filter.Where(x => !syncedCardDavIds.Contains(x.UID))
 					);
 
 
-				await Task.Delay(5 * 60 * 1000, token);
+				await Task.Delay(5 * 60 * 1000);
 			}
 		}
 
