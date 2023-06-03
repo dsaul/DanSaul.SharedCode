@@ -5,19 +5,23 @@ using Serilog;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 using DanSaul.SharedCode.Extensions;
+using GraphQL.AspNet.Attributes;
 
 namespace DanSaul.SharedCode.CardDav
 {
 	[BsonIgnoreExtraElements]
-	public record VCardAttributeTelephone : VCardAttribute
+	public class VCardAttributeTelephone : VCardAttribute
 	{
 		[BsonIgnore]
+		[GraphSkip]
 		[JsonIgnore]
 		static Regex KRegExRemoveKey = new Regex(@"(?<=TEL[;:]).*");
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		static Regex KRegexValueComponentsWithType = new Regex(@"(?<type>(?<=TYPE=).*(?=:)):(?<number>.*)");
 		[BsonIgnore]
+		[GraphSkip]
 		[JsonIgnore]
 		static PhoneNumberUtil PhoneNumberUtil = PhoneNumberUtil.GetInstance();
 		[BsonElement]
@@ -26,6 +30,7 @@ namespace DanSaul.SharedCode.CardDav
 		public string? E164 { get; init; }
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		public override string? Line
 		{
 			init

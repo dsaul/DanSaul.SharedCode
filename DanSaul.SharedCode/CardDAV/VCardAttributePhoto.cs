@@ -1,4 +1,5 @@
 ﻿// (c) 2023 Dan Saul
+using GraphQL.AspNet.Attributes;
 using HeyRed.Mime;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
@@ -8,21 +9,25 @@ using System.Text.RegularExpressions;
 namespace DanSaul.SharedCode.CardDav
 {
 	[BsonIgnoreExtraElements]
-	public record VCardAttributePhoto : VCardAttribute
+	public class VCardAttributePhoto : VCardAttribute
 	{
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		static Regex KRegExRemoveKey = new Regex(@"(?<=PHOTO[;:]).*");
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		static Regex KRegexValueComponents = new Regex(@"(?<encoding>(?<=ENCODING=).*(?=;)).*(?<=TYPE=)(?<type>.*)(?=:).*(?<=:)(?<data>.*)");
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		static Regex KRegexValueComponentsWithoutType = new Regex(@"(?<encoding>(?<=ENCODING=).*(?=:)):(?<data>.*)");
 		[BsonElement]
 		public string? MediaType { get; init; }
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		public byte[]? Data { get; init; }
 		[BsonElement]
 		public string? DataBase64
@@ -46,6 +51,7 @@ namespace DanSaul.SharedCode.CardDav
 		}
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		public override string? Line
 		{
 			init

@@ -1,4 +1,5 @@
 ﻿// (c) 2023 Dan Saul
+using GraphQL.AspNet.Attributes;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
@@ -7,12 +8,21 @@ using JsonPropertyAttribute = Newtonsoft.Json.JsonPropertyAttribute;
 namespace DanSaul.SharedCode.CardDav
 {
 	[BsonIgnoreExtraElements]
-	public record VCard
+	public class VCard
 	{
 		[BsonId]
-		[JsonIgnore]
-		public ObjectId Id { get; init; } = ObjectId.GenerateNewId();
+		[GraphSkip]
+		public ObjectId Id { get; set; }
 
+		[GraphField("id")]
+		public string ApolloId
+		{
+			get
+			{
+				return Id.ToString();
+			}
+		}
+		[GraphSkip]
 		[BsonIgnore]
 		[JsonIgnore]
 		IEnumerable<VCardAttribute> Attributes { get; init; } = new List<VCardAttribute>();
@@ -34,6 +44,7 @@ namespace DanSaul.SharedCode.CardDav
 		}
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		public IEnumerable<VCardAttributeVersion> VersionAttributes
 		{
 			get
@@ -59,6 +70,7 @@ namespace DanSaul.SharedCode.CardDav
 		}
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		public IEnumerable<VCardAttributeProdId> ProdIdAttributes
 		{
 			get
@@ -86,6 +98,7 @@ namespace DanSaul.SharedCode.CardDav
 		}
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		public IEnumerable<VCardAttributeUID> UIDAttributes
 		{
 			get
@@ -95,6 +108,7 @@ namespace DanSaul.SharedCode.CardDav
 					   select attribute as VCardAttributeUID;
 			}
 		}
+		[GraphField("uid")]
 		[BsonElement("UID")]
 		public string? UID
 		{
@@ -111,6 +125,7 @@ namespace DanSaul.SharedCode.CardDav
 		}
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		public IEnumerable<VCardAttributeFullName> FullNameAttributes
 		{
 			get
@@ -136,6 +151,7 @@ namespace DanSaul.SharedCode.CardDav
 		}
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		public IEnumerable<VCardAttributeName> NameAttributes
 		{
 			get
@@ -161,6 +177,7 @@ namespace DanSaul.SharedCode.CardDav
 		}
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		public IEnumerable<VCardAttributeTelephone> TelephoneAttributes
 		{
 			get
@@ -187,6 +204,7 @@ namespace DanSaul.SharedCode.CardDav
 		
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		public IEnumerable<VCardAttributeEMail> EMailAttributes
 		{
 			get
@@ -212,6 +230,7 @@ namespace DanSaul.SharedCode.CardDav
 		}
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		public IEnumerable<VCardAttributeAddress> AddressAttributes
 		{
 			get
@@ -237,6 +256,7 @@ namespace DanSaul.SharedCode.CardDav
 		}
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		public IEnumerable<VCardAttributeBirthday> BirthdayAttributes
 		{
 			get
@@ -260,6 +280,7 @@ namespace DanSaul.SharedCode.CardDav
 		}
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		public IEnumerable<VCardAttributePhoto> PhotoAttributes
 		{
 			get
@@ -282,6 +303,7 @@ namespace DanSaul.SharedCode.CardDav
 			}
 		}
 		[BsonElement]
+		[GraphSkip]
 		[JsonIgnore] // This is different for json.
 		public VCardAttributePhoto? Photo
 		{
@@ -298,6 +320,7 @@ namespace DanSaul.SharedCode.CardDav
 		}
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		public IEnumerable<VCardAttributeRevisionTime> RevisionTimeAttributes
 		{
 			get

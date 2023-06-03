@@ -1,4 +1,5 @@
 ﻿// (c) 2023 Dan Saul
+using GraphQL.AspNet.Attributes;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 using System.Text.RegularExpressions;
@@ -6,15 +7,17 @@ using System.Text.RegularExpressions;
 namespace DanSaul.SharedCode.CardDav
 {
 	[BsonIgnoreExtraElements]
-	public record VCardAttributeCategories : VCardAttribute
+	public class VCardAttributeCategories : VCardAttribute
 	{
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		static readonly Regex KRegExRemoveKey = new(@"(?<=ORG[;:]).*");
 		[BsonElement]
 		public string? Value { get; init; }
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		public override string? Line
 		{
 			init

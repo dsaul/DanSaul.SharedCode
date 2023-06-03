@@ -1,5 +1,6 @@
 ﻿// (c) 2023 Dan Saul
 using DanSaul.SharedCode.Extensions;
+using GraphQL.AspNet.Attributes;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 using Serilog;
@@ -8,13 +9,15 @@ using System.Text.RegularExpressions;
 namespace DanSaul.SharedCode.CardDav
 {
 	[BsonIgnoreExtraElements]
-	public record VCardAttributeEMail : VCardAttribute
+	public class VCardAttributeEMail : VCardAttribute
 	{
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		static readonly Regex KRegExRemoveKey = new Regex(@"(?<=EMAIL[;:]).*");
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		static readonly Regex KRegexValueComponents = new Regex(@"(?<type>(?<=TYPE=).*(?=:)):(?<number>.*)");
 		[BsonElement]
 		public string? Type { get; init; }
@@ -22,6 +25,7 @@ namespace DanSaul.SharedCode.CardDav
 		public string? EMail { get; init; }
 		[BsonIgnore]
 		[JsonIgnore]
+		[GraphSkip]
 		public override string? Line
 		{
 			init
