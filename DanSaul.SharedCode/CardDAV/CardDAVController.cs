@@ -10,26 +10,26 @@ namespace DanSaul.SharedCode.CardDav
 {
 	public class CardDAVController
 	{
-		private MongoClient MongoClient { get; set; }
-		private IMongoDatabase Database { get; set; }
-		private IMongoCollection<CardDavSourceDocument> Sources { get; set; }
-		private IMongoCollection<VCard> Contacts { get; set; }
-
-		private CredentialCache CredentialCache { get; init; } = new();
-		private HttpClient HttpClient { get; init; }
+		IMongoCollection<CardDavSourceDocument> Sources { get; init; }
+		IMongoCollection<VCard> VCards { get; init; }
+		CredentialCache CredentialCache { get; init; }
+		HttpClient HttpClient { get; init; }
 
 		//private TimeLimiter RateLimit { get; init; } = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
 
-		public CardDAVController(MongoClient _MongoClient)
+		public CardDAVController(
+			IMongoCollection<CardDavSourceDocument> _Sources,
+			IMongoCollection<VCard> _VCards,
+			CredentialCache _CredentialCache,
+			HttpClient _HttpClient
+			)
 		{
-			MongoClient = _MongoClient;
-			Database = MongoClient.GetDatabase(EnvTextitude.kMongoDatabase);
-			Sources = Database.GetCollection<CardDavSourceDocument>(EnvTextitude.kMongoCollectionCalDavSources);
-			Contacts = Database.GetCollection<VCard>(EnvTextitude.kMongoCollectionCalDavContacts);
+			Sources = _Sources;
+			VCards = _VCards;
+			CredentialCache = _CredentialCache;
+			HttpClient = _HttpClient;
 
 			ReloadCredentials();
-
-			HttpClient = new HttpClient(new HttpClientHandler { Credentials = CredentialCache });
 
 			Task.Run(StartLoop);
 
@@ -71,7 +71,7 @@ namespace DanSaul.SharedCode.CardDav
 				List<string> syncedCardDavIds = new();
 				await Iterate(syncedCardDavIds);
 
-				await Contacts.DeleteManyAsync(
+				await VCards.DeleteManyAsync(
 					filter: Builders<VCard>.Filter.Where(x => !syncedCardDavIds.Contains(x.UID))
 					);
 
@@ -171,11 +171,11 @@ namespace DanSaul.SharedCode.CardDav
                 }
                 syncedCardDavIds.Add(card.UID);
 
-                await Contacts.DeleteManyAsync(
+                await VCards.DeleteManyAsync(
                     filter: Builders<VCard>.Filter.Where(x => x.UID == card.UID)
                     );
 
-                await Contacts.InsertOneAsync(card);
+                await VCards.InsertOneAsync(card);
 
 				Log.Information("[CallDav] {URI} Processed {UID} {FullName}", res.Uri, card.UID, card.FullName);
             }

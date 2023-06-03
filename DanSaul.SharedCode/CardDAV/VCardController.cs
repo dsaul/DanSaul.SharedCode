@@ -10,16 +10,14 @@ namespace DanSaul.SharedCode.CardDav
 	[ApiController]
 	public class VCardController : Controller
 	{
-		private IMongoClient MongoClient { get; set; }
-		private IMongoDatabase Database { get; set; }
-		private IMongoCollection<VCard> Contacts { get; set; }
+		IMongoCollection<VCard> VCards { get; set; }
 
 
-		public VCardController(IMongoClient mongoClient)
+		public VCardController(
+			IMongoCollection<VCard> _VCards
+			)
 		{
-			MongoClient = mongoClient;
-			Database = MongoClient.GetDatabase(EnvTextitude.kMongoDatabase);
-			Contacts = Database.GetCollection<VCard>(EnvTextitude.kMongoCollectionCalDavContacts);
+			VCards = _VCards;
 		}
 
 		[HttpGet("photo/{uid}")]
@@ -27,7 +25,7 @@ namespace DanSaul.SharedCode.CardDav
 			[FromRoute] string uid
 			)
 		{
-			var results = from sub in Contacts.AsQueryable()
+			var results = from sub in VCards.AsQueryable()
 						  where sub.UID == uid
 						  select sub;
 
