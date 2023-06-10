@@ -1,39 +1,31 @@
-﻿// (c) 2023 Dan Saul
+﻿using DanSaul.SharedCode.CardDav;
 using DanSaul.SharedCode.Mongo;
-using DanSaul.SharedCode.StandardizedEnvironmentVariables;
-using MongoDB.Driver;
 using Serilog;
 using System.Net;
 using WebDav;
 
-namespace DanSaul.SharedCode.CardDav
+namespace DanSaul.SharedCode.CardDAV
 {
-	public class CardDAVController
+	public class InMemoryCardDavController
 	{
-		IMongoCollection<CardDavSourceDocument> Sources { get; init; }
-		IMongoCollection<VCard> VCards { get; init; }
+		public HashSet<VCard> VCards { get; } = new HashSet<VCard>();
+		public List<CardDavSourceDocument> Sources { get; init; } = new();
 		CredentialCache CredentialCache { get; init; }
-		HttpClient HttpClient { get; init; }
 
-		//private TimeLimiter RateLimit { get; init; } = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
-
-		public CardDAVController(
-			IMongoCollection<CardDavSourceDocument> _Sources,
-			IMongoCollection<VCard> _VCards,
-			CredentialCache _CredentialCache,
-			HttpClient _HttpClient
+		public InMemoryCardDavController(
+			CredentialCache _CredentialCache
 			)
 		{
-			Sources = _Sources;
-			VCards = _VCards;
 			CredentialCache = _CredentialCache;
-			HttpClient = _HttpClient;
 
 			ReloadCredentials();
-
-			Task.Run(StartLoop);
-
 		}
+
+		public void Run()
+		{
+			Task.Run(StartLoop);
+		}
+
 		public void ReloadCredentials()
 		{
 			ReloadDigestCredentials();
@@ -71,10 +63,14 @@ namespace DanSaul.SharedCode.CardDav
 				List<string> syncedCardDavIds = new();
 				await Iterate(syncedCardDavIds);
 
-				await VCards.DeleteManyAsync(
-					filter: Builders<VCard>.Filter.Where(x => !syncedCardDavIds.Contains(x.UID))
-					);
-
+				VCards.RemoveWhere(x =>
+				{
+					if (string.IsNullOrWhiteSpace(x.UID))
+						return true;
+					if (syncedCardDavIds.Contains(x.UID))
+						return false;
+					return true;
+				});
 
 				await Task.Delay(5 * 60 * 1000);
 			}
@@ -88,7 +84,7 @@ namespace DanSaul.SharedCode.CardDav
 
 
 			var results = (from sub in Sources.AsQueryable()
-						  select sub).ToArray();
+						   select sub).ToArray();
 
 			Log.Information("[CallDav] {Count} Sources", results.Length);
 
@@ -117,7 +113,7 @@ namespace DanSaul.SharedCode.CardDav
 				var result = await client.Propfind(source.URI);
 				if (false == result.IsSuccessful)
 				{
-					Log.Error("[CallDav] PropFind {URI} Failed StatusCode {StatusCode} Description {Description}", 
+					Log.Error("[CallDav] PropFind {URI} Failed StatusCode {StatusCode} Description {Description}",
 						source.URI, result.StatusCode, result.Description);
 					continue;
 				}
@@ -171,17 +167,18 @@ namespace DanSaul.SharedCode.CardDav
 				}
 				syncedCardDavIds.Add(card.UID);
 
-				await VCards.DeleteManyAsync(
-					filter: Builders<VCard>.Filter.Where(x => x.UID == card.UID)
-					);
 
-				await VCards.InsertOneAsync(card);
+				VCards.RemoveWhere(x =>
+				{
+					return x.UID == card.UID;
+				});
+
+				VCards.Add(card);
 
 				Log.Information("[CallDav] {URI} Processed {UID} {FullName}", res.Uri, card.UID, card.FullName);
 			}
 
 			Log.Information("[CallDav] {URI} Finish Processing  ", res.Uri);
 		}
-
 	}
 }
